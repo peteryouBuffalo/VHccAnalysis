@@ -1,0 +1,323 @@
+The system is: Linux - 3.10.0-1127.10.1.el7.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec3254105513/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec3254105513.dir/build.make CMakeFiles/cmTryCompileExec3254105513.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3254105513.dir/testCCompiler.c.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc    -o CMakeFiles/cmTryCompileExec3254105513.dir/testCCompiler.c.o   -c /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3254105513
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3254105513.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc       CMakeFiles/cmTryCompileExec3254105513.dir/testCCompiler.c.o  -o cmTryCompileExec3254105513 -rdynamic 
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec2332996215/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec2332996215.dir/build.make CMakeFiles/cmTryCompileExec2332996215.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc    -o CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec2332996215
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2332996215.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc     -v CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2332996215 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc
+COLLECT_LTO_WRAPPER=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ../configure --prefix=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --disable-multilib --disable-nls --disable-dssi --enable-languages=c,c++,fortran --enable-gnu-indirect-function --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-plugin --with-linker-hash-style=gnu --enable-linker-build-id --enable-ld=default --enable-lto --enable-gold=yes --with-gmp=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-mpfr=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-bootstrap --with-mpc=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-isl=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-checking=release --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-libstdcxx-time=rt --enable-shared --disable-libgcj CC='gcc -fPIC' CXX='c++ -fPIC' CPP=cpp CXXCPP='c++ -E' CFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include CXXFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include LDFLAGS=-L/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/lib
+Thread model: posix
+gcc version 8.3.1 20190225 (GCC) 
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/bin/
+LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2332996215' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2 -plugin /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so -plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMhcuYC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z common-page-size=4096 -z max-page-size=4096 -o cmTryCompileExec2332996215 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../.. CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2332996215' '-rdynamic' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec2332996215/fast"]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec2332996215.dir/build.make CMakeFiles/cmTryCompileExec2332996215.dir/build]
+  ignore line: [gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc    -o CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec2332996215]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2332996215.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc     -v CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec2332996215 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --disable-multilib --disable-nls --disable-dssi --enable-languages=c,c++,fortran --enable-gnu-indirect-function --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-plugin --with-linker-hash-style=gnu --enable-linker-build-id --enable-ld=default --enable-lto --enable-gold=yes --with-gmp=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-mpfr=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-bootstrap --with-mpc=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-isl=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-checking=release --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-libstdcxx-time=rt --enable-shared --disable-libgcj CC='gcc -fPIC' CXX='c++ -fPIC' CPP=cpp CXXCPP='c++ -E' CFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include CXXFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include LDFLAGS=-L/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/lib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.3.1 20190225 (GCC) ]
+  ignore line: [COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2332996215' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2 -plugin /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so -plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMhcuYC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z common-page-size=4096 -z max-page-size=4096 -o cmTryCompileExec2332996215 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../.. CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o /lib/../lib64/crtn.o]
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccMhcuYC.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zcommon-page-size=4096] ==> ignore
+    arg [-zmax-page-size=4096] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2332996215] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o] ==> ignore
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..]
+    arg [CMakeFiles/cmTryCompileExec2332996215.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc/x86_64-unknown-linux-gnu/8.3.1]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/x86_64-unknown-linux-gnu/lib]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib]
+  implicit libs: [c]
+  implicit dirs: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc/x86_64-unknown-linux-gnu/8.3.1;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib64;/lib64;/usr/lib64;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/x86_64-unknown-linux-gnu/lib;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec1389573034/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec1389573034.dir/build.make CMakeFiles/cmTryCompileExec1389573034.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1389573034.dir/testCXXCompiler.cxx.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++     -o CMakeFiles/cmTryCompileExec1389573034.dir/testCXXCompiler.cxx.o -c /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec1389573034
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1389573034.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++        CMakeFiles/cmTryCompileExec1389573034.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec1389573034 -rdynamic 
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec2395422899/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec2395422899.dir/build.make CMakeFiles/cmTryCompileExec2395422899.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++     -o CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2395422899
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2395422899.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++      -v CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2395422899 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++
+COLLECT_LTO_WRAPPER=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ../configure --prefix=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --disable-multilib --disable-nls --disable-dssi --enable-languages=c,c++,fortran --enable-gnu-indirect-function --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-plugin --with-linker-hash-style=gnu --enable-linker-build-id --enable-ld=default --enable-lto --enable-gold=yes --with-gmp=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-mpfr=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-bootstrap --with-mpc=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-isl=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-checking=release --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-libstdcxx-time=rt --enable-shared --disable-libgcj CC='gcc -fPIC' CXX='c++ -fPIC' CPP=cpp CXXCPP='c++ -E' CFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include CXXFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include LDFLAGS=-L/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/lib
+Thread model: posix
+gcc version 8.3.1 20190225 (GCC) 
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/bin/
+LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2395422899' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2 -plugin /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so -plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJKlGrc.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z common-page-size=4096 -z max-page-size=4096 -o cmTryCompileExec2395422899 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../.. CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2395422899' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec2395422899/fast"]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec2395422899.dir/build.make CMakeFiles/cmTryCompileExec2395422899.dir/build]
+  ignore line: [gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++     -o CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2395422899]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2395422899.dir/link.txt --verbose=1]
+  ignore line: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++      -v CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2395422899 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper]
+  ignore line: [Target: x86_64-unknown-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --disable-multilib --disable-nls --disable-dssi --enable-languages=c,c++,fortran --enable-gnu-indirect-function --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-plugin --with-linker-hash-style=gnu --enable-linker-build-id --enable-ld=default --enable-lto --enable-gold=yes --with-gmp=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-mpfr=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-bootstrap --with-mpc=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --with-isl=/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj --enable-checking=release --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-libstdcxx-time=rt --enable-shared --disable-libgcj CC='gcc -fPIC' CXX='c++ -fPIC' CPP=cpp CXXCPP='c++ -E' CFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include CXXFLAGS=-I/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/include LDFLAGS=-L/build/cmsbld/auto-builds/CMSSW_10_6_0_pre4-slc7_amd64_gcc820/build/CMSSW_10_6_0_pre4-build/tmp/BUILDROOT/bec9481b39dd748704b2807bf1182734/opt/cmssw/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/tmp/sw/lib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.3.1 20190225 (GCC) ]
+  ignore line: [COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib/:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2395422899' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2 -plugin /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so -plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJKlGrc.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z common-page-size=4096 -z max-page-size=4096 -o cmTryCompileExec2395422899 /lib/../lib64/crt1.o /lib/../lib64/crti.o /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib -L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../.. CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o /lib/../lib64/crtn.o]
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../libexec/gcc/x86_64-unknown-linux-gnu/8.3.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccJKlGrc.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zcommon-page-size=4096] ==> ignore
+    arg [-zmax-page-size=4096] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2395422899] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtbegin.o] ==> ignore
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib]
+    arg [-L/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..] ==> dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..]
+    arg [CMakeFiles/cmTryCompileExec2395422899.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc/x86_64-unknown-linux-gnu/8.3.1]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../lib64] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../../../x86_64-unknown-linux-gnu/lib] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/x86_64-unknown-linux-gnu/lib]
+  collapse library dir [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/../lib/gcc/x86_64-unknown-linux-gnu/8.3.1/../../..] ==> [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc/x86_64-unknown-linux-gnu/8.3.1;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib/gcc;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib64;/lib64;/usr/lib64;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/x86_64-unknown-linux-gnu/lib;/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test FLAG_WEXTRA succeded with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec3237387175/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec3237387175.dir/build.make CMakeFiles/cmTryCompileExec3237387175.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3237387175.dir/src.cxx.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++    -DFLAG_WEXTRA   -Wextra -o CMakeFiles/cmTryCompileExec3237387175.dir/src.cxx.o -c /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3237387175
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3237387175.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++    -DFLAG_WEXTRA    CMakeFiles/cmTryCompileExec3237387175.dir/src.cxx.o  -o cmTryCompileExec3237387175 -rdynamic 
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec3649641247/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec3649641247.dir/build.make CMakeFiles/cmTryCompileExec3649641247.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3649641247.dir/CheckIncludeFiles.c.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc    -o CMakeFiles/cmTryCompileExec3649641247.dir/CheckIncludeFiles.c.o   -c /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3649641247
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3649641247.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc       CMakeFiles/cmTryCompileExec3649641247.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3649641247 -rdynamic 
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake "cmTryCompileExec804054966/fast"
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/cms/cmssw/CMSSW_10_6_4/external/slc7_amd64_gcc820/bin/gmake -f CMakeFiles/cmTryCompileExec804054966.dir/build.make CMakeFiles/cmTryCompileExec804054966.dir/build
+gmake[1]: Entering directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /uscms/home/duong/d3/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec804054966.dir/CheckFunctionExists.c.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec804054966.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec804054966
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec804054966.dir/link.txt --verbose=1
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec804054966.dir/CheckFunctionExists.c.o  -o cmTryCompileExec804054966 -rdynamic -lpthread 
+gmake[1]: Leaving directory '/uscms_data/d3/duong/ZplusB_working/Ana/yaml-cpp/build/CMakeFiles/CMakeTmp'
+
+

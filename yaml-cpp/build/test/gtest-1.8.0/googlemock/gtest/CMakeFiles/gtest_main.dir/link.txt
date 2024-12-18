@@ -1,0 +1,2 @@
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/ar cr libgtest_main.a  CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/ranlib libgtest_main.a

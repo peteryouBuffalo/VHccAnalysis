@@ -1,0 +1,1 @@
+/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/gcc/8.2.0-pafccj/bin/c++   -O2    CMakeFiles/sandbox.dir/sandbox.cpp.o  -o sandbox -rdynamic ../libyaml-cpp.a 
