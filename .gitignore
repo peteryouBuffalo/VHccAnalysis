@@ -1,2 +1,8 @@
+# No temporary files
 Tmp*/*
+# No file results
 condor_results*/*
+# No object files
+*.o
+# No log files
+log*.*
