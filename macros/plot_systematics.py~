@@ -1,0 +1,269 @@
+## ===================================================================
+## plot_systematics.py - This is a macro used to plot the changes that
+##                       we see with different systematics.
+## ===================================================================
+
+## == IMPORT STATEMENTS ==============================================
+
+import ROOT
+import sys,os
+import copy
+#import ConfigParser
+from math import *
+from my_funcs import scaleToLumi1, makeRatioPlot, makeUpDownSystPlot
+
+## == USEFUL METHODS =================================================
+
+def getHist(plotName, sample_names, hist_files, lumiScales, scale = True, debug = True):
+
+  hOut = {}
+
+  ## Go through each year we're interested in.                                                                                                                                                       
+  for y in years:
+
+    ## Get the first sample and the appropriate histogram                                                                                                                                            
+    if debug:
+      print("Looking in ", sample_names[0], " for ", plotName, "(20",y,")")
+    hOut[y] = hist_files[sample_names[0]][y][0].Get(plotName).Clone()
+    if sample_names[0] not in ['JetHT', 'Data', 'BTagCSV'] and scale:
+      hOut[y].Scale(lumiScales[sample_names[0]][y][0])
+
+    ## Add the other samples                                                                                                                                                                         
+    for iS in range(len(sample_names)):
+      for fi in range(len(hist_files[sample_names[iS]][y])):
+
+        ## Skip the first sample (already grabbed)                                                                                                                                                   
+        if iS == 0 and fi == 0: continue
+
+        h = hist_files[sample_names[iS]][y][fi].Get(plotName).Clone()
+        if sample_names[iS] not in ["JetHT", "Data", "BTagCSV"] and scale:
+          h.Scale(lumiScales[sample_names[iS]][y][fi])
+        hOut[y].Add(h)
+
+  return hOut
+
+
+## == SETTINGS =======================================================
+
+ROOT.gROOT.SetBatch(True)
+debug = True
+
+years = ['16']#, '18']
+
+regions = ['VbbHcc_boosted_PN_med_HMass', 'jet_pt',
+           'jet_ptCut', 'jet_mass', 'jet_mSD', 'genJet_mass',
+           'rawMass', "l1prefire_weight"]
+
+rebins = [ 10, 20, 20, 10, 10, 10, 10, 5]
+xAxisTitles = [ "m_{H} [GeV]", "p_{T}^{all jet} [GeV]",
+                "p_{T}^{jet} [GeV]", "m_{jet} [GeV]", 'm_{SD} [GeV]',
+                "m_{jet}^{gen} [GeV]", "m_{raw} [GeV]", "L1 PreFiring"]
+xRanges = [ [0,2000], [0, 2000], [0,2000],
+            [0,600], [0,600], [0,600], [0,600], [0,2]
+           ]
+varLogY = [ False, True, True, True, False, False, False ]
+useLogY = False
+
+dirpath = '../Tmp/MC/'
+outputDir = '../plot_results/systematics/'
+
+colors = [ ROOT.kBlack, ROOT.kRed, ROOT.kBlue ]
+
+## Normal list of samples
+ss = [
+  'output_testNONE',
+  'output_testNONE_JERU',
+  'output_testNONE_JERD',
+  'output_testNONE_JESU',
+  'output_testNONE_JESD',
+  'output_testNONE_TAGBCU',
+  'output_testNONE_TAGBCD',
+  'output_testNONE_L1U',
+  'output_testNONE_L1D',
+  'output_testNONE_JETPUIDU',
+  'output_testNONE_JETPUIDD',
+
+  'output_testNONE_PUU',
+  'output_testNONE_PUD'
+]
+
+## These are the subcategories.
+ss_sub = [
+  'JES',
+  'JER',
+  'TAGBC',
+  'L1PREFIRING',
+  'JETPUID',
+  'PU'
+  #'FAKE'
+]
+
+## == SETUP ==========================================================
+
+################################
+## Do not edit below this point
+################################
+
+## Load the config
+if debug: print(">>> Loading config file...")
+config_file = '../Configs/config.ini'
+cfg = ConfigParser.ConfigParser()
+cfg.read(config_file)
+
+## Get the lumi scales
+#if debug: print(">>> Loading lumi scales...")
+#lumiS = {}
+#for y in years:
+  #lumiTmp = float(cfg.get('General','lumi_'+y))/1000.0
+  #lumiTmp = float("%.1f" % lumiTmp)
+  #lumiS[y] = str(lumiTmp)
+#print("lumi scales = ", lumiS)
+
+## Retrieve necessary information from the desired samples
+print(">>> Retrieving file information...")
+fileNames = {}
+xSecs = {}
+lumiScales = {}
+histFiles = {}
+
+for s in ss:
+
+  print("s = ", s)
+  fileNames[s] = {}
+  xSecs[s] = {}
+  lumiScales[s] = {}
+  histFiles[s] = {}
+  
+  for y in years:
+    
+    #lumi = float(cfg.get('General','lumi_'+y))
+    #names = cfg.get(s,'file_'+y).split(',')
+    names = [s + "_20" + y + ".root"]
+    print('>>>>>>>>>: ', len(names))
+    print('>>>>>>>>>: ', names)
+    xSecTmps = ['1']*len(names)
+    kfactor = ['1']*len(names)
+    #if s not in ['JetHT','BTagCSV', 'Data']:
+    #  xSecTmps = cfg.get(s, 'xSec_'+y).split(',')
+    
+    fileNames[s][y] = []
+    #xSecs[s][y] = []
+    histFiles[s][y] = []
+    
+    for iN in names:
+      print(dirpath + "/" + iN)
+      fileNames[s][y].append(dirpath + '/' + iN)
+      histFiles[s][y].append(ROOT.TFile.Open(fileNames[s][y][-1],'READ'))
+    
+    #print xSecTmps
+    #for iS in xSecTmps:
+    #  if '*' in iS: iS = iS.split('*')
+    #  if len(iS) == 2:
+    #    xSecs[s][y].append(float(iS[0])*float(iS[1]))
+    #  else:
+    #    xSecs[s][y].append(float(iS))
+    
+    #lumiScales[s][y] = [1]*len(names)
+    #for iN in range(len(fileNames[s][y])):
+    #  if s not in ['JetHT','BTagCSV', 'Data']:
+    #    print s, y, iN, fileNames[s][y][iN]
+    #    lumiScales[s][y][iN] = scaleToLumi1(fileNames[s][y][iN], xSecs[s][y][iN], lumi)
+
+nums = {}
+
+## == MAIN CODE ======================================================
+
+if debug: print("Hello, world!")
+
+## Go through each region
+for i in range(0,len(regions)):
+
+  r = regions[i]
+  print(">>> Checking region r = ", r)
+
+  ## Go through each subtype
+  for syst in ss_sub:
+
+    print(">>>>>> Checking syst s = ", syst)
+
+    ## Get the types of plots we want
+    histName = r
+    print("histName = ", histName)
+    hNONE = getHist(histName, ["output_testNONE"], histFiles,
+                    lumiScales, scale=False)
+
+    fName = "output_testNONE_" + syst
+    hUP = getHist(histName, [fName + "U"], histFiles,
+                  lumiScales, scale=False)
+    hDOWN = getHist(histName, [fName + "D"], histFiles,
+                    lumiScales, scale=False)
+
+    ## Go through each year
+    for y in years:
+
+      nRebin = rebins[i]
+      plots_process = [
+        hNONE[y].Clone().Rebin(nRebin),
+        hUP[y].Clone().Rebin(nRebin),
+        hDOWN[y].Clone().Rebin(nRebin)
+      ]
+
+      plotNames_process = [
+        "Nominal",
+        syst + " Up",
+        syst + " Down"
+      ]
+
+      for logy in [True,False]:
+        makeUpDownSystPlot(plots_process, plotNames_process,
+                      r + "_" + syst + "_" + y, outputDir + "/",
+                      xAxisTitles[i], xRanges[i], logy,
+                      "--", custom_colors=colors)
+                       
+
+# Part 2 - Check the stored value vs what we get
+hPt_stored = getHist("jet_ptStored", ["output_testNONE"], histFiles,
+                     lumiScales, scale=False)
+hPt_corr = getHist("jet_pt", ["output_testNONE"], histFiles,
+                   lumiScales, scale=False)
+
+hMass_stored = getHist("jet_mSD", ["output_testNONE"], histFiles,
+                       lumiScales, scale=False)
+hMass_corr = getHist("jet_mass", ["output_testNONE"], histFiles,
+                     lumiScales, scale=False)
+
+# For each year, we want to make a comparison plot between
+# the stored value and our corrected value.
+for y in years:
+
+  plots_process = [
+    hPt_stored[y].Clone().Rebin(10),
+    hPt_corr[y].Clone().Rebin(10)
+  ]
+  plotNames_process = [
+    "pt (NanoAODv9)",
+    "pt (raw*JES*JER)"
+  ]
+
+  for logy in [True,False]:
+    makeRatioPlot(plots_process, plotNames_process,
+                  "comp_pt", outputDir + "/",
+                  "p_{T}^{jet} [GeV]", [0,2000],
+                  "Nominal/Corrected", logy, '--')
+
+  plots_process = [
+    hMass_stored[y].Clone().Rebin(20),
+    hMass_corr[y].Clone().Rebin(20)
+  ]
+  plotNames_process = [
+    "SD mass (NanoAODv9)",
+    "SD mass (raw*JMS*JMR)"
+  ]
+
+  for logy in [True,False]:
+    makeRatioPlot(plots_process, plotNames_process,
+                  "comp_mass", outputDir + "/",
+                  "m_{SD} [GeV]", [0, 600],
+                  "Nominal/Corrected", logy, '--')
+
+## == EOF ============================================================

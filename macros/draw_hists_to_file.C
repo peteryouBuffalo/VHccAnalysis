@@ -1,0 +1,83 @@
+// // HEADERS & LIBRARIES ////////////////////////////////////////////////
+
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
+#include <TH1D.h>
+#include <TCanvas.h>
+
+// MAIN METHOD ///////////////////////////////////////////////////////////
+
+void draw_hists_to_file()
+{
+  // == SETTINGS ==
+  std::string output_dir = "../Tmp/plots/";
+  
+  // == OPEN ALL FILES ==
+  std::cout << "Opening files..." << std::endl;
+
+  std::vector<std::string> years = { "2016", "2016pre", "2017", "2018" };
+  std::unordered_map<std::string, TFile*> files = {
+
+    { "2016", new TFile("../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2016.root") },
+    { "2016pre", new TFile("../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2016_preVFP.root") },
+    { "2017", new TFile("../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2017.root") },
+    { "2018", new TFile("../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2018.root") }
+    
+  };
+  /*TFile *f_MC_2016 = new TFile(
+    "../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2016.root");
+  TFile *f_MC_2016pre = new TFile(
+    "../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2016_preVFP.root");
+  TFile *f_MC_2017 = new TFile(
+    "../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2017.root");
+  TFile *f_MC_2018 = new TFile(
+    "../Tmp/output_testNONE_ZH_HToCC_ZToQQ_MC_2018.root");
+  */
+
+  // == Get the variables we want to display. ==
+  std::cout << "Getting the proper variables..." << std::endl;
+
+  int nVariables = 2;
+  std::vector<std::string> variables = {
+    "jet_mass", "jet_pt"
+  };
+
+  for (int i = 0; i < nVariables; ++i)
+  {
+    std::cout << "\nvar = " << variables[i] << std::endl;
+
+    for (int j = 0; j < years.size(); ++j)
+    {
+      std::cout << ">> year = " << years[j] << std::endl;
+
+      std::cout << ">>>> making canvas" << std::endl;
+      TCanvas* c = new TCanvas("", "", 800, 600);
+      std::cout << ">>>> pulling histogram" << std::endl;
+      TH1D* hist = (TH1D*)files[years[j]]->Get(variables[i].c_str());
+      if (!hist)
+      {
+	std::cout << ">>>> ERROR: Hist not found..." << std::endl;
+	continue;
+      }
+
+      std::cout << ">>>> Rebinning" << std::endl;
+      hist->Rebin(10);
+      std::cout << ">>>> Setting range" << std::endl;
+      if (variables[i] == "jet_pt")
+        hist->GetXaxis()->SetRangeUser(0.0, 1000.0);
+      else
+	hist->GetXaxis()->SetRangeUser(0.0, 500.0);
+      std::cout << ">>>> Drawing to canvas" << std::endl;
+      hist->Draw("hist");
+
+      std::cout << ">>>> Saving" << std::endl;
+      std::string save_name = output_dir + "/" + variables[i] + "_" + years[j];
+      c->SaveAs((save_name + ".pdf").c_str());
+      c->SaveAs((save_name + ".png").c_str());
+    }
+  }
+}
+
+// // EOF ////////////////////////////////////////////////////////////////

@@ -1,0 +1,2 @@
+root:://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/WplusH_HToCC_WToQQ_M125_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/5F322C90-7F9A-9E45-BFAA-DA79D3CAE932.root
+root:://cmsxrootd.fnal.gov///store/mc/RunIISummer20UL17NanoAODv9/WplusH_HToCC_WToQQ_M125_TuneCP5_13TeV-powheg-pythia8/NANOAODSIM/106X_mc2017_realistic_v9-v1/70000/C0C68933-C69C-224F-9712-A7314AC9AE37.root

@@ -1,0 +1,1237 @@
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_top_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_top_MC_2018_test/*': No such file or directory
+Submitting job(s)..........................
+26 job(s) submitted to cluster 669197.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_top_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_top_MC_2017_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669198.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_top_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_top_MC_2016_test/*': No such file or directory
+Submitting job(s)...............
+15 job(s) submitted to cluster 669199.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-2500toInf_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-2500toInf_MC_2018_test/*': No such file or directory
+Submitting job(s)..........................
+26 job(s) submitted to cluster 669200.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT300to500_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT300to500_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)............................
+28 job(s) submitted to cluster 669201.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT300to500_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT300to500_v9_MC_2017_test/*': No such file or directory
+Submitting job(s).................................
+33 job(s) submitted to cluster 669202.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT300to500_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT300to500_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)................................................
+48 job(s) submitted to cluster 669203.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-200to400_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-200to400_MC_2017_test/*': No such file or directory
+Submitting job(s)....................
+20 job(s) submitted to cluster 669204.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-200to400_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-200to400_MC_2016_test/*': No such file or directory
+Submitting job(s).........................
+25 job(s) submitted to cluster 669205.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-600to800_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-600to800_MC_2018_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669206.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-200to400_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-200to400_MC_2018_test/*': No such file or directory
+Submitting job(s)...........
+11 job(s) submitted to cluster 669207.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WZ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WZ_MC_2018_test/*': No such file or directory
+Submitting job(s)........
+8 job(s) submitted to cluster 669208.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-800toInf_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-800toInf_MC_2017_test/*': No such file or directory
+Submitting job(s)....................
+20 job(s) submitted to cluster 669209.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-800toInf_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-800toInf_MC_2016_test/*': No such file or directory
+Submitting job(s)..................................
+34 job(s) submitted to cluster 669210.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-200to400_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-200to400_MC_2016_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669211.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-200to400_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-200to400_MC_2017_test/*': No such file or directory
+Submitting job(s)..................
+18 job(s) submitted to cluster 669212.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-200to400_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-200to400_MC_2018_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669213.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-800toInf_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-800toInf_MC_2018_test/*': No such file or directory
+Submitting job(s)..............................
+30 job(s) submitted to cluster 669214.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT2000toInf_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT2000toInf_v9_MC_2016_test/*': No such file or directory
+Submitting job(s).....
+5 job(s) submitted to cluster 669215.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT2000toInf_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT2000toInf_v9_MC_2017_test/*': No such file or directory
+Submitting job(s)................
+16 job(s) submitted to cluster 669216.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-800to1200_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-800to1200_MC_2017_test/*': No such file or directory
+Submitting job(s)..............
+14 job(s) submitted to cluster 669218.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-800to1200_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-800to1200_MC_2016_test/*': No such file or directory
+Submitting job(s).............................
+29 job(s) submitted to cluster 669222.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-800to1200_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-800to1200_MC_2018_test/*': No such file or directory
+Submitting job(s)......
+6 job(s) submitted to cluster 669227.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT2000toInf_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT2000toInf_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)........................
+24 job(s) submitted to cluster 669232.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-2500toInf_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-2500toInf_MC_2017_test/*': No such file or directory
+Submitting job(s)........
+8 job(s) submitted to cluster 669236.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-100to200_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-100to200_MC_2016_test/*': No such file or directory
+Submitting job(s)....................
+20 job(s) submitted to cluster 669240.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-100to200_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-100to200_MC_2017_test/*': No such file or directory
+Submitting job(s)..................
+18 job(s) submitted to cluster 669245.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-100to200_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-100to200_MC_2018_test/*': No such file or directory
+Submitting job(s).............................
+29 job(s) submitted to cluster 669249.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZZ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZZ_MC_2018_test/*': No such file or directory
+Submitting job(s)...
+3 job(s) submitted to cluster 669253.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-600to800_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-600to800_MC_2017_test/*': No such file or directory
+Submitting job(s).................
+17 job(s) submitted to cluster 669257.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-600to800_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-600to800_MC_2016_test/*': No such file or directory
+Submitting job(s)..............................................
+46 job(s) submitted to cluster 31388560.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-600to800_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-600to800_MC_2018_test/*': No such file or directory
+Submitting job(s)................
+16 job(s) submitted to cluster 669269.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_top_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_top_MC_2018_test/*': No such file or directory
+Submitting job(s)...........................................................................
+75 job(s) submitted to cluster 669274.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_top_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_top_MC_2017_test/*': No such file or directory
+Submitting job(s)...................................................................................................
+99 job(s) submitted to cluster 669279.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_top_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_top_MC_2016_test/*': No such file or directory
+Submitting job(s)....................................................................
+68 job(s) submitted to cluster 669284.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToBB_ZToQQ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToBB_ZToQQ_MC_2017_test/*': No such file or directory
+Submitting job(s)......................................
+38 job(s) submitted to cluster 669289.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+=============================
+Run mode:  0
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  NONE
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//Dataset_lists/datasets_NANOAODv9_MC.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists/
+Number of file per jobs:                                     2
+Source dir:                                                  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr/
+Output location eos:                                         /store/user/peteryou/Output_VH/2024Apr/
+Output location scratch:                                     /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis/condor_results/2024Apr/NONE/
+=========================
+Processing sample:  ST_tW-channel_top_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_top_MC_2018.txt
+=========================
+Processing sample:  ST_tW-channel_top_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_top_MC_2017.txt
+=========================
+Processing sample:  ST_tW-channel_top_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_top_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-2500toInf_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-2500toInf_MC_2018.txt
+=========================
+Processing sample:  QCD_HT300to500_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT300to500_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT300to500_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT300to500_v9_MC_2017.txt
+=========================
+Processing sample:  QCD_HT300to500_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT300to500_v9_MC_2018.txt
+=========================
+Processing sample:  WJetsToQQ_HT-200to400_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-200to400_MC_2017.txt
+=========================
+Processing sample:  WJetsToQQ_HT-200to400_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-200to400_MC_2016.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-600to800_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-600to800_MC_2018.txt
+=========================
+Processing sample:  WJetsToQQ_HT-200to400_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-200to400_MC_2018.txt
+=========================
+Processing sample:  WZ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WZ_MC_2018.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-800toInf_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-800toInf_MC_2017.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-800toInf_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-800toInf_MC_2016.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-200to400_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-200to400_MC_2016.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-200to400_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-200to400_MC_2017.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-200to400_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-200to400_MC_2018.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-800toInf_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-800toInf_MC_2018.txt
+=========================
+Processing sample:  QCD_HT2000toInf_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT2000toInf_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT2000toInf_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT2000toInf_v9_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-800to1200_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-800to1200_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-800to1200_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-800to1200_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-800to1200_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-800to1200_MC_2018.txt
+=========================
+Processing sample:  QCD_HT2000toInf_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT2000toInf_v9_MC_2018.txt
+=========================
+Processing sample:  WJetsToLNu_HT-2500toInf_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-2500toInf_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-100to200_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-100to200_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-100to200_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-100to200_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-100to200_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-100to200_MC_2018.txt
+=========================
+Processing sample:  ZZ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZZ_MC_2018.txt
+=========================
+Processing sample:  WJetsToQQ_HT-600to800_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-600to800_MC_2017.txt
+=========================
+Processing sample:  WJetsToQQ_HT-600to800_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-600to800_MC_2016.txt
+=========================
+Processing sample:  WJetsToQQ_HT-600to800_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-600to800_MC_2018.txt
+=========================
+Processing sample:  ST_t-channel_top_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_top_MC_2018.txt
+=========================
+Processing sample:  ST_t-channel_top_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_top_MC_2017.txt
+=========================
+Processing sample:  ST_t-channel_top_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_top_MC_2016.txt
+=========================
+Processing sample:  ZH_HToBB_ZToQQ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToBB_ZToQQ_MC_2017.txt
+=========================
+Processing sample:  ZH_HToBB_ZToQQerror: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToBB_ZToQQ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToBB_ZToQQ_MC_2016_test/*': No such file or directory
+Submitting job(s)..........................................
+42 job(s) submitted to cluster 669294.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToBB_ZToQQ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToBB_ZToQQ_MC_2018_test/*': No such file or directory
+Submitting job(s).................
+17 job(s) submitted to cluster 669299.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTTo2L2Nu_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTTo2L2Nu_MC_2018_test/*': No such file or directory
+Submitting job(s)..............................................................................
+78 job(s) submitted to cluster 669303.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTTo2L2Nu_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTTo2L2Nu_MC_2016_test/*': No such file or directory
+Submitting job(s).........................................
+41 job(s) submitted to cluster 669309.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTTo2L2Nu_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTTo2L2Nu_MC_2017_test/*': No such file or directory
+Submitting job(s)..................................................
+50 job(s) submitted to cluster 669313.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT200to300_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT200to300_v9_MC_2017_test/*': No such file or directory
+Submitting job(s).......................................
+39 job(s) submitted to cluster 31388561.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT200to300_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT200to300_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)..................
+18 job(s) submitted to cluster 31388562.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT200to300_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT200to300_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)................................
+32 job(s) submitted to cluster 31388563.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToCC_ZToQQ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToCC_ZToQQ_MC_2017_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 669330.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToCC_ZToQQ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToCC_ZToQQ_MC_2016_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 669331.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToCC_ZToQQ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToCC_ZToQQ_MC_2018_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 669332.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-600to800_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-600to800_MC_2016_test/*': No such file or directory
+Submitting job(s)..............................
+30 job(s) submitted to cluster 669333.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToCC_ZToQQ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToCC_ZToQQ_MC_2017_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 31388564.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToCC_ZToQQ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToCC_ZToQQ_MC_2016_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 31388565.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZH_HToCC_ZToQQ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZH_HToCC_ZToQQ_MC_2018_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 31388566.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-600to800_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-600to800_MC_2017_test/*': No such file or directory
+Submitting job(s)..................
+18 job(s) submitted to cluster 31388567.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-1200to2500_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-1200to2500_MC_2018_test/*': No such file or directory
+Submitting job(s)....
+4 job(s) submitted to cluster 669334.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-1200to2500_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-1200to2500_MC_2017_test/*': No such file or directory
+Submitting job(s)................
+16 job(s) submitted to cluster 669335.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-1200to2500_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-1200to2500_MC_2016_test/*': No such file or directory
+Submitting job(s).................................
+33 job(s) submitted to cluster 31388569.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-400to600_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-400to600_MC_2017_test/*': No such file or directory
+Submitting job(s)........................
+24 job(s) submitted to cluster 669336.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-400to600_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-400to600_MC_2016_test/*': No such file or directory
+Submitting job(s)..........................
+26 job(s) submitted to cluster 31388570.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-400to600_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-400to600_MC_2018_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669337.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-800toInf_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-800toInf_MC_2016_test/*': No such file or directory
+Submitting job(s)........................................
+40 job(s) submitted to cluster 31388571.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-800toInf_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-800toInf_MC_2017_test/*': No such file or directory
+Submitting job(s).......................
+23 job(s) submitted to cluster 669338.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1000to1500_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1000to1500_v9_MC_2017_test/*': No such file or directory
+Submitting job(s)......................
+22 job(s) submitted to cluster 669339.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1000to1500_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1000to1500_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)............
+12 job(s) submitted to cluster 31388572.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1000to1500_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1000to1500_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)..........................
+26 job(s) submitted to cluster 31388573.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-800toInf_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-800toInf_MC_2018_test/*': No such file or directory
+Submitting job(s)..................................
+34 job(s) submitted to cluster 669340.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-600to800_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-600to800_MC_2018_test/*': No such file or directory
+Submitting job(s).................
+17 job(s) submitted to cluster 31388574.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_antitop_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_antitop_MC_2018_test/*': No such file or directory
+Submitting job(s).................................................................
+65 job(s) submitted to cluster 669341.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_antitop_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_antitop_MC_2017_test/*': No such file or directory
+Submitting job(s)..............................
+30 job(s) submitted to cluster 31388575.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_t-channel_antitop_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_t-channel_antitop_MC_2016_test/*': No such file or directory
+Submitting job(s).........................................
+41 job(s) submitted to cluster 31388576.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToSemiLeptonic_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToSemiLeptonic_MC_2018_test/*': No such file or directory
+Submitting job(s)....................................................................................................................................................................................................
+196 job(s) submitted to cluster 31388577.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-400to600_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-400to600_MC_2017_test/*': No such file or directory
+Submitting job(s)...........................
+27 job(s) submitted to cluster 669342.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT700to1000_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT700to1000_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)................................................
+48 job(s) submitted to cluster 669343.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT700to1000_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT700to1000_v9_MC_2017_test/*': No such file or directory
+Submitting job(s)...........................................
+43 job(s) submitted to cluster 669344.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-400to600_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-400to600_MC_2016_test/*': No such file or directory
+Submitting job(s)............................
+28 job(s) submitted to cluster 669345.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToSemiLeptonic_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToSemiLeptonic_MC_2016_test/*': No such file or directory
+Submitting job(s)................................................................................................................................
+128 job(s) submitted to cluster 669346.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToSemiLeptonic_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToSemiLeptonic_MC_2017_test/*': No such file or directory
+Submitting job(s).....................................................................................................................................................
+149 job(s) submitted to cluster 31388578.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-600to800_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-600to800_MC_2017_test/*': No such file or directory
+Submitting job(s).........
+9 job(s) submitted to cluster 669347.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-400to600_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-400to600_MC_2017_test/*': No such file or directory
+Submitting job(s)....................................
+36 job(s) submitted to cluster 669348.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-400to600_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-400to600_MC_2016_test/*': No such file or directory
+_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToBB_ZToQQ_MC_2016.txt
+=========================
+Processing sample:  ZH_HToBB_ZToQQ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToBB_ZToQQ_MC_2018.txt
+=========================
+Processing sample:  TTTo2L2Nu_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTTo2L2Nu_MC_2018.txt
+=========================
+Processing sample:  TTTo2L2Nu_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTTo2L2Nu_MC_2016.txt
+=========================
+Processing sample:  TTTo2L2Nu_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTTo2L2Nu_MC_2017.txt
+=========================
+Processing sample:  QCD_HT200to300_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT200to300_v9_MC_2017.txt
+=========================
+Processing sample:  QCD_HT200to300_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT200to300_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT200to300_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT200to300_v9_MC_2018.txt
+=========================
+Processing sample:  ZH_HToCC_ZToQQ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToCC_ZToQQ_MC_2017.txt
+=========================
+Processing sample:  ZH_HToCC_ZToQQ_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToCC_ZToQQ_MC_2016.txt
+=========================
+Processing sample:  ggZH_HToCC_ZToQQ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToCC_ZToQQ_MC_2018.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-600to800_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-600to800_MC_2016.txt
+=========================
+Processing sample:  ggZH_HToCC_ZToQQ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToCC_ZToQQ_MC_2017.txt
+=========================
+Processing sample:  ggZH_HToCC_ZToQQ_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToCC_ZToQQ_MC_2016.txt
+=========================
+Processing sample:  ZH_HToCC_ZToQQ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZH_HToCC_ZToQQ_MC_2018.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-600to800_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-600to800_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-1200to2500_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-1200to2500_MC_2018.txt
+=========================
+Processing sample:  WJetsToLNu_HT-1200to2500_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-1200to2500_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-1200to2500_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-1200to2500_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-400to600_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-400to600_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-400to600_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-400to600_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-400to600_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-400to600_MC_2018.txt
+=========================
+Processing sample:  WJetsToQQ_HT-800toInf_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-800toInf_MC_2016.txt
+=========================
+Processing sample:  WJetsToQQ_HT-800toInf_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-800toInf_MC_2017.txt
+=========================
+Processing sample:  QCD_HT1000to1500_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1000to1500_v9_MC_2017.txt
+=========================
+Processing sample:  QCD_HT1000to1500_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1000to1500_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT1000to1500_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1000to1500_v9_MC_2018.txt
+=========================
+Processing sample:  WJetsToQQ_HT-800toInf_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-800toInf_MC_2018.txt
+=========================
+Processing sample:  WJetsToLNu_HT-600to800_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-600to800_MC_2018.txt
+=========================
+Processing sample:  ST_t-channel_antitop_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_antitop_MC_2018.txt
+=========================
+Processing sample:  ST_t-channel_antitop_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_antitop_MC_2017.txt
+=========================
+Processing sample:  ST_t-channel_antitop_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_t-channel_antitop_MC_2016.txt
+=========================
+Processing sample:  TTToSemiLeptonic_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToSemiLeptonic_MC_2018.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-400to600_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-400to600_MC_2017.txt
+=========================
+Processing sample:  QCD_HT700to1000_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT700to1000_v9_MC_2018.txt
+=========================
+Processing sample:  QCD_HT700to1000_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT700to1000_v9_MC_2017.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-400to600_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-400to600_MC_2016.txt
+=========================
+Processing sample:  TTToSemiLeptonic_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToSemiLeptonic_MC_2016.txt
+=========================
+Processing sample:  TTToSemiLeptonic_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToSemiLeptonic_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-600to800_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-600to800_MC_2017.txt
+=========================
+Processing sample:  WJetsToQQ_HT-400to600_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-400to600_MC_2017.txt
+=========================
+Processing sample:  WJetsToQQ_HT-400to600_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis/Submitting job(s)................................
+32 job(s) submitted to cluster 669349.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-600to800_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-600to800_MC_2016_test/*': No such file or directory
+Submitting job(s)........................
+24 job(s) submitted to cluster 669350.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToQQ_HT-400to600_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToQQ_HT-400to600_MC_2018_test/*': No such file or directory
+Submitting job(s).................
+17 job(s) submitted to cluster 31388579.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT700to1000_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT700to1000_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)...............................
+31 job(s) submitted to cluster 669351.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZJetsToQQ_HT-400to600_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZJetsToQQ_HT-400to600_MC_2018_test/*': No such file or directory
+Submitting job(s)............
+12 job(s) submitted to cluster 31388580.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1500to2000_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1500to2000_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)............
+12 job(s) submitted to cluster 31388581.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1500to2000_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1500to2000_v9_MC_2017_test/*': No such file or directory
+Submitting job(s).......................
+23 job(s) submitted to cluster 31388582.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT1500to2000_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT1500to2000_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)........................................
+40 job(s) submitted to cluster 669352.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-200to400_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-200to400_MC_2018_test/*': No such file or directory
+Submitting job(s)...................................................
+51 job(s) submitted to cluster 31388583.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-200to400_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-200to400_MC_2017_test/*': No such file or directory
+Submitting job(s)................
+16 job(s) submitted to cluster 669353.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-200to400_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-200to400_MC_2016_test/*': No such file or directory
+Submitting job(s).............................................
+45 job(s) submitted to cluster 669354.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToBB_ZToQQ_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToBB_ZToQQ_MC_2018_test/*': No such file or directory
+Submitting job(s)............
+12 job(s) submitted to cluster 31388584.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToBB_ZToQQ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToBB_ZToQQ_MC_2017_test/*': No such file or directory
+Submitting job(s)..............
+14 job(s) submitted to cluster 31388585.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ggZH_HToBB_ZToQQ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ggZH_HToBB_ZToQQ_MC_2016_test/*': No such file or directory
+Submitting job(s)..........................................
+42 job(s) submitted to cluster 31388586.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZZ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZZ_MC_2017_test/*': No such file or directory
+Submitting job(s).
+1 job(s) submitted to cluster 669355.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ZZ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ZZ_MC_2016_test/*': No such file or directory
+Submitting job(s).............
+13 job(s) submitted to cluster 669356.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WZ_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WZ_MC_2016_test/*': No such file or directory
+Submitting job(s)...............
+15 job(s) submitted to cluster 669357.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WZ_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WZ_MC_2017_test/*': No such file or directory
+Submitting job(s)..........
+10 job(s) submitted to cluster 669358.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT100to200_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT100to200_v9_MC_2018_test/*': No such file or directory
+Submitting job(s).........................................
+41 job(s) submitted to cluster 31388587.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WW_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WW_MC_2018_test/*': No such file or directory
+Submitting job(s)................
+16 job(s) submitted to cluster 669359.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT100to200_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT100to200_v9_MC_2017_test/*': No such file or directory
+Submitting job(s)..............................................................
+62 job(s) submitted to cluster 669360.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT100to200_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT100to200_v9_MC_2016_test/*': No such file or directory
+Submitting job(s)...........................................................................
+75 job(s) submitted to cluster 31388588.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_antitop_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_antitop_MC_2017_test/*': No such file or directory
+Submitting job(s)........................
+24 job(s) submitted to cluster 669361.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT500to700_v9_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT500to700_v9_MC_2018_test/*': No such file or directory
+Submitting job(s)...................................................
+51 job(s) submitted to cluster 669362.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_antitop_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_antitop_MC_2016_test/*': No such file or directory
+Submitting job(s)..............
+14 job(s) submitted to cluster 31388589.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT500to700_v9_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT500to700_v9_MC_2016_test/*': No such file or directory
+Submitting job(s).....................................
+37 job(s) submitted to cluster 31388590.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/QCD_HT500to700_v9_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/QCD_HT500to700_v9_MC_2017_test/*': No such file or directory
+Submitting job(s).....................................
+37 job(s) submitted to cluster 31388591.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToHadronic_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToHadronic_MC_2016_test/*': No such file or directory
+Submitting job(s).................................................................................................................
+113 job(s) submitted to cluster 669363.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToHadronic_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToHadronic_MC_2017_test/*': No such file or directory
+Submitting job(s)....................................................................................................
+100 job(s) submitted to cluster 31388592.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WJetsToLNu_HT-2500toInf_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WJetsToLNu_HT-2500toInf_MC_2016_test/*': No such file or directory
+Submitting job(s).......................................
+39 job(s) submitted to cluster 669364.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/ST_tW-channel_antitop_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/ST_tW-channel_antitop_MC_2018_test/*': No such file or directory
+Submitting job(s)............
+12 job(s) submitted to cluster 31388593.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WW_MC_2017'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WW_MC_2017_test/*': No such file or directory
+Submitting job(s)........
+8 job(s) submitted to cluster 31388594.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/WW_MC_2016'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/WW_MC_2016_test/*': No such file or directory
+Submitting job(s)................................
+32 job(s) submitted to cluster 31388595.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd5.fnal.gov
+
+error: no such file or directory with path '/store/user/peteryou/Output_VH/2024Apr/TTToHadronic_MC_2018'
+rm: cannot remove '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VH/2024Apr//condor_run_NONE/TTToHadronic_MC_2018_test/*': No such file or directory
+Submitting job(s)..........................................................................................................................................................................
+170 job(s) submitted to cluster 669365.
+Querying the CMS LPC pool and trying to find an available schedd...
+
+Attempting to submit jobs to lpcschedd4.fnal.gov
+
+/FileLists//WJetsToQQ_HT-400to600_MC_2016.txt
+=========================
+Processing sample:  WJetsToLNu_HT-600to800_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-600to800_MC_2016.txt
+=========================
+Processing sample:  WJetsToQQ_HT-400to600_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToQQ_HT-400to600_MC_2018.txt
+=========================
+Processing sample:  QCD_HT700to1000_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT700to1000_v9_MC_2016.txt
+=========================
+Processing sample:  ZJetsToQQ_HT-400to600_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZJetsToQQ_HT-400to600_MC_2018.txt
+=========================
+Processing sample:  QCD_HT1500to2000_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1500to2000_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT1500to2000_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1500to2000_v9_MC_2017.txt
+=========================
+Processing sample:  QCD_HT1500to2000_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT1500to2000_v9_MC_2018.txt
+=========================
+Processing sample:  WJetsToLNu_HT-200to400_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-200to400_MC_2018.txt
+=========================
+Processing sample:  WJetsToLNu_HT-200to400_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-200to400_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-200to400_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-200to400_MC_2016.txt
+=========================
+Processing sample:  ggZH_HToBB_ZToQQ_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToBB_ZToQQ_MC_2018.txt
+=========================
+Processing sample:  ggZH_HToBB_ZToQQ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToBB_ZToQQ_MC_2017.txt
+=========================
+Processing sample:  ggZH_HToBB_ZToQQ_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ggZH_HToBB_ZToQQ_MC_2016.txt
+=========================
+Processing sample:  ZZ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZZ_MC_2017.txt
+=========================
+Processing sample:  ZZ_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ZZ_MC_2016.txt
+=========================
+Processing sample:  WZ_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WZ_MC_2016.txt
+=========================
+Processing sample:  WZ_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WZ_MC_2017.txt
+=========================
+Processing sample:  QCD_HT100to200_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT100to200_v9_MC_2018.txt
+=========================
+Processing sample:  WW_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WW_MC_2018.txt
+=========================
+Processing sample:  QCD_HT100to200_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT100to200_v9_MC_2017.txt
+=========================
+Processing sample:  QCD_HT100to200_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT100to200_v9_MC_2016.txt
+=========================
+Processing sample:  ST_tW-channel_antitop_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_antitop_MC_2017.txt
+=========================
+Processing sample:  QCD_HT500to700_v9_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT500to700_v9_MC_2018.txt
+=========================
+Processing sample:  ST_tW-channel_antitop_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_antitop_MC_2016.txt
+=========================
+Processing sample:  QCD_HT500to700_v9_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT500to700_v9_MC_2016.txt
+=========================
+Processing sample:  QCD_HT500to700_v9_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//QCD_HT500to700_v9_MC_2017.txt
+=========================
+Processing sample:  TTToHadronic_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToHadronic_MC_2016.txt
+=========================
+Processing sample:  TTToHadronic_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToHadronic_MC_2017.txt
+=========================
+Processing sample:  WJetsToLNu_HT-2500toInf_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WJetsToLNu_HT-2500toInf_MC_2016.txt
+=========================
+Processing sample:  ST_tW-channel_antitop_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//ST_tW-channel_antitop_MC_2018.txt
+=========================
+Processing sample:  WW_MC_2017
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WW_MC_2017.txt
+=========================
+Processing sample:  WW_MC_2016
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//WW_MC_2016.txt
+=========================
+Processing sample:  TTToHadronic_MC_2018
+>>>>>>> Use this file list:  /uscms_data/d3/peteryou/CMSSW_10_6_4/src/VHanalysis//FileLists//TTToHadronic_MC_2018.txt
+haddData = True
+>>> Checking that we're in hAdd mode... (runMode == 1)

@@ -1,0 +1,1 @@
+root://cmseosmgm01.fnal.gov:1094//store/user/lpcphys/duong/NanoAOD_postProcessing_crab/ZH_HToCC_ZToQQ_M125_TuneCP5_13TeV-powheg-pythia8/RunIISummer20UL16NanoAODv9-106X_mcRun2_asymptotic_v17-v1_NanoPost_hnguyen_v1/230731_023719/0000/tree_1.root
