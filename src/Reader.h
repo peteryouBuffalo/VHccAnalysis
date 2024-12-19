@@ -225,6 +225,12 @@ public :
   TTreeReaderValue<Float_t> Pileup_nTrueInt = {fReader, "Pileup_nTrueInt"};
   TTreeReaderValue<Float_t> Pileup_pudensity = {fReader, "Pileup_pudensity"};
   TTreeReaderValue<Float_t> genWeight = {fReader, "genWeight"};
+  TTreeReaderValue<UInt_t> nLHEPdfWeight = {fReader, "nLHEPdfWeight"};
+  TTreeReaderArray<Float_t> LHEPdfWeight = {fReader, "LHEPdfWeight"};
+  TTreeReaderValue<UInt_t> nLHEScaleWeight = {fReader, "nLHEScaleWeight"};
+  TTreeReaderArray<Float_t> LHEScaleWeight = {fReader, "LHEScaleWeight"};
+  //TTreeReaderValue<UInt_t> nPSWeight = {fReader, "nPSWeight"};
+  //TTreeReaderArray<Float_t> PSWeight = {fReader, "PSWeight"};
   TTreeReaderArray<Int_t> Jet_hadronFlavour = {fReader, "Jet_hadronFlavour"};
   TTreeReaderArray<Int_t> FatJet_hadronFlavour = {fReader, "FatJet_hadronFlavour"};
   TTreeReaderValue<UInt_t> nGenPart = {fReader, "nGenPart"};

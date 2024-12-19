@@ -166,17 +166,20 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(13,"Trigger");
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(14,"DeltaPhi");
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(15,"VMass");
-  
-  h_ZccHcc_PN_med = new VHBoostedPlots("ZccHcc_boosted_PN_med");
+
+  int nLHEScaleWeight=0;
+  if (m_scaleUnc=="scale") nLHEScaleWeight = 9; 
+  h_ZccHcc_PN_med = new VHBoostedPlots("ZccHcc_boosted_PN_med",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_ZccHcc_PN_med_zmass_deltaPhi = new VHBoostedPlots("ZccHcc_boosted_PN_med_zmass_deltaPhi");
   h_ZccHcc_PN_med_xccWeight = new VHBoostedPlots("ZccHcc_boosted_PN_med_xccWeight");
-  h_ZccHcc_PN_med_qcdCR = new VHBoostedPlots("ZccHcc_boosted_PN_med_qcdCR");
-  h_ZccHcc_PN_med_topCR_pass = new VHBoostedPlots("ZccHcc_boosted_PN_med_topCR_pass");
+  h_ZccHcc_PN_med_qcdCR = new VHBoostedPlots("ZccHcc_boosted_PN_med_qcdCR",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_topCR_pass = new VHBoostedPlots("ZccHcc_boosted_PN_med_topCR_pass",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_ZccHcc_PN_med_VjetCR_pass = new VHBoostedPlots("ZccHcc_boosted_PN_med_VjetCR_pass");
-  h_VHcc_PN_med = new VHBoostedPlots("VHcc_boosted_PN_med");
+
+  h_VHcc_PN_med = new VHBoostedPlots("VHcc_boosted_PN_med",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_VHcc_PN_med_zmass_deltaPhi = new VHBoostedPlots("VHcc_boosted_PN_med_vmass_deltaPhi");
-  h_VHcc_PN_med_qcdCR = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR");
-  h_VHcc_PN_med_topCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass");
+  h_VHcc_PN_med_qcdCR = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_topCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_VHcc_PN_med_VjetCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_VjetCR_pass");
 
   //test H and Z mass from MC truth
@@ -831,7 +834,11 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_ZccHcc_PN_med->h_nBjet_passNextraJetCut->Fill(nBjet,evtW_tag_trig);
                 h_ZccHcc_PN_med->h_nBjetExtraJet_passNextraJetCut->Fill(nBjet_extJets,evtW_tag_trig);
                 h_ZccHcc_PN_med->h_DPhiJetMet_passNextraJetCut->Fill(min_dPhiJetMet,evtW_tag_trig);
-                float deltaPhi = jets[idx_Z].m_lvec.DeltaPhi(jets[idx_H].m_lvec);
+                //pdfunc
+                h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                //scaleunc
+                if (m_scaleUnc=="scale") h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+		float deltaPhi = jets[idx_Z].m_lvec.DeltaPhi(jets[idx_H].m_lvec);
                 if (deltaPhi > 2.5) {
                   h_cutFlow_ZccHcc_PN_med->Fill(13.5,evtW_tag_trig);
                   if (jets[idx_Z].m_lvec.M() < 120 && jets[idx_Z].m_lvec.M() > 60) 
@@ -856,6 +863,10 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_qcdCR->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_trig);
             h_ZccHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
             h_ZccHcc_PN_med_qcdCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+	    //pdfunc
+            h_ZccHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+            //scaleunc
+            if (m_scaleUnc=="scale") h_ZccHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
           }
         }
       } //end fail CR 
@@ -876,6 +887,10 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_topCR_pass->FillJets(jet_ZccHcc,evtW_tag_btag_trig);
             h_ZccHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
             h_ZccHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
+	    //pdfunc
+            h_ZccHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
+            //scaleunc
+            if (m_scaleUnc=="scale") h_ZccHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_btag_trig);
           }
           //Vjet CR
           h_ZccHcc_PN_med_VjetCR_pass->h_ccPN_TopvsQCD->Fill(jets[idx_H].m_PN_TopvsQCD,evtW_tag_btag_trig);
@@ -942,7 +957,12 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
                 h_VHcc_PN_med->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
                 h_VHcc_PN_med->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
-                
+
+		//pdfunc
+                h_VHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                //scaleunc
+                if (m_scaleUnc=="scale") h_VHcc_PN_med->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+		
                 float deltaPhi = jets[idx_V].m_lvec.DeltaPhi(jets[idx_H].m_lvec);
                 if (deltaPhi > 2.5) {
                   h_cutFlow_VHcc_PN_med->Fill(13.5,evtW_tag_trig);
@@ -970,6 +990,10 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med_topCR_pass->FillJets(jet_VHcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
+		//pdfunc
+                h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
+                //scaleunc
+                if (m_scaleUnc=="scale") h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_btag_trig);
               }
               //Vjet CR
               h_VHcc_PN_med_VjetCR_pass->h_ccPN_WvsQCD->Fill(jets[idx_H].m_PN_WvsQCD,evtW_tag_btag_trig);
@@ -998,6 +1022,10 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_qcdCR->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+	      //pdfunc
+              h_VHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              //scaleunc
+              if (m_scaleUnc=="scale") h_VHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
             }
           }
         } //end fail CR 

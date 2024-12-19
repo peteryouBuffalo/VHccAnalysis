@@ -168,7 +168,7 @@ class VHBoostedPlots
 
   public:
     // Constructor
-    VHBoostedPlots(TString name) : m_name(name) {
+  VHBoostedPlots(TString name, int iPdfStart=0, int iPdfStop=0, int nLHEscales=0) : m_name(name) {
  
       h_pt_jet = new TH1D(name + "_pt_jet", "", NBIN_PT_JET, X_PT_JET[0], X_PT_JET[1]);
       h_eta_jet = new TH1D(name + "_eta_jet", "", NBIN_ETA, X_ETA[0], X_ETA[1]);
@@ -210,6 +210,15 @@ class VHBoostedPlots
       h_HPt = new TH1D(name + "_HPt", "", NBIN_PT_JET, X_PT_JET[0], X_PT_JET[1]);
       h_HEta = new TH1D(name + "_HEta", "", NBIN_ETA, X_ETA[0], X_ETA[1]);
       h_HMass = new TH1D(name + "_HMass", "", NBIN_M_H, X_M_H[0], X_M_H[1]);
+      for (int i = iPdfStart ; i < iPdfStop ; ++i) {
+        std::string iS = std::to_string(i);
+        h_HMass_LHEPdfs.push_back(new TH1D(name+"_HMass_LHEPdf_"+iS,"",NBIN_M_H, X_M_H[0], X_M_H[1]));
+      }
+      for (int i = 0 ; i < nLHEscales ; ++i) {
+        std::string iS = std::to_string(i);
+        h_HMass_LHEScales.push_back(new TH1D(name+"_HMass_LHEScale_"+iS,"",NBIN_M_H, X_M_H[0], X_M_H[1]));
+      }
+      
       h_HFlav = new TH1D(name + "_HFlav", "", 10, 0, 10);
       h_ZPt = new TH1D(name + "_ZPt", "", NBIN_PT_JET, X_PT_JET[0], X_PT_JET[1]);
       h_ZEta = new TH1D(name + "_ZEta", "", NBIN_ETA, X_ETA[0], X_ETA[1]);
@@ -241,6 +250,8 @@ class VHBoostedPlots
       h_HPt->Sumw2();
       h_HEta->Sumw2();
       h_HMass->Sumw2();
+      for(auto i : h_HMass_LHEPdfs) i->Sumw2();
+      for(auto i : h_HMass_LHEScales) i->Sumw2();
       h_HFlav->Sumw2();
       h_ZPt->Sumw2();
       h_ZEta->Sumw2();
@@ -272,6 +283,18 @@ class VHBoostedPlots
       h_bbPN_WvsQCD->Sumw2();
       h_bbPN_ZvsQCD->Sumw2();
     } ;
+
+    void FillPdfScaleUnc(Reader* r, HObj& H, int iPdfStart=0, int iPdfStop=0, int nLHEscales=0, float w=1) {
+      for (int i = 0 ; i < (iPdfStop - iPdfStart) ; ++i) {
+        float pdfW = 1.0;
+        int iPdf = i+iPdfStart;
+        if (iPdf < *(r->nLHEPdfWeight)) pdfW = (r->LHEPdfWeight)[iPdf];
+        h_HMass_LHEPdfs[i]->Fill(H.m_lvec.M(),w*pdfW); 
+      }
+      for (int i = 0 ; i < nLHEscales ; ++i) {
+        float scaleW = (r->LHEScaleWeight)[i];
+        h_HMass_LHEScales[i]->Fill(H.m_lvec.M(),w*scaleW);      }
+    };
 
     // Fill the general histograms.
     void Fill(HObj& H, ZObj& Z, float w=1) {
@@ -365,6 +388,8 @@ class VHBoostedPlots
      
       // V and H plots
       histolist.push_back(h_HMass);
+      for(auto i : h_HMass_LHEPdfs) histolist.push_back(i);
+      for(auto i : h_HMass_LHEScales) histolist.push_back(i);
       histolist.push_back(h_HPt);
       histolist.push_back(h_HEta);
       histolist.push_back(h_HFlav);
@@ -411,7 +436,9 @@ class VHBoostedPlots
     TH1D* h_HPt;    
     TH1D* h_HEta;    
     TH1D* h_HMass;    
-    TH1D* h_HFlav;    
+    TH1D* h_HFlav;
+    std::vector<TH1D*> h_HMass_LHEPdfs;
+    std::vector<TH1D*> h_HMass_LHEScales;    
 
     //Z Plots
     TH1D* h_ZPt;

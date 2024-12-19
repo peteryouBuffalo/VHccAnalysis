@@ -239,6 +239,12 @@ int main(int argc, char *argv[]) {
   if (syst == "BTAGBCU") btagUncType = "bc_up";
   if (syst == "BTAGBCD") btagUncType = "bc_down";
 
+  std::string pdfScaleUnc = "central";
+  if (syst == "PDFG0") pdfScaleUnc = "pdfg0";
+  if (syst == "PDFG1") pdfScaleUnc = "pdfg1";
+  if (syst == "PDFG2") pdfScaleUnc = "pdfg2";
+  if (syst == "SCALE") pdfScaleUnc = "scale";
+  
 #if defined(MC_2016PRE) || defined(MC_2016) 
   fName_puSF = "CalibData/2016_pileup_ratio.root";
   if (syst == "PUU") fName_puSF = "CalibData/2016_pileup_ratio_up.root";
@@ -300,6 +306,7 @@ int main(int argc, char *argv[]) {
   VbbHcc_sel.SetXbbXccEff1D(fName_xbb_xcc_eff);
   VbbHcc_sel.SetTriggerSF(fName_triggerSF);
   VbbHcc_sel.SetBtagCalib(fName_btagSF,fName_btagEff,btagUncType);
+  VbbHcc_sel.SetPdfScaleSyst(pdfScaleUnc);
   //if (CUTS.GetStr("jet_main_btagWP")=="deepFlavBM") VbbHcc_sel.SetBtagCalib(fName_btagSF,"DeepJet","CalibData/effM.root",btagUncType);
   //VbbHcc_sel_unc.SetPUjetidCalib(fName_PUjetID_SF,fName_PUjetID_eff,jetPUidUncType); //pileup jet ID SF
   //VbbHcc_sel_unc.SetXbbXccEff(fName_xbb_xcc_eff);

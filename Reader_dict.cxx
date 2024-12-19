@@ -152,7 +152,7 @@ nullptr
     };
     static const char* includePaths[] = {
 "/cvmfs/cms.cern.ch/el9_amd64_gcc12/lcg/root/6.30.03-ca7ca986842b225f6fc22ae84d705ed8/include/",
-"/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/",
+"/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/",
 nullptr
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(
