@@ -4,6 +4,11 @@
 # the end by hand.
 #
 # created/revised: Peter Young, May 8, 2024
+# revised: Peter Young, Nov 4, 2024
+#
+# Before fix, you have to do each systematic by hand. If this fix goes well,
+# I can have it loop over each systematic rather than having to do each by
+# hand.
 
 # /////////////////////////////////////////////////////////////////////////////
 # Imported Libraries
@@ -18,7 +23,7 @@ import time
 # /////////////////////////////////////////////////////////////////////////////
 
 # Write the condor configuration that we need to run the jobs.
-def write_condor_config(workDir, sample_format, sample_subformat, nanoaod_format, 
+def write_condor_config(workDir, sample_format, sample_subformat, VZsample, nanoaod_format, 
   data_name, name_output_dir, nJob, syst='none', centralGenWeight=0, debug=False):
     
   exe_fileName = 'exe_' + data_name + '.sh'
@@ -56,7 +61,7 @@ def write_condor_config(workDir, sample_format, sample_subformat, nanoaod_format
   f.write('echo "CMSSW: "$CMSSW_BASE \n')
   f.write('cd ${_CONDOR_SCRATCH_DIR} \n')
   f.write('tar -xvf input.tar \n')
-  f.write('make FORMAT='+sample_format+ ' SUBFORMAT=' + sample_subformat+' PROCESSING=NORMAL NANOAOD='+nanoaod_format+' INPUT=TCHAIN'+'\n')
+  f.write('make FORMAT='+sample_format+ ' SUBFORMAT=' + sample_subformat + ' SAMPLE=' + VZsample + ' PROCESSING=NORMAL NANOAOD='+nanoaod_format+' INPUT=TCHAIN'+'\n')
   
   sampleType = '0'
   if 'DATA' in sample_format:
@@ -98,74 +103,79 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 # Settings
 # /////////////////////////////////////////////////////////////////////////////
-runMode = 1     # 0 : submit, 1 : check output and hadd output file
+runMode = 0     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
 debug = False   # just run on 10000
 haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
-syst = 'NONE'   # NONE, PUU, PUD
-if len(sys.argv) > 1:
-  syst = sys.argv[1]
+#syst = 'NONE'   # NONE, PUU, PUD
+syst_list = ['NONE','JESU','JESD','PUU','PUD']
+#if len(sys.argv) > 1:
+#  syst = sys.argv[1]
 centralGenWeight = 0
 
-# Paths, Locations (CHANGE THESE)
-sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/'
-condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test/'
-outputDir_eos = '/store/user/peteryou/Output_VHcc/test/' + syst + '/'
-outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/condor_results/test/' + syst + '/'
-
-# Input data sets
-dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC.txt"
-dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
-dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
-dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
-#dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
-#dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
-#dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC.txt"]
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
-#dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
-#dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
-#dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]
-
-nFile = 2
-dir_file_list = sourceDir+'/FileLists/'
-
-# Print settings
-print('=============================')
-print('Run mode: ', runMode)
-print('Submit:   ', submit)
-print('Debug:    ', debug)
-print('haddData: ', haddData)
-
-print('Systematic:                                                 ', syst)
-print('Sample list file (list of input samples):                   ')#, dataSet_list)
-for dS_list in dataSet_lists:
-  print('      ', dS_list)
-print('Sample list folder (location of input file lists):          ', dir_file_list)
-print('Number of file per jobs:                                    ', nFile)
-print('Source dir:                                                 ', sourceDir)
-print('Condor run dir:                                             ', condorRunDir)
-print('Output location eos:                                        ', outputDir_eos)
-print('Output location scratch:                                    ', outputDir_scratch)
-
-# Wait for user input
-check_for_user_input = False
-
-if check_for_user_input:
-  user_input = input("Press 'P' to proceed or 'E' to exit: ")
+for syst in syst_list:
   
-  if user_input.upper() == 'P':
-    print("Continuing with the program.")
-  elif user_input.upper() == 'E':
-    print("Exiting the program.")
-    exit()
-  else:
-    print("Invalid input. Please try again")
+  # Paths, Locations (CHANGE THESE)
+  sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/'
+  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test/'
+  outputDir_eos = '/store/user/peteryou/Output_VHcc/test/' + syst + '/'
+  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/condor_results/test/' + syst + '/'
+  
+  # Input data sets
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]
+  
+  nFile = 2
+  dir_file_list = sourceDir+'/FileLists/'
+  
+  # Print settings
+  print('=============================')
+  print('Run mode: ', runMode)
+  print('Submit:   ', submit)
+  print('Debug:    ', debug)
+  print('haddData: ', haddData)
+  
+  print('Systematic:                                                 ', syst)
+  print('Sample list file (list of input samples):                   ')#, dataSet_list)
+  for dS_list in dataSet_lists:
+    print('      ', dS_list)
+  print('Sample list folder (location of input file lists):          ', dir_file_list)
+  print('Number of file per jobs:                                    ', nFile)
+  print('Source dir:                                                 ', sourceDir)
+  print('Condor run dir:                                             ', condorRunDir)
+  print('Output location eos:                                        ', outputDir_eos)
+  print('Output location scratch:                                    ', outputDir_scratch)
+  
+  # Wait for user input
+  check_for_user_input = False
+  
+  if check_for_user_input:
+    user_input = input("Press 'P' to proceed or 'E' to exit: ")
+    
+    if user_input.upper() == 'P':
+      print("Continuing with the program.")
+    elif user_input.upper() == 'E':
+      print("Exiting the program.")
+      exit()
+    else:
+      print("Invalid input. Please try again")
 
+## EVERYTHING HERE DOWN NEEDS TO BE INDENTED ONCE MORE
+      
 # /////////////////////////////////////////////////////////////////////////////
 # Main Code (DO NOT EDIT BELOW HERE)
 # /////////////////////////////////////////////////////////////////////////////
@@ -213,8 +223,12 @@ for line in lines:
     if 'preVFP' in line:
       sample_subformat = sample_subformat + 'PRE'
     sample_format = sample_subformat
+  
+  #used to turn on final state break down for VZ process like qqcc, qccc, etc.
+  VZsample = "MC_NOTVZ"
+  if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
 
-  print(sample_format, sample_subformat)
+  print(sample_format, sample_subformat, VZsample)
 
   nanoaod_format='NANOAODV9'
   dir_final_rootFile = outputDir_eos + '/' + data_name
@@ -241,7 +255,7 @@ for line in lines:
     nJob = make_input_file_list(nFile, work_dir, file_list_name)
     
     # prepare condor job configuration
-    write_condor_config(work_dir, sample_format, sample_subformat, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
+    write_condor_config(work_dir, sample_format, sample_subformat, VZsample, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
     
     # copy codes, ....
     os.system('cp '+sourceDir+'/Makefile ' + work_dir)
@@ -285,24 +299,5 @@ for line in lines:
     cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + data_name + '.root @' + nameTmp 
     print(cmd_hadd)
     os.system(cmd_hadd)
-
-# now hadd data
-#if haddData:
-#  print("haddData = True")
-#  print(">>> Checking that we're in hAdd mode... (runMode == 1)")
-#  if runMode == 1:
-#    print(">>> Going to hadd...")
-#    yrRuns = {
-#      '2016': ['B','C','D','E','F','G','H'],
-#      '2017': ['C','D','E','F'],
-#      '2018': ['B','C','D']
-#    }
-#    for y in ['2016', '2017', '2018']:
-#      data_name = "SingleMuon_DATA_" + y
-#      os.system('rm ' + outputDir_scratch + '/' + data_name + '.root')
-#      for l in yrRuns[y]:
-#        cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + data_name + '.root ' + outputDir_scrat#ch + '/' + data_name + l + '.root'
-#      print(cmd_hadd)
-#      os.system(cmd_hadd) 
 
 #//EOF/////////////////////////////////////////////////////////////////////////

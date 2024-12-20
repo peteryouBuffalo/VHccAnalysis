@@ -5,7 +5,7 @@
 
 #include "Reader.h"
 #include "Selector.h"
-#include "Plots.cxx"
+#include "Plots.h"
 
 #include "Obj.cxx"
 

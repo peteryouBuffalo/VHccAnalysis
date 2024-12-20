@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 #include "Reader.h"
 #include "Selector.h"
-#include "Plots.cxx"
+#include "Plots.h"
 
 #include <random>
 
@@ -26,6 +26,7 @@ public:
   virtual void Terminate(TList* mergedList, std::string outFileName) ;
   //index of daughters from H and Z
   std::vector<std::vector<int> > DauIdxs_ZH(Reader* r);
+  int VZDecayMode(Reader* r);
   static bool sortbysecdesc(const std::pair<int,float> &a, const std::pair<int,float> &b);
   static bool sortbysecdesc1(const std::pair<std::vector<int>,float> &a, const std::pair<std::vector<int>,float> &b);
   std::vector<JetObj> NextraJet(std::vector<JetObjBoosted>& fatJets, std::vector<JetObj>& jets);
@@ -68,6 +69,8 @@ private:
   TH3D* h_pt_rho_n2b1;
   TH1D* h_jet_mass;
   TH1D* h_jet_pt;
+
+  TH1D* h_VZtype;
   
   VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP
   VHBoostedPlots* h_ZccHcc_PN_med_zmass_deltaPhi; //using particle net medium WP

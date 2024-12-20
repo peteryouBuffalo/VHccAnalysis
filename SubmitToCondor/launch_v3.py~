@@ -18,7 +18,7 @@ import time
 # /////////////////////////////////////////////////////////////////////////////
 
 # Write the condor configuration that we need to run the jobs.
-def write_condor_config(workDir, sample_format, sample_subformat, nanoaod_format, 
+def write_condor_config(workDir, sample_format, sample_subformat, VZsample, nanoaod_format, 
   data_name, name_output_dir, nJob, syst='none', centralGenWeight=0, debug=False):
     
   exe_fileName = 'exe_' + data_name + '.sh'
@@ -56,7 +56,7 @@ def write_condor_config(workDir, sample_format, sample_subformat, nanoaod_format
   f.write('echo "CMSSW: "$CMSSW_BASE \n')
   f.write('cd ${_CONDOR_SCRATCH_DIR} \n')
   f.write('tar -xvf input.tar \n')
-  f.write('make FORMAT='+sample_format+ ' SUBFORMAT=' + sample_subformat+' PROCESSING=NORMAL NANOAOD='+nanoaod_format+' INPUT=TCHAIN'+'\n')
+  f.write('make FORMAT='+sample_format+ ' SUBFORMAT=' + sample_subformat + ' SAMPLE=' + VZsample + ' PROCESSING=NORMAL NANOAOD='+nanoaod_format+' INPUT=TCHAIN'+'\n')
   
   sampleType = '0'
   if 'DATA' in sample_format:
@@ -104,7 +104,7 @@ debug = False   # just run on 10000
 haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
-syst = 'JESU'   # NONE, PUU, PUD
+syst = 'NONE'   # NONE, PUU, PUD
 if len(sys.argv) > 1:
   syst = sys.argv[1]
 centralGenWeight = 0
@@ -213,6 +213,10 @@ for line in lines:
     if 'preVFP' in line:
       sample_subformat = sample_subformat + 'PRE'
     sample_format = sample_subformat
+  
+  #used to turn on final state break down for VZ process like qqcc, qccc, etc.
+  VZsample = "MC_NOTVZ"
+  if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
 
   print(sample_format, sample_subformat)
 
@@ -241,7 +245,7 @@ for line in lines:
     nJob = make_input_file_list(nFile, work_dir, file_list_name)
     
     # prepare condor job configuration
-    write_condor_config(work_dir, sample_format, sample_subformat, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
+    write_condor_config(work_dir, sample_format, sample_subformat, VZsample, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
     
     # copy codes, ....
     os.system('cp '+sourceDir+'/Makefile ' + work_dir)

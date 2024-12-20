@@ -29,6 +29,32 @@
 #include <TH2.h>
 #include <TStyle.h>
 
+void Reader::Init(TTree *tree)
+{
+   // The Init() function is called when the selector needs to initialize
+   // a new tree or chain. Typically here the reader is initialized.
+   // It is normally not necessary to make changes to the generated
+   // code, but the routine can be extended by the user if needed.
+   // Init() will be called many times when running on PROOF
+   // (once per file to be processed).
+   
+   fReader.SetTree(tree);
+   //hasBranch = tree->GetBranch("nLHEPdfWeight") != nullptr;
+   //std::cout << "\n Has branch nLHEPdfWeight " << hasBranch;
+   //SafeTTreeReaderValue<UInt_t> nLHEPdfWeight(fReader, "nLHEPdfWeight", 0.0);
+}
+
+Bool_t Reader::Notify()
+{
+   // The Notify() function is called when a new file is opened. This
+   // can be either for a new TTree in a TChain or when when a new TTree
+   // is started when using PROOF. It is normally not necessary to make changes
+   // to the generated code, but the routine can be extended by the
+   // user if needed. The return value is currently not used.
+
+   return kTRUE;
+}
+
 void Reader::Begin(TTree * /*tree*/)
 {
    // The Begin() function is called at the start of the query.
@@ -65,9 +91,10 @@ Bool_t Reader::Process(Long64_t entry)
    // Use fStatus to set the return value of TTree::Process().
    //
    // The return value is currently not used.
-
    fReader.SetLocalEntry(entry);
-
+   
+   //if (!hasBranch) *nLHEPdfWeight = 0; // Use the default value
+   
    return kTRUE;
 }
 
@@ -86,3 +113,4 @@ void Reader::Terminate()
    // the results graphically or save the results to file.
 
 }
+

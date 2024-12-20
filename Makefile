@@ -13,7 +13,7 @@ CORLIBSINC    := $(shell correction config --incdir)
 #INPUT: TFILE,TCHAIN
 #NANOAOD: NANOAODV7, NANOAODV9
 
-CXXFLAGS	= -O -Wall -fPIC -D $(FORMAT) -D $(SUBFORMAT) -D $(PROCESSING) -D $(NANOAOD) -D $(INPUT)
+CXXFLAGS	= -O -Wall -fPIC -D $(FORMAT) -D $(SUBFORMAT) -D $(SAMPLE) -D $(PROCESSING) -D $(NANOAOD) -D $(INPUT)
 CXXFLAGS	+= $(ROOTCFLAGS)	
 
 SOFLAGS		= -O -shared
@@ -32,7 +32,7 @@ mydict:
 	@rootcint Reader_dict.cxx -c src/Reader.h
 	@rootcint Processor_dict.cxx -c -I/$(CORLIBSINC) src/Processor.h
 
-main:	Ana.cxx Global.o Reader.o Processor.o Selector.o BTagCalibrationStandalone.o LumiMaskFilter.o Reader_dict.o Processor_dict.o VbbHcc_selector.o VbbHcc_selector_unc.o VbbHcc_triggerSel.o Efficiency_selector.o 
+main:	Ana.cxx Global.o Reader.o Processor.o Selector.o Plots.o BTagCalibrationStandalone.o LumiMaskFilter.o Reader_dict.o Processor_dict.o VbbHcc_selector.o VbbHcc_selector_unc.o VbbHcc_triggerSel.o Efficiency_selector.o 
 	#$(CXX) $(CXXFLAGS) $(ROOTGLIBS) $^ -o $@
 	$(CXX) $(CXXFLAGS) $(ROOTGLIBS) $(CORLIBS) $^ -o $@ yaml-cpp/build/libyaml-cpp.a
 
@@ -80,4 +80,4 @@ Processor_dict.o: Processor_dict.cxx
 #	$(CXX) $(CXXFLAGS) -I yaml-cpp/include -lyaml-cpp -c $^ -o $@
 
 clean:
-	rm -rf main *.o *.so *_dict.cxx
+	rm -rf main *.o *.so *_dict.cxx *.pcm
