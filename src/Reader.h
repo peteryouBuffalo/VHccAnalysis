@@ -15,6 +15,7 @@
 #include <TTreeReader.h>
 #include <TTreeReaderValue.h>
 #include <TTreeReaderArray.h>
+//#include "SafeTTreeReaderValue.cxx"
 
 // Headers needed by this particular selector
 
@@ -225,6 +226,10 @@ public :
   TTreeReaderValue<Float_t> Pileup_nTrueInt = {fReader, "Pileup_nTrueInt"};
   TTreeReaderValue<Float_t> Pileup_pudensity = {fReader, "Pileup_pudensity"};
   TTreeReaderValue<Float_t> genWeight = {fReader, "genWeight"};
+  //TTreeReaderValue<UInt_t> nLHEPdfWeight = {fReader, "nLHEPdfWeight"};
+  //TTreeReaderArray<Float_t> LHEPdfWeight = {fReader, "LHEPdfWeight"};
+  //TTreeReaderValue<UInt_t> nLHEScaleWeight = {fReader, "nLHEScaleWeight"};
+  //TTreeReaderArray<Float_t> LHEScaleWeight = {fReader, "LHEScaleWeight"};
   TTreeReaderArray<Int_t> Jet_hadronFlavour = {fReader, "Jet_hadronFlavour"};
   TTreeReaderArray<Int_t> FatJet_hadronFlavour = {fReader, "FatJet_hadronFlavour"};
   TTreeReaderValue<UInt_t> nGenPart = {fReader, "nGenPart"};
@@ -240,7 +245,7 @@ public :
   TTreeReaderArray<Float_t> GenJetAK8_phi = {fReader, "GenJetAK8_phi"};
   TTreeReaderArray<Float_t> GenJetAK8_pt = {fReader, "GenJetAK8_pt"};
   TTreeReaderArray<UChar_t> GenJetAK8_hadronFlavour = {fReader, "GenJetAK8_hadronFlavour"};
-  //TTreeReaderArray<Int_t> GenPart_status = {fReader, "GenPart_status"};
+  TTreeReaderArray<Int_t> GenPart_status = {fReader, "GenPart_status"};
   //TTreeReaderArray<Int_t> GenPart_statusFlags = {fReader, "GenPart_statusFlags"};
   //TTreeReaderValue<UInt_t> nGenJet = {fReader, "nGenJet"};
   //TTreeReaderArray<Float_t> GenJet_eta = {fReader, "GenJet_eta"};
@@ -289,6 +294,8 @@ public :
    TTreeReaderValue<Float_t> MET_pt = {fReader, "MET_pt"};
    TTreeReaderValue<Float_t> MET_phi = {fReader, "MET_phi"};
 
+   //bool hasBranch;
+
    Reader(TTree * /*tree*/ =0) {}
 
    virtual ~Reader() { }
@@ -312,6 +319,7 @@ public :
 
 #endif
 
+/*
 #ifdef Reader_cxx
 void Reader::Init(TTree *tree)
 {
@@ -338,3 +346,4 @@ Bool_t Reader::Notify()
 
 
 #endif // #ifdef Reader_cxx
+*/

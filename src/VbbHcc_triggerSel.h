@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 #include "Reader.h"
 #include "Selector.h"
-#include "Plots.cxx"
+#include "Plots.h"
 
 //The Selection does not have Begin, since we do not have anything to do at the begining (overall) at client
 //The histograms, ..., are booked and added to output list at SlaveBegin
