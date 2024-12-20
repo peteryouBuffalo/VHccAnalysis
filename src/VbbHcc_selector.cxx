@@ -300,7 +300,7 @@ int VbbHcc_selector::VZDecayMode(Reader* r) {
   //1. Find all quarks from VZ decays, WW count as qqqq since there is no real W->bb or W->cc
   //2. Define a combination number for decay mode, dcMode
   //3. If a quarks from V decay found, multiply dcMode by 3, 4, or 5 depending on the flavor 
-  //4. We have 6 VZ hadronic final states: qqcc qccc cccc bbcc qqbb qcbb bbbb qqqq corresponding to dcMode = 3^2*4^2, 3*4*4^2, 4^4, 5^2*4^2, 3^2*5^2, 3*4*5^2, 5^4, 3^4 (qccc and qcbb is for WZ)
+  //4. We have 8 VZ hadronic final states: qqcc qccc cccc bbcc qqbb qcbb bbbb qqqq corresponding to dcMode = 3^2*4^2, 3*4*4^2, 4^4, 5^2*4^2, 3^2*5^2, 3*4*5^2, 5^4, 3^4 (qccc and qcbb is for WZ)
   //loop over genpart
   int dcMode = 1;
   std::string partFromZ;
