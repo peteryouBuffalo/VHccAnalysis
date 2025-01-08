@@ -9,12 +9,14 @@ void VHBoostedPlots::FillPdfScaleUnc(Reader* r, HObj& H, int iPdfStart, int iPdf
       for (int i = 0 ; i < (iPdfStop - iPdfStart) ; ++i) {
         float pdfW = 1.0;
         int iPdf = i+iPdfStart;
-        //if (iPdf < *(r->nLHEPdfWeight)) pdfW = (r->LHEPdfWeight)[iPdf];
+        //PDF,SCALE
+        if (iPdf < *(r->nLHEPdfWeight)) pdfW = (r->LHEPdfWeight)[iPdf];
         h_HMass_LHEPdfs[i]->Fill(H.m_lvec.M(),w*pdfW); 
       }
       for (int i = 0 ; i < nLHEscales ; ++i) {
-        float scaleW = 1.;
-        //float scaleW = (r->LHEScaleWeight)[i];
+        //float scaleW = 1.;
+        //PDF,SCALE
+        float scaleW = (r->LHEScaleWeight)[i];
         h_HMass_LHEScales[i]->Fill(H.m_lvec.M(),w*scaleW);      
       }
 }
