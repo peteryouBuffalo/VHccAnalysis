@@ -408,8 +408,18 @@ void VbbHcc_selector::Process(Reader* r) {
 #endif
   
   //=============Get objects============= 
+  std::string year_str = "2016postVFP";
+#if defined(MC_2016PRE) || defined(DATA_2016B) || defined(DATA_2016C) || defined(DATA_2016D) || defined(DATA_2016E)
+  year_str = "2016preVFP";
+#elif defined(MC_2017) || defined(DATA_2017)
+  year_str = "2017";
+#elif defined(MC_2018) || defined(DATA_2018)
+  year_str = "2018";
+#endif
+
   std::vector<LepObj> eles_jetOverlap ;
   std::vector<LepObj> eles_lepVeto ;
+  float elecVeto_w = 1.0f;
   for (unsigned int i = 0 ; i < *(r->nElectron) ; ++i) {
     
     float etaSC = (r->Electron_eta)[i]+(r->Electron_deltaEtaSC[i]) ;
@@ -431,10 +441,21 @@ void VbbHcc_selector::Process(Reader* r) {
         eles_lepVeto.push_back(ele) ;
       }
     }
+
+    float abseta = abs((r->Electron_eta)[i]);
+    float pt = (r->Electron_pt)[i];
+
+    auto map = m_corrPtrElec->at("UL-Electron-ID-SF");
+    auto sf = 1.0;
+    if (pt > 10) sf = map->evaluate({year_str, m_eleUncType, "Loose", abseta, pt});
+    //h_elec_id_sf->Fill(sf);
+    elecVeto_w *= sf;
   }
+  evtW *= elecVeto_w;
 
   std::vector<LepObj> muons_jetOverlap ;
   std::vector<LepObj> muons_lepVeto ;
+  float muonVeto_w = 1.0f;
   for (unsigned int i = 0 ; i < *(r->nMuon) ; ++i) {
     LepObj muon((r->Muon_pt)[i],(r->Muon_eta)[i],-1,(r->Muon_phi)[i],(r->Muon_mass)[i],i,(r->Muon_charge)[i],(r->Muon_pfRelIso04_all)[i]) ;
     //float sf_rc = MuonRcSF(r, muon, 13) ;
@@ -451,7 +472,39 @@ void VbbHcc_selector::Process(Reader* r) {
         muons_lepVeto.push_back(muon) ;
       }
     }
+
+    float abseta = abs((r->Muon_eta)[i]);
+    float pt = (r->Muon_pt)[i];
+    //h_muon_pt->Fill(pt);
+
+    float sf = 1.0f;
+
+    bool in_eta_range = abseta < 2.4;
+    float sf_reco = 1.0f;
+    if (in_eta_range && pt > 40){
+      auto map_reco = m_corrPtrMuon->at("NUM_TrackerMuons_DEN_genTracks");
+      sf_reco = map_reco->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_reco_sf->Fill(sf_reco);
+
+    float sf_ID = 1.0f;
+    if (in_eta_range && pt > 15) {
+      auto map_ID = m_corrPtrMuon->at("NUM_LooseID_DEN_TrackerMuons");
+      sf_ID = map_ID->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_id_sf->Fill(sf_ID);
+
+    float sf_iso = 1.0f;
+    if (in_eta_range && pt > 15) {
+      auto map_iso = m_corrPtrMuon->at("NUM_LooseRelIso_DEN_LooseID");
+      float sf_iso = map_iso->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_iso_sf->Fill(sf_iso);
+
+    sf = sf_reco * sf_ID * sf_iso;
+    muonVeto_w *= sf;
   }
+  evtW *= muonVeto_w;
   
   std::vector<LepObj> taus_lepVeto ;
   for (unsigned int i = 0 ; i < *(r->nTau) ; ++i) {
@@ -490,6 +543,24 @@ void VbbHcc_selector::Process(Reader* r) {
   }
 #endif
 
+  //ak04 gen jets
+  std::vector<JetObjBoosted> genJetAK4;
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
+  for (unsigned int i = 0; i < *(r->nGenJet); ++i) {
+    int jetFlav = (r->GenJet_hadronFlavour)[i];
+    JetObjBoosted jet(
+      (r->GenJet_pt)[i], (r->GenJet_eta)[i], (r->GenJet_phi)[i], // pT, eta, phi              \
+                                                                                               
+      (r->GenJet_mass)[i], jetFlav, // mass & jet flavor                                       
+      -1.0, -1.0, -1.0,
+      -1.0, -1.0,
+      -1.0, -1.0,-1.0,
+      -1, -1, -1, -1, -1);  // remaining values                                                
+    genJetAK4.push_back(jet);
+  }
+  //std::cout << "Got past gen jet AK4 loop..." << std::endl;                                  
+#endif
+
   //ak08 jets
   std::vector<JetObjBoosted> jets ;
   for (unsigned int i = 0 ; i < *(r->nFatJet) ; ++i) {
@@ -524,7 +595,6 @@ void VbbHcc_selector::Process(Reader* r) {
     if (m_jetmetSystType == "jer4u") jetPt = (r->FatJet_pt_jer4Up)[i];
     if (m_jetmetSystType == "jer4d") jetPt = (r->FatJet_pt_jer4Down)[i];
 #endif
-
     
     // Calculate the JES & unc to use. The new recommendation is you need to calculate the values
     // for the individual AK4 subjects and then use this for the AK8 jet. NOTE: The only correction
@@ -534,49 +604,82 @@ void VbbHcc_selector::Process(Reader* r) {
 
     // Get the subjets, run the JES+JER corrections over them,
     // and then use them to calculate the "corrected" SD mass.
-    std::map<std::string, float> jetMap;
-    jetMap["pt_raw"] = (r->FatJet_pt)[i] * (1 - (r->FatJet_rawFactor)[i]);
-    jetMap["eta"] = (r->FatJet_eta)[i];
-    //jetMap["pt_nom"] = jetPt;
-    jetMap["area"] = (r->FatJet_area)[i];
+    Int_t idx1 = (r->FatJet_subJetIdx1)[i];
+    Int_t idx2 = (r->FatJet_subJetIdx2)[i];
 
-    float m_raw = (r->FatJet_msoftdrop)[i] * (1 - (r->FatJet_rawFactor)[i]);
+    int nsub = 0;
+    if (idx1 >= 0) nsub++;
+    if (idx2 >= 0) nsub++;
+    if (nsub < 2) continue;
 
-#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
-    float rho = *(r->Pileup_pudensity);
-#elif defined(DATA_2016PRE) || defined(DATA_2016) || defined(DATA_2017) || defined(DATA_2018)
-    float rho = 1.0;
-#endif
-    jetMap["rho"] = rho;
-    h_jesUnc->FillUnc("RawFactor", 0, (r->FatJet_rawFactor)[i]);
-    h_jesUnc->FillUnc("1mRawFactor", 0, 1.0 - (r->FatJet_rawFactor)[i]);
+    /// PLOT CODE GOES HERE
 
-    double JES_pt = CalculateJES(jetMap, "pt", m_jetmetSystType, m_isData);
-    double JES_m  = CalculateJES(jetMap, "mass", m_jetmetSystType, m_isData);
-    
-    //FIXME: use default JEC for corrM corrPt now
-    double corrM = m_raw * JES_m;
-    double corrPt = jetMap["pt_raw"] * JES_pt;
-    //double corrM = (r->FatJet_msoftdrop)[i]; //already has JEC
-    //double corrPt = (r->FatJet_pt)[i]; //already has JEC, need to add JER
+    std::map<std::string, float> subMap1;
+    std::map<std::string, float> subMap2;
 
-    jetMap["pt"] = corrPt;
-    jetMap["mass"] = corrM;
-    jetMap["phi"] = (r->FatJet_phi)[i];
-    
+    float dummy_area = 0.5f * M_PI * 0.4 * 0.4;
+    float rho = *(r->fixedGridRhoFastjetAll);
+
+    subMap1["area"] = dummy_area;
+    subMap2["area"] = dummy_area;
+    subMap1["rho"] = rho;
+    subMap2["rho"] = rho;
+
+    subMap1["pt_raw"] = (r->SubJet_pt)[idx1] * (1 - (r->SubJet_rawFactor)[idx1]);
+    subMap2["pt_raw"] = (r->SubJet_pt)[idx2] * (1 - (r->SubJet_rawFactor)[idx2]);
+    subMap1["eta"] = (r->SubJet_eta)[idx1];
+    subMap2["eta"] = (r->SubJet_eta)[idx2];
+
+    double JES_sub1_pt = CalculateJES(subMap1, "pt", m_jetmetSystType, m_isData);
+    double JES_sub2_pt = CalculateJES(subMap2, "pt", m_jetmetSystType, m_isData);
+    double JES_sub1_m  = CalculateJES(subMap1, "mass", m_jetmetSystType, m_isData);
+    double JES_sub2_m  = CalculateJES(subMap2, "mass", m_jetmetSystType, m_isData);
+
+    double m_raw_1 = (r->SubJet_mass)[idx1] * (1 - (r->SubJet_rawFactor)[idx1]);
+    double m_raw_2 = (r->SubJet_mass)[idx2] * (1 - (r->SubJet_rawFactor)[idx2]);
+    double corrM_1 = m_raw_1 * JES_sub1_m;
+    double corrM_2 = m_raw_2 * JES_sub2_m;
+    double corrPt_1 = subMap1["pt_raw"] * JES_sub1_pt;
+    double corrPt_2 = subMap2["pt_raw"] * JES_sub2_pt;
+
+    subMap1["pt"] = corrPt_1; subMap1["mass"] = corrM_1; subMap1["phi"] = (r->SubJet_phi)[idx1];
+    subMap2["pt"] = corrPt_2; subMap2["mass"] = corrM_2; subMap2["phi"] = (r->SubJet_phi)[idx2];
+
     // Calculate the JER corrections. This is only done for MC.
     // It can be done using the exact same correction set.
-    // do not apply JER for 2017 for now since does not have JER in correction set
+    // Do not apply JER for 2017 for nwo since it does not  have JER in correction set.
+
+    
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2018)
-    float cJER = CalculateJER(jetMap, genJetAK8, "pt", m_jetmetSystType); 
+    //float tmp = 1.0f;
+    float cJER_1 = CalculateJER(subMap1, genJetAK4, "pt", m_jetmetSystType);
+    float cJER_2 = CalculateJER(subMap2, genJetAK4, "pt", m_jetmetSystType);
 #else
-    float cJER = 1.0f;
+    //float tmp = 1.0f;
+    float cJER_1 = 1.0f;
+    float cJER_2 = 1.0f;
 #endif
+    
+    //if JER negative or zero do nothing                                                       
+    if (cJER_1 <= 0) cJER_1 = 1.0f;
+    if (cJER_2 <= 0) cJER_2 = 1.0f;
+    corrPt_1 *= cJER_1;
+    corrPt_2 *= cJER_2;
+    
+    // Calculate the SD mass using the di-subjet mass.                                         
+    TLorentzVector sub_vec_1, sub_vec_2;
+    sub_vec_1.SetPtEtaPhiM(corrPt_1, subMap1["eta"], subMap1["phi"], corrM_1);
+    sub_vec_2.SetPtEtaPhiM(corrPt_2, subMap2["eta"], subMap2["phi"], corrM_2);
 
-    //if JER negative or zero do nothing
-    if (cJER <= 0) cJER = 1.0;
-    corrPt *= cJER;
-
+    // NOTE: There are cases where we only have one subjet.                                    
+    // This is meant to take care of those cases. In those                                     
+    // cases, the subjet's mass is equals to the AK8 m_sd.                                     
+    TLorentzVector jetak8 = sub_vec_1 + sub_vec_2;
+    //if (idx1 < 0) jetak8 = sub_vec_2;                                                        
+    //if (idx2 < 0) jetak8 = sub_vec_1;                                                        
+    float corrM = jetak8.M();
+    float corrPt = jetak8.Pt();
+    
     auto msdCorr = correctionSet_msd->at("msdfjcorr"); //this is correction applied to JEC correct mass
     float wmass_corr = 1;
     if ((r->FatJet_pt)[i]>0) wmass_corr = msdCorr->evaluate({(r->FatJet_msoftdrop)[i]/(r->FatJet_pt)[i],log((r->FatJet_pt)[i]),(r->FatJet_eta)[i]});
@@ -786,7 +889,7 @@ void VbbHcc_selector::Process(Reader* r) {
     float jetPtMax = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
     float jetPtMin = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
-    trigSF = GetTrigSF(jetPtMax,jetPtMin);
+    trigSF = GetTrigSF(jetPtMax,jetPtMin, m_trigUncType);
 #endif  
 
     //std::cout << "\n Weights: " << evtW << " " << tagW << " " << evtW_tag << " " << trigSF ;

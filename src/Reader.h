@@ -31,6 +31,7 @@ public :
    TTreeReaderValue<UInt_t> luminosityBlock = {fReader, "luminosityBlock"};
    TTreeReaderValue<ULong64_t> event = {fReader, "event"};
 #endif
+   TTreeReaderValue<Float_t> fixedGridRhoFastjetAll = {fReader, "fixedGridRhoFastjetAll" };
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017)
    TTreeReaderValue<Float_t> L1PreFiringWeight_Dn = {fReader, "L1PreFiringWeight_Dn"};
@@ -251,6 +252,13 @@ public :
   //TTreeReaderValue<UInt_t> nGenJet = {fReader, "nGenJet"};
   //TTreeReaderArray<Float_t> GenJet_eta = {fReader, "GenJet_eta"};
   //TTreeReaderArray<Float_t> GenJet_pt = {fReader, "GenJet_pt"};
+
+  TTreeReaderValue<UInt_t> nGenJet = {fReader, "nGenJet"};
+  TTreeReaderArray<Float_t> GenJet_eta = {fReader, "GenJet_eta"};
+  TTreeReaderArray<Float_t> GenJet_pt = {fReader, "GenJet_pt"};
+  TTreeReaderArray<Float_t> GenJet_mass = {fReader, "GenJet_mass"};
+  TTreeReaderArray<Float_t> GenJet_phi = {fReader, "GenJet_phi"};
+  TTreeReaderArray<UChar_t> GenJet_hadronFlavour = {fReader, "GenJet_hadronFlavour"};
 #endif
 
    // Electron

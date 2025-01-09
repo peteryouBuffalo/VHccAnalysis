@@ -4,5 +4,6 @@ Tmp*/*
 condor_results*/*
 # No object files
 *.o
+*_dict*.*
 # No log files
 log*.*
