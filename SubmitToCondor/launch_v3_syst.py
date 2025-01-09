@@ -103,14 +103,15 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 # Settings
 # /////////////////////////////////////////////////////////////////////////////
-runMode = 0     # 0 : submit, 1 : check output and hadd output file
+runMode = 1     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
 debug = False   # just run on 10000
 haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
 #syst = 'NONE'   # NONE, PUU, PUD
-syst_list = ['NONE','JESU','JESD','PUU','PUD']
+syst_list = ['NONE','JESU','JESD','PUU','PUD',
+             'PDFG0', 'PDFG1', 'PDFG2', 'SCALE']
 #if len(sys.argv) > 1:
 #  syst = sys.argv[1]
 centralGenWeight = 0
@@ -118,16 +119,17 @@ centralGenWeight = 0
 for syst in syst_list:
   
   # Paths, Locations (CHANGE THESE)
-  sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/'
+  sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
   condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test/'
   outputDir_eos = '/store/user/peteryou/Output_VHcc/test/' + syst + '/'
-  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHanalysis/condor_results/test/' + syst + '/'
+  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/' + syst + '/'
   
   # Input data sets
   dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC.txt"
   dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
   dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
   dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
@@ -135,6 +137,7 @@ for syst in syst_list:
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]

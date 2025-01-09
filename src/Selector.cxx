@@ -573,12 +573,37 @@ float Selector::CalculateJES(std::map<std::string, float> jet_info, std::string 
   year = "Summer19UL17_V5";
 #elif defined(MC_2018) || defined(DATA_2018)
   year = "Summer19UL18_V5";
+#elif defined(DATA_2016B) || defined(DATA_2016C) || defined(DATA_2016D)
+  year = "Summer19UL16APV_RunBCD_V7";
+#elif defined(DATA_2016E)
+  year = "Summer19UL16APV_RunEF_V7";
+#elif defined(DATA_2016F) || defined(DATA_2016G) || defined(DATA_2016H)
+  year = "Summer19UL16_RunFGH_V7";
+#elif defined(DATA_2017B)
+  year = "Summer19UL17_RunB_V5";
+#elif defined(DATA_2017C)
+  year = "Summer19UL17_RunC_V5";
+#elif defined(DATA_2017D)
+  year = "Summer19UL17_RunD_V5";
+#elif defined(DATA_2017E)
+  year = "Summer19UL17_RunE_V5";
+#elif defined(DATA_2017F)
+  year = "Summer19UL17_RunF_V5";
+#elif defined(DATA_2018A)
+  year = "Summer19UL18_RunA_V5";
+#elif defined(DATA_2018B)
+  year = "Summer19UL18_RunB_V5";
+#elif defined(DATA_2018C)
+  year = "Summer19UL18_RunC_V5";
+#elif defined(DATA_2018D)
+  year = "Summer19UL18_RunD_V5";
 #endif
+
 
   for (auto my_pair : corr_map)
   {
     std::string mc_data_str = (isData) ? "DATA" : "MC";
-    std::string full_source = year + "_" + mc_data_str + "_" + my_pair.second + "_AK8PFPuppi";
+    std::string full_source = year + "_" + mc_data_str + "_" + my_pair.second + "_AK4PFchs";
 
     try {
       auto jes_info = m_corrPtrJEC->at(full_source);
@@ -595,6 +620,8 @@ float Selector::CalculateJES(std::map<std::string, float> jet_info, std::string 
       std::cout << "ERROR: trouble getting source = '" << full_source << "'" << std::endl;
     }
   }
+
+  if (isData) return sf;
 
   // To get the total uncertainty, we need to calculate the sub total unc                     
   // for the following categories:                                                            
@@ -648,14 +675,14 @@ tiveStatEC",
 
     for (size_t i = 0; i < names.size(); ++i)
     {
-      std::string fullSource = year + "_MC_" + names[i] + "_AK8PFPuppi";
+      std::string fullSource = year + "_MC_" + names[i] + "_AK4PFchs";
       //std::cout << "unc : " << fullSource << std::endl;                                     
       auto jes_unc = m_corrPtrJEC->at(fullSource);
       double unc = jes_unc->evaluate({eta,pt_raw});
       uncSub += pow(unc, 2);
     }
 
-    std::string full_source = year + "_MC_" + my_pair.first + "_AK8PFPuppi";
+    std::string full_source = year + "_MC_" + my_pair.first + "_AK4PFchs";
     auto jes_stored = m_corrPtrJEC->at(full_source);
     float stored = jes_stored->evaluate({eta, pt_raw});
 
@@ -668,7 +695,7 @@ tiveStatEC",
   uncAbs = sqrt(uncAbs);
   sub_tot_map["SubTotalAbsolute"] = uncAbs;
 
-  auto jes_stored = m_corrPtrJEC->at(year + "_MC_SubTotalAbsolute_AK8PFPuppi");
+  auto jes_stored = m_corrPtrJEC->at(year + "_MC_SubTotalAbsolute_AK4PFchs");
   float stored = jes_stored->evaluate({eta,pt_raw});
   if (plots != NULL) plots->FillUnc("SubTotalAbsolute", uncAbs, stored);
 
@@ -680,7 +707,7 @@ tiveStatEC",
   }
   uncTot = sqrt(uncTot);
 
-  jes_stored = m_corrPtrJEC->at(year + "_MC_Total_AK8PFPuppi");
+  jes_stored = m_corrPtrJEC->at(year + "_MC_Total_AK4PFchs");
   stored = jes_stored->evaluate({eta,pt_raw});
   if (plots != NULL) plots->FillUnc("Total", uncTot, stored);
   
@@ -747,12 +774,12 @@ float Selector::CalculateJER(std::map<std::string, float> jet_info, std::vector<
   
   //auto correctionSet = correction::CorrectionSet::from_file(m_jec_corFilename);
 
-  auto jer_set = m_corrPtrJEC->at(year + "_MC_ScaleFactor_AK8PFPuppi");
+  auto jer_set = m_corrPtrJEC->at(year + "_MC_ScaleFactor_AK4PFchs");
   float sJER = jer_set->evaluate({eta, "nom"});
   float sJER_up = jer_set->evaluate({eta, "up"});
   float sJER_dn = jer_set->evaluate({eta, "down"});
 
-  auto unc_set = m_corrPtrJEC->at(year + "_MC_PtResolution_AK8PFPuppi");
+  auto unc_set = m_corrPtrJEC->at(year + "_MC_PtResolution_AK4PFchs");
   float res = unc_set->evaluate({eta, pt, rho});
 
   // See if we have an AK8 gen jet that matches our jet criteria.
