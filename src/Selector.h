@@ -45,7 +45,9 @@ class Selector
 
   virtual void SetJECcorr(std::string jsonFileName);
   virtual void SetMSDcorr(std::string jsonFileName);
-  
+  virtual void SetElecCorr(std::string jsonFileName);
+  virtual void SetMuonCorr(std::string jsonFileName);
+
   virtual float PileupSF(int nTrueInt);
   virtual std::vector<float> GetSF_2DHist(float x, float y, std::vector<TH2F*> h, std::vector<float> w);
   virtual float CalBtagWeight(std::vector<JetObj>& jets, std::string jet_main_bTagWP="deepCSVT", std::string uncType="central") ;
@@ -64,7 +66,7 @@ class Selector
 
   virtual float Get_xccbb_weight(std::vector<JetObjBoosted>& fatJets, int idx_excludedJet, float XbbCut, float XccCut, std::string type);
   virtual float GetTrigSF(float jetPt) ;
-  virtual float GetTrigSF(float jetPt1, float jetPt2) ; //Pt1 > Pt2
+  virtual float GetTrigSF(float jetPt1, float jetPt2, std::string uncType="central") ; //Pt1 > Pt2
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
   //virtual unsigned MatchGenLep(Reader* r, LepObj lep, int pdgId) ;
@@ -86,6 +88,10 @@ class Selector
     if (pdfScaleSystType == "pdfg2") {m_iPdfStart=70; m_iPdfStop=103;}
   };
 
+  virtual void SetElecUncType(std::string elecUncType) { m_eleUncType = elecUncType; };
+  virtual void SetMuonUncType(std::string muonUncType) { m_muonUncType = muonUncType; };
+  virtual void SetTrigUncType(std::string trigUncType) { m_trigUncType = trigUncType; };
+  
   virtual void SetModelUnc(std::string modelUncType) {m_modelUncType=modelUncType; };
   
   virtual float DH(float mH,float mZ) {
@@ -132,6 +138,11 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
   std::string m_jec_corFilename;
   std::string m_msd_corFilename;
 
+  std::string m_eff_muonFilename;
+  std::string m_eff_elecFilename;
+  TFile* m_muonEffFile;
+  TFile* m_elecEffFile;
+
   //correction::CorrectionSet m_jec_corrSet;
   //correction::CorrectionSet m_msd_corrSet;
 
@@ -151,6 +162,8 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
   std::unique_ptr<correction::CorrectionSet> m_corrPtrBtag;
   std::unique_ptr<correction::CorrectionSet> m_corrPtrJEC;
   std::unique_ptr<correction::CorrectionSet> m_corrPtrMSD;
+  std::unique_ptr<correction::CorrectionSet> m_corrPtrElec;
+  std::unique_ptr<correction::CorrectionSet> m_corrPtrMuon;
   
   std::map<std::string, std::vector<TH1D*> > m_hEff1D_xbb_xcc; //eff vs. pt, use in tagging weight 
   std::map<std::string, std::vector<TH2D*> > m_hEff_xbb_xcc; //eff vs. pt and eta used in QCD weight, FIXME actually it should be SF
@@ -166,6 +179,7 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
   std::string m_jetPUidUncType;
   std::string m_modelUncType;
   std::string m_hfTagUncType;
+  std::string m_trigUncType;
 
   //unsigned m_nScale;
   std::string m_scaleUnc;

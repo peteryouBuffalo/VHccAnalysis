@@ -408,8 +408,18 @@ void VbbHcc_selector::Process(Reader* r) {
 #endif
   
   //=============Get objects============= 
+  std::string year_str = "2016postVFP";
+#if defined(MC_2016PRE) || defined(DATA_2016B) || defined(DATA_2016C) || defined(DATA_2016D) || defined(DATA_2016E)
+  year_str = "2016preVFP";
+#elif defined(MC_2017) || defined(DATA_2017)
+  year_str = "2017";
+#elif defined(MC_2018) || defined(DATA_2018)
+  year_str = "2018";
+#endif
+
   std::vector<LepObj> eles_jetOverlap ;
   std::vector<LepObj> eles_lepVeto ;
+  float elecVeto_w = 1.0f;
   for (unsigned int i = 0 ; i < *(r->nElectron) ; ++i) {
     
     float etaSC = (r->Electron_eta)[i]+(r->Electron_deltaEtaSC[i]) ;
@@ -431,10 +441,21 @@ void VbbHcc_selector::Process(Reader* r) {
         eles_lepVeto.push_back(ele) ;
       }
     }
+
+    float abseta = abs((r->Electron_eta)[i]);
+    float pt = (r->Electron_pt)[i];
+
+    auto map = m_corrPtrElec->at("UL-Electron-ID-SF");
+    auto sf = 1.0;
+    if (pt > 10) sf = map->evaluate({year_str, m_eleUncType, "Loose", abseta, pt});
+    //h_elec_id_sf->Fill(sf);
+    elecVeto_w *= sf;
   }
+  evtW *= elecVeto_w;
 
   std::vector<LepObj> muons_jetOverlap ;
   std::vector<LepObj> muons_lepVeto ;
+  float muonVeto_w = 1.0f;
   for (unsigned int i = 0 ; i < *(r->nMuon) ; ++i) {
     LepObj muon((r->Muon_pt)[i],(r->Muon_eta)[i],-1,(r->Muon_phi)[i],(r->Muon_mass)[i],i,(r->Muon_charge)[i],(r->Muon_pfRelIso04_all)[i]) ;
     //float sf_rc = MuonRcSF(r, muon, 13) ;
@@ -451,7 +472,39 @@ void VbbHcc_selector::Process(Reader* r) {
         muons_lepVeto.push_back(muon) ;
       }
     }
+
+    float abseta = abs((r->Muon_eta)[i]);
+    float pt = (r->Muon_pt)[i];
+    //h_muon_pt->Fill(pt);
+
+    float sf = 1.0f;
+
+    bool in_eta_range = abseta < 2.4;
+    float sf_reco = 1.0f;
+    if (in_eta_range && pt > 40){
+      auto map_reco = m_corrPtrMuon->at("NUM_TrackerMuons_DEN_genTracks");
+      sf_reco = map_reco->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_reco_sf->Fill(sf_reco);
+
+    float sf_ID = 1.0f;
+    if (in_eta_range && pt > 15) {
+      auto map_ID = m_corrPtrMuon->at("NUM_LooseID_DEN_TrackerMuons");
+      sf_ID = map_ID->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_id_sf->Fill(sf_ID);
+
+    float sf_iso = 1.0f;
+    if (in_eta_range && pt > 15) {
+      auto map_iso = m_corrPtrMuon->at("NUM_LooseRelIso_DEN_LooseID");
+      float sf_iso = map_iso->evaluate({abseta, pt, m_muonUncType});
+    }
+    //h_muon_iso_sf->Fill(sf_iso);
+
+    sf = sf_reco * sf_ID * sf_iso;
+    muonVeto_w *= sf;
   }
+  evtW *= muonVeto_w;
   
   std::vector<LepObj> taus_lepVeto ;
   for (unsigned int i = 0 ; i < *(r->nTau) ; ++i) {
@@ -836,7 +889,7 @@ void VbbHcc_selector::Process(Reader* r) {
     float jetPtMax = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
     float jetPtMin = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
-    trigSF = GetTrigSF(jetPtMax,jetPtMin);
+    trigSF = GetTrigSF(jetPtMax,jetPtMin, m_trigUncType);
 #endif  
 
     //std::cout << "\n Weights: " << evtW << " " << tagW << " " << evtW_tag << " " << trigSF ;

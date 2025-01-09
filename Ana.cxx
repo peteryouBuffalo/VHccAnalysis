@@ -208,14 +208,16 @@ int main(int argc, char *argv[]) {
   std::string fName_xbb_xcc_sf("CalibData/xcc_qcd_weights_looseWP.root"); //to calculate the weight for QCD xcc xbb
   std::string fName_xbb_xcc_eff(xccEffFileName); //to calculate the weight for QCD xcc xbb
   std::string fName_triggerSF("CalibData/trigger_turn_on.root"); //to calculate the weight for QCD xcc xbb
-
+  
   if (year == "2016PRE") tmp = "2016preVFP";
   if (year == "2016") tmp = "2016postVFP";
-  std::string fName_jec("CalibData/jme/"+tmp+"_UL/fatJet_jerc.json.gz");
-
+  std::string fName_jec("CalibData/jme/"+tmp+"_UL/jet_jerc.json.gz");
+  std::string fName_elec_sf("CalibData/egamma/" + tmp + "_UL/electron.json.gz");
+  std::string fName_muon_sf("CalibData/muon/" + tmp + "_UL/muon_Z.json.gz");
+  
   std::string tmp2 = year;
   if (year == "2016PRE") tmp2 = "2016";
-  std::string fName_msd("CalibData/jme/"+tmp+"_UL/msdcorr_" + year + ".json"); 
+  std::string fName_msd("CalibData/jme/"+tmp+"_UL/msdcorr_" + tmp2 + ".json"); 
   
   //Syst
   //if (syst == "L1PREFIRINGU") sel.SetL1prefiring("l1prefiringu");
@@ -269,8 +271,18 @@ int main(int argc, char *argv[]) {
   //VbbHcc_sel_unc.SetHFtagUncType("central");
   //if (syst == "TAG_BBU") VbbHcc_sel_unc.SetHFtagUncType("bbup");
   //if (syst == "TAG_BBD") VbbHcc_sel_unc.SetHFtagUncType("bbdown");
-  //if (syst == "TAG_CCU") VbbHcc_sel_unc.SetHFtagUncType("ccup");
-  //if (syst == "TAG_CCD") VbbHcc_sel_unc.SetHFtagUncType("ccdown");
+  if (syst == "TAG_CCU") VbbHcc_sel.SetHFtagUncType("ccup");
+  if (syst == "TAG_CCD") VbbHcc_sel.SetHFtagUncType("ccdown");
+
+  VbbHcc_sel.SetElecUncType("sf");
+  VbbHcc_sel.SetMuonUncType("nominal");
+  if (syst == "ELECU") VbbHcc_sel.SetElecUncType("sfup");
+  if (syst == "ELECD") VbbHcc_sel.SetElecUncType("sfdown");
+  if (syst == "MUONU") VbbHcc_sel.SetMuonUncType("systup");
+  if (syst == "MUOND") VbbHcc_sel.SetMuonUncType("systdown");
+
+  if (syst == "TRIGU") VbbHcc_sel.SetTrigUncType("up");
+  if (syst == "TRIGD") VbbHcc_sel.SetTrigUncType("down");
 
 #if defined(DATA_2016PRE) || defined(DATA_2016)
   //std::string fName_lumiMaskFilter("CalibData/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt");
@@ -322,6 +334,8 @@ int main(int argc, char *argv[]) {
 
   VbbHcc_sel.SetJECcorr(fName_jec);                                                         
   VbbHcc_sel.SetMSDcorr(fName_msd); 
+  VbbHcc_sel.SetElecCorr(fName_elec_sf);
+  VbbHcc_sel.SetMuonCorr(fName_muon_sf);
   
   std::string fName_n2b1_cut = "CalibData/n2b1_cut.root"; 
   

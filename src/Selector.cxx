@@ -47,6 +47,16 @@ void Selector::SetMSDcorr(std::string jsonFileName){
   m_corrPtrMSD = correction::CorrectionSet::from_file(jsonFileName);
 }
 
+void Selector::SetElecCorr(std::string jsonFileName) {
+  m_eff_elecFilename = jsonFileName;
+  m_corrPtrElec = correction::CorrectionSet::from_file(jsonFileName);
+}
+
+void Selector::SetMuonCorr(std::string jsonFileName) {
+  m_eff_muonFilename = jsonFileName;
+  m_corrPtrMuon = correction::CorrectionSet::from_file(jsonFileName);
+}
+
 void Selector::SetEleEffCorr(std::vector<std::string> fName_trig,std::string fName_recSF, std::string fName_IDSF, std::vector<float> w_trig, std::string eleUncType) {
   std::string trigN("EGamma_SF2D");
   TFile* fRec = new TFile(fName_recSF.c_str(),"READ") ;
@@ -219,11 +229,16 @@ float Selector::GetTrigSF(float jetPt) {
   return m_hTrig_SF->GetPointY(iB);
 }
 
-float Selector::GetTrigSF(float jetPt1, float jetPt2) { //pt1, pt2 = leading, subleading
+float Selector::GetTrigSF(float jetPt1, float jetPt2, std::string uncType) { //pt1, pt2 = leading, subleading
   unsigned iPt1_y = m_hTrig_SF_2D->GetYaxis()->FindFixBin(jetPt1);
   unsigned iPt2_x = m_hTrig_SF_2D->GetXaxis()->FindFixBin(jetPt2);
   //std::cout << "\n " << m_hTrig_SF_2D->GetName() << " " << jetPt2 << " " << iPt2_x << " " << jetPt1 << " " << iPt1_y << " " << m_hTrig_SF_2D->GetBinContent(iPt2_x,iPt1_y);
-  return m_hTrig_SF_2D->GetBinContent(iPt2_x,iPt1_y);
+  float central = m_hTrig_SF_2D->GetBinContent(iPt2_x,iPt1_y);
+  float error = m_hTrig_SF_2D->GetBinError(iPt2_x,iPt1_y);
+
+  if (uncType == "up") return central + error;
+  if (uncType == "down") return central - error;
+  return central;
 }
 
 
