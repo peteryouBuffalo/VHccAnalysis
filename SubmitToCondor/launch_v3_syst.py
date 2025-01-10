@@ -110,7 +110,9 @@ haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
 #syst = 'NONE'   # NONE, PUU, PUD
-syst_list = ['NONE','JESU','JESD','PUU','PUD',
+syst_list = ['NONE','JESU','JESD','PUU','PUD', 'L1PREFIRINGU',
+             'L1PREFIRINGD', 'TAG_CCU', 'TAG_CCD', 'ELECU',
+             'ELECD', 'MUONU', 'MUOND', 'TRIGU', 'TRIGD',
              'PDFG0', 'PDFG1', 'PDFG2', 'SCALE']
 #if len(sys.argv) > 1:
 #  syst = sys.argv[1]
@@ -130,6 +132,7 @@ for syst in syst_list:
   dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
   dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
   dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_signal_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
@@ -138,6 +141,7 @@ for syst in syst_list:
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
   dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_signal_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]
@@ -177,130 +181,131 @@ for syst in syst_list:
     else:
       print("Invalid input. Please try again")
 
-## EVERYTHING HERE DOWN NEEDS TO BE INDENTED ONCE MORE
-      
+## Everything below here should be intended over so that it's within the
+## sample's for-loop. It has been modified to take this into account.
+
 # /////////////////////////////////////////////////////////////////////////////
 # Main Code (DO NOT EDIT BELOW HERE)
 # /////////////////////////////////////////////////////////////////////////////
-samples_input = []
-if len(sys.argv) > 2:
-  samples_input = sys.argv[2].split(',')
+  samples_input = []
+  if len(sys.argv) > 2:
+    samples_input = sys.argv[2].split(',')
 
-# Add all samples together
-lines = []
-for dS_list in dataSet_lists:
-  json_file = open(dataSet_list)
-  samples = json.load(json_file)
-  lines = lines + list(samples.keys())
+  # Add all samples together
+  lines = []
+  for dS_list in dataSet_lists:
+    json_file = open(dataSet_list)
+    samples = json.load(json_file)
+    lines = lines + list(samples.keys())
 
-#for i in range(len(lines)):
-#  print(i, ": ", lines[i])
+  #for i in range(len(lines)):
+  #  print(i, ": ", lines[i])
 
-sample_format = ''
-nanoaod_format= ''
-
-dir_affix = 'test'
-
-for line in lines:
-  if len(samples_input) > 0 and line not in samples_input:
-    continue
-  print('=========================')
-  print('Processing sample: ', line)
+  sample_format = ''
+  nanoaod_format= ''
   
-  data_name = line
-  work_dir = condorRunDir+'/condor_run/' + data_name + '_' + dir_affix
-  if syst != 'none':
-    work_dir = condorRunDir+'/condor_run_'+syst+'/' + data_name + '_' + dir_affix
-
-  if 'preVFP' in line:
-    sample_subformat = data_name.split('_')[-3] + '_' + data_name.split('_')[-2]
-  else:
-    sample_subformat = data_name.split('_')[-2] + '_' + data_name.split('_')[-1]
+  dir_affix = 'test'
   
-  if 'DATA' in sample_subformat:
-    sample_format = sample_subformat[:-1]
-    preVFP = ['DATA_2016B', 'DATA_2016C', 'DATA_2016D', 'DATA_2016E']
-    if sample_subformat in preVFP or ('HIPM_DATA_2016F' in line):
-      sample_format = sample_format + "PRE"
-  else:
+  for line in lines:
+    if len(samples_input) > 0 and line not in samples_input:
+      continue
+    print('=========================')
+    print('Processing sample: ', line)
+    
+    data_name = line
+    work_dir = condorRunDir+'/condor_run/' + data_name + '_' + dir_affix
+    if syst != 'none':
+      work_dir = condorRunDir+'/condor_run_'+syst+'/' + data_name + '_' + dir_affix
+  
     if 'preVFP' in line:
-      sample_subformat = sample_subformat + 'PRE'
-    sample_format = sample_subformat
+      sample_subformat = data_name.split('_')[-3] + '_' + data_name.split('_')[-2]
+    else:
+      sample_subformat = data_name.split('_')[-2] + '_' + data_name.split('_')[-1]
+    
+    if 'DATA' in sample_subformat:
+      sample_format = sample_subformat[:-1]
+      preVFP = ['DATA_2016B', 'DATA_2016C', 'DATA_2016D', 'DATA_2016E']
+      if sample_subformat in preVFP or ('HIPM_DATA_2016F' in line):
+        sample_format = sample_format + "PRE"
+    else:
+      if 'preVFP' in line:
+        sample_subformat = sample_subformat + 'PRE'
+      sample_format = sample_subformat
   
-  #used to turn on final state break down for VZ process like qqcc, qccc, etc.
-  VZsample = "MC_NOTVZ"
-  if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
-
-  print(sample_format, sample_subformat, VZsample)
-
-  nanoaod_format='NANOAODV9'
-  dir_final_rootFile = outputDir_eos + '/' + data_name
+    #used to turn on final state break down for VZ process like qqcc, qccc, etc.
+    VZsample = "MC_NOTVZ"
+    if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
+  
+    print(sample_format, sample_subformat, VZsample)
+  
+    nanoaod_format='NANOAODV9'
+    dir_final_rootFile = outputDir_eos + '/' + data_name
 
 ##########################################################
-  if runMode == 0:
-    if 'sherpa' in line:
-      centralGenWeight = 124598120.
-    else:
-      centralGenWeight = 0
+    if runMode == 0:
+      if 'sherpa' in line:
+        centralGenWeight = 124598120.
+      else:
+        centralGenWeight = 0
+      
+      os.system('eos root://cmseos.fnal.gov rm -r ' + dir_final_rootFile)
+      os.system('eos root://cmseos.fnal.gov mkdir -p ' + dir_final_rootFile)
+  
+      os.system('mkdir -p ' + work_dir)
+      os.system('rm -r ' + work_dir + '/*')
+      
+      os.chdir(work_dir)
+      
+      file_list_name = dir_file_list + '/' + data_name + '.txt' 
+      print('>>>>>>> Use this file list: ', file_list_name)
+   
+      # break list of files to a set of input file list and estimate total jobs, njob
+      nJob = make_input_file_list(nFile, work_dir, file_list_name)
     
-    os.system('eos root://cmseos.fnal.gov rm -r ' + dir_final_rootFile)
-    os.system('eos root://cmseos.fnal.gov mkdir -p ' + dir_final_rootFile)
-
-    os.system('mkdir -p ' + work_dir)
-    os.system('rm -r ' + work_dir + '/*')
+      # prepare condor job configuration
+      write_condor_config(work_dir, sample_format, sample_subformat, VZsample, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
     
-    os.chdir(work_dir)
-    
-    file_list_name = dir_file_list + '/' + data_name + '.txt' 
-    print('>>>>>>> Use this file list: ', file_list_name)
- 
-    # break list of files to a set of input file list and estimate total jobs, njob
-    nJob = make_input_file_list(nFile, work_dir, file_list_name)
-    
-    # prepare condor job configuration
-    write_condor_config(work_dir, sample_format, sample_subformat, VZsample, nanoaod_format, data_name, dir_final_rootFile, nJob, syst, centralGenWeight, debug)
-    
-    # copy codes, ....
-    os.system('cp '+sourceDir+'/Makefile ' + work_dir)
-    os.system('cp '+sourceDir+'/Ana.cxx ' + work_dir)
-    os.system('cp '+sourceDir+'/StdArg.hpp ' + work_dir)
-    os.system('cp -r '+sourceDir+'/src/ ' + work_dir)
-    os.system('cp -r '+sourceDir+'/Configs/ ' + work_dir)
-    os.system('cp -r '+sourceDir+'/CalibData/ ' + work_dir)
-    os.system('cp -r '+sourceDir+'/yaml-cpp/ ' + work_dir)
-    time.sleep(1)
-    os.system('tar -cf input.tar Makefile *.cxx *.hpp src/ Configs/ CalibData/ yaml-cpp/ sampleList_*.txt')
-    
-    # submit jobs
-    if submit: 
+      # copy codes, ....
+      os.system('cp '+sourceDir+'/Makefile ' + work_dir)
+      os.system('cp '+sourceDir+'/Ana.cxx ' + work_dir)
+      os.system('cp '+sourceDir+'/StdArg.hpp ' + work_dir)
+      os.system('cp -r '+sourceDir+'/src/ ' + work_dir)
+      os.system('cp -r '+sourceDir+'/Configs/ ' + work_dir)
+      os.system('cp -r '+sourceDir+'/CalibData/ ' + work_dir)
+      os.system('cp -r '+sourceDir+'/yaml-cpp/ ' + work_dir)
+      time.sleep(1)
+      os.system('tar -cf input.tar Makefile *.cxx *.hpp src/ Configs/ CalibData/ yaml-cpp/ sampleList_*.txt')
+      
+      # submit jobs
+      if submit: 
         os.system('condor_submit condor_config.script')
     
 ##########################################################
-  if runMode == 1:
-    
-    os.chdir(work_dir)
-    #calculate how many jobs submitted
-    os.system('ls sampleList_*.txt >| tmp.txt')
-    time.sleep(1)
-    lines_tmp = open('tmp.txt', 'r').readlines()
-    nJob = len(lines_tmp)
-    #get list of output root files
-    nameTmp = 'outFileListTmp.txt'
-    cmd_tmp = 'xrdfs root://cmseos.fnal.gov/ ls -u ' + dir_final_rootFile + '/ | grep ".root" >| ' + nameTmp
-    os.system(cmd_tmp)
-    ############check total number of root file###################
-    lines_tmp = open(nameTmp).readlines()
-    nJob_current = len(lines_tmp)
-    if nJob_current != nJob:
-      print('============================================')
-      print('Warning: MISSING OUTPUT ROOT FILES, found ', nJob_current, ' files but ', nJob, ' files expected')
-      print(work_dir)
-
-    #############hadd output root files###########
-    os.system('mkdir ' + outputDir_scratch)
-    os.system('rm ' + outputDir_scratch + '/' + data_name + '.root')
-    cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + data_name + '.root @' + nameTmp 
-    print(cmd_hadd)
-    os.system(cmd_hadd)
+    if runMode == 1:
+      
+      os.chdir(work_dir)
+      #calculate how many jobs submitted
+      os.system('ls sampleList_*.txt >| tmp.txt')
+      time.sleep(1)
+      lines_tmp = open('tmp.txt', 'r').readlines()
+      nJob = len(lines_tmp)
+      #get list of output root files
+      nameTmp = 'outFileListTmp.txt'
+      cmd_tmp = 'xrdfs root://cmseos.fnal.gov/ ls -u ' + dir_final_rootFile + '/ | grep ".root" >| ' + nameTmp
+      os.system(cmd_tmp)
+      ############check total number of root file###################
+      lines_tmp = open(nameTmp).readlines()
+      nJob_current = len(lines_tmp)
+      if nJob_current != nJob:
+        print('============================================')
+        print('Warning: MISSING OUTPUT ROOT FILES, found ', nJob_current, ' files but ', nJob, ' files expected')
+        print(work_dir)
+  
+      #############hadd output root files###########
+      os.system('mkdir ' + outputDir_scratch)
+      os.system('rm ' + outputDir_scratch + '/' + data_name + '.root')
+      cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + data_name + '.root @' + nameTmp 
+      print(cmd_hadd)
+      os.system(cmd_hadd)
 
 #//EOF/////////////////////////////////////////////////////////////////////////
