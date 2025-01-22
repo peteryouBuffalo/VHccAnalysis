@@ -66,8 +66,8 @@ variables_per_region = { #[ 'HMass', 'ZMass' ]
 }
 #varLogY = [ False, False ]
 
-dirpath = '../condor_results/test/'
-output_dir = '../plot_results/systematics/2024Nov/'
+dirpath = '../condor_results/2025Jan/'
+output_dir = '../plot_results/systematics/2025Jan/'
 
 colors = [ ROOT.kBlack, ROOT.kRed, ROOT.kBlue ]
 
@@ -86,7 +86,7 @@ sampleList = [
   #'ZJetsToQQ_HT-200to400',
   #'ZJetsToQQ_HT-400to600', 'ZJetsToQQ_HT-600to800',   ## ZJ (400-Inf)
   #'ZJetsToQQ_HT-800toInf',
-  'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu'#,      ## Top (ttbar) 
+  #'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu'#,      ## Top (ttbar) 
   #'ST_t-channel_antitop','ST_t-channel_top',          ## Top (Single Top) 
   #'ST_tW-channel_antitop','ST_tW-channel_top',
   #'WW','WZ','ZZ'                                      ## VV    
