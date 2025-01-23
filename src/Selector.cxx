@@ -582,11 +582,11 @@ float Selector::CalculateJES(std::map<std::string, float> jet_info, std::string 
   corr_map["L2L3"] = "L2L3Residual";
   
   std::string year = "Summer19UL16APV_V7";
-#if defined(MC_2016) || defined(DATA_2016)
+#if defined(MC_2016)
   year = "Summer19UL16_V7";
-#elif defined(MC_2017) || defined(DATA_2017)
+#elif defined(MC_2017)
   year = "Summer19UL17_V5";
-#elif defined(MC_2018) || defined(DATA_2018)
+#elif defined(MC_2018)
   year = "Summer19UL18_V5";
 #elif defined(DATA_2016B) || defined(DATA_2016C) || defined(DATA_2016D)
   year = "Summer19UL16APV_RunBCD_V7";
