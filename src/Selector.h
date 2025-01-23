@@ -86,6 +86,12 @@ class Selector
     if (pdfScaleSystType == "pdfg0") {m_iPdfStart=0; m_iPdfStop=35;}
     if (pdfScaleSystType == "pdfg1") {m_iPdfStart=35; m_iPdfStop=70;}
     if (pdfScaleSystType == "pdfg2") {m_iPdfStart=70; m_iPdfStop=103;}
+
+#if defined(DATA_2016PRE) || defined(DATA_2016) || defined(DATA_2017) || defined(DATA_2018)
+    m_iPdfStart = 0;
+    m_iPdfStop = 0;
+    m_scaleUnc = "central";
+#endif
   };
 
   virtual void SetElecUncType(std::string elecUncType) { m_eleUncType = elecUncType; };

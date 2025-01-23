@@ -63,23 +63,19 @@ const float pQCDcut = 0.0741;
 // using correction sets for JES
 //////////////////////////////////////////
 #if defined(MC_2016PRE) || defined(DATA_2016PRE)
-auto correctionSet = correction::CorrectionSet::from_file("CalibData/jme/2016preVFP_UL/fatJet_jerc.json.gz");
 auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/2016preVFP_UL/msdcorr_2016.json");
 auto correctionSet_btag = correction::CorrectionSet::from_file("CalibData/btagging_2016preVFP_UL.json.gz");
 #endif
 #if defined(MC_2016) || defined(DATA_2016)
-auto correctionSet = correction::CorrectionSet::from_file("CalibData/jme/2016postVFP_UL/fatJet_jerc.json.gz");
 auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/2016preVFP_UL/msdcorr_2016.json");
 auto correctionSet_btag = correction::CorrectionSet::from_file("CalibData/btagging_2016_UL.json.gz");
 #endif
 //2017 does not have JER for AK8
 #if defined(MC_2017) || defined(DATA_2017)
-auto correctionSet = correction::CorrectionSet::from_file("CalibData/jme/2017_UL/fatJet_jerc.json.gz");
 auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/2017_UL/msdcorr_2017.json");
 auto correctionSet_btag = correction::CorrectionSet::from_file("CalibData/btagging_2017_UL.json.gz");
 #endif
 #if defined(MC_2018) || defined(DATA_2018)
-auto correctionSet = correction::CorrectionSet::from_file("CalibData/jme/2018_UL/fatJet_jerc.json.gz");
 auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/2018_UL/msdcorr_2018.json");
 auto correctionSet_btag = correction::CorrectionSet::from_file("CalibData/btagging_2018_UL.json.gz");
 #endif
@@ -167,7 +163,15 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(14,"DeltaPhi");
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(15,"VMass");
   int nLHEScaleWeight=0;
-  if (m_scaleUnc=="scale") nLHEScaleWeight = 9;  
+  if (m_scaleUnc=="scale") nLHEScaleWeight = 9;
+
+  /// This fix is put here to avoid an issue where they weren't set properly
+  /// with data. For cases of data, we just want them to be 0 and 0.
+#if defined(DATA_2016) || defined(DATA_2017) || defined(DATA_2018)
+  m_iPdfStart = 0;
+  m_iPdfStop = 0;
+#endif
+  
   h_ZccHcc_PN_med = new VHBoostedPlots("ZccHcc_boosted_PN_med",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_ZccHcc_PN_med_zmass_deltaPhi = new VHBoostedPlots("ZccHcc_boosted_PN_med_zmass_deltaPhi");
   h_ZccHcc_PN_med_xccWeight = new VHBoostedPlots("ZccHcc_boosted_PN_med_xccWeight");
