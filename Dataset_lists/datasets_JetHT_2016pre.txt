@@ -1,0 +1,5 @@
+{
+  "JetHT_HIPM_DATA_2016F":[
+      "/JetHT/Run2016F-HIPM_UL2016_MiniAODv2_NanoAODv9-v2/NANOAOD"
+  ]
+}

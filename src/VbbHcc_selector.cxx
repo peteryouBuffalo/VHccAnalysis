@@ -455,7 +455,10 @@ void VbbHcc_selector::Process(Reader* r) {
     //h_elec_id_sf->Fill(sf);
     elecVeto_w *= sf;
   }
+
+#if defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
   evtW *= elecVeto_w;
+#endif
 
   std::vector<LepObj> muons_jetOverlap ;
   std::vector<LepObj> muons_lepVeto ;
@@ -508,7 +511,10 @@ void VbbHcc_selector::Process(Reader* r) {
     sf = sf_reco * sf_ID * sf_iso;
     muonVeto_w *= sf;
   }
+
+#if defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
   evtW *= muonVeto_w;
+#endif
   
   std::vector<LepObj> taus_lepVeto ;
   for (unsigned int i = 0 ; i < *(r->nTau) ; ++i) {

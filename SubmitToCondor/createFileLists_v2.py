@@ -6,11 +6,14 @@ import subprocess
 #########################################################
 samples_json = "../Dataset_lists/datasets_NANOAODv9_MC.txt"
 samples_json = "../Dataset_lists/datasets_BTagCSV_2017_separated.txt"
-samples_json = "../Dataset_lists/datasets_VV_NLO.txt"
+samples_json = "../Dataset_lists/datasets_missing_VV_NLO.txt"
+samples_json = "../Dataset_lists/datasets_JetHT.txt"
 #samples_json = "../Dataset_lists/datasets_QCD100to200.txt"
 #samples_json = "../Dataset_lists/datasets_SingleMuon_combined.txt"
-outDir = '../FileLists/'
+outDir = '../FileLists_JetHT/'
 os.system('mkdir ' + outDir)
+
+use_eos_path = True
 
 samples_input = []
 if len(sys.argv) > 1: 
@@ -58,7 +61,10 @@ for k in samples_used:
     else:
       print(">>>>NFILES: ", s, " has ", len(ls), " files") 
     for l in ls:
-      l = 'root:://cmsxrootd.fnal.gov//' + l
+      if not use_eos_path:
+        l = 'root:://cmsxrootd.fnal.gov//' + l
+      else:
+        l = 'root://cmseos.fnal.gov//' + l
       fOut.write(l)
 
     i += 1

@@ -103,7 +103,7 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 # Settings
 # /////////////////////////////////////////////////////////////////////////////
-runMode = 0     # 0 : submit, 1 : check output and hadd output file
+runMode = 1     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
 debug = False   # just run on 10000
 haddData = True # use to combine DATA runs back together
@@ -131,32 +131,36 @@ for syst in syst_list:
   
   # Paths, Locations (CHANGE THESE)
   sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test/'
-  outputDir_eos = '/store/user/peteryou/Output_VHcc/test/' + syst + '/'
-  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/' + syst + '/'
+  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Jan_new/'
+  outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Jan_new/' + syst + '/'
+  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan_new/' + syst + '/'
   
   # Input data sets
-  #dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
-  #dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_signal_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
-  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
-  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_signal_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"]
   
-  nFile = 2
-  dir_file_list = sourceDir+'/FileLists/'
+  nFile = 1
+  dir_file_list = sourceDir+'/FileLists_JetHT/'
   
   # Print settings
   print('=============================')
@@ -234,8 +238,10 @@ for syst in syst_list:
     if 'DATA' in sample_subformat:
       sample_format = sample_subformat[:-1]
       preVFP = ['DATA_2016B', 'DATA_2016C', 'DATA_2016D', 'DATA_2016E']
-      if sample_subformat in preVFP or ('HIPM_DATA_2016F' in line):
+      if sample_subformat in preVFP:# or ('HIPM_DATA_2016F' in line):
         sample_format = sample_format + "PRE"
+      #if 'HIPM_DATA_2016F' in line:
+      #  sample_format = 'DATA_2016'
     else:
       if 'preVFP' in line:
         sample_subformat = sample_subformat + 'PRE'
@@ -316,5 +322,27 @@ for syst in syst_list:
       cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + data_name + '.root @' + nameTmp 
       print(cmd_hadd)
       os.system(cmd_hadd)
-
+      
+  # now hadd data                                                                                                                         
+  #if haddData and runMode == 1:
+  #  print("Combining data files back together...")
+  #  yrRuns = {
+  #    '2016_preVFP': ['B','C','D','E'],
+  #    '2016': ['F','G','H'],
+  #    '2017': ['C','D','E','F'],
+  #    '2018': ['B','C','D']
+  #  }
+  #  
+  #  for y in [ '2016_preVFP', '2016', '2017', '2018']:
+  #    data_name = 'JetHT_DATA_' + y
+  #    
+  #    os.system('rm ' + outputDir_scratch + '/' + data_name + '.root')
+  #    for l in yrRuns[y]:
+  #      raw_name = data_name
+  #      if y == '2016_preVFP':
+  #        raw_name = '2016'
+  #      cmd_hadd = 'hadd -f -k ' + outputDir_scratch + '/' + raw_name + l + '.root'
+  #    print(cmd_hadd)
+  #    os.system(cmd_hadd)
+          
 #//EOF/////////////////////////////////////////////////////////////////////////

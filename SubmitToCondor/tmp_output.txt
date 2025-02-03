@@ -1,0 +1,84 @@
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016B.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016C.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016D.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016E.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_HIPM_DATA_2016F.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016F.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016G.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016H.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2017B.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2017C.root
+hadd compression setting for all output: 1
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  NONE
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_JetHT.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/test/NONE/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE/
+=========================
+Processing sample:  JetHT_DATA_2016B
+DATA_2016PRE DATA_2016B MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016B.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016C
+DATA_2016PRE DATA_2016C MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016C.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016D
+DATA_2016PRE DATA_2016D MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016D.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016E
+DATA_2016PRE DATA_2016E MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016E.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_HIPM_DATA_2016F
+DATA_2016PRE DATA_2016F MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  6  files but  52  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/test//condor_run_NONE/JetHT_HIPM_DATA_2016F_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_HIPM_DATA_2016F.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016F
+DATA_2016 DATA_2016F MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016F.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016G
+DATA_2016 DATA_2016G MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016G.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2016H
+DATA_2016 DATA_2016H MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2016H.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2017B
+DATA_2017 DATA_2017B MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2017B.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2017C
+DATA_2017 DATA_2017C MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2017C.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2017D
+DATA_2017 DATA_2017D MC_NOTVZ
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan/NONE//JetHT_DATA_2017D.root @outFileListTmp.txt
+=========================
+Processing sample:  JetHT_DATA_2017E
+DATA_2017 DATA_2017E MC_NOTVZ
