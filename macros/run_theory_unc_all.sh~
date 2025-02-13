@@ -1,0 +1,10 @@
+#python3 theory_unc.py --year 2016 --rebin 10 --type pdf --normalized
+#python3 theory_unc.py --year 2017 --rebin 10 --type pdf --normalized
+#python3 theory_unc.py --year 2018 --rebin 10 --type pdf --normalized
+#python3 theory_unc.py --year 2016 --rebin 10 --type scale --normalized
+#python3 theory_unc.py --year 2017 --rebin 10 --type scale --normalized
+#python3 theory_unc.py --year 2018 --rebin 10 --type scale --normalized
+python3 theory_unc.py --year 2016 --rebin 10 --type both --normalized
+python3 theory_unc.py --year 2016_preVFP --rebin 10 --type both --normalized
+python3 theory_unc.py --year 2017 --rebin 10 --type both --normalized
+python3 theory_unc.py --year 2018 --rebin 10 --type both --normalized

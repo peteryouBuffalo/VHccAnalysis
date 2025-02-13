@@ -1,0 +1,532 @@
+Processing both uncertainties for 2016 samples (normalized=True)
+Processing group: QCD for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+PDF+alpha uncertainty processing complete.
+Processing group: QCD for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+SCALE uncertainty processing complete.
+Processing both uncertainties for 2016_preVFP samples (normalized=True)
+Processing group: QCD for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Processing group: TT for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Processing group: ZH_HToCC for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Processing group: ZH_HToBB for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Processing group: WplusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Processing group: ZJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Processing group: ST for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Processing group: WZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+PDF+alpha uncertainty processing complete.
+Processing group: QCD for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1000to1500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT1500to2000_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT2000toInf_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT200to300_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT300to500_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT500to700_v9 not found; using 1.0
+Warning: cross-section for sample QCD_HT700to1000_v9 not found; using 1.0
+Processing group: TT for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Warning: cross-section for sample TTTo2L2Nu not found; using 1.0
+Warning: cross-section for sample TTToHadronic not found; using 1.0
+Warning: cross-section for sample TTToSemiLeptonic not found; using 1.0
+Processing group: ZH_HToCC for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToCC_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToCC_ZToQQ not found; using 1.0
+Processing group: ZH_HToBB for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ZH_HToBB_ZToQQ not found; using 1.0
+Warning: cross-section for sample ggZH_HToBB_ZToQQ not found; using 1.0
+Processing group: WplusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-1200to2500 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-2500toInf not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToLNu_HT-800to1200 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample WJetsToQQ_HT-800toInf not found; using 1.0
+Processing group: ZJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-400to600 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-600to800 not found; using 1.0
+Warning: cross-section for sample ZJetsToQQ_HT-800toInf not found; using 1.0
+Processing group: ST for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+  Region: VHcc_boosted_PN_med
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Warning: cross-section for sample ST_t-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_t-channel_top not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_antitop not found; using 1.0
+Warning: cross-section for sample ST_tW-channel_top not found; using 1.0
+Processing group: WZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+SCALE uncertainty processing complete.
+Processing both uncertainties for 2017 samples (normalized=True)
+Processing group: QCD for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+PDF+alpha uncertainty processing complete.
+Processing group: QCD for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+SCALE uncertainty processing complete.
+Processing both uncertainties for 2018 samples (normalized=True)
+Processing group: QCD for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for PDF+alpha uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+PDF+alpha uncertainty processing complete.
+Processing group: QCD for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: TT for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToCC for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZH_HToBB for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WplusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WminusH for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZJets for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ST for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: WW for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+Processing group: ZZ for SCALE uncertainties
+  Region: ZccHcc_boosted_PN_med
+  Region: VHcc_boosted_PN_med
+SCALE uncertainty processing complete.
