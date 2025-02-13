@@ -27,6 +27,7 @@ public:
   //index of daughters from H and Z
   std::vector<std::vector<int> > DauIdxs_ZH(Reader* r);
   int VZDecayMode(Reader* r);
+  int VZDecayModeGroup(int decayMode);
   static bool sortbysecdesc(const std::pair<int,float> &a, const std::pair<int,float> &b);
   static bool sortbysecdesc1(const std::pair<std::vector<int>,float> &a, const std::pair<std::vector<int>,float> &b);
   std::vector<JetObj> NextraJet(std::vector<JetObjBoosted>& fatJets, std::vector<JetObj>& jets);
@@ -72,17 +73,37 @@ private:
 
   TH1D* h_VZtype;
   
-  VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP
+  VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP 
   VHBoostedPlots* h_ZccHcc_PN_med_zmass_deltaPhi; //using particle net medium WP
   VHBoostedPlots* h_ZccHcc_PN_med_xccWeight; //using particle net medium WP
   VHBoostedPlots* h_ZccHcc_PN_med_qcdCR; //control regions used in QCD bkg estimation in SR using particle net medium WP
   VHBoostedPlots* h_ZccHcc_PN_med_topCR_pass; //top control regions passing SR tagging requirements using particle net medium WP
   VHBoostedPlots* h_ZccHcc_PN_med_VjetCR_pass; //Vjet control regions passing SR tagging requirements using particle net medium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_VZcc; //using particle net medium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_VZbb; //using particle net medium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_VZother; //using particle net medium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_qcdCR_VZcc; //using particle net med_qcdCRium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_qcdCR_VZbb; //using particle net med_qcdCRium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_qcdCR_VZother; //using particle net med_qcdCRium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_topCR_pass_VZcc; //using particle net med_topCR_passium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_topCR_pass_VZbb; //using particle net med_topCR_passium WP
+  VHBoostedPlots* h_ZccHcc_PN_med_topCR_pass_VZother; //using particle net med_topCR_passium WP
+
+  VHBoostedPlots* h_VHcc_PN_med; //using particle net medium WP
+  VHBoostedPlots* h_VHcc_PN_med_zmass_deltaPhi; //using particle net medium WP
   VHBoostedPlots* h_VHcc_PN_med_qcdCR; //control regions used in QCD bkg estimation in SR using particle net medium WP
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass; //top control regions passing SR tagging requirements using particle net medium WP
   VHBoostedPlots* h_VHcc_PN_med_VjetCR_pass; //top control regions passing SR tagging requirements using particle net medium WP
-  VHBoostedPlots* h_VHcc_PN_med; //using particle net medium WP
-  VHBoostedPlots* h_VHcc_PN_med_zmass_deltaPhi; //using particle net medium WP
+  VHBoostedPlots* h_VHcc_PN_med_VZcc; //using particle net medium WP
+  VHBoostedPlots* h_VHcc_PN_med_VZbb; //using particle net medium WP
+  VHBoostedPlots* h_VHcc_PN_med_VZother; //using particle net medium WP
+  VHBoostedPlots* h_VHcc_PN_med_qcdCR_VZcc; //using particle net qcdCRium WP
+  VHBoostedPlots* h_VHcc_PN_med_qcdCR_VZbb; //using particle net qcdCRium WP
+  VHBoostedPlots* h_VHcc_PN_med_qcdCR_VZother; //using particle net qcdCRium WP
+  VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZcc; //using particle net topCR_passium WP
+  VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZbb; //using particle net topCR_passium WP
+  VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZother; //using particle net topCR_passium WP
+  
 
   JESUncPlots* h_jesUnc;
 

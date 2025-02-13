@@ -184,6 +184,27 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_VHcc_PN_med_topCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_VHcc_PN_med_VjetCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_VjetCR_pass");
 
+#if defined(MC_VZ)
+  h_ZccHcc_PN_med_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_VZbb = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_VZother = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+  h_ZccHcc_PN_med_qcdCR_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_qcdCR_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_qcdCR_VZbb = new VHBoostedPlots("ZccHcc_boosted_PN_med_qcdCR_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_qcdCR_VZother = new VHBoostedPlots("ZccHcc_boosted_PN_med_qcdCR_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+  h_ZccHcc_PN_med_topCR_pass_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_topCR_pass_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_topCR_pass_VZbb = new VHBoostedPlots("ZccHcc_boosted_PN_med_topCR_pass_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_ZccHcc_PN_med_topCR_pass_VZother = new VHBoostedPlots("ZccHcc_boosted_PN_med_topCR_pass_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+  h_VHcc_PN_med_VZcc = new VHBoostedPlots("VHcc_boosted_PN_med_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_VZbb = new VHBoostedPlots("VHcc_boosted_PN_med_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_VZother = new VHBoostedPlots("VHcc_boosted_PN_med_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+  h_VHcc_PN_med_qcdCR_VZcc = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_qcdCR_VZbb = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_qcdCR_VZother = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+  h_VHcc_PN_med_topCR_pass_VZcc = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_topCR_pass_VZbb = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
+  h_VHcc_PN_med_topCR_pass_VZother = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass_VZother",m_iPdfStart,m_iPdfStop,nLHEScaleWeight); 
+#endif
+
   //test H and Z mass from MC truth
   h_test_MZ = new TH1D("MZbb_MCtruth","",200,0,200);
   h_test_MH = new TH1D("MHcc_MCtruth","",200,0,200);
@@ -227,7 +248,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   
   tmp = h_ZccHcc_PN_med_VjetCR_pass->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+   
   
+
+
   tmp = h_VHcc_PN_med->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
   tmp = h_VHcc_PN_med_zmass_deltaPhi->returnHisto() ;
@@ -241,7 +265,45 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
 
   tmp = h_VHcc_PN_med_VjetCR_pass->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
- 
+
+#if defined(MC_VZ)
+  tmp = h_ZccHcc_PN_med_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_topCR_pass_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_topCR_pass_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_topCR_pass_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_qcdCR_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_qcdCR_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_ZccHcc_PN_med_qcdCR_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_qcdCR_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_qcdCR_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_qcdCR_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_topCR_pass_VZcc->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_topCR_pass_VZbb->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_VHcc_PN_med_topCR_pass_VZother->returnHisto() ;
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+#endif
   tmp = h_jesUnc->returnHisto();
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
@@ -323,6 +385,21 @@ int VbbHcc_selector::VZDecayMode(Reader* r) {
   if (false && numbers.find(dcMode) == numbers.end()) std::cout << "\n =========== \n" << dcMode << " " << partFromZ;  
   return dcMode;
 }
+
+int VbbHcc_selector::VZDecayModeGroup(int VZtype) {
+  //if (VZtype==3*3*4*4) h_HMass_VZqqcc->Fill(H.m_lvec.M(),w);
+  //if (VZtype==3*4*4*4) h_HMass_VZqccc->Fill(H.m_lvec.M(),w);
+  //if (VZtype==4*4*4*4) h_HMass_VZcccc->Fill(H.m_lvec.M(),w);
+  //if (VZtype==5*5*4*4) h_HMass_VZbbcc->Fill(H.m_lvec.M(),w);
+  //if (VZtype==3*3*5*5) h_HMass_VZqqbb->Fill(H.m_lvec.M(),w);
+  //if (VZtype==3*4*5*5) h_HMass_VZqcbb->Fill(H.m_lvec.M(),w);
+  //if (VZtype==5*5*5*5) h_HMass_VZbbbb->Fill(H.m_lvec.M(),w);
+  //if (VZtype==3*3*3*3) h_HMass_VZqqqq->Fill(H.m_lvec.M(),w);
+  if (VZtype==3*3*4*4 || VZtype==3*4*4*4 || VZtype==4*4*4*4 || VZtype==5*5*4*4) return 0;
+  if (VZtype==3*3*5*5 || VZtype==3*4*5*5 || VZtype==5*5*5*5) return 1;
+  return 2;
+}
+
 #endif
 
 bool VbbHcc_selector::sortbysecdesc(const std::pair<int,float> &a, const std::pair<int,float> &b)
@@ -393,10 +470,12 @@ void VbbHcc_selector::Process(Reader* r) {
 
   //=============Do some MC truth event analysis, like finding which Z decay mode is===========
   int VZtype(-1); 
+  int VZtypeGroup(-1); 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
 //to save time, only run on VZ sample
 #if defined(MC_VZ)
   VZtype = VZDecayMode(r);
+  VZtypeGroup = VZDecayModeGroup(VZtype);
   if (VZtype==1) h_VZtype->Fill(1); //all leptonic including neutrino
   //all hadronic
   else if (VZtype==3*3*4*4) h_VZtype->Fill(3);
@@ -1000,11 +1079,32 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_ZccHcc_PN_med->h_nBjet_passNextraJetCut->Fill(nBjet,evtW_tag_trig);
                 h_ZccHcc_PN_med->h_nBjetExtraJet_passNextraJetCut->Fill(nBjet_extJets,evtW_tag_trig);
                 h_ZccHcc_PN_med->h_DPhiJetMet_passNextraJetCut->Fill(min_dPhiJetMet,evtW_tag_trig);
+
                 //PDF,SCALE
 #if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
                 h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
                 //scaleunc
                 if (m_scaleUnc=="scale") h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+#if defined(MC_VZ)                
+                if (VZtypeGroup == 0) {
+                  h_ZccHcc_PN_med_VZcc->Fill(H,Z,VZtype,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZcc->FillJets(jet_ZccHcc,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_ZccHcc_PN_med_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else if (VZtypeGroup == 1) {
+                  h_ZccHcc_PN_med_VZbb->Fill(H,Z,VZtype,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZbb->FillJets(jet_ZccHcc,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_ZccHcc_PN_med_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else {
+                  h_ZccHcc_PN_med_VZother->Fill(H,Z,VZtype,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZother->FillJets(jet_ZccHcc,evtW_tag_trig);
+                  h_ZccHcc_PN_med_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_ZccHcc_PN_med_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+#endif
 #endif
                 float deltaPhi = jets[idx_Z].m_lvec.DeltaPhi(jets[idx_H].m_lvec);
                 if (deltaPhi > 2.5) {
@@ -1037,6 +1137,27 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
             //scaleunc
             if (m_scaleUnc=="scale") h_ZccHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+#if defined(MC_VZ)                
+            if (VZtypeGroup == 0) {
+              h_ZccHcc_PN_med_qcdCR_VZcc->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZcc->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_qcdCR_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+            else if (VZtypeGroup == 1) {
+              h_ZccHcc_PN_med_qcdCR_VZbb->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZbb->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_qcdCR_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+            else {
+              h_ZccHcc_PN_med_qcdCR_VZother->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZother->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_qcdCR_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_qcdCR_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+#endif
+
 #endif
           }
         }
@@ -1064,6 +1185,27 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
             //scaleunc
             if (m_scaleUnc=="scale") h_ZccHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_btag_trig);
+#if defined(MC_VZ)                
+            if (VZtypeGroup == 0) {
+              h_ZccHcc_PN_med_topCR_pass_VZcc->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZcc->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_topCR_pass_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+            else if (VZtypeGroup == 1) {
+              h_ZccHcc_PN_med_topCR_pass_VZbb->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZbb->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_topCR_pass_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+            else {
+              h_ZccHcc_PN_med_topCR_pass_VZother->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZother->FillJets(jet_ZccHcc,evtW_tag_trig);
+              h_ZccHcc_PN_med_topCR_pass_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+              if (m_scaleUnc=="scale") h_ZccHcc_PN_med_topCR_pass_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+            }
+#endif
+
 #endif
           }
           //Vjet CR
@@ -1137,6 +1279,27 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
                 //scaleunc
                 if (m_scaleUnc=="scale") h_VHcc_PN_med->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+#if defined(MC_VZ)                
+                if (VZtypeGroup == 0) {
+                  h_VHcc_PN_med_VZcc->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_VZcc->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else if (VZtypeGroup == 1) {
+                  h_VHcc_PN_med_VZbb->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_VZbb->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else {
+                  h_VHcc_PN_med_VZother->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_VZother->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+#endif
+
 #endif
                 float deltaPhi = jets[idx_V].m_lvec.DeltaPhi(jets[idx_H].m_lvec);
                 if (deltaPhi > 2.5) {
@@ -1161,7 +1324,7 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_topCR_pass->h_nBjetExtraJet_failNextraJetCut->Fill(nBjet_extJets,evtW_tag_btag_trig);
               //if(nBjet_extJets > nBjet_extJets_cut && jets[idx_Z].m_PN_TopvsQCD > 0.02) 
               if(nBjet_extJets > nBjet_extJets_cut) {
-                h_VHcc_PN_med_topCR_pass->Fill(H,Z,VZtype,evtW_tag_btag_trig);
+                h_VHcc_PN_med_topCR_pass->Fill(H,V,VZtype,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->FillJets(jet_VHcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
@@ -1171,6 +1334,27 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
                 //scaleunc
                 if (m_scaleUnc=="scale") h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_btag_trig);
+#if defined(MC_VZ)                
+                if (VZtypeGroup == 0) {
+                  h_VHcc_PN_med_topCR_pass_VZcc->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZcc->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_topCR_pass_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else if (VZtypeGroup == 1) {
+                  h_VHcc_PN_med_topCR_pass_VZbb->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZbb->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_topCR_pass_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+                else {
+                  h_VHcc_PN_med_topCR_pass_VZother->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZother->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_pass_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                  if (m_scaleUnc=="scale") h_VHcc_PN_med_topCR_pass_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+                }
+#endif
+
 #endif
               }
               //Vjet CR
@@ -1182,7 +1366,7 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_VjetCR_pass->h_nBjet_failNextraJetCut->Fill(nBjet,evtW_tag_btag_trig);
               h_VHcc_PN_med_VjetCR_pass->h_nBjetExtraJet_failNextraJetCut->Fill(nBjet_extJets,evtW_tag_btag_trig);
               if(nBjet_extJets <= nBjet_extJets_cut) {
-                h_VHcc_PN_med_VjetCR_pass->Fill(H,Z,VZtype,evtW_tag_btag_trig);
+                h_VHcc_PN_med_VjetCR_pass->Fill(H,V,VZtype,evtW_tag_btag_trig);
                 h_VHcc_PN_med_VjetCR_pass->FillJets(jet_VHcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_VjetCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_VjetCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
@@ -1195,7 +1379,7 @@ void VbbHcc_selector::Process(Reader* r) {
         if (jets[idx_H].m_PN_Xcc<XccCut) {
           if(passMET && trigger) { 
             if (nExtraJet < 2) {
-              h_VHcc_PN_med_qcdCR->Fill(H,Z,VZtype,evtW_tag_trig);
+              h_VHcc_PN_med_qcdCR->Fill(H,V,VZtype,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->FillJets(jet_VHcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
@@ -1206,6 +1390,27 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
               //scaleunc
               if (m_scaleUnc=="scale") h_VHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+#if defined(MC_VZ)                
+              if (VZtypeGroup == 0) {
+                h_VHcc_PN_med_qcdCR_VZcc->Fill(H,V,VZtype,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZcc->FillJets(jet_VHcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZcc->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                if (m_scaleUnc=="scale") h_VHcc_PN_med_qcdCR_VZcc->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+              }
+              else if (VZtypeGroup == 1) {
+                h_VHcc_PN_med_qcdCR_VZbb->Fill(H,V,VZtype,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZbb->FillJets(jet_VHcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZbb->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                if (m_scaleUnc=="scale") h_VHcc_PN_med_qcdCR_VZbb->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+              }
+              else {
+                h_VHcc_PN_med_qcdCR_VZother->Fill(H,V,VZtype,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZother->FillJets(jet_VHcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_VZother->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
+                if (m_scaleUnc=="scale") h_VHcc_PN_med_qcdCR_VZother->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
+              }
+#endif
+
 #endif
             }
           }

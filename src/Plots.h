@@ -227,6 +227,7 @@ class VHBoostedPlots
       h_HMass_VZqcbb = new TH1D(name + "_HMass_VZqcbb", "", NBIN_M_H, X_M_H[0], X_M_H[1]);
       h_HMass_VZbbbb = new TH1D(name + "_HMass_VZbbbb", "", NBIN_M_H, X_M_H[0], X_M_H[1]);
       h_HMass_VZqqqq = new TH1D(name + "_HMass_VZqqqq", "", NBIN_M_H, X_M_H[0], X_M_H[1]);
+      h_HMass_VZother = new TH1D(name + "_HMass_VZother", "", NBIN_M_H, X_M_H[0], X_M_H[1]);
       h_HFlav = new TH1D(name + "_HFlav", "", 10, 0, 10);
       h_ZPt = new TH1D(name + "_ZPt", "", NBIN_PT_JET, X_PT_JET[0], X_PT_JET[1]);
       h_ZEta = new TH1D(name + "_ZEta", "", NBIN_ETA, X_ETA[0], X_ETA[1]);
@@ -268,6 +269,7 @@ class VHBoostedPlots
       h_HMass_VZqcbb->Sumw2();
       h_HMass_VZbbbb->Sumw2();
       h_HMass_VZqqqq->Sumw2();
+      h_HMass_VZother->Sumw2();
       h_HFlav->Sumw2();
       h_ZPt->Sumw2();
       h_ZEta->Sumw2();
@@ -315,13 +317,16 @@ class VHBoostedPlots
 
       h_HMass->Fill(H.m_lvec.M(), w);
       if (VZtype==3*3*4*4) h_HMass_VZqqcc->Fill(H.m_lvec.M(),w);
-      if (VZtype==3*4*4*4) h_HMass_VZqccc->Fill(H.m_lvec.M(),w);
-      if (VZtype==4*4*4*4) h_HMass_VZcccc->Fill(H.m_lvec.M(),w);
-      if (VZtype==5*5*4*4) h_HMass_VZbbcc->Fill(H.m_lvec.M(),w);
-      if (VZtype==3*3*5*5) h_HMass_VZqqbb->Fill(H.m_lvec.M(),w);
-      if (VZtype==3*4*5*5) h_HMass_VZqcbb->Fill(H.m_lvec.M(),w);
-      if (VZtype==5*5*5*5) h_HMass_VZbbbb->Fill(H.m_lvec.M(),w);
-      if (VZtype==3*3*3*3) h_HMass_VZqqqq->Fill(H.m_lvec.M(),w);
+      else if (VZtype==3*4*4*4) h_HMass_VZqccc->Fill(H.m_lvec.M(),w);
+      else if (VZtype==4*4*4*4) h_HMass_VZcccc->Fill(H.m_lvec.M(),w);
+      else if (VZtype==5*5*4*4) h_HMass_VZbbcc->Fill(H.m_lvec.M(),w);
+      else if (VZtype==3*3*5*5) h_HMass_VZqqbb->Fill(H.m_lvec.M(),w);
+      else if (VZtype==3*4*5*5) h_HMass_VZqcbb->Fill(H.m_lvec.M(),w);
+      else if (VZtype==5*5*5*5) h_HMass_VZbbbb->Fill(H.m_lvec.M(),w);
+      else if (VZtype==3*3*3*3) h_HMass_VZqqqq->Fill(H.m_lvec.M(),w);
+      else {
+        h_HMass_VZother->Fill(H.m_lvec.M(),w);
+      }
 
       h_HPt->Fill(H.m_lvec.Pt(), w);
       h_HEta->Fill(H.m_lvec.Eta(), w);
@@ -423,6 +428,7 @@ class VHBoostedPlots
       histolist.push_back(h_HMass_VZqcbb);
       histolist.push_back(h_HMass_VZbbbb);
       histolist.push_back(h_HMass_VZqqqq);
+      histolist.push_back(h_HMass_VZother);
       histolist.push_back(h_HPt);
       histolist.push_back(h_HEta);
       histolist.push_back(h_HFlav);
@@ -479,6 +485,7 @@ class VHBoostedPlots
     TH1D* h_HMass_VZqcbb;    
     TH1D* h_HMass_VZbbbb;    
     TH1D* h_HMass_VZqqqq;    
+    TH1D* h_HMass_VZother;    
     TH1D* h_HFlav;    
 
     //Z Plots
