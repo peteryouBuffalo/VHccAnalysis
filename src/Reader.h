@@ -228,10 +228,12 @@ public :
   TTreeReaderValue<Float_t> Pileup_pudensity = {fReader, "Pileup_pudensity"};
   TTreeReaderValue<Float_t> genWeight = {fReader, "genWeight"};
   //PDF,SCALE
+#if !defined(MC_VV_LO)
   TTreeReaderValue<UInt_t> nLHEPdfWeight = {fReader, "nLHEPdfWeight"};
   TTreeReaderArray<Float_t> LHEPdfWeight = {fReader, "LHEPdfWeight"};
   TTreeReaderValue<UInt_t> nLHEScaleWeight = {fReader, "nLHEScaleWeight"};
   TTreeReaderArray<Float_t> LHEScaleWeight = {fReader, "LHEScaleWeight"};
+#endif
   TTreeReaderArray<Int_t> Jet_hadronFlavour = {fReader, "Jet_hadronFlavour"};
   TTreeReaderArray<Int_t> FatJet_hadronFlavour = {fReader, "FatJet_hadronFlavour"};
   TTreeReaderValue<UInt_t> nGenPart = {fReader, "nGenPart"};

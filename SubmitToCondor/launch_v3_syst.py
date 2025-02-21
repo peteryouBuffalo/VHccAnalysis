@@ -103,7 +103,7 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 # Settings
 # /////////////////////////////////////////////////////////////////////////////
-runMode = 1     # 0 : submit, 1 : check output and hadd output file
+runMode = 0     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
 debug = False   # just run on 10000
 haddData = True # use to combine DATA runs back together
@@ -118,10 +118,10 @@ haddData = True # use to combine DATA runs back together
 
 syst_list = ['NONE','JESU','JESD','PUU','PUD', 'L1PREFIRINGU',           
              'L1PREFIRINGD', 'TAG_CCU', 'TAG_CCD', 'ELECU',                                  
-             'ELECD', 'MUONU', 'MUOND', 'TRIGU', 'TRIGD', 
-             'PDFG0', 'PDFG1', 'PDFG2', 'SCALE']   
+             'ELECD', 'MUONU', 'MUOND', 'TRIGU', 'TRIGD']#, 
+             #'PDFG0', 'PDFG1', 'PDFG2', 'SCALE']   
 
-syst_list = ['NONE'] # for testing
+#syst_list = ['NONE'] # for testing
 
 #if len(sys.argv) > 1:
 #  syst = sys.argv[1]
@@ -131,36 +131,39 @@ for syst in syst_list:
   
   # Paths, Locations (CHANGE THESE)
   sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Jan_new/'
-  outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Jan_new/' + syst + '/'
-  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jan_new/' + syst + '/'
+  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/'
+  outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Feb/' + syst + '/'
+  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/' + syst + '/'
   
   # Input data sets
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_VV.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_signal_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_signal_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"]
   
   nFile = 1
-  dir_file_list = sourceDir+'/FileLists_JetHT/'
+  dir_file_list = sourceDir+'/FileLists/'
+  #dir_file_list = sourceDir+'/FileLists_JetHT/'
   
   # Print settings
   print('=============================')
@@ -248,8 +251,14 @@ for syst in syst_list:
       sample_format = sample_subformat
   
     #used to turn on final state break down for VZ process like qqcc, qccc, etc.
+    # NOTE: The files that we want to use for our analysis are VV_NLO which include
+    # NLO in the name. This is what we want for the MC_VZ samples. For the LO samples,
+    # we still want a comparison and thus just turn off those values. We design those
+    # with a special trigger 'MC_VV_LO'.
     VZsample = "MC_NOTVZ"
-    if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
+    if ('ZZ' in line or 'WZ' in line):
+      if ('NLO' in line): VZsample = "MC_VZ"
+      else: VZsample = "MC_VV_LO"
   
     print(sample_format, sample_subformat, VZsample)
   

@@ -1081,7 +1081,7 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_ZccHcc_PN_med->h_DPhiJetMet_passNextraJetCut->Fill(min_dPhiJetMet,evtW_tag_trig);
 
                 //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
                 h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
                 //scaleunc
                 if (m_scaleUnc=="scale") h_ZccHcc_PN_med->FillPdfScaleUnc(r,H,0,0,*(r->nLHEScaleWeight),evtW_tag_trig);
@@ -1132,7 +1132,7 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
             h_ZccHcc_PN_med_qcdCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
             //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
             //pdfunc
             h_ZccHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
             //scaleunc
@@ -1180,7 +1180,7 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
             h_ZccHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
             //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
             //pdfunc
             h_ZccHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
             //scaleunc
@@ -1274,7 +1274,7 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
                 h_VHcc_PN_med->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
                 //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
                 //pdfunc
                 h_VHcc_PN_med->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
                 //scaleunc
@@ -1329,7 +1329,7 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
                 //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
                 //pdfunc
                 h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
                 //scaleunc
@@ -1385,7 +1385,7 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
               //PDF,SCALE
-#if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+#if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
               //pdfunc
               h_VHcc_PN_med_qcdCR->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_trig);
               //scaleunc

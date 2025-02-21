@@ -216,7 +216,9 @@ for line in lines:
   
   #used to turn on final state break down for VZ process like qqcc, qccc, etc.
   VZsample = "MC_NOTVZ"
-  if ('ZZ' in line or 'WZ' in line): VZsample = "MC_VZ"
+  if ('ZZ' in line or 'WZ' in line):
+    if ('NLO' in line): VZsample = "MC_VZ"
+    else: VZsample = "MC_VV_LO"
 
   print(sample_format, sample_subformat)
 

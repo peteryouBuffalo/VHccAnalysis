@@ -10,13 +10,13 @@ void VHBoostedPlots::FillPdfScaleUnc(Reader* r, HObj& H, int iPdfStart, int iPdf
         float pdfW = 1.0;
         int iPdf = i+iPdfStart;
         //PDF,SCALE
-  #if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+  #if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
         if (iPdf < *(r->nLHEPdfWeight)) pdfW = (r->LHEPdfWeight)[iPdf];
   #endif
         h_HMass_LHEPdfs[i]->Fill(H.m_lvec.M(),w*pdfW); 
       }
       
-  #if defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)
+  #if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
       for (int i = 0 ; i < nLHEscales ; ++i) {
         //float scaleW = 1.;
         //PDF,SCALE

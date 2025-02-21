@@ -1,0 +1,1830 @@
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2017.root
+hadd compression setting for all output: 1
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  NONE
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/NONE/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_NONE/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/NONE//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  JESU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/JESU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  JESD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/JESD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_JESD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/JESD//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  PUU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/PUU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  PUD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/PUD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_PUD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/PUD//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  L1PREFIRINGU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2018.root
+hadd compression setting for all output: 1
+/store/user/peteryou/Output_VHcc/2025Feb/L1PREFIRINGU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  L1PREFIRINGD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/L1PREFIRINGD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_L1PREFIRINGD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/L1PREFIRINGD//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  TAG_CCU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/TAG_CCU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  TAG_CCD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/TAG_CCD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TAG_CCD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TAG_CCD//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  ELECU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/ELECU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  ELECD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/ELECD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2018.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2016_preVFP.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2016.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2017.root
+hadd compression setting for all output: 1
+hadd Target file: /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2018.root
+hadd compression setting for all output: 1
+MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_ELECD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/ELECD//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  MUONU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/MUONU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUONU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUONU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  MUOND
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/MUOND/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_MUOND/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/MUOND//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  TRIGU
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/TRIGU/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGU/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGU//ZZ_MC_2018.root @outFileListTmp.txt
+=============================
+Run mode:  1
+Submit:    True
+Debug:     False
+haddData:  True
+Systematic:                                                  TRIGD
+Sample list file (list of input samples):                   
+       /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//Dataset_lists/datasets_VV.txt
+Sample list folder (location of input file lists):           /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis//FileLists/
+Number of file per jobs:                                     1
+Source dir:                                                  /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/
+Condor run dir:                                              /uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb/
+Output location eos:                                         /store/user/peteryou/Output_VHcc/2025Feb/TRIGD/
+Output location scratch:                                     /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD/
+=========================
+Processing sample:  WW_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  22  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WW_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2016
+MC_2016 MC_2016 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  41  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WW_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2017
+MC_2017 MC_2017 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WW_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WW_MC_2018
+MC_2018 MC_2018 MC_NOTVZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  31  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WW_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WW_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  13  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  20  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  WZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  16  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/WZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//WZ_MC_2018.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016_preVFP
+MC_2016PRE MC_2016PRE MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  8  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/ZZ_MC_2016_preVFP_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2016_preVFP.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2016
+MC_2016 MC_2016 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  17  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/ZZ_MC_2016_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2016.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2017
+MC_2017 MC_2017 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  2  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/ZZ_MC_2017_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2017.root @outFileListTmp.txt
+=========================
+Processing sample:  ZZ_MC_2018
+MC_2018 MC_2018 MC_VZ
+============================================
+Warning: MISSING OUTPUT ROOT FILES, found  0  files but  6  files expected
+/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Feb//condor_run_TRIGD/ZZ_MC_2018_test
+hadd -f -k /uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Feb/TRIGD//ZZ_MC_2018.root @outFileListTmp.txt
