@@ -219,7 +219,9 @@ for line in lines:
   if ('ZZ' in line or 'WZ' in line):
     if ('NLO' in line): VZsample = "MC_VZ"
     else: VZsample = "MC_VV_LO"
-
+  if ('WW' in line) and not ('NLO' in line):
+      VZsample = "MC_VV_LO"
+    
   print(sample_format, sample_subformat)
 
   nanoaod_format='NANOAODV9'
