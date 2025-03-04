@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 # =============================================================================
 # plot_syst_unc.py - This macro is designed to produce plots showing the
 #                    uncertainties of certain systematics.
@@ -56,61 +63,136 @@ ROOT.gROOT.SetBatch(True)
 # Feel free to modify the following settings (if you dare...)    
 debug = True
 
-years = ['16' , '17', '18']
+years = ['16', '16_preVFP', '17', '18']
 regions = [ 'VHcc_boosted_PN_med', 'ZccHcc_boosted_PN_med', '' ]
 
-variables_per_region = { #[ 'HMass', 'ZMass' ]
+variables_per_region = {
   'VHcc_boosted_PN_med': [ 'HMass', 'ZMass' ],
   'ZccHcc_boosted_PN_med': [ 'HMass', 'ZMass' ],
   '' : ['jet_pt', 'jet_mass']
 }
 #varLogY = [ False, False ]
 
-dirpath = '../condor_results/2025Jan/'
-output_dir = '../plot_results/systematics/2025Jan/'
+dirpath = '../condor_results/2025Winter/'
+output_dir = '../plot_results/systematics/2025Winter/'
+batch_to_plot = 4      # 0 = ZH, QCD
+                       # 1 = W+Jets
+                       # 2 = Z+Jets, TT, ST, VV_LO
+                       # 3 = WminusH, WplusH, VV_NLO
+                       # 4 = custom
 
-colors = [ ROOT.kBlack, ROOT.kRed, ROOT.kBlue ]
-
-sampleList = [
-  'ZH_HToCC_ZToQQ', 'ggZH_HToCC_ZToQQ', ## Jet HT & ZH(H->CC)
-  #'ZH_HToBB_ZToQQ', 'ggZH_HToBB_ZToQQ', ## ZH(H->BB)    
-  #'QCD_HT200to300_v9', 'QCD_HT300to500_v9', ## QCD (200-Inf)   
-  #'QCD_HT500to700_v9', 'QCD_HT700to1000_v9', 'QCD_HT1000to1500_v9',
-  #'QCD_HT1500to2000_v9', 'QCD_HT2000toInf_v9',
-  #'WJetsToQQ_HT-200to400',
-  #'WJetsToQQ_HT-400to600', 'WJetsToQQ_HT-600to800',   ## WJ (400-Inf) 
-  #'WJetsToQQ_HT-800toInf', 'WJetsToLNu_HT-400to600',
-  #'WJetsToLNu_HT-100to200', 'WJetsToLNu_HT-200to400',
-  #'WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
-  #'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
-  #'ZJetsToQQ_HT-200to400',
-  #'ZJetsToQQ_HT-400to600', 'ZJetsToQQ_HT-600to800',   ## ZJ (400-Inf)
-  #'ZJetsToQQ_HT-800toInf',
-  #'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu'#,      ## Top (ttbar) 
-  #'ST_t-channel_antitop','ST_t-channel_top',          ## Top (Single Top) 
-  #'ST_tW-channel_antitop','ST_tW-channel_top',
-  #'WW','WZ','ZZ'                                      ## VV    
+## If you wish to use a custom list that's not pre-defined above
+## add them here
+custom_sampleList = [
+  'WW','WZ','ZZ',
+  'WWTo1L1Nu2Q_NLO', 'WWTo4Q_NLO', 
+  'WZTo1L1Nu2Q_NLO', 'WZTo2Q2L_NLO',
+  'WZTo4Q_NLO', 'WZToLNu2B_NLO',
+  'ZZTo2Nu2Q_NLO', 'ZZTo2Q2L_NLO'
 ]
 
-categories = [ "QCD", "TT", "ZH" ]
-categories = [ "ZH" ]
+custom_categories = [
+  'WW_LO', 'WZ_LO', 'ZZ_LO',
+  'WW_NLO', 'WZ_NLO', 'ZZ_NLO'
+]
+                       
+colors = [ ROOT.kBlack, ROOT.kRed, ROOT.kBlue ]
+
+########################################
+# WARNING: DO NOT EDIT BELOW THIS POINT
+########################################
+
+batch0_sampleList = [
+  'ZH_HToCC_ZToQQ', 'ggZH_HToCC_ZToQQ', ## Jet HT & ZH(H->CC)
+  'ZH_HToBB_ZToQQ', 'ggZH_HToBB_ZToQQ', ## ZH(H->BB)    
+  'QCD_HT200to300_v9', 'QCD_HT300to500_v9', ## QCD (200-Inf)   
+  'QCD_HT500to700_v9', 'QCD_HT700to1000_v9', 'QCD_HT1000to1500_v9',
+  'QCD_HT1500to2000_v9', 'QCD_HT2000toInf_v9'
+]
+
+batch1_sampleList = [
+  'WJetsToQQ_HT-400to600', 'WJetsToQQ_HT-600to800',   ## WJ (400-Inf) 
+  'WJetsToQQ_HT-800toInf', 'WJetsToLNu_HT-400to600',
+  'WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+  'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'
+]
+
+batch2_sampleList = [
+  'ZJetsToQQ_HT-400to600', 'ZJetsToQQ_HT-600to800',   ## ZJ (400-Inf)
+  'ZJetsToQQ_HT-800toInf',
+  'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu',      ## Top (ttbar) 
+  'ST_t-channel_antitop','ST_t-channel_top',          ## Top (Single Top) 
+  'ST_tW-channel_antitop','ST_tW-channel_top',
+  'WW','WZ','ZZ'                                      ## VV (LO)
+]
+
+batch3_sampleList = [
+  'WH_HToBB_WToQQ', 'WH_HToCC_WToQQ',                 ## WH 
+  'WWTo1L1Nu2Q_NLO', 'WWTo4Q_NLO',                    ## VV (NLO)
+  'WZTo1L1Nu2Q_NLO', 'WZTo2Q2L_NLO',
+  'WZTo4Q_NLO', 'WZToLNu2B_NLO',
+  'ZZTo2Nu2Q_NLO', 'ZZTo2Q2L_NLO'
+]
+
+batch0_categories = [ "ZHcc", "ZHbb", "QCD"]
+batch1_categories = [ "WJ" ]
+batch2_categories = [ "ZJ", "TT", "ST", "VV_LO"]
+batch3_categories = [ "WHcc", "WHbb", "VV_NLO" ]
 
 category_samples = {
-  "ZH": [ 'ZH_HToCC_ZToQQ', 'ggZH_HToCC_ZToQQ' ],
+  "ZHcc": [ 'ZH_HToCC_ZToQQ', 'ggZH_HToCC_ZToQQ' ],
+  "ZHbb": [ 'ZH_HToBB_ZToQQ', 'ggZH_HToBB_ZToQQ' ],
   "QCD": ['QCD_HT200to300_v9', 'QCD_HT300to500_v9',
-  'QCD_HT500to700_v9', 'QCD_HT700to1000_v9', 'QCD_HT1000to1500_v9',
-  'QCD_HT1500to2000_v9', 'QCD_HT2000toInf_v9'],
-  "TT": ['TTToHadronic', 'TTToSemiLeptonic', 'TTTo2L2Nu']  
+          'QCD_HT500to700_v9', 'QCD_HT700to1000_v9', 'QCD_HT1000to1500_v9',
+          'QCD_HT1500to2000_v9', 'QCD_HT2000toInf_v9'],
+  "TT": ['TTToHadronic', 'TTToSemiLeptonic', 'TTTo2L2Nu'],
+  "ST": ['ST_t-channel_antitop','ST_t-channel_top',
+         'ST_tW-channel_antitop','ST_tW-channel_top'],
+  "WJ": ['WJetsToQQ_HT-400to600', 'WJetsToQQ_HT-600to800',
+         'WJetsToQQ_HT-800toInf', 'WJetsToLNu_HT-400to600',
+         'WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+         'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'],
+  "ZJ": ['ZJetsToQQ_HT-400to600',
+         'ZJetsToQQ_HT-600to800', 'ZJetsToQQ_HT-800toInf'], 
+  "VV_LO": ['WW','WZ','ZZ'],
+  "WW_LO": ['WW'], "WZ_LO": ['WZ'], "ZZ_LO": ['ZZ'],
+  "WHcc": ['WH_HToCC_WToQQ'],
+  "WHbb": ['WH_HToBB_WToQQ'],
+  "VV_NLO": ['WWTo1L1Nu2Q_NLO', 'WWTo4Q_NLO',
+             'WZTo1L1Nu2Q_NLO', 'WZTo2Q2L_NLO',
+             'WZTo4Q_NLO', 'WZToLNu2B_NLO',
+             'ZZTo2Nu2Q_NLO', 'ZZTo2Q2L_NLO'],
+  "WW_NLO": ['WWTo1L1Nu2Q_NLO', 'WWTo4Q_NLO'],
+  "WZ_NLO": ['WZTo1L1Nu2Q_NLO', 'WZTo2Q2L_NLO',
+             'WZTo4Q_NLO', 'WZToLNu2B_NLO'],
+  "ZZ_NLO": ['ZZTo2Nu2Q_NLO', 'ZZTo2Q2L_NLO']
 }
 
-systs_separate = [ "NONE", "JESU", "JESD", "PUU", "PUD" ]
-systs = [ "JES", "PU" ]
+systs_separate = [ "NONE", "JESU", "JESD", "PUU", "PUD", "ELECU", "ELECD",
+                   "MUONU", "MUOND", "L1PREFIRINGU", "L1PREFIRINGD",
+                   "TAG_CCU", "TAG_CCD", "TRIGU", "TRIGD", "JERU", "JERD"]
+systs = [ "JES", "PU", "ELEC", "MUON", "L1PREFIRING", "TAG_CC", "TRIG", "JER"]
+
+#systs_separate = [ "NONE", "JERU", "JERD" ]
+#systs = [ "JER" ]
 
 config_file = '../Configs/config.ini'
 
 if debug: print("All settings set.")
 
 # == MAIN CODE ================================================================
+
+sampleList = batch0_sampleList
+if (batch_to_plot == 1): sampleList = batch1_sampleList
+elif (batch_to_plot == 2): sampleList = batch2_sampleList
+elif (batch_to_plot == 3): sampleList = batch3_sampleList
+elif (batch_to_plot == 4): sampleList = custom_sampleList
+
+categories = batch0_categories
+if (batch_to_plot == 1): categories = batch1_categories
+elif (batch_to_plot == 2): categories = batch2_categories
+elif (batch_to_plot == 3): categories = batch3_categories
+elif (batch_to_plot == 4): categories = custom_categories
 
 #################################
 ## Do not edit below this point
@@ -180,7 +262,7 @@ for s in sampleList:
 
         if debug: print(">>> | xSec = ", xSecTmps)
         for iS in xSecTmps:
-          if '*' in iS: iS.split('*')
+          if '*' in iS: iS = iS.split('*')
           if len(iS) == 2:
             xSecs[s][sys][y].append(float(iS[0])*float(iS[1]))
           else:
@@ -191,7 +273,7 @@ for s in sampleList:
           if s not in ['JetHT']:
             if debug: print(">>> |", s, y, iN, fileNames[s][sys][y][iN])
             lumiScales[s][sys][y][iN] = ScaleToLumi1(fileNames[s][sys][y][iN],
-                      xSecs[s][sys][y][iN], lumi, 'Nevt_VbbHcc_boosted')
+                      xSecs[s][sys][y][iN], lumi, 'Nevt_all_VbbHcc_boosted')
 
 print("\n>>> All files retrieved...")
 

@@ -9,3 +9,5 @@ plot*/*
 *_dict*.*
 # No log files
 log*.*
+*/log*.*
+*/output*.*
