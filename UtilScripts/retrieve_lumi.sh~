@@ -1,0 +1,3 @@
+echo "Make sure you've done the following before runing this shell script:"
+echo "1. source /cvmfs/cms-bril.cern.ch/cms-lumi-pog/brilws-docker/brilws-env"
+echo "2. ./get_runs_per_datasets.sh"
