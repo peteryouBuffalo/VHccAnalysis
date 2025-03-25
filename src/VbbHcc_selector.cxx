@@ -125,6 +125,11 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_nB_1 = new TH1D("nB_1","",20,0,20) ; 
   h_nbB_1 = new TH1D("nbB_1","",20,0,20) ; 
 
+  h_Pileup_nTrueInt = new TH1D("Pileup_nTrueInt", "", 99, 0, 99);
+  h_Pileup_nTrueInt_scaled = new TH1D("Pileup_nTrueInt_scaled", "", 99, 0, 99);
+  h_PV_npvsGood = new TH1D("PV_npvsGood", "", 99, 0, 99);
+  h_PV_npvsGood_scaled = new TH1D("PV_npvsGood_scaled", "", 99, 0, 99);
+  
   h_pt_rho_n2b1 = new TH3D("pt_rho_n2b1","",70,300,1000,75,-6,-1.5,100,0,1);
   h_jet_mass = new TH1D("jet_mass","",2000,0,2000);
   h_jet_pt = new TH1D("jet_pt", "", 2000, 0, 2000);
@@ -249,8 +254,6 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   tmp = h_ZccHcc_PN_med_VjetCR_pass->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
    
-  
-
 
   tmp = h_VHcc_PN_med->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
@@ -338,6 +341,11 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   r->GetOutputList()->Add(h_ljpt);
   r->GetOutputList()->Add(h_ljpt_gen);
   r->GetOutputList()->Add(h_VZtype);
+
+  r->GetOutputList()->Add(h_Pileup_nTrueInt);
+  r->GetOutputList()->Add(h_Pileup_nTrueInt_scaled);
+  r->GetOutputList()->Add(h_PV_npvsGood);
+  r->GetOutputList()->Add(h_PV_npvsGood_scaled);
 }
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
@@ -430,6 +438,7 @@ void VbbHcc_selector::Process(Reader* r) {
   //Weights
   float genWeight = 1.;
   float puSF = 1.;
+  float puSF_new = 1.0f;
   float l1preW = 1.;
   int nB(0);
   int nb(0);
@@ -444,6 +453,7 @@ void VbbHcc_selector::Process(Reader* r) {
   h_evt_all->Fill(2,genWeight);
   
   puSF = PileupSF(*(r->Pileup_nTrueInt));
+  puSF_new = new_PileupSF(*(r->Pileup_nTrueInt));
 #endif
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017)
@@ -454,7 +464,11 @@ void VbbHcc_selector::Process(Reader* r) {
 #endif
 
   float evtW = 1. ;
-  if (!m_isData) evtW *= genWeight*puSF*l1preW;
+  float evtW_noPU = 1.0f;
+  if (!m_isData) {
+    evtW *= genWeight*puSF*l1preW;
+    evtW_noPU *= genWeight * l1preW;
+  }
 
   h_cutFlow_ZccHcc_PN_med->Fill(0.5,evtW);
   h_cutFlow_VHcc_PN_med->Fill(0.5,evtW);
@@ -464,6 +478,19 @@ void VbbHcc_selector::Process(Reader* r) {
   if (!m_lumiFilter.Pass(*(r->run),*(r->luminosityBlock))) return;
   h_evt->Fill(1) ;
 #endif
+
+  // Record the nTrueInt which is in MC only. Additionally,
+  // Record the version of NPVs_good where the weight is taken into account.
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
+  h_Pileup_nTrueInt->Fill(*(r->Pileup_nTrueInt), 1.0f); // don't want PU SF here
+  h_Pileup_nTrueInt_scaled->Fill(*(r->Pileup_nTrueInt), puSF_new); // we want the PU SF here
+  h_PV_npvsGood_scaled->Fill(*(r->PV_npvsGood), puSF_new);  // includes PU SF
+#endif
+
+  // In both MC and data, we also want to see how the NPVs_good
+  // looks without the scale factor (as a before picture).
+  h_PV_npvsGood->Fill(*(r->PV_npvsGood), 1.0f);  // removes PU SF
+
   
   h_cutFlow_ZccHcc_PN_med->Fill(1.5,evtW);
   h_cutFlow_VHcc_PN_med->Fill(1.5,evtW);

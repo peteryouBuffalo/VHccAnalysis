@@ -1,0 +1,234 @@
+# =============================================================================
+# calc_PU_reweighting.py - This is a macro for taking the data PU data from
+#                          lumi POG and comparing it with MC pileup info to
+#                          calculate PU reweighting.
+# =============================================================================
+
+import ROOT
+import os,sys
+import copy
+import configparser
+from math import *
+
+from my_funcs import ScaleToLumi1, makeRatioPlot
+
+# == USEFUL METHODS ===========================================================   
+
+def getHist(plotName, sample_names, hist_files, lumiScales, debug = True):
+  
+  hOut = {}
+  
+  ## Go through each year we're interested in.
+  for y in years:
+    
+    ## Get the first sample and the appropriate histogram
+    if debug: 
+      print("Looking in ", sample_names[0], " for ", plotName, "(20",y,")")
+    hOut[y] = hist_files[sample_names[0]][y][0].Get(plotName).Clone()
+    if sample_names[0] not in ['JetHT', 'Data']:
+      scale = lumiScales[sample_names[0]][y][0]
+      hOut[y].Scale(scale)
+      if debug:
+        print("Scaling ", sample_names[0], ", SF = ", scale)
+    
+    ## Add the other samples
+    for iS in range(len(sample_names)):
+      for fi in range(len(hist_files[sample_names[iS]][y])):
+        
+        ## Skip the first sample (already grabbed)
+        if iS == 0 and fi == 0: continue
+        
+        h = hist_files[sample_names[iS]][y][fi].Get(plotName).Clone()
+        if sample_names[iS] not in ["JetHT", "Data"]:
+          scale = lumiScales[sample_names[iS]][y][fi]
+          if debug:
+            print("Scaling ", sample_names[iS], ", SF = ", scale)
+          h.Scale(scale)
+        hOut[y].Add(h)
+  
+  return hOut
+
+# == SETTINGS ===================================================================
+
+# This helps suppress visual output when producing the plots to file
+ROOT.gROOT.SetBatch(True)
+
+# Do NOT change these files. These are given for Run2 by lumi POG
+data_samples = {
+    '16': "../CalibData/pileup/PileupHistogram-goldenJSON-13tev-2016-69200ub-99bins.root",
+    '17': "../CalibData/pileup/PileupHistogram-goldenJSON-13tev-2017-69200ub-99bins.root",
+    '18': "../CalibData/pileup/PileupHistogram-goldenJSON-13tev-2018-69200ub-99bins.root"
+}
+
+
+# Feel free to modify the following settings (if you dare...)
+debug = True
+years = ['16', '16_preVFP', '17', '18']
+#years = ['18']
+
+hist_name = "Pileup_nTrueInt"
+
+use_scaled = True
+
+dirpath = '../condor_results/2025Mar_PU_no_weight/NONE/'
+output_dir = '../plot_results/PU_reweight/2025Mar_no_weight/'  # For Plots
+sf_root_dir = '../CalibData/'                        # For SF plot
+
+sampleList = [
+  'ZJetsToQQ_HT-400to600', 'ZJetsToQQ_HT-600to800',   ## ZJ (400-Inf)
+  'ZJetsToQQ_HT-800toInf'
+]
+
+categories = [ "ZJ" ]
+category_samples = {
+  "ZJ": ['ZJetsToQQ_HT-400to600', 'ZJetsToQQ_HT-600to800',         
+         'ZJetsToQQ_HT-800toInf']
+}
+
+config_file = '../Configs/config.ini'
+if debug: print("All settings set.")
+
+# == MAIN CODE ============================================================
+
+#################################
+## Do not edit below this point
+## (unless absolutely necessary)
+#################################
+
+years_checked = ['16','17','18']
+#years_checked = ['18']
+
+if debug: print("Retrieving files and luminosities...")
+
+## Load the config files         
+if debug: print(">>> Loading config file...")
+cfg = configparser.ConfigParser()
+cfg.read(config_file)
+
+## Get the proper lumi scales                        
+if debug: print(">>> Loading lumi scales...")
+lumiS = {}
+for y in years_checked:
+  y_good = y
+  if (y == '16'): y_good = y + "_comb"
+  lumiTmp = float(cfg.get('General','lumi_'+y_good))/1000.0
+  lumiTmp = float("%.1f" % lumiTmp)
+  lumiS[y] = str(lumiTmp)
+if debug: print(">>> lumi scales = ", lumiS)
+
+## Retrieve the proper files and information related to them.          
+if debug: print(">>> Retrieving information on samples...")
+fileNames = {}
+xSecs = {}
+lumiScales = {}
+histFiles = {}
+
+for s in sampleList:
+  
+  fileNames[s] = {}
+  xSecs[s] = {}
+  lumiScales[s] = {}
+  histFiles[s] = {}
+  
+  for y in years:
+  
+    if debug: print("\nLooking for year 20", y)
+    
+    ## Get the proper luminosity scale and the files
+    ## for the given year (should be only ~1/year)
+    lumi = float(cfg.get('General', 'lumi_'+y))
+    names = cfg.get(s, 'file_'+y).split(',')
+    if debug: print(">>> | ", len(names), " files...")
+    
+    ## Get other values of interest
+    xSecTmps = ['1']*len(names)
+    kfactor = ['1']*len(names)
+    if s not in ['JetHT', 'Data']:
+      xSecTmps = cfg.get(s, 'xSec_'+y).split(',')
+    
+    ## Get the proper information for this year
+    fileNames[s][y] = []
+    xSecs[s][y] = []
+    histFiles[s][y] = []
+    
+    for iN in names:
+      fileNames[s][y].append(dirpath + '/' + iN)
+      histFiles[s][y].append(ROOT.TFile.Open(fileNames[s][y][-1],'READ'))
+    
+    if debug: print(">>> | xSec = ", xSecTmps)
+    for iS in xSecTmps:
+      if '*' in iS: iS.split('*')
+      if len(iS) == 2:
+        xSecs[s][y].append(float(iS[0])*float(iS[1]))
+      else:
+        xSecs[s][y].append(float(iS))
+    
+    lumiScales[s][y] = [1]*len(names)
+    for iN in range(len(fileNames[s][y])):
+      if s not in ['JetHT']:
+        print(">>> |", s, y, iN, fileNames[s][y][iN])
+        lumiScales[s][y][iN] = ScaleToLumi1(fileNames[s][y][iN],
+                  xSecs[s][y][iN], lumi, 'Nevt_all_VbbHcc_boosted')
+
+
+if debug: print("\n>>> All files retrieved...")
+
+# Get the data histograms per year
+y_limits = { '16': 0.07, '17': 0.05, '18': 0.07 }
+data_files = {}
+for y in years_checked:
+  data_files[y] = ROOT.TFile.Open(data_samples[y], 'READ')
+
+
+# Create the file that goes with the PU reweighting scale factors
+sf_filepath = sf_root_dir + "/pu_reweight.root"
+sf_file = ROOT.TFile(sf_filepath, "UPDATE")
+
+
+# Go through each category
+for cat in categories:
+  
+  if debug: print(">>> cat = ", cat)
+  h_name = hist_name
+  if use_scaled: h_name = hist_name + "_scaled"
+  plots_by_year = getHist(hist_name, category_samples[cat],
+                          histFiles, lumiScales)
+
+  # Go through each year
+  for y in years_checked:
+
+    print(">>>>>> y = ", y)
+    
+    # Data plot
+    h_data = data_files[y].Get("pileup")
+    h_data.Scale(1.0/h_data.Integral())
+    
+    # MC plot
+    h_MC = plots_by_year[y]
+    if (y == '16'):
+      h_tmp = plots_by_year['16_preVFP']
+      h_MC.Add(h_tmp)
+    h_MC.Scale(1.0/h_MC.Integral())
+
+    # Produce the ratio between the two plots
+    plots = [h_data.Clone(), h_MC.Clone()]
+    plot_names = [ "Data Pileup", "Z+jets Pileup_nTrueInt"]
+    canvas_name = cat + "_" + y
+    if use_scaled:
+      plot_names[1] = "Z+jets Pileup_nTrueInt\n(scaled)"
+      canvas_name = canvas_name + "_scaled"
+    
+    makeRatioPlot(plots, plot_names, canvas_name, output_dir,
+                  "Pileup", [0,99], "Data/MC", False, lumiS[y],
+                  colors = [ROOT.kBlack, ROOT.kRed],
+                  y_max = y_limits[y])
+
+
+    # Make a ratio that is to be stored in a ROOT file.
+    print(">>> Writing the reweight SF plot to file...")
+    h_rat = h_data.Clone("PU_reweight_20" + y)
+    h_rat.Divide(h_MC.Clone())
+
+    h_rat.Write("", ROOT.TObject.kOverwrite)
+
+sf_file.Close()

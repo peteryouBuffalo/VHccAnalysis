@@ -75,7 +75,7 @@ def getHist(plotName, sample_names, hist_files, lumiScales, scale = True, debug 
 #############################################################################
 def makeOverlapPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
                     xAxisRange, logY, lumi, custom_colors=colors,
-                    moveLegendLeft=False):
+                    moveLegendLeft=False, y_max = -1):
 
   ## Set some useful settings
   ROOT.gStyle.SetOptStat(0)
@@ -93,6 +93,7 @@ def makeOverlapPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 
   l = ROOT.TLegend(x0, 0.70, x1, 0.87)
   l.SetLineWidth(2)
+  l.SetMarkerSize(4)
   l.SetBorderSize(0)
   l.SetTextFont(42)
   l.SetTextSize(0.035)
@@ -102,7 +103,7 @@ def makeOverlapPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 
   for i in range(0,len(plots)):
     if (i == 0):
-      plots[i].SetFillColor(ROOT.kGray)
+      plots[i].SetMarkerSize(1.5)
     plots[i].SetLineColor(custom_colors[i])
     plots[i].SetLineWidth(2)
     l.AddEntry(plots[i], plotNames[i], 'F')
@@ -150,7 +151,8 @@ def makeOverlapPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 #######################################################################
 def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
                   xAxisRange, ratioTitle, logY, lumi,
-                  moveLegendLeft=False):
+                  moveLegendLeft=False, colors=[ROOT.kBlack,ROOT.kBlue],
+                  y_max = -1):
 
   ## Set some useful settings
   ROOT.gStyle.SetOptStat(0) # remove stat box
@@ -160,13 +162,13 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   c.SetLeftMargin(0.15)
   c.cd()
   
-  ## Prepare the legend                                                                              
-  x0 = 0.53; x1 = 0.89
+  ## Prepare the legend 
+  x0 = 0.53; x1 = 0.75
   if moveLegendLeft:
     x0 = 0.17
     x1 = 0.42
 
-  l = ROOT.TLegend(x0, 0.70, x1, 0.87)
+  l = ROOT.TLegend(x0, 0.75, x1, 0.87)
   l.SetLineWidth(2)
   l.SetBorderSize(0)
   l.SetTextFont(42)
@@ -174,13 +176,30 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 
   ## Modify the plots as necessary                                         
   maxVal = -1
-  customColors = [ ROOT.kBlack, ROOT.kBlue]
   for i in range(0,len(plots)):
-    #if (i == 0):
+    if (i == 0):
+      plots[i].SetMarkerSize(4.0)
     #  plots[i].SetFillColor(ROOT.kGray)
-    plots[i].SetLineColor(customColors[i])
+    plots[i].SetTitle("")
+    plots[i].SetLineColor(colors[i])
     plots[i].SetLineWidth(2)
-    l.AddEntry(plots[i], plotNames[i], 'F')
+    if i == 0:
+      entry = l.AddEntry(plots[i], plotNames[i], "L")
+      entry.SetMarkerSize(2.0)
+    else:
+      if ("\n" in plotNames[i]):
+        bits = plotNames[i].split("\n")
+        count = 0
+        for bit in bits:
+          if count == 0:
+            l.AddEntry(plots[i], bit, "L")
+          else:
+            pave_text = ROOT.TPaveText(0, 0, 1, 1)
+            pave_text.AddText(bit)
+            l.AddEntry(pave_text, " ", "")
+          count += 1
+      else:
+        l.AddEntry(plots[i], plotNames[i], "L")
 
     binmax = plots[i].GetMaximumBin()
     binval = plots[i].GetBinContent(binmax)
@@ -197,7 +216,7 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 
   rat = ROOT.TRatioPlot(plots[0], plots[1])
   plots[0].GetXaxis().SetTitle(xAxisTitle)
-  rat.SetH1DrawOpt("hist")
+  rat.SetH1DrawOpt("ape")
   rat.SetH2DrawOpt("hist")
   rat.Draw("hist")
 
@@ -215,6 +234,9 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   rat.GetLowerRefXaxis().SetRange(xAxisRange[0], xAxisRange[1])
   rat.GetLowerRefYaxis().SetTitle(ratioTitle)
 
+  if (y_max >= 0.0):
+    rat.GetUpperRefYaxis().SetRangeUser(0.0, y_max)
+
   binSize = plots[0].GetBinCenter(2) - plots[1].GetBinCenter(1)
   binSize = round(binSize,3)
   extraBit = ''
@@ -222,11 +244,23 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
     extraBit = ' GeV'
 
   rat.GetUpperRefYaxis().SetTitle("Events/" + str(binSize) + extraBit)
-
+  #rat.GetUpperRefYaxis().SetTitleOffset(1.1)
+  
   rat.GetUpperPad().Modified()
   rat.GetUpperPad().Update()
   rat.GetLowerPad().Modified()
   rat.GetLowerPad().Update()
+
+  rat.GetUpperPad().SetLeftMargin(0.15)
+  rat.GetLowerPad().SetLeftMargin(0.15)
+
+
+  ## Update the canvas & modify the y-axis if appropriate                                           
+  myText('CMS Work in Progress #sqrt{s} = 13 TeV, '+lumi+' fb^{-1}',
+         0.33, 0.937775, 0.65)
+  
+  c.Update()
+  
   ## Check to make sure the directory exists &                                
   ## then print the proper files to the output                          
 
@@ -243,7 +277,7 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
 
   c.Print(fullpath + '.png')
   c.Print(fullpath + '.pdf')
-  c.Print(fullpath + '.C')
+  #c.Print(fullpath + '.C')
 
   
 #######################################################################
@@ -395,5 +429,80 @@ def makeUpDownSystPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   c.Print(fullpath + '.png')
   c.Print(fullpath + '.pdf')
   c.Print(fullpath + '.C')
-  
+
+#######################################################################
+# Make MultiPlot
+#######################################################################
+def makeMultiPlot(plots, plot_names,
+                  canvas_name, output_dir,
+                  xAxisRange, xAxisTitle,
+                  overallTitle,
+                  plots_per_sub = 1):
+
+  ROOT.gStyle.SetOptStat(0)
+  ROOT.gStyle.SetTitleSize(0.1)
+
+  nX = 2
+  nY = int(len(plots)/(2*plots_per_sub))
+  n_pads = nX * nY
+  canvas = ROOT.TCanvas(canvas_name, canvas_name, 1200, 1100)
+
+  #latex = ROOT.TLatex()
+  #latex.SetTextSize(0.05)
+  #latex.SetTextAlign(22) # center   
+  #latex.DrawLatexNDC(0.5, 0.95, overallTitle)
+
+  canvas.Divide(nX,nY)
+
+  lines = []
+  for i in range(0, len(plots), plots_per_sub):
+
+    # Get the pad # from the plot number
+    pad_idx = int(i / plots_per_sub)
+    
+    pad = canvas.cd(pad_idx+1)
+    pad.SetLeftMargin(0.15)
+    pad.SetRightMargin(0.05)
+    if pad_idx <= 2:
+      pad.SetTopMargin(0.2)
+    pad.SetBottomMargin(0.1 if pad_idx < n_pads - 2 else 0.2)
+
+    # Go through all the plots for each sub
+    for j in range(i, i+plots_per_sub):
+
+      xmin = plots[j].GetXaxis().GetXmin()
+      xmax = plots[j].GetXaxis().GetXmax()
+      xmax = min(xmax, xAxisRange[1])
+
+      line = ROOT.TLine(xmin, 1.0, xmax-2, 1.0)
+      line.SetLineStyle(2) # dashed
+      line.SetLineColor(ROOT.kBlack)
+      lines.append(line) # so it doesn't go out of scope
+      line.Draw()
+      
+      if j == i: plots[j].Draw("hist")
+      else: plots[j].Draw("same hist")
+      
+      if pad_idx < 2:
+        latex = ROOT.TLatex()
+        latex.SetTextSize(0.1)
+        latex.SetTextAlign(22) # center           
+        latex.DrawLatexNDC(0.5, 0.95, overallTitle)
+
+      x_title = xAxisTitle
+      if pad_idx < n_pads - 2: x_title = ""
+      plots[j].GetXaxis().SetTitle(x_title)
+      if pad_idx >= n_pads - 2:
+        plots[j].GetXaxis().SetTitleSize(0.07)
+        plots[j].GetXaxis().SetLabelSize(0.06)
+      
+      plots[j].GetYaxis().SetTitle(plot_names[pad_idx])
+      plots[j].GetYaxis().SetTitleOffset(0.8)
+      plots[j].GetYaxis().SetTitleSize(0.1)
+      plots[j].GetYaxis().SetLabelSize(0.06)
+      
+  canvas.Update()
+  canvas.SaveAs(output_dir + "/" + canvas_name + ".png")
+  canvas.SaveAs(output_dir + "/" + canvas_name + ".pdf")
+    
 ## == |EOF| ===========================================================

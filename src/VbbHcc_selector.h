@@ -72,6 +72,11 @@ private:
   TH1D* h_jet_pt;
 
   TH1D* h_VZtype;
+
+  TH1D* h_Pileup_nTrueInt;
+  TH1D* h_Pileup_nTrueInt_scaled;
+  TH1D* h_PV_npvsGood;
+  TH1D* h_PV_npvsGood_scaled;
   
   VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP 
   VHBoostedPlots* h_ZccHcc_PN_med_zmass_deltaPhi; //using particle net medium WP

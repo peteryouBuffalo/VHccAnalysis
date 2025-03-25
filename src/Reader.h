@@ -38,6 +38,7 @@ public :
    TTreeReaderValue<Float_t> L1PreFiringWeight_Nom = {fReader, "L1PreFiringWeight_Nom"};
    TTreeReaderValue<Float_t> L1PreFiringWeight_Up = {fReader, "L1PreFiringWeight_Up"};
 #endif
+
 ///////////////////////////////////////////////
 //Trigger
 ///////////////////////////////////////////////
@@ -223,6 +224,8 @@ public :
   TTreeReaderArray<Float_t> FatJet_msoftdrop_tau21DDT_jmsDown = {fReader, "FatJet_msoftdrop_tau21DDT_jmsDown"};
 #endif
 
+  TTreeReaderValue<Int_t> PV_npvsGood = {fReader, "PV_npvsGood"};
+  
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
   TTreeReaderValue<Float_t> Pileup_nTrueInt = {fReader, "Pileup_nTrueInt"};
   TTreeReaderValue<Float_t> Pileup_pudensity = {fReader, "Pileup_pudensity"};

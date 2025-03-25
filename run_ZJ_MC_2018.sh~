@@ -1,0 +1,8 @@
+#!/bin/bash 
+make FORMAT=MC_2018 SUBFORMAT=MC_2018 SAMPLE=MC_NOTVZ PROCESSING=NORMAL NANOAOD=NANOAODV9 INPUT=TCHAIN 
+#./main -filelist FileLists/ZJetsToQQ_HT-400to600_MC_2018.txt -out condor_results/2025Mar_PU/NONE/ZJetsToQQ_HT-400to600_MC_2018.root -data 0\
+#       -year 2018 -syst NONE -xccEffFileName CalibData/xcc_eff_VH_looseWP.root -centralGenWeight 0
+./main -filelist FileLists/ZJetsToQQ_HT-600to800_MC_2018.txt -out condor_results/2025Mar_PU/NONE/ZJetsToQQ_HT-600to800_MC_2018.root -data 0\
+       -year 2018 -syst NONE -xccEffFileName CalibData/xcc_eff_VH_looseWP.root -centralGenWeight 0
+#./main -filelist FileLists/ZJetsToQQ_HT-800toInf_MC_2018.txt -out condor_results/2025Mar_PU/NONE/ZJetsToQQ_HT-800toInf_MC_2018.root -data 0\
+#       -year 2018 -syst NONE -xccEffFileName CalibData/xcc_eff_VH_looseWP.root -centralGenWeight 0
