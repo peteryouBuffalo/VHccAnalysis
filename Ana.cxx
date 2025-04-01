@@ -203,6 +203,7 @@ int main(int argc, char *argv[]) {
   std::string fName_btagEff("CalibData/effM.root");
 
   std::string fName_puSF;
+  std::string fName_puSF_new;
   std::string fName_PUjetID_SF;
   std::string fName_PUjetID_eff;
   std::string fName_xbb_xcc_sf("CalibData/xcc_qcd_weights_looseWP.root"); //to calculate the weight for QCD xcc xbb
@@ -261,6 +262,16 @@ int main(int argc, char *argv[]) {
   if (syst == "PUU") fName_puSF = "CalibData/2018_pileup_ratio_up.root";
   if (syst == "PUD") fName_puSF = "CalibData/2018_pileup_ratio_down.root";
 #endif
+
+  fName_puSF_new = "CalibData/pu_reweight.root";
+#if defined(MC_2016PRE) || defined(MC_2016)
+  VbbHcc_sel.SetNewPileupSF(fName_puSF_new, 2016);
+#elif defined(MC_2017)
+  VbbHcc_sel.SetNewPileupSF(fName_puSF_new, 2017);
+#elif defined(MC_2018)
+  VbbHcc_sel.SetNewPileupSF(fName_puSF_new, 2018);
+#endif
+  
   VbbHcc_sel.SetJetMetSyst("central");
   //VbbHcc_sel_unc.SetJetMetSyst("central");
   if (syst == "JESU") VbbHcc_sel.SetJetMetSyst("jesu");

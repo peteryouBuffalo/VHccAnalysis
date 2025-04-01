@@ -39,6 +39,7 @@ class Selector
   virtual void SetMuonEffCorr(std::vector<std::string> fName_trig, std::vector<std::string> fName_ID, std::vector<std::string> fName_iso, std::vector<float> w_trig, std::vector<float> w_ID, std::vector<float> w_iso, std::string muonUncType) ;
   virtual void SetLumiMaskFilter(std::string fName_lumiMaskFilter);
   virtual void SetPileupSF(std::string fName_puSF);
+  virtual void SetNewPileupSF(std::string fName_puSF, int year);
   virtual void SetXbbXccEff(std::string fName_xbb_xcc_eff);
   virtual void SetXbbXccEff1D(std::string fName_xbb_xcc_eff);
   virtual void SetTriggerSF(std::string fName_triggerSF);
@@ -49,6 +50,7 @@ class Selector
   virtual void SetMuonCorr(std::string jsonFileName);
 
   virtual float PileupSF(int nTrueInt);
+  virtual float new_PileupSF(int nTrueInt);
   virtual std::vector<float> GetSF_2DHist(float x, float y, std::vector<TH2F*> h, std::vector<float> w);
   virtual float CalBtagWeight(std::vector<JetObj>& jets, std::string jet_main_bTagWP="deepCSVT", std::string uncType="central") ;
   virtual float CalTagWeightBoosted_1jet(std::pair<float,bool> jet, int jet_flav, std::string tagType, std::string uncType);
@@ -194,6 +196,9 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
 
   TH1D* m_hSF_pu;
 
+  TFile* PUreweight_new;
+  TH1D* m_hSF_pu_new;
+  
   TFile* PUjetID_SF;
   TFile* PUjetID_eff;
 

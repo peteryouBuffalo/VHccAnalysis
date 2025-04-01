@@ -146,6 +146,13 @@ void Selector::SetPileupSF(std::string fName_puSF) {
   m_hSF_pu->SetDirectory(0);
 }
 
+void Selector::SetNewPileupSF(std::string fName_puSF, int year) {
+  TFile* f = new TFile(fName_puSF.c_str(), "READ");
+  std::string h_name = "PU_reweight_" + std::to_string(year);
+  m_hSF_pu_new = (TH1D*)f->Get(h_name.c_str());
+  m_hSF_pu_new->SetDirectory(0);
+}
+
 void Selector::SetXbbXccEff(std::string fName_xbb_xcc_eff) {
   TFile* f = new TFile(fName_xbb_xcc_eff.c_str(),"READ") ;
   std::string y = "16"; 
@@ -245,6 +252,11 @@ float Selector::GetTrigSF(float jetPt1, float jetPt2, std::string uncType) { //p
 float Selector::PileupSF(int nTrueInt) {
   int iBin = m_hSF_pu->FindFixBin(nTrueInt) ;
   return m_hSF_pu->GetBinContent(iBin); 
+}
+
+float Selector::new_PileupSF(int nTrueInt) {
+  int iBin = m_hSF_pu_new->FindFixBin(nTrueInt);
+  return m_hSF_pu_new->GetBinContent(iBin);
 }
 
 void Selector::SetPUjetidCalib(std::string fName_PUjetID_SF,std::string fName_PUjetID_eff,std::string jetPUidUncType){
