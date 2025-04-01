@@ -4,6 +4,7 @@ Tmp*/*
 condor_results*/*
 plot_results*/*
 plot*/*
+Plot*/*
 # No object files
 *.o
 *_dict*.*

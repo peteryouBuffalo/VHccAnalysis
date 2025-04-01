@@ -165,7 +165,18 @@ print(lumiS)
 #TEMP: no ST_tW-channel_antitop for now since no available from current processing
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
 
-ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
+ss = [
+  'JetHT',
+  'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
+  'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
+  'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
+  'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
+  'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
+  'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf',
+  'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu',
+  'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop',
+  'WW','WZ','ZZ',
+  'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
 
 #TMP not use WZTo2Q2L for now missing 2017 
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
@@ -259,7 +270,19 @@ for r in regions:
   for plN in plotNames:
     
     #TEMP: need to check what else have break VV, only HMass?
-    if breakVV and 'HMass' not in plN: continue
+    #if breakVV and 'HMass' not in plN: continue
+    
+    #FIX?: is this fine for checking other variables
+    has_desired_var = (
+      ('HMass' in plN) or ('ZMass' in plN) or
+      ('HPt' in plN) or ('ZPt' in plN) or
+      ('HFlav' in plN) or ('ZFlav' in plN) or
+      ('DPhiZH' in plN) or ('DEtaZH' in plN) or
+      ('CutFlow' in plN) or
+      ('pt_jet' in plN) or ('pt_jet0' in plN) or ('pt_jet1' in plN) or
+      ('m_jet' in plN) or ('m_jet0' in plN) or ('m_jet1' in plN)
+    )
+    if breakVV and not has_desired_var: continue
     
     hN = r + '_' + plN
     if plN == 'CutFlow':
