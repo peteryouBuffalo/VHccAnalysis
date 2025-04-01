@@ -32,6 +32,24 @@ def getHist(pN,samName,fH,lS): #samName = ['Electron'],['DY_0J','DY_1J','DY_2J']
       
   return hOut
 
+def getHists(pN,pN1s,samName,fH,lS):
+    tmp = pN + '_' + pN1s[0]
+    h = getHist(tmp,samName,fH,lS)
+    for i in range(1,len(pN1s)):
+      tmp = pN + '_' + pN1s[i]
+      htmp = getHist(tmp,samName,fH,lS)
+      for y in years:
+        h[y].Add(htmp[y])
+    
+    return h
+
+
+def getHistVV(hNin, vv_con, vvName, f, lumi):
+    hTmp = getHist(hNin,[vv_con[vvName][0]],fHist,lumiScales)
+    for i in range(1,vv_con[vvName].size()):
+        hTmp.Add(getHist(hNin,[vv_con[vvName][i]],fHist,lumiScales))
+    return hTmp
+
 def getHistIntegral(h,v1=-1,v2=-1):
   tmp = [0,0]
   bBin = 0 #include underflow bin
@@ -70,79 +88,67 @@ def getFilterEff(fName):
 ##########################
 #Main
 ##########################
+#Frequently use settings
 
 years = ['16_preVFP','16','17','18']
 
-correctFilterEff = False #only used for postProcessing 
-
-doBlindData = False 
+blindDataOption = 1 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
 blindRange = [75,140]
 
 #use to get event yield tables. Only count events within lowM-highM
 lowM = 50
 highM = 200
 
-
-doUseReweightForQCD = False 
-
 doCustomBinning_MH = True 
 #xDiv_MH = [40.,60.,80.,90.,100.,130.,160.,200.]
 xDiv_MH = [40,60,80,100,120,140,160,180,200]
 
-makePostfit_MH = False 
-#400 GeV
-#binContent_MH = [430.479,418.551,178.116,131.821,420.211,321.92,156.176]
-#binError_MH = [13.4152,13.6874,8.52384,9.01764,14.7733,12.3655,8.99349]
-#binContent_MH = [235.312,297.341,157.384,156.162,466.543,392.957,221.413]
-#binError_MH = [9.8643,11.3742,7.97297,9.06843,15.7883,13.6665,10.2319]
-binContent_MH = [571.812301697, 572.658544275, 201.083748486, 165.396563785, 535.790231977, 336.389680618, 163.075072714]
-binError_MH = [14.524979842, 14.6705438854, 9.64396617479, 10.4968651727, 16.9819213256, 11.6571979069, 8.3184613374]
-
-#regions = ['VbbHcc_boosted_twojets']
-#regions = ['VbbHcc_boosted_select3','VbbHcc_boosted_select4','VbbHcc_boosted_qcd','VbbHcc_boosted_qcd_1','VbbHcc_boosted_qcd_2','VbbHcc_boosted_qcd_3']
-#regions = ['VbbHcc_boosted_PN_med','VbbHcc_boosted_PN_med_CR_qcd','VbbHcc_boosted_PN_med_VR_qcd','VbbHcc_boosted_PN_med_CR1_qcd','VbbHcc_boosted_PN_med_CR_top']
-#regions = ['VbbHcc_boosted_PN_med','VbbHcc_boosted_PN_med_CR_top']
-#regions = ['VbbHcc_boosted_PN_med']
-#regions = ['VbbHcc_boosted_PN_med','VbbHcc_boosted_PN_med_CR_top']
-#regions = ['VbbHcc_boosted_PN_med_topCR_pass','VbbHcc_boosted_PN_med_topCR_fail']
-#regions = ['VbbHcc_boosted_PN_med','VbbHcc_boosted_PN_med_qcdCR','VbbHcc_boosted_PN_med_topCR_pass','VbbHcc_boosted_PN_med_topCR_fail']
-#regions = ['VbbHcc_boosted_select3','VbbHcc_boosted_select4','VbbHcc_boosted_PN_med']
-#regions = ['VbbHcc_boosted_select3','VbbHcc_boosted_select4']
-#regions = ['VbbHcc_boosted_select2']
-#regions = ['VbbHcc_boosted_PN_med']
-#regions = ['ZccHcc_boosted_PN_med_zmass_deltaPhi']
-#regions = ['ZccHcc_boosted_PN_med','VHcc_boosted_PN_med']
-#regions = ['ZccHcc_boosted_PN_med_topCR_pass']
-regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_VjetCR_pass','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_VjetCR_pass']
-#regions = ['VHcc_boosted_PN_med']
+#list here regions you want to make plot for. The list of plots for each region listed in ../Configs/config.ini in [Plot] section
+regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
 cfg = utl.BetterConfigParser()
 cfg.read('../Configs/config.ini')
 
-filterEff_name = "../Configs/filterEff.txt"
-
-use_bEnriched_BGenFilter = False 
+use_NLO_VV = True 
+breakVV = True #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-#plotFolder = '../SystematicUncTmp/'
-plotFolder = '../Plots_tmp/'
+plotFolder = '../Plots_NONE_fromPeter_2025JanFeb'
+aff1 = ''
+aff2 = ''
+if use_NLO_VV: aff1 = 'NLO_VV'
+if breakVV: aff2 = 'breakVV'
+if aff1 != '': plotFolder = plotFolder + '_' + aff1
+if aff2 != '': plotFolder = plotFolder + '_' + aff2
+plotFolder = plotFolder + '/'
+
+#NOT IN USE, DO NOT CHANGE THEM
+makePostfit_MH = False
+binContent_MH = [571.812301697, 572.658544275, 201.083748486, 165.396563785, 535.790231977, 336.389680618, 163.075072714]
+binError_MH = [14.524979842, 14.6705438854, 9.64396617479, 10.4968651727, 16.9819213256, 11.6571979069, 8.3184613374]
+correctFilterEff = False #only used for postProcessing 
+filterEff_name = "../Configs/filterEff.txt"
+use_bEnriched_BGenFilter = False  
+doUseReweightForQCD = False
 if doUseReweightForQCD: plotFolder = '../Plots_tmp_qcdReweight_improveWeighting_lepVeto_msoftdrop/'
 if use_bEnriched_BGenFilter: plotFolder = '../Test_bEnriched_BGenFilter/'
 
-##################################################
+
+#End frequently use settings
 ##################################################
 
 plotFolders = {}
 for y in years:
-  plotFolders[y] = plotFolder+'/20'+y
+  plotFolders[y] = plotFolder+'/'+y
   os.system('mkdir -p '+plotFolders[y])
 plotFolders['All'] = plotFolder+'/All'
 os.system('mkdir -p '+plotFolders['All'])
 
 #file to store cross check plots
 fCheck = ROOT.TFile(plotFolder+"/check.root","RECREATE") 
-#file to store histograms for limit settings and qcd background estimation
+
+#NOT IN USE, DO NOT CHANGE. File to store histograms for limit settings and qcd background estimation
 fOut = ROOT.TFile(plotFolder+"/qcd_estimate.root","RECREATE") 
 
 lumiS = {}
@@ -152,11 +158,34 @@ for y in years:
   lumiS[y] = str(lumiTmp)
 print(lumiS) 
 
+#list all processes you want to plot here. For VV, list both LO and NLO.
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf']
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 #TEMP: no ST_tW-channel_antitop for now since no available from current processing
-ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
+#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
+
+ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
+
+#TMP not use WZTo2Q2L for now missing 2017 
+#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
+
+#vv = {'WW':['WW'],'WZ':['WZ'],'ZZ':['ZZ']}
+#if use_NLO_VV:
+#  vv = {'WW':['WWTo1L1Nu2Q','WWTo4Q'],\
+#      'WZ':['WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L'],\
+#      'ZZ':['ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
+#       }
+
+#WWTo1L1Nu2Q_NLO": 50.9,
+#WWTo4Q_NLO": 51.57,
+#WZTo4Q_NLO": 23.43,
+#WZToLNu2B_NLO": 2.525,
+#WZTo1L1Nu2Q_NLO": 9.152,
+#WZTo2Q2L_NLO": 6.422,
+#ZZTo2Q2L_NLO": 3.705,
+#ZZTo2Nu2Q_NLO": 4.498,
+#ZZTo4Q_NLO": 3.295,
 
 if use_bEnriched_BGenFilter: 
   ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
@@ -228,6 +257,10 @@ for r in regions:
   plotNames = cfg.get('Plots',r + '_plot').split(',')
 
   for plN in plotNames:
+    
+    #TEMP: need to check what else have break VV, only HMass?
+    if breakVV and 'HMass' not in plN: continue
+    
     hN = r + '_' + plN
     if plN == 'CutFlow':
       hN = plN + '_' + r
@@ -265,9 +298,47 @@ for r in regions:
     #hST = getHist(hN,['ST_tW-channel_antitop','ST_tW-channel_top'],fHist,lumiScales)
     #TEMP: just use what we have for now no available from current processing
     hST = getHist(hN,['ST_tW-channel_top'],fHist,lumiScales)
-    hWW = getHist(hN,['WW'],fHist,lumiScales)
-    hWZ = getHist(hN,['WZ'],fHist,lumiScales)
-    hZZ = getHist(hN,['ZZ'],fHist,lumiScales)
+    if not use_NLO_VV:
+      hWW = getHist(hN,['WW'],fHist,lumiScales)
+      hWZ = getHist(hN,['WZ'],fHist,lumiScales)
+      hZZ = getHist(hN,['ZZ'],fHist,lumiScales)
+
+      if breakVV and 'HMass' in plN:
+          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc'],['WW','WZ','ZZ'],fHist,lumiScales) 
+          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WW','WZ','ZZ'],fHist,lumiScales) 
+          #hVVbbcc = getHists(hN,['VZbbcc'],['WW','WZ','ZZ'],fHist,lumiScales) 
+          #hVVqqqq = getHists(hN,['VZqqqq'],['WW','WZ','ZZ'],fHist,lumiScales)
+          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc','VZbbcc'],['WZ','ZZ'],fHist,lumiScales) 
+          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WZ','ZZ'],fHist,lumiScales) 
+          #hVVother = getHists(hN,['VZqqqq'],['WZ','ZZ'],fHist,lumiScales)
+          rTmp = r + '_VZcc'
+          hVVcc = getHist(hN.replace(r,rTmp),['WZ','ZZ'],fHist,lumiScales) 
+          rTmp = r + '_VZbb'
+          hVVbb = getHists(hN.replace(r,rTmp),['WZ','ZZ'],fHist,lumiScales) 
+          rTmp = r + '_VZother'
+          hVVother = getHists(hN.replace(r,rTmp),['WZ','ZZ'],fHist,lumiScales)
+          for ytmp in years:
+              hVVother[ytmp].Add(hWW[ytmp])
+    if use_NLO_VV:
+      hWW = getHist(hN,['WWTo1L1Nu2Q','WWTo4Q'],fHist,lumiScales)
+      hWZ = getHist(hN,['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q'],fHist,lumiScales)
+      hZZ = getHist(hN,['ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales)
+      if breakVV and 'HMass' in plN:
+          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc','VZbbcc'],['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          #hVVother = getHists(hN,['VZqqqq'],['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          rTmp = r + '_VZcc'
+          hVVcc = getHist(hN.replace(r,rTmp),['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          rTmp = r + '_VZbb'
+          hVVbb = getHist(hN.replace(r,rTmp),['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          rTmp = r + '_VZother'
+          hVVother = getHist(hN.replace(r,rTmp),['WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          for ytmp in years:
+              hVVother[ytmp].Add(hWW[ytmp])
+          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          #hVVbbcc = getHists(hN,['VZbbcc'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
+          #hVVqqqq = getHists(hN,['VZqqqq'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
 
     ##########################
     #stack plots for each year 
@@ -292,6 +363,12 @@ for r in regions:
         nums[r][y]['WW'] = getHistIntegral(hWW[y],lowM,highM)
         nums[r][y]['WZ'] = getHistIntegral(hWZ[y],lowM,highM)
         nums[r][y]['ZZ'] = getHistIntegral(hZZ[y],lowM,highM)
+        if breakVV and 'HMass' in plN:
+            nums[r][y]['VVcc'] = getHistIntegral(hVVcc[y],lowM,highM)
+            nums[r][y]['VVbb'] = getHistIntegral(hVVbb[y],lowM,highM)
+            nums[r][y]['VVother'] = getHistIntegral(hVVother[y],lowM,highM)
+            #nums[r][y]['VVbbcc'] = getHistIntegral(hVVbbcc[y],lowM,highM)
+            #nums[r][y]['VVqqqq'] = getHistIntegral(hVVqqqq[y],lowM,highM)
 
       #for y in ['17']:
       tmps = cfg.get(plN,'xAxisRange').split(',')
@@ -304,14 +381,19 @@ for r in regions:
       nRebin = int(cfg.get(plN,'rebin'))
       
       hData_clone = hDat[y].Clone(hDat[y].GetName()+"clone").Rebin(nRebin)
-      if doBlindData and "HMass" in plN and ('select4' in r or 'select3' in r or 'PN_med' in r):
+      #if doBlindData and "HMass" in plN and ('select4' in r or 'select3' in r or 'PN_med' in r):
+      if "HMass" in plN and ((blindDataOption == 1 and not('topCR' in r or 'qcdCR' in r)) or blindDataOption == 2):
         nBin1 = hData_clone.GetXaxis().FindFixBin(blindRange[0])
         nBin2 = hData_clone.GetXaxis().FindFixBin(blindRange[1])
         for i in range(nBin1,nBin2+1):
           hData_clone.SetBinContent(i,-1)
           hData_clone.SetBinError(i,0)
       
-      plots_process = [hData_clone,hQCD[y].Clone().Rebin(nRebin),hST[y].Clone().Rebin(nRebin),hTT[y].Clone().Rebin(nRebin),hZJ[y].Clone().Rebin(nRebin),hWJ[y].Clone().Rebin(nRebin),hWW[y].Clone().Rebin(nRebin),hWZ[y].Clone().Rebin(nRebin),hZZ[y].Clone().Rebin(nRebin),hZHbb[y].Clone().Rebin(nRebin),hggZHbb[y].Clone().Rebin(nRebin),hWHbb[y].Clone().Rebin(nRebin),hZHcc[y].Clone().Rebin(nRebin),hggZHcc[y].Clone().Rebin(nRebin),hWHcc[y].Clone().Rebin(nRebin)]
+      if not breakVV:
+        plots_process = [hData_clone,hQCD[y].Clone().Rebin(nRebin),hST[y].Clone().Rebin(nRebin),hTT[y].Clone().Rebin(nRebin),hZJ[y].Clone().Rebin(nRebin),hWJ[y].Clone().Rebin(nRebin),hWW[y].Clone().Rebin(nRebin),hWZ[y].Clone().Rebin(nRebin),hZZ[y].Clone().Rebin(nRebin),hZHbb[y].Clone().Rebin(nRebin),hggZHbb[y].Clone().Rebin(nRebin),hWHbb[y].Clone().Rebin(nRebin),hZHcc[y].Clone().Rebin(nRebin),hggZHcc[y].Clone().Rebin(nRebin),hWHcc[y].Clone().Rebin(nRebin)]
+      else:
+        #plots_process = [hData_clone,hQCD[y].Clone().Rebin(nRebin),hST[y].Clone().Rebin(nRebin),hTT[y].Clone().Rebin(nRebin),hZJ[y].Clone().Rebin(nRebin),hWJ[y].Clone().Rebin(nRebin),hVVcc[y].Clone().Rebin(nRebin),hVVbb[y].Clone().Rebin(nRebin),hVVbbcc[y].Clone().Rebin(nRebin),hVVqqqq[y].Clone().Rebin(nRebin),hZHbb[y].Clone().Rebin(nRebin),hggZHbb[y].Clone().Rebin(nRebin),hWHbb[y].Clone().Rebin(nRebin),hZHcc[y].Clone().Rebin(nRebin),hggZHcc[y].Clone().Rebin(nRebin),hWHcc[y].Clone().Rebin(nRebin)]
+        plots_process = [hData_clone,hQCD[y].Clone().Rebin(nRebin),hST[y].Clone().Rebin(nRebin),hTT[y].Clone().Rebin(nRebin),hZJ[y].Clone().Rebin(nRebin),hWJ[y].Clone().Rebin(nRebin),hVVother[y].Clone().Rebin(nRebin),hVVbb[y].Clone().Rebin(nRebin),hVVcc[y].Clone().Rebin(nRebin),hZHbb[y].Clone().Rebin(nRebin),hggZHbb[y].Clone().Rebin(nRebin),hWHbb[y].Clone().Rebin(nRebin),hZHcc[y].Clone().Rebin(nRebin),hggZHcc[y].Clone().Rebin(nRebin),hWHcc[y].Clone().Rebin(nRebin)]
       #custom bining
       #for iPl in range(0,len(plots_process)):
       #  plots_process[iPl] = utl_func.customBin(plots_process[iPl], xDiv)
@@ -321,7 +403,10 @@ for r in regions:
       plotNames_process = []
       dataTitle = 'Data (JetHT, 20'+y+')' 
       #plotNames_process = [dataTitle, 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
-      plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZHbb', 'ggZHbb','WHbb','ZHcc', 'ggZHcc','WHcc']
+      if not breakVV:
+        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)','WH (H#rightarrow bb)','ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
+      else:
+        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'VV (others)','VZ (Z#rightarrow bb)','VZ (Z#rightarrow cc)', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)','WH (H#rightarrow bb)','ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
 
       #utl_func.makeStackPlot(plots_process, plotNames_process, plN + '_' + r +'_'+y, plotFolder + '/20'+y, xA_title, xA_range, 'MC unc. (stat.)', False, lumi=lumiS[y])
       logY=False
@@ -358,6 +443,10 @@ for r in regions:
     hWWA = hWW['16'].Clone(hWW['16'].GetName()+'_all')
     hWZA = hWZ['16'].Clone(hWZ['16'].GetName()+'_all')
     hZZA = hZZ['16'].Clone(hZZ['16'].GetName()+'_all')
+    if breakVV and 'HMass' in plN:
+        hVVccA = hVVcc['16'].Clone(hVVcc['16'].GetName()+'_all')
+        hVVbbA = hVVbb['16'].Clone(hVVbb['16'].GetName()+'_all')
+        hVVotherA = hVVother['16'].Clone(hVVother['16'].GetName()+'_all')
     
     #sum up all years
     for y in years:
@@ -377,6 +466,10 @@ for r in regions:
       hWWA.Add(hWW[y])
       hWZA.Add(hWZ[y])
       hZZA.Add(hZZ[y])
+      if breakVV and 'HMass' in plN:
+          hVVccA.Add(hVVcc[y])
+          hVVbbA.Add(hVVbb[y])
+          hVVotherA.Add(hVVother[y])
     #save HMass MC QCD histograms used to estimate QCD
     if "HMass" in plN and ("PN_med" in r or "PN_med_CR_qcd" in r or "PN_med_VR_qcd" in r or "PN_med_CR1_qcd"):
       print("\n I will save histograms for QCD background estimation")
@@ -407,6 +500,7 @@ for r in regions:
       hOther.Add(hSTA)
       hOther.Add(hZJA)
       hOther.Add(hWJA)
+      #FIXME update to breakVV for consistency
       hOther.Add(hWWA)
       hOther.Add(hWZA)
       hOther.Add(hZZA)
@@ -435,17 +529,23 @@ for r in regions:
         nums[r]['All']['WW'] = getHistIntegral(hWWA,lowM,highM)
         nums[r]['All']['WZ'] = getHistIntegral(hWZA,lowM,highM)
         nums[r]['All']['ZZ'] = getHistIntegral(hZZA,lowM,highM)
+        if breakVV and 'HMass' in plN:
+            nums[r]['All']['VVcc'] = getHistIntegral(hVVccA,lowM,highM)
+            nums[r]['All']['VVbb'] = getHistIntegral(hVVbbA,lowM,highM)
+            nums[r]['All']['VVother'] = getHistIntegral(hVVotherA,lowM,highM)
     
     hData_clone = hDatA.Clone(hDatA.GetName()+"clone").Rebin(nRebin)
-    if doBlindData and "HMass" in plN and ('select4' in r or 'select3' in r or ('PN_med' in r and 'CR' not in r and 'VR' not in r)):
+    #if doBlindData and "HMass" in plN and ('select4' in r or 'select3' in r or ('PN_med' in r and 'CR' not in r and 'VR' not in r)):
+    if "HMass" in plN and ((blindDataOption == 1 and not ('topCR' in r or 'qcdCR' in r)) \
+                            or blindDataOption == 2):
         nBin1 = hData_clone.GetXaxis().FindFixBin(blindRange[0])
         nBin2 = hData_clone.GetXaxis().FindFixBin(blindRange[1])
         for i in range(nBin1,nBin2+1):
           hData_clone.SetBinContent(i,-1)
           hData_clone.SetBinError(i,0)
 
-
-    plots_process = [hData_clone,
+    if not breakVV:
+      plots_process = [hData_clone,
         hQCDA.Clone("QCD_All_Clone").Rebin(nRebin),
         hSTA.Clone().Rebin(nRebin),
         hTTA.Clone().Rebin(nRebin),
@@ -456,8 +556,27 @@ for r in regions:
         hZZA.Clone().Rebin(nRebin),
         hZHbbA.Clone().Rebin(nRebin),
         hggZHbbA.Clone().Rebin(nRebin),
+        hWHbbA.Clone().Rebin(nRebin),
         hZHccA.Clone().Rebin(nRebin),
-        hggZHccA.Clone().Rebin(nRebin)]
+        hggZHccA.Clone().Rebin(nRebin),
+        hWHccA.Clone().Rebin(nRebin)]
+    else:
+      plots_process = [hData_clone,
+        hQCDA.Clone("QCD_All_Clone").Rebin(nRebin),
+        hSTA.Clone().Rebin(nRebin),
+        hTTA.Clone().Rebin(nRebin),
+        hZJA.Clone().Rebin(nRebin),
+        hWJA.Clone().Rebin(nRebin),
+        hVVotherA.Clone().Rebin(nRebin),
+        hVVbbA.Clone().Rebin(nRebin),
+        hVVccA.Clone().Rebin(nRebin),
+        hZHbbA.Clone().Rebin(nRebin),
+        hggZHbbA.Clone().Rebin(nRebin),
+        hWHbbA.Clone().Rebin(nRebin),
+        hZHccA.Clone().Rebin(nRebin),
+        hggZHccA.Clone().Rebin(nRebin),
+        hWHccA.Clone().Rebin(nRebin)]
+
     
     if doCustomBinning_MH and 'HMass' in plN and 'VR' in r: 
       for iH in range(len(plots_process)):
@@ -478,12 +597,15 @@ for r in regions:
     dataTitle = 'Data (JetHT)' 
     #plotNames_process = [dataTitle, 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
     #plotNames_process = [dataTitle, 'QCD', 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
-    plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
+    if not breakVV:
+        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
+    else:
+        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'VV (others)', 'VZ (Z#rightarrow bb)', 'VZ (Z#rightarrow cc)','ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)', 'WH (H#rightarrow cc)']
 
     logY=False
     #if 'CutFlow' in plN or 'ccTagDis' in plN or 'bbTagDis' in plN or 'bbPN' in plN or 'ccPN' in plN: logY=True
     if 'CutFlow' in plN or 'ccTagDis' in plN or 'bbTagDis' in plN: logY=True
-    outPlotName = plN + '_' + r +'_all'
+    outPlotName = plN + '_' + r
     if doCustomBinning_MH and 'HMass' in plN and 'VR' in r: 
       outPlotName = plN + '_' + r +'_customBin'
     if makePostfit_MH and 'HMass' in plN and 'VR' in r: 
@@ -500,6 +622,7 @@ for r in regions:
 
 #adding process together
 addBkgr(nums,'WWWZ',['WW','WZ'],regions)
+addBkgr(nums,'VZ',['WZ','ZZ'],regions)
 addBkgr(nums,'ZHBB',['ggZH_HToBB_ZToQQ','ZH_HToBB_ZToQQ'],regions)
 addBkgr(nums,'ZHCC',['ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ'],regions)
 addBkgr(nums,'Bkgr',['QCD','WJ','ZJ','TT','ST','WW','WZ','ZZ','ggZH_HToBB_ZToQQ','ZH_HToBB_ZToQQ','WH_HToBB_WToQQ'],regions)
@@ -517,8 +640,13 @@ fLatex.write('\\usepackage{graphicx}\n')
 fLatex.write('\\title{Control plots}\n')
 fLatex.write('\\begin{document}\n')
 
-labels = ['QCD','WJ','ZJ','TT','ST','WWWZ','ZZ','ZHBB','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
-label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','WWWZ':'VV (other)','ZZ':'ZZ','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
+if not breakVV:
+  labels = ['QCD','WJ','ZJ','TT','ST','WW','VZ','ZHBB','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
+  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','WW':'WW','VZ':'VZ','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
+else:
+  labels = ['QCD','WJ','ZJ','TT','ST','VVcc','VVbb','VVother','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
+  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','VVcc':'VZ (Z$\\rightarrow$cc)','VVbb':'VZ (Z$\\rightarrow$bb)','VVother':'VV (other)','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
+
 
 for r in regions:
   #print nums
@@ -527,10 +655,10 @@ for r in regions:
   fLatex.write('  \\caption{'+r.replace('_','\_')+'}\n')
   fLatex.write('  \\label{tab:}\n')
   fLatex.write('  \\centering\n')
-  fLatex.write('  \\begin{tabular}{lcccc}\n')
+  fLatex.write('  \\begin{tabular}{lccccc}\n')
   fLatex.write('  \\hline\n')
   fLatex.write('  \\hline\n')
-  l = ['', '2016_preVFP', '2016','2017','2018','Run 2']
+  l = ['', '2016\_preVFP', '2016','2017','2018','Run 2']
   st = utl_func.makeLatexLine(l)
   fLatex.write(st)
   fLatex.write('  \\hline\n')
