@@ -108,7 +108,8 @@ private:
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZcc; //using particle net topCR_passium WP
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZbb; //using particle net topCR_passium WP
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZother; //using particle net topCR_passium WP
-  
+
+  VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR; // QCD-enriched top CR (added Apr 5, 2025)
 
   JESUncPlots* h_jesUnc;
 

@@ -189,6 +189,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_VHcc_PN_med_topCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_VHcc_PN_med_VjetCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_VjetCR_pass");
 
+  // Added by Peter for data-driven Bckg Estimation (Apr 5, 2025)
+  h_VHcc_PN_med_qcdEnriched_topCR = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_qcdEnriched",
+						       m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  
 #if defined(MC_VZ)
   h_ZccHcc_PN_med_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_ZccHcc_PN_med_VZbb = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
@@ -1321,6 +1325,7 @@ void VbbHcc_selector::Process(Reader* r) {
     // Check that the Higgs boson passes a pT > 450 GeV requirement
     // and V boson passes a pT > 200 GeV requirement
     // UPDATE(Apr 2, 2025): move pT(V) cut to 350 GeV
+    // UPDATE(Apr 5, 2025): changed back since we saw no improvement
     if (jets[idx_V].m_lvec.Pt() > 200 && jets[idx_H].m_lvec.Pt() > 450) {
 
       h_cutFlow_VHcc_PN_med->Fill(7.5,evtW); // passes pT cuts
@@ -1532,7 +1537,49 @@ void VbbHcc_selector::Process(Reader* r) {
         } //end fail CR
 	
       }//end-V-tag-cut
-    }//end-VqqHcc
+
+      // ////////////////////////////////////////////////////
+      // Control Region - Top QCD Enchriced
+      // ////////////////////////////////////////////////////
+      // This is used for data-driven QCD bckg estimation.
+      // We have the V-jet pass the cut instead of failing it
+      else if (jets[idx_V].m_PN_Xcc > XccCut && jets[idx_V].m_PN_pQCD < pQCDcut)
+      {
+        // Fill the tag scores before cut.
+	h_VHcc_PN_med_qcdEnriched_topCR->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc, evtW_tag);
+
+	// Check that the Higgs candidate PASSES the Xcc cut.
+	// This keeps us in the top CR for VHcc.
+	if (jets[idx_H].m_PN_Xcc > XccCut)
+	{
+          // For the top CR, we want to "invert" the nExtraJets cut.
+	  // Thus, instead of having few, we want "many."
+	  if (nExtraJet >= 2)
+	  {
+            // Check the MET & trigger cuts
+	    if (passMET && trigger)
+	    {
+              // For purposes of bckg estimation, we will skip other fillings
+	      // related to VV, PN, etc. We just want to be able to calculate
+	      // the m_sd distribution for this inverted Xcc range.
+              // We can later re-add those plots here...
+
+	      // Check that we have the expected number of extra b-jets
+	      // NOTE: This is the FINAL cut.
+	      if (nBjet_extJets > nBjet_extJets_cut)
+	      {
+
+                // Fill in the values we want.
+		h_VHcc_PN_med_qcdEnriched_topCR->Fill(H, V, VZtype, evtW_tag_btag_trig);
+		h_VHcc_PN_med_qcdEnriched_topCR->FillJets(jet_VHcc, evtW_tag_btag_trig);
+		
+	      }//end-nBjet-extra-cut
+	    }//end-MET-trigger-cuts
+	  }//end-extraJet-cut (>= 2)
+	}//end-H-Xcc-cut (PASSES)
+      }//end-inverted-V-tag-cuts (FAIL V-tag)
+      
+    }//end-VqqHcc (V&H pT cuts)
     
   }//end-leptonVeto & nJet check
   
