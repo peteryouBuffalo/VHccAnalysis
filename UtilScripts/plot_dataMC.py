@@ -65,6 +65,7 @@ def getHistIntegral(h,v1=-1,v2=-1):
 def addBkgr(n,proc,procs,regions):
   for r in regions:
     for y in ['16_preVFP','16','17','18','All']:
+    #for y in ['18']:
       s = 0
       s_err = 0
       for p in procs:
@@ -91,6 +92,9 @@ def getFilterEff(fName):
 #Frequently use settings
 
 years = ['16_preVFP','16','17','18']
+#years = ['18']
+
+plot_all_together = True
 
 blindDataOption = 1 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
 blindRange = [75,140]
@@ -111,7 +115,7 @@ cfg = utl.BetterConfigParser()
 cfg.read('../Configs/config.ini')
 
 use_NLO_VV = True 
-breakVV = True #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
+breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
 plotFolder = '../Plots_NONE_fromPeter_2025JanFeb'
@@ -280,7 +284,8 @@ for r in regions:
       ('DPhiZH' in plN) or ('DEtaZH' in plN) or
       ('CutFlow' in plN) or
       ('pt_jet' in plN) or ('pt_jet0' in plN) or ('pt_jet1' in plN) or
-      ('m_jet' in plN) or ('m_jet0' in plN) or ('m_jet1' in plN)
+      ('m_jet' in plN) or ('m_jet0' in plN) or ('m_jet1' in plN) or
+      ('pQCD_beforeCut' in plN) or ('bbTagDis' in plN)
     )
     if breakVV and not has_desired_var: continue
     
@@ -444,6 +449,8 @@ for r in regions:
       #save check histograms
       fCheck.cd()
       hQCD[y].Write()
+
+    if not plot_all_together: continue
     
     ############################
     #Plot control plot for all years
@@ -652,6 +659,7 @@ addBkgr(nums,'Bkgr',['QCD','WJ','ZJ','TT','ST','WW','WZ','ZZ','ggZH_HToBB_ZToQQ'
 
 for r in regions:
   for y in ['16_preVFP','16','17','18','All']:
+  #for y in ['18']:
     nums[r][y]['S/sqrt(B)'] = [(nums[r][y]['ZHCC'][0]+nums[r][y]['WH_HToCC_WToQQ'][0])/math.sqrt(nums[r][y]['Bkgr'][0]),0]
 
 print(nums)
@@ -670,6 +678,7 @@ else:
   labels = ['QCD','WJ','ZJ','TT','ST','VVcc','VVbb','VVother','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
   label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','VVcc':'VZ (Z$\\rightarrow$cc)','VVbb':'VZ (Z$\\rightarrow$bb)','VVother':'VV (other)','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
 
+if not plot_all_together: exit()
 
 for r in regions:
   #print nums
