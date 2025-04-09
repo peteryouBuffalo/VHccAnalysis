@@ -116,6 +116,15 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_evtW_VHcc = new TH1D("EvtW_VHcc","",2000,-10,10);
   h_trigW_VHcc = new TH1D("TrigW_VHcc","",1000,0,10);
   h_tagW_VHcc = new TH1D("TagW_VHcc","",1000,0,10);
+
+  h_l1_SF = new TH1D("l1preW", "", 2000, -10, 10);
+  h_pu_SF = new TH1D("puSF", "", 2000, -10, 10);
+  h_jes_pt_SF = new TH1D("jes_pt_SF", "", 2000, -10, 10);
+  h_jes_mass_SF = new TH1D("jes_mass_SF", "", 2000, -10, 10);
+  h_jer_SF = new TH1D("jer_SF", "", 2000, -10, 10);
+  h_wcorr = new TH1D("wcorr", "", 2000, -10, 10);
+  h_gen_weight = new TH1D("gen_weight", "", 2000, -10, 10);
+  
   h_bStatus_noMother = new TH1D("bStatus_noMother","",100,0,100) ; 
   h_bStatus_hasMother = new TH1D("bStatus_hasMother","",100,0,100) ; 
   h_nb = new TH1D("nb","",20,0,20) ; 
@@ -133,6 +142,14 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_pt_rho_n2b1 = new TH3D("pt_rho_n2b1","",70,300,1000,75,-6,-1.5,100,0,1);
   h_jet_mass = new TH1D("jet_mass","",2000,0,2000);
   h_jet_pt = new TH1D("jet_pt", "", 2000, 0, 2000);
+
+  h_MET_beforeCut = new TH1D("MET_beforeCut","", 1000, 0, 1000);
+  h_MET_afterCut  = new TH1D("MET_afterCut", "", 1000, 0, 1000);
+
+  h_jet_pt_afterSel = new TH1D("jet_pt_afterSel", "", 2000, 0, 2000);
+  h_jet_mass_afterSel = new TH1D("jet_mass_afterSel", "", 2000, 0, 2000);
+  h_jet_mass_beforeWcorr = new TH1D("jet_mass_beforeWcorr", "", 2000, 0, 2000);
+  h_jet_mass_afterWcorr = new TH1D("jet_mass_afterWcorr", "", 2000, 0, 2000);
   
   h_cutFlow_ZccHcc_PN_med = new TH1D("CutFlow_ZccHcc_boosted_PN_med","",15,0,15) ;
   h_cutFlow_ZccHcc_PN_med->GetXaxis()->SetBinLabel(1,"Total");
@@ -190,7 +207,7 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_VHcc_PN_med_VjetCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_VjetCR_pass");
 
   // Added by Peter for data-driven Bckg Estimation (Apr 5, 2025)
-  h_VHcc_PN_med_qcdEnriched_topCR = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_qcdEnriched",
+  h_VHcc_PN_med_qcdEnriched_topCR = new VHBoostedPlots("VHcc_boosted_PN_med_qcdEnriched_topCR",
 						       m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
   
 #if defined(MC_VZ)
@@ -273,6 +290,9 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   tmp = h_VHcc_PN_med_VjetCR_pass->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
+  tmp = h_VHcc_PN_med_qcdEnriched_topCR->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  
 #if defined(MC_VZ)
   tmp = h_ZccHcc_PN_med_VZcc->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
@@ -350,6 +370,21 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   r->GetOutputList()->Add(h_Pileup_nTrueInt_scaled);
   r->GetOutputList()->Add(h_PV_npvsGood);
   r->GetOutputList()->Add(h_PV_npvsGood_scaled);
+
+  r->GetOutputList()->Add(h_MET_beforeCut);
+  r->GetOutputList()->Add(h_MET_afterCut);
+  r->GetOutputList()->Add(h_jet_pt_afterSel);
+  r->GetOutputList()->Add(h_jet_mass_afterSel);
+  r->GetOutputList()->Add(h_jet_mass_beforeWcorr);
+  r->GetOutputList()->Add(h_jet_mass_afterWcorr);
+
+  r->GetOutputList()->Add(h_l1_SF);
+  r->GetOutputList()->Add(h_pu_SF);
+  r->GetOutputList()->Add(h_jer_SF);
+  r->GetOutputList()->Add(h_jes_pt_SF);
+  r->GetOutputList()->Add(h_jes_mass_SF);
+  r->GetOutputList()->Add(h_wcorr);
+  r->GetOutputList()->Add(h_gen_weight);
 }
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
@@ -474,6 +509,10 @@ void VbbHcc_selector::Process(Reader* r) {
     evtW_noPU *= genWeight * l1preW;
   }
 
+  h_l1_SF->Fill(l1preW);
+  h_pu_SF->Fill(puSF);
+  h_gen_weight->Fill(genWeight);
+  
   h_cutFlow_ZccHcc_PN_med->Fill(0.5,evtW);
   h_cutFlow_VHcc_PN_med->Fill(0.5,evtW);
 
@@ -755,6 +794,11 @@ void VbbHcc_selector::Process(Reader* r) {
     double JES_sub1_m  = CalculateJES(subMap1, "mass", m_jetmetSystType, m_isData);
     double JES_sub2_m  = CalculateJES(subMap2, "mass", m_jetmetSystType, m_isData);
 
+    h_jes_pt_SF->Fill(JES_sub1_pt, evtW);
+    h_jes_pt_SF->Fill(JES_sub2_pt, evtW);
+    h_jes_mass_SF->Fill(JES_sub1_m, evtW);
+    h_jes_mass_SF->Fill(JES_sub2_m, evtW);
+    
     double m_raw_1 = (r->SubJet_mass)[idx1] * (1 - (r->SubJet_rawFactor)[idx1]);
     double m_raw_2 = (r->SubJet_mass)[idx2] * (1 - (r->SubJet_rawFactor)[idx2]);
     double corrM_1 = m_raw_1 * JES_sub1_m;
@@ -785,6 +829,9 @@ void VbbHcc_selector::Process(Reader* r) {
     if (cJER_2 <= 0) cJER_2 = 1.0f;
     corrPt_1 *= cJER_1;
     corrPt_2 *= cJER_2;
+
+    h_jer_SF->Fill(cJER_1, evtW);
+    h_jer_SF->Fill(cJER_1, evtW);
     
     // Calculate the SD mass using the di-subjet mass.                                         
     TLorentzVector sub_vec_1, sub_vec_2;
@@ -804,7 +851,10 @@ void VbbHcc_selector::Process(Reader* r) {
     float wmass_corr = 1;
     if ((r->FatJet_pt)[i]>0) wmass_corr = msdCorr->evaluate({(r->FatJet_msoftdrop)[i]/(r->FatJet_pt)[i],log((r->FatJet_pt)[i]),(r->FatJet_eta)[i]});
     //std::cout << "\n wmass_corr: " << wmass_corr << " " << corrM << " ";
+    h_jet_mass_beforeWcorr->Fill(corrM, evtW);
     corrM *= wmass_corr;
+    h_jet_mass_afterWcorr->Fill(corrM, evtW);
+    h_wcorr->Fill(wmass_corr);
     //std::cout << corrM << std::endl;
 
     h_jet_mass->Fill(corrM);
@@ -819,7 +869,11 @@ void VbbHcc_selector::Process(Reader* r) {
         (r->FatJet_particleNet_ZvsQCD)[i],
         (r->FatJet_n2b1)[i], -1) ;
     if(jet.IsLepton(eles_jetOverlap,0.8) || jet.IsLepton(muons_jetOverlap,0.8)) continue;
-    if(corrPt > CUTS.Get<float>("jet_pt_ak08") && fabs((r->FatJet_eta)[i]) < CUTS.Get<float>("jet_eta_ak08")) jets.push_back(jet) ;
+    if(corrPt > CUTS.Get<float>("jet_pt_ak08") && fabs((r->FatJet_eta)[i]) < CUTS.Get<float>("jet_eta_ak08")){
+      jets.push_back(jet) ;
+      h_jet_mass_afterSel->Fill(jet.m_lvec.M(), evtW);
+      h_jet_pt_afterSel->Fill(jet.m_lvec.Pt(), evtW);
+    }
   }
 
   //Fill fat jet pt, rho, n2b1 to identify c_26 cut
@@ -943,8 +997,12 @@ void VbbHcc_selector::Process(Reader* r) {
   //MET cut///////////////
   ////////////////////////
   bool passMET(false);
-  if (*(r->MET_pt)<140) passMET=true;
-   
+  h_MET_beforeCut->Fill(*(r->MET_pt), evtW);
+  if (*(r->MET_pt)<140) {
+    passMET=true;
+    h_MET_afterCut->Fill(*(r->MET_pt), evtW);
+  }
+    
   //jet n2b1 cut 
   std::vector<unsigned> idx_tmps_2;
   std::vector<std::pair<int,float> > idx_pn_cc_tmp;

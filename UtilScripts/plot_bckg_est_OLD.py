@@ -6,9 +6,8 @@ sys.path.append('/uscms_data/d3/duong/CMSSW/CMSSW_7_6_5/src/ZplusC/python3/myuti
 import configparser
 import util_funcs as utl_func
 import myutils as utl
-
-
-
+import json
+import time
 
 ROOT.gROOT.Macro(os.path.expanduser('~/rootLogOn_forPyROOT.C' ))
 ROOT.gROOT.SetBatch(True)
@@ -109,25 +108,16 @@ xDiv_MH = [40,60,80,100,120,140,160,180,200]
 
 #list here regions you want to make plot for. The list of plots for each region listed in ../Configs/config.ini in [Plot] section
 regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
-regions = ['VHcc_boosted_PN_med_qcdEnriched_topCR']
 #regions = ['general']
-summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
 cfg = utl.BetterConfigParser()
 cfg.read('../Configs/config.ini')
 
-use_NLO_VV = True 
-breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
+use_NLO_VV = True
+breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW                                                                                                      
 
 #create directory to store plots
-plotFolder = '../Plots_NONE_qcdEnriched'
-aff1 = ''
-aff2 = ''
-if use_NLO_VV: aff1 = 'NLO_VV'
-if breakVV: aff2 = 'breakVV'
-if aff1 != '': plotFolder = plotFolder + '_' + aff1
-if aff2 != '': plotFolder = plotFolder + '_' + aff2
-plotFolder = plotFolder + '/'
+plotFolder = "../plot_results/bckg_est/"
 
 #NOT IN USE, DO NOT CHANGE THEM
 makePostfit_MH = False
@@ -137,13 +127,20 @@ correctFilterEff = False #only used for postProcessing
 filterEff_name = "../Configs/filterEff.txt"
 use_bEnriched_BGenFilter = False  
 doUseReweightForQCD = False
-if doUseReweightForQCD: plotFolder = '../Plots_tmp_qcdReweight_improveWeighting_lepVeto_msoftdrop/'
-if use_bEnriched_BGenFilter: plotFolder = '../Test_bEnriched_BGenFilter/'
-
 
 #End frequently use settings
 ##################################################
 
+if not os.path.exists("QCD_TF_per_year.json"):
+  print("Please run calc_bckg_est_ratio.py FIRST.")
+  print("QCD TF json file is missing...")
+  exit()
+else:
+  print("WARNING: Make sure the values stored in QCD_TF_per_year.json")
+  print("are up to date. If they are not, please run:")
+  print("python3 calc_bckg_est_ratio.py")
+  time.sleep(1)
+  
 plotFolders = {}
 for y in years:
   plotFolders[y] = plotFolder+'/'+y
@@ -164,48 +161,20 @@ for y in years:
   lumiS[y] = str(lumiTmp)
 print(lumiS) 
 
-#list all processes you want to plot here. For VV, list both LO and NLO.
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf']
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
-#TEMP: no ST_tW-channel_antitop for now since no available from current processing
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
-
 ss = [
   'JetHT',
   'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
   'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
-  'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
+  'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9',
+  'QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
   'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
-  'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
+  'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+  'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
   'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf',
   'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu',
   'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop',
   'WW','WZ','ZZ',
   'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
-
-#TMP not use WZTo2Q2L for now missing 2017 
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
-
-#vv = {'WW':['WW'],'WZ':['WZ'],'ZZ':['ZZ']}
-#if use_NLO_VV:
-#  vv = {'WW':['WWTo1L1Nu2Q','WWTo4Q'],\
-#      'WZ':['WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L'],\
-#      'ZZ':['ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
-#       }
-
-#WWTo1L1Nu2Q_NLO": 50.9,
-#WWTo4Q_NLO": 51.57,
-#WZTo4Q_NLO": 23.43,
-#WZToLNu2B_NLO": 2.525,
-#WZTo1L1Nu2Q_NLO": 9.152,
-#WZTo2Q2L_NLO": 6.422,
-#ZZTo2Q2L_NLO": 3.705,
-#ZZTo2Nu2Q_NLO": 4.498,
-#ZZTo4Q_NLO": 3.295,
-
-if use_bEnriched_BGenFilter: 
-  ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 
 filter_effs = getFilterEff(filterEff_name)
 print(filter_effs)
@@ -263,10 +232,10 @@ for s in ss:
         except AttributeError:
           print("\n Can not find lumiScale for ", s, " ", y, " ", iN, " .Set lumiScale to 0")
           lumiScales[s][y][iN] = 0
- 
 
 nums = {}
 
+# Go through each region
 for r in regions:
   
   nums[r] = {}
@@ -274,23 +243,7 @@ for r in regions:
   plotNames = cfg.get('Plots',r + '_plot').split(',')
 
   for plN in plotNames:
-    
-    #TEMP: need to check what else have break VV, only HMass?
-    #if breakVV and 'HMass' not in plN: continue
-    
-    #FIX?: is this fine for checking other variables
-    has_desired_var = (
-      ('HMass' in plN) or ('ZMass' in plN) or
-      ('HPt' in plN) or ('ZPt' in plN) or
-      ('HFlav' in plN) or ('ZFlav' in plN) or
-      ('DPhiZH' in plN) or ('DEtaZH' in plN) or
-      ('CutFlow' in plN) or
-      ('pt_jet' in plN) or ('pt_jet0' in plN) or ('pt_jet1' in plN) or
-      ('m_jet' in plN) or ('m_jet0' in plN) or ('m_jet1' in plN) or
-      ('pQCD_beforeCut' in plN) or ('bbTagDis' in plN)
-    )
-    if breakVV and not has_desired_var: continue
-    
+     
     hN = r + '_' + plN
     if plN == 'CutFlow':
       hN = plN + '_' + r
@@ -308,40 +261,21 @@ for r in regions:
     hggZHbb = getHist(hN,['ggZH_HToBB_ZToQQ'],fHist,lumiScales)
     hWHcc = getHist(hN,['WH_HToCC_WToQQ'],fHist,lumiScales)
     hWHbb = getHist(hN,['WH_HToBB_WToQQ'],fHist,lumiScales)
-
-    #hQCD = getHist(hN,['QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf'],fHist,lumiScales)
-    if not use_bEnriched_BGenFilter:
-        if not doUseReweightForQCD or 'CutFlow' in plN:
-            hQCD = getHist(hN,['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
-        else:
-            hQCD = getHist(hN.replace("PN_med","PN_med_xccWeight"),['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
-    else:
-      hQCD = getHist(hN,['QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf'],fHist,lumiScales)
-      hQCD_BGenFilter = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
-      #hQCD = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
-      for y in years:
-        hQCD[y].Add(hQCD_BGenFilter[y])
-    
-    hWJ = getHist(hN,['WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'],fHist,lumiScales)
+    hQCD = getHist(hN,['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
+    hWJ = getHist(hN,['WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600',
+                      'WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'],fHist,lumiScales)
     hZJ = getHist(hN,['ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf'],fHist,lumiScales)
     hTT = getHist(hN,['TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu'],fHist,lumiScales)
     hST = getHist(hN,['ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top'],fHist,lumiScales)
     #hST = getHist(hN,['ST_tW-channel_antitop','ST_tW-channel_top'],fHist,lumiScales)
     #TEMP: just use what we have for now no available from current processing
-    #hST = getHist(hN,['ST_tW-channel_top'],fHist,lumiScales)
+    hST = getHist(hN,['ST_tW-channel_top'],fHist,lumiScales)
     if not use_NLO_VV:
       hWW = getHist(hN,['WW'],fHist,lumiScales)
       hWZ = getHist(hN,['WZ'],fHist,lumiScales)
       hZZ = getHist(hN,['ZZ'],fHist,lumiScales)
 
       if breakVV and 'HMass' in plN:
-          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc'],['WW','WZ','ZZ'],fHist,lumiScales) 
-          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WW','WZ','ZZ'],fHist,lumiScales) 
-          #hVVbbcc = getHists(hN,['VZbbcc'],['WW','WZ','ZZ'],fHist,lumiScales) 
-          #hVVqqqq = getHists(hN,['VZqqqq'],['WW','WZ','ZZ'],fHist,lumiScales)
-          #hVVcc = getHists(hN,['VZqqcc','VZqccc','VZcccc','VZbbcc'],['WZ','ZZ'],fHist,lumiScales) 
-          #hVVbb = getHists(hN,['VZqqbb','VZqcbb','VZbbbb'],['WZ','ZZ'],fHist,lumiScales) 
-          #hVVother = getHists(hN,['VZqqqq'],['WZ','ZZ'],fHist,lumiScales)
           rTmp = r + '_VZcc'
           hVVcc = getHist(hN.replace(r,rTmp),['WZ','ZZ'],fHist,lumiScales) 
           rTmp = r + '_VZbb'
@@ -652,61 +586,3 @@ for r in regions:
     #save histograms to check
     fCheck.cd()
     hQCDA.Write()
-
-#adding process together
-addBkgr(nums,'WWWZ',['WW','WZ'],regions)
-addBkgr(nums,'VZ',['WZ','ZZ'],regions)
-addBkgr(nums,'ZHBB',['ggZH_HToBB_ZToQQ','ZH_HToBB_ZToQQ'],regions)
-addBkgr(nums,'ZHCC',['ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ'],regions)
-addBkgr(nums,'Bkgr',['QCD','WJ','ZJ','TT','ST','WW','WZ','ZZ','ggZH_HToBB_ZToQQ','ZH_HToBB_ZToQQ','WH_HToBB_WToQQ'],regions)
-
-for r in regions:
-  for y in ['16_preVFP','16','17','18','All']:
-  #for y in ['18']:
-    nums[r][y]['S/sqrt(B)'] = [(nums[r][y]['ZHCC'][0]+nums[r][y]['WH_HToCC_WToQQ'][0])/math.sqrt(nums[r][y]['Bkgr'][0]),0]
-
-print(nums)
-
-#print number of events
-fLatex = open(plotFolder+'/'+summary_eventCount_name,'w')
-fLatex.write('\documentclass[12pt]{article}\n')
-fLatex.write('\\usepackage{graphicx}\n')
-fLatex.write('\\title{Control plots}\n')
-fLatex.write('\\begin{document}\n')
-
-if not breakVV:
-  labels = ['QCD','WJ','ZJ','TT','ST','WW','VZ','ZHBB','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
-  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','WW':'WW','VZ':'VZ','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
-else:
-  labels = ['QCD','WJ','ZJ','TT','ST','VVcc','VVbb','VVother','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
-  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','VVcc':'VZ (Z$\\rightarrow$cc)','VVbb':'VZ (Z$\\rightarrow$bb)','VVother':'VV (other)','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
-
-if not plot_all_together: exit()
-
-for r in regions:
-  #print nums
-  fLatex.write('\n')
-  fLatex.write('\\begin{table}[h]\n')
-  fLatex.write('  \\caption{'+r.replace('_','\_')+'}\n')
-  fLatex.write('  \\label{tab:}\n')
-  fLatex.write('  \\centering\n')
-  fLatex.write('  \\begin{tabular}{lccccc}\n')
-  fLatex.write('  \\hline\n')
-  fLatex.write('  \\hline\n')
-  l = ['', '2016\_preVFP', '2016','2017','2018','Run 2']
-  st = utl_func.makeLatexLine(l)
-  fLatex.write(st)
-  fLatex.write('  \\hline\n')
-
-  for label in labels:
-    if label != 'S/sqrt(B)': l = [label_translate[label], "{0:.2f}".format(nums[r]['16_preVFP'][label][0]), "{0:.2f}".format(nums[r]['16'][label][0]), "{0:.2f}".format(nums[r]['17'][label][0]),"{0:.2f}".format(nums[r]['18'][label][0]), "{0:.2f}".format(nums[r]['All'][label][0])]
-    else: l = [label_translate[label], "{0:.3f}".format(nums[r]['16_preVFP'][label][0]), "{0:.3f}".format(nums[r]['16'][label][0]), "{0:.3f}".format(nums[r]['17'][label][0]),"{0:.3f}".format(nums[r]['18'][label][0]), "{0:.3f}".format(nums[r]['All'][label][0])]
-    st = utl_func.makeLatexLine(l)
-    fLatex.write(st)
-
-  fLatex.write('  \\hline\n')
-  fLatex.write('  \\hline\n')
-  fLatex.write('\\end{tabular}\n')
-  fLatex.write('\\end{table}\n')
-
-fLatex.write('\\end{document}\n')
