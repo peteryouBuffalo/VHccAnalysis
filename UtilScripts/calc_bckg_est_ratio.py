@@ -63,6 +63,7 @@ def getHistIntegral(h,v1=-1,v2=-1):
 #################################################################
 
 years = ['16_preVFP','16','17','18']
+years = ['18']
 
 regions = [
     'VHcc_boosted_PN_med_topCR_pass', # top CR
@@ -70,7 +71,8 @@ regions = [
 ]
 qcdEnriched = 'VHcc_boosted_PN_med_qcdEnriched_topCR'
 
-input_folder = '../condor_results/2025Apr_loose/NONE/'
+input_folder = '../condor_results/2025Apr_test2/NONE/'
+output_folder = 'Tmp'
 
 ss = [
   'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9',
@@ -193,12 +195,12 @@ for r in regions:
 
   count += 1
 
-with open("QCD_TF_per_year.json", "w") as file:
+with open(output_folder + "/QCD_TF_per_year.json", "w") as file:
   json.dump(ratio_values, file, indent=4)
 
-print("TF values are output into QCD_TF_per_year.json")
+print("TF values are output into", output_folder, "QCD_TF_per_year.json")
 
-with open("QCD_CR_evt_per_year.json", "w") as file:
+with open(output_folder + "/QCD_CR_evt_per_year.json", "w") as file:
   json.dump(evts, file, indent=4)
 
-print("Evt counts are output into QCD_CR_evt_per_year.json")
+print("Evt counts are output into", output_folder, "QCD_CR_evt_per_year.json")

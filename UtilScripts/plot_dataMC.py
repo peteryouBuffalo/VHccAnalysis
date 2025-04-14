@@ -9,7 +9,6 @@ import myutils as utl
 
 
 
-
 ROOT.gROOT.Macro(os.path.expanduser('~/rootLogOn_forPyROOT.C' ))
 ROOT.gROOT.SetBatch(True)
 
@@ -109,8 +108,8 @@ xDiv_MH = [40,60,80,100,120,140,160,180,200]
 
 #list here regions you want to make plot for. The list of plots for each region listed in ../Configs/config.ini in [Plot] section
 regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
-regions = ['VHcc_boosted_PN_med_qcdEnriched_topCR']
-#regions = ['general']
+regions = ['VHcc_boosted_PN_med_qcdEnriched_topCR', 'VHcc_boosted_PN_med_topCR_pass']
+regions = ['general']
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
 cfg = utl.BetterConfigParser()
@@ -120,7 +119,7 @@ use_NLO_VV = True
 breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-plotFolder = '../Plots_NONE_qcdEnriched'
+plotFolder = '../Plots_NONE_general'
 aff1 = ''
 aff2 = ''
 if use_NLO_VV: aff1 = 'NLO_VV'

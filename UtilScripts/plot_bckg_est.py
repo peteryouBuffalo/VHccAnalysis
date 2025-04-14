@@ -90,10 +90,13 @@ def getFilterEff(fName):
 ##########################
 #Frequently use settings
 
+json_folder = 'Tmp'
+
 years = ['16_preVFP','16','17','18']
-#years = ['18']
+years = ['18']
 
 plot_all_together = True
+plot_all_together = False
 
 blindDataOption = 1 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
 blindRange = [75,140]
@@ -108,7 +111,7 @@ xDiv_MH = [40,60,80,100,120,140,160,180,200]
 
 #list here regions you want to make plot for. The list of plots for each region listed in ../Configs/config.ini in [Plot] section
 #regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
-regions = ['VHcc_boosted_PN_med_topCR_pass', 'VHcc_boosted_PN_med']
+regions = ['VHcc_boosted_PN_med_topCR_pass']#, 'VHcc_boosted_PN_med']
 #regions = ['general']
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
@@ -119,7 +122,7 @@ use_NLO_VV = True
 breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-plotFolder = '../plot_results/bckg_est'
+plotFolder = '../plot_results/bckg_est2'
 aff1 = ''
 aff2 = ''
 if use_NLO_VV: aff1 = 'NLO_VV'
@@ -267,7 +270,7 @@ for s in ss:
 nums = {}
 
 # Get the information from the QCD-TF json file
-with open('QCD_TF_per_year.json', 'r') as file:
+with open(json_folder + '/QCD_TF_per_year.json', 'r') as file:
   QCD_TFs = json.load(file)
 
 for r in regions:

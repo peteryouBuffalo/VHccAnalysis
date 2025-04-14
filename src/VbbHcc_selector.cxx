@@ -150,6 +150,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_jet_mass_afterSel = new TH1D("jet_mass_afterSel", "", 2000, 0, 2000);
   h_jet_mass_beforeWcorr = new TH1D("jet_mass_beforeWcorr", "", 2000, 0, 2000);
   h_jet_mass_afterWcorr = new TH1D("jet_mass_afterWcorr", "", 2000, 0, 2000);
+
+  h_Xcc_vs_pQCD = new TH2D("Xcc_vs_pQCD", "", 1000, 0, 1, 1000, 0, 1);
+  h_Xcc_vs_pQCD_beforeCuts = new TH2D("Xcc_vs_pQCD_beforeCuts", "", 1000, 0, 1, 1000, 0, 1);
+  h_Xcc_vs_pQCD_raw = new TH2D("Xcc_vs_pQCD_raw", "", 1000, 0, 1, 1000, 0, 1);
   
   h_cutFlow_ZccHcc_PN_med = new TH1D("CutFlow_ZccHcc_boosted_PN_med","",15,0,15) ;
   h_cutFlow_ZccHcc_PN_med->GetXaxis()->SetBinLabel(1,"Total");
@@ -378,6 +382,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   r->GetOutputList()->Add(h_jet_mass_beforeWcorr);
   r->GetOutputList()->Add(h_jet_mass_afterWcorr);
 
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD);
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD_beforeCuts);
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD_raw);
+  
   r->GetOutputList()->Add(h_l1_SF);
   r->GetOutputList()->Add(h_pu_SF);
   r->GetOutputList()->Add(h_jer_SF);
@@ -873,6 +881,8 @@ void VbbHcc_selector::Process(Reader* r) {
       jets.push_back(jet) ;
       h_jet_mass_afterSel->Fill(jet.m_lvec.M(), evtW);
       h_jet_pt_afterSel->Fill(jet.m_lvec.Pt(), evtW);
+
+      h_Xcc_vs_pQCD_beforeCuts->Fill(Xcc, (r->FatJet_particleNetMD_QCD)[i], evtW);
     }
   }
 
@@ -1596,12 +1606,15 @@ void VbbHcc_selector::Process(Reader* r) {
 	
       }//end-V-tag-cut
 
+      h_Xcc_vs_pQCD->Fill(jets[idx_V].m_PN_Xcc, jets[idx_V].m_PN_pQCD, evtW_tag);
+
       // ////////////////////////////////////////////////////
       // Control Region - Top QCD Enchriced
       // ////////////////////////////////////////////////////
       // This is used for data-driven QCD bckg estimation.
       // We have the V-jet pass the cut instead of failing it
-      else if (jets[idx_V].m_PN_Xcc > XccCut && jets[idx_V].m_PN_pQCD < pQCDcut)
+      // Apr 10, 2025: new idea - < XccCut, > pQCDcut
+      if (jets[idx_V].m_PN_Xcc < XccCut && jets[idx_V].m_PN_pQCD > pQCDcut)
       {
         // Fill the tag scores before cut.
 	h_VHcc_PN_med_qcdEnriched_topCR->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc, evtW_tag);

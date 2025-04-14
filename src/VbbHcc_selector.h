@@ -93,6 +93,10 @@ private:
   TH1D* h_jet_pt_afterSel;
   TH1D* h_jet_mass_beforeWcorr;
   TH1D* h_jet_mass_afterWcorr;
+
+  TH2D* h_Xcc_vs_pQCD;
+  TH2D* h_Xcc_vs_pQCD_beforeCuts;
+  TH2D* h_Xcc_vs_pQCD_raw;
   
   VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP 
   VHBoostedPlots* h_ZccHcc_PN_med_zmass_deltaPhi; //using particle net medium WP
