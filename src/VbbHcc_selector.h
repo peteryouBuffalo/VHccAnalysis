@@ -48,6 +48,15 @@ private:
   TH1D* h_evtW_VHcc;
   TH1D* h_tagW_VHcc;
   TH1D* h_trigW_VHcc;
+
+  TH1D* h_l1_SF;
+  TH1D* h_pu_SF;
+  TH1D* h_jer_SF;
+  TH1D* h_jes_pt_SF;
+  TH1D* h_jes_mass_SF;
+  TH1D* h_wcorr;
+  TH1D* h_gen_weight;
+  
   TH1D* h_bStatus_noMother;
   TH1D* h_bStatus_hasMother;
   TH1D* h_nb;
@@ -77,6 +86,17 @@ private:
   TH1D* h_Pileup_nTrueInt_scaled;
   TH1D* h_PV_npvsGood;
   TH1D* h_PV_npvsGood_scaled;
+
+  TH1D* h_MET_beforeCut;
+  TH1D* h_MET_afterCut;
+  TH1D* h_jet_mass_afterSel;
+  TH1D* h_jet_pt_afterSel;
+  TH1D* h_jet_mass_beforeWcorr;
+  TH1D* h_jet_mass_afterWcorr;
+
+  TH2D* h_Xcc_vs_pQCD;
+  TH2D* h_Xcc_vs_pQCD_beforeCuts;
+  TH2D* h_Xcc_vs_pQCD_raw;
   
   VHBoostedPlots* h_ZccHcc_PN_med; //using particle net medium WP 
   VHBoostedPlots* h_ZccHcc_PN_med_zmass_deltaPhi; //using particle net medium WP
@@ -108,7 +128,8 @@ private:
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZcc; //using particle net topCR_passium WP
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZbb; //using particle net topCR_passium WP
   VHBoostedPlots* h_VHcc_PN_med_topCR_pass_VZother; //using particle net topCR_passium WP
-  
+
+  VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR; // QCD-enriched top CR (added Apr 5, 2025)
 
   JESUncPlots* h_jesUnc;
 

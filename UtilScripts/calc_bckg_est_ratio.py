@@ -1,0 +1,206 @@
+#################################################################
+#
+# calc_bckg_est_ratio.py - created (Apr 6, 2025)
+#
+# description: This macro takes the QCD MC and calculates the
+#              transfer function (ratio) to be used to
+#              estimate the QCD background in data.
+#
+#################################################################
+
+import ROOT
+import sys,os
+import copy
+import math
+sys.path.append('/uscms_data/d3/duong/CMSSW/CMSSW_7_6_5/src/ZplusC/python3/myutils/')
+import configparser
+import util_funcs as utl_func
+import myutils as utl
+import json
+
+ROOT.gROOT.Macro(os.path.expanduser('~/rootLogOn_forPyROOT.C' ))
+ROOT.gROOT.SetBatch(True)
+
+#################################################################
+# Useful Methods
+#################################################################
+
+def getHist(pN,samName,fH,lS): #samName = ['Electron'],['DY_0J','DY_1J','DY_2J']...
+  hOut = {}
+  for y in years:
+    # first sample, first file
+    hOut[y] = fH[samName[0]][y][0].Get(pN).Clone()
+    if samName[0] not in ['JetHT']:
+      hOut[y].Scale(lS[samName[0]][y][0])
+
+    # go through the rest of the samples and files
+    # (skip the first one because it's already included)
+    for iS in range(len(samName)):
+      for fi in range(len(fH[samName[iS]][y])):
+        if iS == 0 and fi == 0: continue 
+        h = fH[samName[iS]][y][fi].Get(pN).Clone()
+        if samName[iS] not in ['JetHT']:
+          h.Scale(lS[samName[iS]][y][fi])
+        hOut[y].Add(h)
+      
+  return hOut
+
+
+def getHistIntegral(h,v1=-1,v2=-1):
+  tmp = [0,0]
+  bBin = 0 #include underflow bin
+  eBin = h.GetNbinsX()+1 #include overflow bin
+  if v1 != -1: bBin = h.GetXaxis().FindFixBin(v1)
+  if v2 != -1: eBin = h.GetXaxis().FindFixBin(v2)
+  for iB in range(v1,v2+1):
+    tmp[0] += h.GetBinContent(iB)
+    tmp[1] += h.GetBinError(iB)*h.GetBinError(iB)
+  tmp[1] = math.sqrt(tmp[1])
+  return tmp
+
+#################################################################
+# Main
+#################################################################
+
+years = ['16_preVFP','16','17','18']
+years = ['18']
+
+regions = [
+    'VHcc_boosted_PN_med_topCR_pass', # top CR
+    'VHcc_boosted_PN_med'             # SR
+]
+qcdEnriched = 'VHcc_boosted_PN_med_qcdEnriched_topCR'
+
+input_folder = '../condor_results/2025Apr_test2/NONE/'
+output_folder = 'Tmp'
+
+ss = [
+  'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9',
+  'QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9',
+  'QCD_HT2000toInf_v9'
+]
+
+
+###############################
+# DO NOT CHANGE ANYTHING BELOW
+###############################
+cfg = utl.BetterConfigParser()
+cfg.read('../Configs/config.ini')
+
+lumiS = {}
+for y in years:
+  lumiTmp = float(cfg.get('General','lumi_'+y))/1000.
+  lumiTmp = format("%.1f" % lumiTmp)
+  lumiS[y] = str(lumiTmp)
+print(lumiS)
+
+
+
+fNames = {}
+xSecs = {}
+lumiScales = {}
+fHist = {}
+
+for s in ss:
+
+  fNames[s] = {}
+  xSecs[s] = {}
+  lumiScales[s] = {}
+  fHist[s] = {}
+
+  for y in years:
+    lumi = float(cfg.get('General','lumi_'+y))
+    names = cfg.get(s,'file_'+y).split(',') # multiple names is possible,
+                                            # for example: Single top = t-channels, s-channels ...
+    print('>>>>>>>: ', len(names))
+    xSecTmps = ['1']*len(names) #each name corresponds to a cross section
+    kfactor = ['1']*len(names) #each name corresponds to a cross section
+    if s not in ['JetHT']:
+      xSecTmps = cfg.get(s,'xSec_'+y).split(',')
+
+    fNames[s][y] = []
+    xSecs[s][y] = []
+    fHist[s][y] = []
+    for iN in names:
+      if 'JetHT' in iN: fNames[s][y].append(input_folder + '/' + iN)
+      else: fNames[s][y].append(input_folder + '/' + iN)
+      fHist[s][y].append(ROOT.TFile.Open(fNames[s][y][-1],'READ'))
+                                  
+    print(xSecTmps)
+    for iS in xSecTmps:
+      filterEff = 1.
+      #if 'JetHT' not in s and correctFilterEff: filterEff = filter_effs[s]
+      #in case there is kfactor in cross section
+      if '*' in iS:
+        iS = iS.split('*')
+      if len(iS) == 2:
+        xSecs[s][y].append(float(iS[0])*float(iS[1])*filterEff)
+      else:
+        xSecs[s][y].append(float(iS)*filterEff)
+      
+    lumiScales[s][y] = [1]*len(names)
+    for iN in range(len(fNames[s][y])):
+      if s not in ['JetHT']:
+        print(s, y, iN, fNames[s][y][iN])
+        try:
+          lumiScales[s][y][iN] = utl_func.scaleToLumi1(fNames[s][y][iN], \
+            xSecs[s][y][iN],lumi,'Nevt_all_VbbHcc_boosted')
+        except AttributeError:
+          print("\n Can not find lumiScale for ", s, " ", y, " ", iN, " .Set lumiScale to 0")
+          lumiScales[s][y][iN] = 0
+
+
+# The enriched plots that we use in the denominator are not changed
+# and are used for every region, thus let's get them outside the loop
+enriched_plots = getHist(qcdEnriched + "_HMass", ss, fHist, lumiScales)          
+
+# make a JSON to store the values
+ratio_values = {}
+evts = {}
+
+# Go through each region
+count = 0
+for r in regions:
+
+  print("r = ", r)
+  ratio_values[r] = {}
+  if count == 0:
+    evts[qcdEnriched] = {}
+  evts[r] = {}
+
+  # Get the plots that are in the numerator region.
+  num_plots = getHist(r + "_HMass", ss, fHist, lumiScales)
+
+  # Go through each year
+  for y in years:
+
+    print(">> y = ", y)
+    
+    numerator = num_plots[y]
+    denominator = enriched_plots[y]
+
+    n_num = numerator.Integral()
+    n_den = denominator.Integral()
+
+    evts[r][y] = n_num
+    if count == 0:
+      evts[qcdEnriched][y] = n_den
+    
+    print(">>>> num: # evt = ", n_num)
+    print(">>>> den: # evt = ", n_den)
+
+    ratio = n_num / n_den
+    print(">>>> ratio = ", ratio)
+    ratio_values[r][y] = ratio
+
+  count += 1
+
+with open(output_folder + "/QCD_TF_per_year.json", "w") as file:
+  json.dump(ratio_values, file, indent=4)
+
+print("TF values are output into", output_folder, "QCD_TF_per_year.json")
+
+with open(output_folder + "/QCD_CR_evt_per_year.json", "w") as file:
+  json.dump(evts, file, indent=4)
+
+print("Evt counts are output into", output_folder, "QCD_CR_evt_per_year.json")

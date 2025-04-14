@@ -116,6 +116,15 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_evtW_VHcc = new TH1D("EvtW_VHcc","",2000,-10,10);
   h_trigW_VHcc = new TH1D("TrigW_VHcc","",1000,0,10);
   h_tagW_VHcc = new TH1D("TagW_VHcc","",1000,0,10);
+
+  h_l1_SF = new TH1D("l1preW", "", 2000, -10, 10);
+  h_pu_SF = new TH1D("puSF", "", 2000, -10, 10);
+  h_jes_pt_SF = new TH1D("jes_pt_SF", "", 2000, -10, 10);
+  h_jes_mass_SF = new TH1D("jes_mass_SF", "", 2000, -10, 10);
+  h_jer_SF = new TH1D("jer_SF", "", 2000, -10, 10);
+  h_wcorr = new TH1D("wcorr", "", 2000, -10, 10);
+  h_gen_weight = new TH1D("gen_weight", "", 2000, -10, 10);
+  
   h_bStatus_noMother = new TH1D("bStatus_noMother","",100,0,100) ; 
   h_bStatus_hasMother = new TH1D("bStatus_hasMother","",100,0,100) ; 
   h_nb = new TH1D("nb","",20,0,20) ; 
@@ -133,6 +142,18 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_pt_rho_n2b1 = new TH3D("pt_rho_n2b1","",70,300,1000,75,-6,-1.5,100,0,1);
   h_jet_mass = new TH1D("jet_mass","",2000,0,2000);
   h_jet_pt = new TH1D("jet_pt", "", 2000, 0, 2000);
+
+  h_MET_beforeCut = new TH1D("MET_beforeCut","", 1000, 0, 1000);
+  h_MET_afterCut  = new TH1D("MET_afterCut", "", 1000, 0, 1000);
+
+  h_jet_pt_afterSel = new TH1D("jet_pt_afterSel", "", 2000, 0, 2000);
+  h_jet_mass_afterSel = new TH1D("jet_mass_afterSel", "", 2000, 0, 2000);
+  h_jet_mass_beforeWcorr = new TH1D("jet_mass_beforeWcorr", "", 2000, 0, 2000);
+  h_jet_mass_afterWcorr = new TH1D("jet_mass_afterWcorr", "", 2000, 0, 2000);
+
+  h_Xcc_vs_pQCD = new TH2D("Xcc_vs_pQCD", "", 1000, 0, 1, 1000, 0, 1);
+  h_Xcc_vs_pQCD_beforeCuts = new TH2D("Xcc_vs_pQCD_beforeCuts", "", 1000, 0, 1, 1000, 0, 1);
+  h_Xcc_vs_pQCD_raw = new TH2D("Xcc_vs_pQCD_raw", "", 1000, 0, 1, 1000, 0, 1);
   
   h_cutFlow_ZccHcc_PN_med = new TH1D("CutFlow_ZccHcc_boosted_PN_med","",15,0,15) ;
   h_cutFlow_ZccHcc_PN_med->GetXaxis()->SetBinLabel(1,"Total");
@@ -189,6 +210,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_VHcc_PN_med_topCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_topCR_pass",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_VHcc_PN_med_VjetCR_pass = new VHBoostedPlots("VHcc_boosted_PN_med_VjetCR_pass");
 
+  // Added by Peter for data-driven Bckg Estimation (Apr 5, 2025)
+  h_VHcc_PN_med_qcdEnriched_topCR = new VHBoostedPlots("VHcc_boosted_PN_med_qcdEnriched_topCR",
+						       m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  
 #if defined(MC_VZ)
   h_ZccHcc_PN_med_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
   h_ZccHcc_PN_med_VZbb = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZbb",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
@@ -269,6 +294,9 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   tmp = h_VHcc_PN_med_VjetCR_pass->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
+  tmp = h_VHcc_PN_med_qcdEnriched_topCR->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  
 #if defined(MC_VZ)
   tmp = h_ZccHcc_PN_med_VZcc->returnHisto() ;
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
@@ -346,6 +374,25 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   r->GetOutputList()->Add(h_Pileup_nTrueInt_scaled);
   r->GetOutputList()->Add(h_PV_npvsGood);
   r->GetOutputList()->Add(h_PV_npvsGood_scaled);
+
+  r->GetOutputList()->Add(h_MET_beforeCut);
+  r->GetOutputList()->Add(h_MET_afterCut);
+  r->GetOutputList()->Add(h_jet_pt_afterSel);
+  r->GetOutputList()->Add(h_jet_mass_afterSel);
+  r->GetOutputList()->Add(h_jet_mass_beforeWcorr);
+  r->GetOutputList()->Add(h_jet_mass_afterWcorr);
+
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD);
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD_beforeCuts);
+  r->GetOutputList()->Add(h_Xcc_vs_pQCD_raw);
+  
+  r->GetOutputList()->Add(h_l1_SF);
+  r->GetOutputList()->Add(h_pu_SF);
+  r->GetOutputList()->Add(h_jer_SF);
+  r->GetOutputList()->Add(h_jes_pt_SF);
+  r->GetOutputList()->Add(h_jes_mass_SF);
+  r->GetOutputList()->Add(h_wcorr);
+  r->GetOutputList()->Add(h_gen_weight);
 }
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
@@ -470,6 +517,10 @@ void VbbHcc_selector::Process(Reader* r) {
     evtW_noPU *= genWeight * l1preW;
   }
 
+  h_l1_SF->Fill(l1preW);
+  h_pu_SF->Fill(puSF);
+  h_gen_weight->Fill(genWeight);
+  
   h_cutFlow_ZccHcc_PN_med->Fill(0.5,evtW);
   h_cutFlow_VHcc_PN_med->Fill(0.5,evtW);
 
@@ -751,6 +802,11 @@ void VbbHcc_selector::Process(Reader* r) {
     double JES_sub1_m  = CalculateJES(subMap1, "mass", m_jetmetSystType, m_isData);
     double JES_sub2_m  = CalculateJES(subMap2, "mass", m_jetmetSystType, m_isData);
 
+    h_jes_pt_SF->Fill(JES_sub1_pt, evtW);
+    h_jes_pt_SF->Fill(JES_sub2_pt, evtW);
+    h_jes_mass_SF->Fill(JES_sub1_m, evtW);
+    h_jes_mass_SF->Fill(JES_sub2_m, evtW);
+    
     double m_raw_1 = (r->SubJet_mass)[idx1] * (1 - (r->SubJet_rawFactor)[idx1]);
     double m_raw_2 = (r->SubJet_mass)[idx2] * (1 - (r->SubJet_rawFactor)[idx2]);
     double corrM_1 = m_raw_1 * JES_sub1_m;
@@ -781,6 +837,9 @@ void VbbHcc_selector::Process(Reader* r) {
     if (cJER_2 <= 0) cJER_2 = 1.0f;
     corrPt_1 *= cJER_1;
     corrPt_2 *= cJER_2;
+
+    h_jer_SF->Fill(cJER_1, evtW);
+    h_jer_SF->Fill(cJER_1, evtW);
     
     // Calculate the SD mass using the di-subjet mass.                                         
     TLorentzVector sub_vec_1, sub_vec_2;
@@ -800,7 +859,10 @@ void VbbHcc_selector::Process(Reader* r) {
     float wmass_corr = 1;
     if ((r->FatJet_pt)[i]>0) wmass_corr = msdCorr->evaluate({(r->FatJet_msoftdrop)[i]/(r->FatJet_pt)[i],log((r->FatJet_pt)[i]),(r->FatJet_eta)[i]});
     //std::cout << "\n wmass_corr: " << wmass_corr << " " << corrM << " ";
+    h_jet_mass_beforeWcorr->Fill(corrM, evtW);
     corrM *= wmass_corr;
+    h_jet_mass_afterWcorr->Fill(corrM, evtW);
+    h_wcorr->Fill(wmass_corr);
     //std::cout << corrM << std::endl;
 
     h_jet_mass->Fill(corrM);
@@ -815,7 +877,13 @@ void VbbHcc_selector::Process(Reader* r) {
         (r->FatJet_particleNet_ZvsQCD)[i],
         (r->FatJet_n2b1)[i], -1) ;
     if(jet.IsLepton(eles_jetOverlap,0.8) || jet.IsLepton(muons_jetOverlap,0.8)) continue;
-    if(corrPt > CUTS.Get<float>("jet_pt_ak08") && fabs((r->FatJet_eta)[i]) < CUTS.Get<float>("jet_eta_ak08")) jets.push_back(jet) ;
+    if(corrPt > CUTS.Get<float>("jet_pt_ak08") && fabs((r->FatJet_eta)[i]) < CUTS.Get<float>("jet_eta_ak08")){
+      jets.push_back(jet) ;
+      h_jet_mass_afterSel->Fill(jet.m_lvec.M(), evtW);
+      h_jet_pt_afterSel->Fill(jet.m_lvec.Pt(), evtW);
+
+      h_Xcc_vs_pQCD_beforeCuts->Fill(Xcc, (r->FatJet_particleNetMD_QCD)[i], evtW);
+    }
   }
 
   //Fill fat jet pt, rho, n2b1 to identify c_26 cut
@@ -939,8 +1007,12 @@ void VbbHcc_selector::Process(Reader* r) {
   //MET cut///////////////
   ////////////////////////
   bool passMET(false);
-  if (*(r->MET_pt)<140) passMET=true;
-   
+  h_MET_beforeCut->Fill(*(r->MET_pt), evtW);
+  if (*(r->MET_pt)<140) {
+    passMET=true;
+    h_MET_afterCut->Fill(*(r->MET_pt), evtW);
+  }
+    
   //jet n2b1 cut 
   std::vector<unsigned> idx_tmps_2;
   std::vector<std::pair<int,float> > idx_pn_cc_tmp;
@@ -966,15 +1038,23 @@ void VbbHcc_selector::Process(Reader* r) {
     if (i == 1) break;
   }
 
-  //if (idx_pn_cc.size() >= 2) std::cout << "\n Pt: " << jets[idx_pn_cc[0].first].m_lvec.Pt() << " " << jets[idx_pn_cc[1].first].m_lvec.Pt();
-
-  sort(idx_pn_cc.begin(),idx_pn_cc.end(),sortbysecdesc);//sort according to pncc
   //if (idx_pn_cc.size() >= 2) {
-    //std::cout << "\n";
-    //for(auto i : idx_pn_cc) std::cout << " (" << i.first << " " << i.second << ") ";
+  //  std::cout << "\n Pt: " <<
+  //    jets[idx_pn_cc[0].first].m_lvec.Pt() <<
+  //    " " << jets[idx_pn_cc[1].first].m_lvec.Pt();
   //}
-   
+
+  // Sort the jets based on their PN cc score.
+  sort(idx_pn_cc.begin(),idx_pn_cc.end(),sortbysecdesc);
+  //if (idx_pn_cc.size() >= 2) {
+  //  std::cout << "\n";
+  //  for(auto i : idx_pn_cc) std::cout << " (" << i.first << " " << i.second << ") ";
+  //}
+
+
+  // Make sure there are at least enough jets & we passed the lepton veto stage
   if (passLepVeto && (idx_pn_cc.size() >= 2)) { 
+
     //now do ambugity resolve using DH method
     //calculate the DH 
     std::vector<std::pair<std::vector<int>,float>> dhs_idx_cand;
@@ -986,11 +1066,13 @@ void VbbHcc_selector::Process(Reader* r) {
     tmp = {idx_pn_cc[1].first,idx_pn_cc[0].first};
     dhs_idx_cand.push_back(std::make_pair(tmp,dh));//H,Z
 
+    // Pick the candidate that has the smallest DH
     sort(dhs_idx_cand.begin(),dhs_idx_cand.end(),sortbysecdesc1);
-    int idx_H = dhs_idx_cand.back().first[0]; //pick the cand has smallest DH
-    int idx_Z = dhs_idx_cand.back().first[1]; 
+    int idx_H = dhs_idx_cand.back().first[0]; // first jet = H
+    int idx_Z = dhs_idx_cand.back().first[1]; // second jet = Z/V
 
-    //tagging scale
+    
+    // Get the tagging scale factor & add it to the event weight.
     float tagW = 1.0;
     auto jet_H = std::make_pair(jets[idx_H],false);
     if(jets[idx_H].m_PN_Xcc >= XccCut) jet_H.second = true;
@@ -1000,7 +1082,8 @@ void VbbHcc_selector::Process(Reader* r) {
     tagW = CalCtagWeightBoosted(jet_H,jet_Z,m_hfTagUncType);
 #endif  
     float evtW_tag = evtW*tagW;
-    
+
+    // Get the trigger scale factor
     float trigSF=1;
     float jetPtMax = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
     float jetPtMin = std::max(jets[idx_Z].m_lvec.Pt(),jets[idx_H].m_lvec.Pt());
@@ -1010,22 +1093,24 @@ void VbbHcc_selector::Process(Reader* r) {
 
     //std::cout << "\n Weights: " << evtW << " " << tagW << " " << evtW_tag << " " << trigSF ;
 
+    // Construct the boson candidate objets from the proper jets
     ZObj Z(jets[idx_Z]);
     HObj H(jets[idx_H]);
     std::vector<JetObjBoosted> jet_ZccHcc{jets[idx_Z], jets[idx_H]};
     
-    //number of extra jets
+    // Get the number of extra jets
     std::vector<JetObjBoosted> tmp1{jets[idx_Z],jets[idx_H]};
     std::vector<JetObj> extJets = NextraJet(tmp1, ak4Jets);
     int nExtraJet = extJets.size();
 
+    // Get the btag weight for these extra jets
     float w_btag(1.0);   
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
     w_btag = CalBtagWeight(extJets,CUTS.GetStr("jet_main_btagWP"),m_btagUncType); 
     //std::cout << "\n " << w_btag;
 #endif  
 
-    //number of bjets of extra jets
+    // Get the number of bjets of extra jets
     int nBjet_extJets(0);
     for(auto jet : extJets)  if (jet.m_deepFlavB > deepFlavBCut) nBjet_extJets += 1;
     
@@ -1043,15 +1128,25 @@ void VbbHcc_selector::Process(Reader* r) {
     float evtW_tag_trig = evtW_tag*trigSF;
     float evtW_tag_btag_trig = evtW_tag*trigSF*w_btag;
     
-    //ZccHcc
+    /////////////////////////////////////////
+    // Channel 1 - ZccHcc
+    /////////////////////////////////////////
+
+    // Check to make sure that both selected jets pass a pT > 450 GeV requirement
     if (jets[idx_Z].m_lvec.Pt()>450 && jets[idx_H].m_lvec.Pt()>450) {
-      h_cutFlow_ZccHcc_PN_med->Fill(7.5,evtW);
-      h_ZccHcc_PN_med->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc,evtW_tag); 
+
+      h_cutFlow_ZccHcc_PN_med->Fill(7.5,evtW); // ZccHcc - passes jet pT cuts
+      h_ZccHcc_PN_med->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc,evtW_tag);
+
+      // Check to see if the Higgs candidate passes the tagging cut
+      // This is the start of the signal region (SR)
       if (jets[idx_H].m_PN_Xcc>=XccCut) {
+	
         //////////////////////
         //evtW_tag = evtW; //////////////////////////////////////////////////////////????FIXME HERE!!!!!!
         h_cutFlow_ZccHcc_PN_med->Fill(8.5,evtW_tag);
-        
+
+	// Check the extra criteria we're interested in
         if(nExtraJet < 2 && passMET && trigger) {
           float xcc_weight = 1.0 ;
           float tagWtmp = 1.0;
@@ -1067,13 +1162,14 @@ void VbbHcc_selector::Process(Reader* r) {
 
           h_ZccHcc_PN_med_xccWeight->Fill(H,Z,VZtype,w);
           h_ZccHcc_PN_med_xccWeight->FillJets(jet_ZccHcc,w);
-        }
+        }//end-extra-criteria
 
         //std::vector<JetObjBoosted> jet_ZccHcc{jets[idx_Z], jets[idx_H]};
         h_ZccHcc_PN_med->h_bbTagDis_beforeCut->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag); 
         if (jets[idx_Z].m_PN_Xcc>=XccCut) {
           h_cutFlow_ZccHcc_PN_med->Fill(9.5,evtW_tag);
           h_NextraJet_ZccHcc->Fill(nExtraJet,evtW_tag);
+	  
           ///////////////////////////////////
           //>>>>>>>>>>>>SR ZccHcc>>>>>>>>>>>>>>>>>>>
           ///////////////////////////////////
@@ -1141,18 +1237,26 @@ void VbbHcc_selector::Process(Reader* r) {
                     h_cutFlow_ZccHcc_PN_med->Fill(14.5,evtW_tag_trig);
                     h_ZccHcc_PN_med_zmass_deltaPhi->Fill(H,Z,VZtype,evtW_tag_trig);
                     h_ZccHcc_PN_med_zmass_deltaPhi->FillJets(jet_ZccHcc,evtW_tag_trig);
-                  }
-                }
-              }
-            }
-          }
-        }
-      } //SR
+                  }//end-Zmass-cut
+                }//end-dPhi-cut
+              }//end-trigger-cut
+            }//end-MET-cut
+          }//end-extraJet-cut
+        }//end-Z-Xcc-cut
+      } //end-SR (H candidate passes Xcc cut)
       
-      //fail CR 
+      // Fail CR #1 - This fail region is defined by having our
+      // Higgs candidate FAILING the Xcc tagging cut
+      // BUT the Z candidate PASSES the Xcc tagging cut
       if (jets[idx_H].m_PN_Xcc<XccCut && jets[idx_Z].m_PN_Xcc>=XccCut) {
-        if(passMET && trigger) { 
+
+	// Check the MET and trigger cuts
+	if(passMET && trigger) {
+
+	  // Check the cut on number of extra jets
           if (nExtraJet < 2) {
+
+	    // Fill the appropriate plots
             h_ZccHcc_PN_med_qcdCR->Fill(H,Z,VZtype,evtW_tag_trig);
             h_ZccHcc_PN_med_qcdCR->FillJets(jet_ZccHcc,evtW_tag_trig);
             h_ZccHcc_PN_med_qcdCR->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_trig);
@@ -1186,14 +1290,26 @@ void VbbHcc_selector::Process(Reader* r) {
 #endif
 
 #endif
-          }
-        }
+          }//end-extraJet-cut
+        }//end-MET-trigger-cuts
       } //end fail CR 
     }//end ZccHcc
-    
+
+
+    /////////////////////////////////////////
+    // Control Region 1 - Top (ZccHcc)    
+    ///////////////////////////////////////// 
+
+    // This checks the Top CR for ZccHcc. This takes the same criteria
+    // as our signal region but inverts the NextraJet and Nbjet cuts.
     if (jets[idx_Z].m_lvec.Pt()>350 && jets[idx_H].m_lvec.Pt()>350) {
+
+      // Invert the nExtraJet cut and check others
       if (nExtraJet >= 2 && passMET && trigger) {
-        if (jets[idx_H].m_PN_Xcc>=XccCut && jets[idx_Z].m_PN_Xcc>=XccCut) {
+
+        // Check that both of the jets pass the tagging cut
+	if (jets[idx_H].m_PN_Xcc>=XccCut && jets[idx_Z].m_PN_Xcc>=XccCut) {
+	  
           h_ZccHcc_PN_med_topCR_pass->h_ccPN_TopvsQCD->Fill(jets[idx_H].m_PN_TopvsQCD,evtW_tag_btag_trig);
           h_ZccHcc_PN_med_topCR_pass->h_bbPN_TopvsQCD->Fill(jets[idx_Z].m_PN_TopvsQCD,evtW_tag_btag_trig);
           h_ZccHcc_PN_med_topCR_pass->h_DPhiJetMet_failNextraJetCut->Fill(min_dPhiJetMet,evtW_tag_btag_trig);
@@ -1250,46 +1366,79 @@ void VbbHcc_selector::Process(Reader* r) {
             h_ZccHcc_PN_med_VjetCR_pass->FillJets(jet_ZccHcc,evtW_tag_btag_trig);
             h_ZccHcc_PN_med_VjetCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
             h_ZccHcc_PN_med_VjetCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
-          }
-        }
-      }
-    }
+          }//end-extraBjets-cut
+        }//end-tagging-cuts
+      }//end-NextraJet-MET-trigger-cuts
+    }//end-Top-CR
 
 
+    /////////////////////////////////////////
+    // Channel 2 - VqqHcc
+    ///////////////////////////////////////// 
 
-    //not tagged Zcc
+    // In this channel, we look at Vqq that is NOT Zcc.
+    // This means we re-label anything with Z as V
+    // for a more general vector boson V.
+    
+    
     idx_H = idx_pn_cc[0].first; //assign leading PN_cc for idx_H
     int idx_V = idx_pn_cc[1].first; 
     ZObj V = ZObj(jets[idx_V]);
     H = HObj(jets[idx_H]);
+    
     std::vector<JetObjBoosted> jet_VHcc{jets[idx_V], jets[idx_H]};
     ///////////////////////////////////////////////////////////////////////FIXME HERE////////////////////
     //evtW_tag = evtW;
-    if (jets[idx_V].m_lvec.Pt()>200 && jets[idx_H].m_lvec.Pt()>450) {
-      h_cutFlow_VHcc_PN_med->Fill(7.5,evtW);
+
+    // Check that the Higgs boson passes a pT > 450 GeV requirement
+    // and V boson passes a pT > 200 GeV requirement
+    // UPDATE(Apr 2, 2025): move pT(V) cut to 350 GeV
+    // UPDATE(Apr 5, 2025): changed back since we saw no improvement
+    if (jets[idx_V].m_lvec.Pt() > 200 && jets[idx_H].m_lvec.Pt() > 450) {
+
+      h_cutFlow_VHcc_PN_med->Fill(7.5,evtW); // passes pT cuts
+
+      // ??? I don't know purpose of this - Peter 
       if (jets[idx_V].m_PN_Xcc < XccCut)
         h_VHcc_PN_med->h_pQCD_beforeCut->Fill(jets[idx_V].m_PN_pQCD,evtW_tag); 
-      if (jets[idx_V].m_PN_pQCD<pQCDcut)
-        h_VHcc_PN_med->h_bbTagDis_beforeCut->Fill(jets[idx_V].m_PN_Xcc,evtW_tag); 
-      if (jets[idx_V].m_PN_Xcc < XccCut && jets[idx_V].m_PN_pQCD<pQCDcut) { //tag V-jet, 2-prong cut 
-        h_cutFlow_VHcc_PN_med->Fill(8.5,evtW_tag);
+      if (jets[idx_V].m_PN_pQCD< pQCDcut)
+        h_VHcc_PN_med->h_bbTagDis_beforeCut->Fill(jets[idx_V].m_PN_Xcc,evtW_tag);
+
+      // Check that the V boson FAILS our Xcc cut
+      // but also PASSES our 2-prong cut
+      // (This is the definition of the VqqHcc region)
+      if (jets[idx_V].m_PN_Xcc < XccCut && jets[idx_V].m_PN_pQCD < pQCDcut) { //tag V-jet, 2-prong cut 
+
+	h_cutFlow_VHcc_PN_med->Fill(8.5,evtW_tag); // passes cuts
         h_VHcc_PN_med->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc,evtW_tag); 
-        if (jets[idx_H].m_PN_Xcc>XccCut) {
+
+        // Check that the Higgs candidate PASSES the Xcc cut
+	// This defines our Signal Region (SR)
+	if (jets[idx_H].m_PN_Xcc>XccCut) {
+	  
           h_cutFlow_VHcc_PN_med->Fill(9.5,evtW_tag);
           h_NextraJet_VHcc->Fill(nExtraJet,evtW_tag);
+	  
           ///////////////////////////////////
           //>>>>>>>>>>>>SR VHcc>>>>>>>>>>>>>>>>>>>
             ///////////////////////////////////
           h_VHcc_PN_med->h_NextraJet_beforeCut->Fill(nExtraJet,evtW_tag); 
           h_VHcc_PN_med->h_MET_beforeCut_1->Fill(*(r->MET_pt),evtW_tag);
-          //top quarks suppression
+
+	  //Top quarks suppression - we shouldn't have many extra jets
           if (nExtraJet < 2) {
-            h_cutFlow_VHcc_PN_med->Fill(10.5,evtW_tag);
-            //now fill histograms
+
+	    h_cutFlow_VHcc_PN_med->Fill(10.5,evtW_tag); // passes-nExtraJet
+
+	    //now fill histograms
             h_VHcc_PN_med->h_MET_beforeCut->Fill(*(r->MET_pt),evtW_tag);
-            if (passMET) {
+	    
+            // Check for the MET and trigger cuts
+	    if (passMET) {
               h_cutFlow_VHcc_PN_med->Fill(11.5,evtW_tag);
+	      
               if (trigger) {
+		
                 //float evtW_tag_trig = evtW_tag*trigSF;
                 h_evtW_VHcc->Fill(evtW);
                 h_tagW_VHcc->Fill(tagW);
@@ -1336,12 +1485,20 @@ void VbbHcc_selector::Process(Reader* r) {
                     h_cutFlow_VHcc_PN_med->Fill(14.5,evtW_tag_trig);
                     h_VHcc_PN_med_zmass_deltaPhi->Fill(H,V,VZtype,evtW_tag_trig);
                     h_VHcc_PN_med_zmass_deltaPhi->FillJets(jet_VHcc,evtW_tag_trig);
-                  }
-                }
-              }
-            }
-          }
-          else { //nExtraJet >= 2
+                  }//end-Vmass-cut
+                }//end-deltaPhi-cut
+              }//end-trigger-cut
+            }//end-MET-cut
+          }//end-extra-jets-cut
+
+	  /////////////////////////////////////
+	  // Control Region #2 - Top (VqqHcc)
+	  /////////////////////////////////////
+	  // We get the Top CR for VqqHcc by inverting
+	  // the NextraJet and Nbjet cuts
+	  else { //nExtraJet >= 2
+
+	    // Check the MET & trigger cuts
             if (passMET && trigger) {
               //topCR
               h_VHcc_PN_med_topCR_pass->h_ccPN_TopvsQCD->Fill(jets[idx_H].m_PN_TopvsQCD,evtW_tag_btag_trig);
@@ -1383,7 +1540,8 @@ void VbbHcc_selector::Process(Reader* r) {
 #endif
 
 #endif
-              }
+              }//end-Nbjet-cut
+	      
               //Vjet CR
               h_VHcc_PN_med_VjetCR_pass->h_ccPN_WvsQCD->Fill(jets[idx_H].m_PN_WvsQCD,evtW_tag_btag_trig);
               h_VHcc_PN_med_VjetCR_pass->h_bbPN_WvsQCD->Fill(jets[idx_Z].m_PN_WvsQCD,evtW_tag_btag_trig);
@@ -1397,14 +1555,17 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med_VjetCR_pass->FillJets(jet_VHcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_VjetCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_VjetCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
-              }
-            }
-          }
-        } //SR VHcc
-        
-        //fail CR 
+              }//end-nbjet-cut
+            }//end-MET-trigger-cuts
+          }//end-top-CR(VHcc)
+        }//end-SR VHcc (H-Xcc-cut)
+
+	// Fail CR #2 - This fail region is defined by
+        // Higgs candidate FAILING the Xcc tagging cut 
         if (jets[idx_H].m_PN_Xcc<XccCut) {
-          if(passMET && trigger) { 
+
+          // pass MET & trigger cuts
+	  if(passMET && trigger) { 
             if (nExtraJet < 2) {
               h_VHcc_PN_med_qcdCR->Fill(H,V,VZtype,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->FillJets(jet_VHcc,evtW_tag_trig);
@@ -1440,11 +1601,58 @@ void VbbHcc_selector::Process(Reader* r) {
 
 #endif
             }
-          }
-        } //end fail CR 
-      } //V-tag
-    }
-  }
+          }//end-MET-trigger-cuts
+        } //end fail CR
+	
+      }//end-V-tag-cut
+
+      h_Xcc_vs_pQCD->Fill(jets[idx_V].m_PN_Xcc, jets[idx_V].m_PN_pQCD, evtW_tag);
+
+      // ////////////////////////////////////////////////////
+      // Control Region - Top QCD Enchriced
+      // ////////////////////////////////////////////////////
+      // This is used for data-driven QCD bckg estimation.
+      // We have the V-jet pass the cut instead of failing it
+      // Apr 10, 2025: new idea - < XccCut, > pQCDcut
+      if (jets[idx_V].m_PN_Xcc < XccCut && jets[idx_V].m_PN_pQCD > pQCDcut)
+      {
+        // Fill the tag scores before cut.
+	h_VHcc_PN_med_qcdEnriched_topCR->h_ccTagDis_beforeCut->Fill(jets[idx_H].m_PN_Xcc, evtW_tag);
+
+	// Check that the Higgs candidate PASSES the Xcc cut.
+	// This keeps us in the top CR for VHcc.
+	if (jets[idx_H].m_PN_Xcc > XccCut)
+	{
+          // For the top CR, we want to "invert" the nExtraJets cut.
+	  // Thus, instead of having few, we want "many."
+	  if (nExtraJet >= 2)
+	  {
+            // Check the MET & trigger cuts
+	    if (passMET && trigger)
+	    {
+              // For purposes of bckg estimation, we will skip other fillings
+	      // related to VV, PN, etc. We just want to be able to calculate
+	      // the m_sd distribution for this inverted Xcc range.
+              // We can later re-add those plots here...
+
+	      // Check that we have the expected number of extra b-jets
+	      // NOTE: This is the FINAL cut.
+	      if (nBjet_extJets > nBjet_extJets_cut)
+	      {
+
+                // Fill in the values we want.
+		h_VHcc_PN_med_qcdEnriched_topCR->Fill(H, V, VZtype, evtW_tag_btag_trig);
+		h_VHcc_PN_med_qcdEnriched_topCR->FillJets(jet_VHcc, evtW_tag_btag_trig);
+		
+	      }//end-nBjet-extra-cut
+	    }//end-MET-trigger-cuts
+	  }//end-extraJet-cut (>= 2)
+	}//end-H-Xcc-cut (PASSES)
+      }//end-inverted-V-tag-cuts (FAIL V-tag)
+      
+    }//end-VqqHcc (V&H pT cuts)
+    
+  }//end-leptonVeto & nJet check
   
 } //end Process
 
