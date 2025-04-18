@@ -719,7 +719,7 @@ void VbbHcc_selector::Process(Reader* r) {
     LepObj tau((r->Tau_pt)[i],(r->Tau_eta)[i],-1,(r->Tau_phi)[i],(r->Tau_mass)[i],i,(r->Tau_charge)[i],(r->Tau_chargedIso)[i]) ;
     //int wp = 32;
     //bool passTauId = (((r->Tau_idDeepTau2017v2p1VSe)[i] >= wp) && ((r->Tau_idDeepTau2017v2p1VSjet)[i] >= wp) && ((r->Tau_idDeepTau2017v2p1VSmu)[i] >= wp));
-    bool passTauId = ((((r->Tau_idDeepTau2017v2p1VSe)[i] & (1<<5)) != 0) && (((r->Tau_idDeepTau2017v2p1VSjet)[i] & (1<<5)) !=0) && (((r->Tau_idDeepTau2017v2p1VSmu)[i] & (1<<1)) !=0));
+    bool passTauId = ((((r->Tau_idDeepTau2017v2p1VSe)[i] & (1<<5)) != 0) && (((r->Tau_idDeepTau2017v2p1VSjet)[i] & (1<<5)) !=0) && (((r->Tau_idDeepTau2017v2p1VSmu)[i] & (1<<3)) !=0));
     //std::cout << "\n Tau id: " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSe)[i]) << " " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSjet)[i]) << " " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSmu)[i]) << " " << passTauId;
     if (tau.m_lvec.Pt() > CUTS.Get<float>("tau_veto_pt") && fabs(tau.m_lvec.Eta()) < CUTS.Get<float>("tau_eta") &&
         (r->Tau_decayMode)[i] != 5 && (r->Tau_decayMode)[i] != 6 && (r->Tau_decayMode)[i] != 7 && passTauId)
