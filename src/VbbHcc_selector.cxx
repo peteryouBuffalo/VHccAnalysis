@@ -1,3 +1,4 @@
+
 #define VbbHcc_selector_cxx
 
 #include <math.h>
@@ -626,10 +627,14 @@ void VbbHcc_selector::Process(Reader* r) {
     float dxy = (r->Electron_dxy)[i]; //dxy=d0
     if ((fabs(etaSC) < 1.4442) && (fabs(dz) > CUTS.Get<float>("ele_dz_b") || fabs(dxy) > CUTS.Get<float>("ele_d0_b"))) continue;
     if ((fabs(etaSC) >= 1.4442) && (fabs(dz) > CUTS.Get<float>("ele_dz_e") || fabs(dxy) > CUTS.Get<float>("ele_d0_e"))) continue;
+
+    // Remove the gap
+    if ((fabs(etaSC) > 1.4442) && (fabs(etaSC) < 1.556)) continue; 
+    
     int eleId = r->Electron_cutBased[i] ; //cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
     //electron for electron jet overlap removal
     if (ele.m_lvec.Pt() > CUTS.Get<float>("lep_jetOverlap_pt") && fabs(ele.m_lvec.Eta()) < CUTS.Get<float>("ele_eta")) {
-      if (eleId >= 4) { //tightId for jet removal
+      if (eleId >= 2) { //loose ID for jet removal
         eles_jetOverlap.push_back(ele) ;
       }
     }
@@ -663,7 +668,7 @@ void VbbHcc_selector::Process(Reader* r) {
     muon.m_lvec.SetPtEtaPhiM(muon.m_lvec.Pt()*sf_rc,muon.m_lvec.Eta(),muon.m_lvec.Phi(),muon.m_lvec.M()) ;
     //muon for muon jet overlap removal
     if (muon.m_lvec.Pt() > CUTS.Get<float>("lep_jetOverlap_pt") && fabs(muon.m_lvec.Eta()) < CUTS.Get<float>("lep_jetOverlap_eta")) {
-      if (r->Muon_mediumId[i] > 0 && r->Muon_pfRelIso04_all[i] < CUTS.Get<float>("muon_iso")) {
+      if (r->Muon_looseId[i] > 0 && r->Muon_pfRelIso04_all[i] < CUTS.Get<float>("muon_iso")) {
         muons_jetOverlap.push_back(muon) ;
       }
     }
@@ -714,7 +719,7 @@ void VbbHcc_selector::Process(Reader* r) {
     LepObj tau((r->Tau_pt)[i],(r->Tau_eta)[i],-1,(r->Tau_phi)[i],(r->Tau_mass)[i],i,(r->Tau_charge)[i],(r->Tau_chargedIso)[i]) ;
     //int wp = 32;
     //bool passTauId = (((r->Tau_idDeepTau2017v2p1VSe)[i] >= wp) && ((r->Tau_idDeepTau2017v2p1VSjet)[i] >= wp) && ((r->Tau_idDeepTau2017v2p1VSmu)[i] >= wp));
-    bool passTauId = ((((r->Tau_idDeepTau2017v2p1VSe)[i] & (1<<3)) != 0) && (((r->Tau_idDeepTau2017v2p1VSjet)[i] & (1<<3)) !=0) && (((r->Tau_idDeepTau2017v2p1VSmu)[i] & (1<<3)) !=0));
+    bool passTauId = ((((r->Tau_idDeepTau2017v2p1VSe)[i] & (1<<3)) != 0) && (((r->Tau_idDeepTau2017v2p1VSjet)[i] & (1<<3)) !=0) && (((r->Tau_idDeepTau2017v2p1VSmu)[i] & (1<<1)) !=0));
     //std::cout << "\n Tau id: " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSe)[i]) << " " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSjet)[i]) << " " << std::bitset<8>((r->Tau_idDeepTau2017v2p1VSmu)[i]) << " " << passTauId;
     if (tau.m_lvec.Pt() > CUTS.Get<float>("tau_veto_pt") && fabs(tau.m_lvec.Eta()) < CUTS.Get<float>("tau_eta") &&
         (r->Tau_decayMode)[i] != 5 && (r->Tau_decayMode)[i] != 6 && (r->Tau_decayMode)[i] != 7 && passTauId)
