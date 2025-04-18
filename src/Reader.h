@@ -67,8 +67,8 @@ public :
    TTreeReaderValue<Bool_t> HLT_Mu27 = {fReader, "HLT_Mu27"};
    TTreeReaderValue<Bool_t> HLT_IsoMu27 = {fReader, "HLT_IsoMu27"};
    TTreeReaderValue<Bool_t> HLT_Mu50 = {fReader, "HLT_Mu50"};
-//   TTreeReaderValue<Bool_t> HLT_OldMu100 = {fReader, "HLT_OldMu100"};
-//   TTreeReaderValue<Bool_t> HLT_TkMu100 = {fReader, "HLT_TkMu100"};
+   TTreeReaderValue<Bool_t> HLT_OldMu100 = {fReader, "HLT_OldMu100"};
+   TTreeReaderValue<Bool_t> HLT_TkMu100 = {fReader, "HLT_TkMu100"};
   #endif
   #if defined(MC_2017) || !defined(DATA_2017B)
    TTreeReaderValue<Bool_t> HLT_AK8PFJet400_TrimMass30 = {fReader, "HLT_AK8PFJet400_TrimMass30"};

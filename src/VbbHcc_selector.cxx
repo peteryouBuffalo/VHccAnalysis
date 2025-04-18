@@ -188,6 +188,33 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(13,"Trigger");
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(14,"DeltaPhi");
   h_cutFlow_VHcc_PN_med->GetXaxis()->SetBinLabel(15,"VMass");
+
+  h_cutFlow_WTag_pass2prong = new TH1D("CutFlow_WTag_pass2prong", "", 11, 0, 11);
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(1, "Total");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(2, "Trigger");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(3, "MET");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(4, "Iso Muon");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(5, "Fat Jet");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(6, "#Delta #Phi(#mu,jet)");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(7, "Lep Veto");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(8, "b AK4 jet");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(9, "#Delta R(b,jet)");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(10, "pT Req");
+  h_cutFlow_WTag_pass2prong->GetXaxis()->SetBinLabel(11, "pass 2-prong");
+
+  h_cutFlow_WTag_fail2prong = new TH1D("CutFlow_WTag_fail2prong", "", 11, 0, 11);
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(1, "Total");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(2, "Trigger");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(3, "MET");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(4, "Iso Muon");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(5, "Fat Jet");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(6, "#Delta #Phi(#mu,jet)");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(7, "Lep Veto");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(8, "b AK4 jet");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(9, "#Delta R(b,jet)");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(10, "pT Req");
+  h_cutFlow_WTag_fail2prong->GetXaxis()->SetBinLabel(11, "fail 2-prong");
+  
   int nLHEScaleWeight=0;
   if (m_scaleUnc=="scale") nLHEScaleWeight = 9;
 
@@ -258,7 +285,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   h_VZtype->GetXaxis()->SetBinLabel(8,"qcbb");
   h_VZtype->GetXaxis()->SetBinLabel(9,"bbbb");
   h_VZtype->GetXaxis()->SetBinLabel(10,"qqqq");
- 
+
+  h_WTag_pass2prong = new WTagPlots("WTag_pass2prong");
+  h_WTag_fail2prong = new WTagPlots("WTag_fail2prong");
+  
   ////////////////////////////////////
   //Add histograms to fOutput so they can be saved in Processor::SlaveTerminate
   /////////////////////////////////////
@@ -338,6 +368,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   tmp = h_jesUnc->returnHisto();
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
+  tmp = h_WTag_pass2prong->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_WTag_fail2prong->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
   r->GetOutputList()->Add(h_evt_all) ;
   r->GetOutputList()->Add(h_evt) ;
@@ -360,6 +394,8 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   r->GetOutputList()->Add(h_jet_pt) ;
   r->GetOutputList()->Add(h_cutFlow_ZccHcc_PN_med) ;
   r->GetOutputList()->Add(h_cutFlow_VHcc_PN_med) ;
+  r->GetOutputList()->Add(h_cutFlow_WTag_pass2prong);
+  r->GetOutputList()->Add(h_cutFlow_WTag_fail2prong);
   r->GetOutputList()->Add(h_test_MZ);
   r->GetOutputList()->Add(h_test_MH);
   r->GetOutputList()->Add(h_NextraJet);
@@ -710,8 +746,9 @@ void VbbHcc_selector::Process(Reader* r) {
   }
 #endif
 
-  //ak04 gen jets
+  //ak04 gen jets & gen W bosons
   std::vector<JetObjBoosted> genJetAK4;
+  std::vector<LepObj> genWbosons;
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
   for (unsigned int i = 0; i < *(r->nGenJet); ++i) {
     int jetFlav = (r->GenJet_hadronFlavour)[i];
@@ -725,7 +762,18 @@ void VbbHcc_selector::Process(Reader* r) {
       -1, -1, -1, -1, -1);  // remaining values                                                
     genJetAK4.push_back(jet);
   }
-  //std::cout << "Got past gen jet AK4 loop..." << std::endl;                                  
+  //std::cout << "Got past gen jet AK4 loop..." << std::endl;
+
+  // gen W bosons
+  for (unsigned int i = 0; i < *(r->nGenPart); ++i) {
+    if (abs((r->GenPart_pdgId)[i]) != 24) continue;
+    LepObj Wboson(
+      (r->GenPart_pt)[i], (r->GenPart_eta)[i], -1, (r->GenPart_phi)[i],
+      (r->GenPart_mass)[i], -1, -1, -1
+    );
+    genWbosons.push_back(Wboson);
+  }
+  
 #endif
 
   //ak08 jets
@@ -894,6 +942,7 @@ void VbbHcc_selector::Process(Reader* r) {
 
   //ak04 jets
   std::vector<JetObj> ak4Jets;
+  std::vector<JetObj> ak4Bjets;
   int nBjet(0); 
   for (unsigned int i = 0 ; i < *(r->nJet) ; ++i) {
     
@@ -916,11 +965,197 @@ void VbbHcc_selector::Process(Reader* r) {
     if (jet.m_lvec.Pt()<50 && jet.m_lvec.Pt()>30 && (r->Jet_puIdDisc)[i]<0.61 ) continue;
 	  
     ak4Jets.push_back(jet) ;
-    if (jet.m_deepFlavB > deepFlavBCut) nBjet += 1;
+    if (jet.m_deepFlavB > deepFlavBCut) {
+      nBjet += 1;
+      ak4Bjets.push_back(jet);
+    }
   }
 
   if(ak4Jets.size()>0) h_ljpt->Fill(ak4Jets[0].m_lvec.Pt(),genWeight);
- 
+
+  // ///////////////////////////////////////////////////////////////////
+  // Muon CR for ttbar selection for 2-prong SF
+  // ///////////////////////////////////////////////////////////////////
+  // These selections are taken from AN-2022-031, page 51
+
+  h_cutFlow_WTag_pass2prong->Fill(0.5, evtW);
+  h_cutFlow_WTag_fail2prong->Fill(0.5, evtW);
+  
+  // REQUIREMENT #1 - SingleMuon primary dataset passes the following
+  // triggers (per year)
+  bool passes_HLT(false);
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(DATA_2016PRE) || defined(DATA_2016)
+  passes_HLT = *(r->HLT_Mu50);
+#endif
+
+#if defined(MC_2017) || defined(DATA_2017) || defined(MC_2018) || defined(DATA_2018)
+  passes_HLT = *(r->HLT_Mu50) || *(r->HLT_OldMu100) || *(r->HLT_TkMu100);
+#endif
+
+  if (passes_HLT)
+  {
+
+    h_cutFlow_WTag_fail2prong->Fill(1.5, evtW);
+    h_cutFlow_WTag_pass2prong->Fill(1.5, evtW);
+
+    // REQUIREMENT #2 - MET must be > 40 GeV
+    bool passes_MET(false);
+    if (*(r->MET_pt) > 40) passes_MET = true;
+
+    if (passes_MET)
+    {
+      h_cutFlow_WTag_fail2prong->Fill(2.5, evtW);
+      h_cutFlow_WTag_pass2prong->Fill(2.5, evtW);
+      
+      // REQUIREMENT #3 - exactly one muon with pT > 53 GeV and |eta| < 2.1
+      bool passes_muon_req(false);
+      int nMuons = 0;
+
+      int idx_mu = -1;
+      for (unsigned i = 0; i < muons_lepVeto.size(); ++i)
+      {
+        if (muons_lepVeto[i].m_lvec.Pt() > 53 && fabs(muons_lepVeto[i].m_lvec.Eta()) < 2.1)
+	{  nMuons++; idx_mu = i; }
+      }
+      passes_muon_req = (nMuons == 1);
+
+      if (passes_muon_req)
+      {
+	h_cutFlow_WTag_fail2prong->Fill(3.5, evtW);
+        h_cutFlow_WTag_pass2prong->Fill(3.5, evtW);
+  
+        // REQUIREMENT #4 - at least one AK8 jet with pT > 450 GeV, |eta| < 2.5,
+        // tight jet ID req, m_SD > 40 GeV
+        bool passes_fatjet_req(false);
+        std::vector<unsigned> idx_tmps;
+        for(unsigned i = 0; i < jets.size(); ++i)
+	{
+          if (jets[i].m_lvec.Pt() > 450 && jets[i].m_lvec.M() > 40)
+	    idx_tmps.push_back(i);
+        }
+        passes_fatjet_req = (idx_tmps.size() > 0);
+
+	if (passes_fatjet_req)
+	{
+	  h_cutFlow_WTag_fail2prong->Fill(4.5, evtW);
+          h_cutFlow_WTag_pass2prong->Fill(4.5, evtW);
+	  int idx_j = idx_tmps[0];
+	  
+          // REQUIREMENT #4a - make sure that the jet and muon are separated
+          // by a phi separation of at least > 2*pi / 3
+          bool passes_muon_jet_sep(false);
+          
+	  double delta_phi = muons_lepVeto[idx_mu].m_lvec.DeltaPhi(jets[idx_j].m_lvec);
+	  passes_muon_jet_sep = abs(delta_phi) > 2*TMath::Pi()/3;
+
+	  if (passes_muon_jet_sep)
+	  {
+	    h_cutFlow_WTag_fail2prong->Fill(5.5, evtW);
+            h_cutFlow_WTag_pass2prong->Fill(5.5, evtW);
+  
+            // REQUIREMENT #5 - make sure that there are no electrons & taus
+            bool passes_lepton_veto(false);
+	    passes_lepton_veto = (eles_lepVeto.size() == 0 && taus_lepVeto.size() == 0); 
+
+	    if (passes_lepton_veto)
+	    {
+	      h_cutFlow_WTag_fail2prong->Fill(6.5, evtW);
+              h_cutFlow_WTag_pass2prong->Fill(6.5, evtW);
+      
+              // REQUIREMENT #6 - B-tagged AK4 jet, deepJet medium WP
+              // This jet must be separated by deltaR > 0.8 from the fat jet
+              bool passes_bjet_req(false);
+	      passes_bjet_req = (nBjet >= 1);
+
+	      if (passes_bjet_req)
+	      {
+		h_cutFlow_WTag_fail2prong->Fill(7.5, evtW);
+                h_cutFlow_WTag_pass2prong->Fill(7.5, evtW);
+                int idx_b = 0;
+		
+                // REQUIREMENT #6a - make sure the separation between the fatjet
+		// and bjet is greater than 0.8.
+                bool passes_jet_sep(false);
+                double delta_R = jets[idx_j].m_lvec.DeltaR(ak4Bjets[idx_b].m_lvec);
+
+		if (delta_R > 0.8)
+		{
+
+		  h_cutFlow_WTag_fail2prong->Fill(8.5, evtW);
+                  h_cutFlow_WTag_pass2prong->Fill(8.5, evtW);
+		
+                  // REQUIREMENT #7 - the pT of the system (E_T + muon [W proxy]) must
+                  // be > 200 GeV
+                  bool passes_pt_syst_req(false);
+		  float pT = *(r->MET_pt) + muons_lepVeto[idx_mu].m_lvec.Pt();
+		  if (pT >= 200.0)
+		  {
+
+		    h_cutFlow_WTag_fail2prong->Fill(9.5, evtW);
+                    h_cutFlow_WTag_pass2prong->Fill(9.5, evtW);
+
+		    // Fill stuff into regions of whether it passes or
+		    // fails the 2-prong. Also check to see if the jet
+		    // matches a W decay.
+		    bool passes_2prong = (jets[idx_j].m_PN_pQCD < pQCDcut);
+
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
+
+		    // Check to see if the jet matches a W boson
+		    bool is_matched = false;
+		    for (size_t i = 0; i < genWbosons.size(); ++i)
+		    {
+                      double delta_R = jets[idx_j].m_lvec.DeltaR(genWbosons[i].m_lvec);
+		      if (delta_R < 0.8)
+		      {
+                        is_matched = true;
+			break;
+		      }
+		    }
+
+		    if (passes_2prong) {
+	              h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+                      if (is_matched)
+			h_WTag_pass2prong->FillMatched(jets[idx_j], evtW);
+		      else
+			h_WTag_pass2prong->FillUnmatched(jets[idx_j], evtW);
+		    }
+		    else {
+                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+                      if (is_matched)
+                        h_WTag_fail2prong->FillMatched(jets[idx_j], evtW);
+                      else
+                        h_WTag_fail2prong->FillUnmatched(jets[idx_j], evtW);
+		    }
+#endif
+
+		    // Fill everything into the total categories
+		    if (passes_2prong) {
+		      h_cutFlow_WTag_pass2prong->Fill(10.5, evtW);
+                      h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+                      h_WTag_pass2prong->FillTotal(jets[idx_j], evtW);
+		      h_WTag_pass2prong->FillMET(*(r->MET_pt), evtW);
+		    }
+		    else
+		    {
+		      h_cutFlow_WTag_fail2prong->Fill(10.5, evtW);
+                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+                      h_WTag_fail2prong->FillTotal(jets[idx_j], evtW);
+		      h_WTag_fail2prong->FillMET(*(r->MET_pt), evtW);
+		    }
+
+		  }//end-pT-req
+		}//end-deltaR-req
+	      }//end-ak4-bjet-req
+	    }//end-lepton-veto
+	  }//end-muon-jet-sep
+	}//end-fatjet-req
+      }//end-muon-cut
+    }//end-MET-cut
+  }//end-trigger-cut
+  // END OF ttbar selection stuff //////////////////////////////////////
+
+  
   bool passLepVeto(false);
   if (eles_lepVeto.size()==0) {
     h_cutFlow_ZccHcc_PN_med->Fill(2.5,evtW);
@@ -937,7 +1172,7 @@ void VbbHcc_selector::Process(Reader* r) {
   }
 
   //////////////////////////////////////////
-  //HBoosted
+  //HBoosteds
   //////////////////////////////////////////
   //see page. 29 of AN-2019-048 for details
   //find a jet with highest CvL and with pt > 450

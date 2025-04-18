@@ -68,6 +68,8 @@ private:
   TH1D* h_nbB_1;
   TH1D* h_cutFlow_ZccHcc_PN_med;
   TH1D* h_cutFlow_VHcc_PN_med;
+  TH1D* h_cutFlow_WTag_pass2prong;
+  TH1D* h_cutFlow_WTag_fail2prong;
   TH1D* h_test_MH;
   TH1D* h_test_MZ;
   TH1D* h_NextraJet;
@@ -131,6 +133,9 @@ private:
 
   VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR; // QCD-enriched top CR (added Apr 5, 2025)
 
+  WTagPlots* h_WTag_pass2prong;
+  WTagPlots* h_WTag_fail2prong;
+  
   JESUncPlots* h_jesUnc;
 
 } ;

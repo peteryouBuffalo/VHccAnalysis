@@ -630,6 +630,142 @@ class EffPlots
 } ;
 
 
+class ObjPlots
+{
+public:
+
+  ObjPlots(TString name) : m_name(name) {
+    h_pt   = new TH1D(name + "_pt", "", NBIN_PT_JET, X_PT_JET[0], X_PT_JET[1]);
+    h_mass = new TH1D(name + "_mass", "", NBIN_M_J, X_M_J[0], X_M_J[1]);
+    h_eta  = new TH1D(name + "_eta", "", NBIN_ETA, X_ETA[0], X_ETA[1]);
+    h_phi  = new TH1D(name + "_phi", "", NBIN_PHI, X_PHI[0], X_PHI[1]);
+    
+    h_pt->Sumw2();
+    h_mass->Sumw2();
+    h_eta->Sumw2();
+    h_phi->Sumw2();
+  };
+
+  std::vector<TH1*> returnHisto() {
+    std::vector<TH1*> histolist;
+    histolist.push_back(h_pt);
+    histolist.push_back(h_mass);
+    histolist.push_back(h_eta);
+    histolist.push_back(h_phi);
+    return histolist;
+  };
+
+  void Fill(float mass, float pt, float eta, float phi, float w = 1.0f) {
+    h_mass->Fill(mass, w);
+    h_pt->Fill(pt, w);
+    h_eta->Fill(eta, w);
+    h_phi->Fill(phi, w);
+  };
+
+  void Fill(TLorentzVector& vec, float w = 1.0f) {
+    h_mass->Fill(vec.M(), w);
+    h_pt->Fill(vec.Pt(), w);
+    h_eta->Fill(vec.Eta(), w);
+    h_phi->Fill(vec.Phi(), w);
+  };
+
+private:
+
+  TString m_name;
+
+  TH1D* h_mass;
+  TH1D* h_pt;
+  TH1D* h_eta;
+  TH1D* h_phi;
+};
+
+class WTagPlots
+{
+public:
+
+  WTagPlots(TString name) : m_name(name) {
+    
+    h_muon = new ObjPlots(name + "_muon");
+    h_bjet = new ObjPlots(name + "_bjet");
+    h_ak8jet = new ObjPlots(name + "_ak8jet");
+
+    h_MET = new TH1D(name + "_MET", "", 2000, 0, 2000);
+    h_dR_jets = new TH1D(name + "_dR_jets", "", 100, 0, 10);
+
+    h_matched = new ObjPlots(name + "_matched");
+    h_unmatched = new ObjPlots(name + "_unmatched");
+    h_total = new ObjPlots(name + "_total");
+
+    h_MET->Sumw2();
+    h_dR_jets->Sumw2();
+  };
+
+  std::vector<TH1*> returnHisto() {
+    std::vector<TH1*> histolist;
+    histolist.push_back(h_MET);
+    histolist.push_back(h_dR_jets);
+
+    std::vector<TH1*> tmp = h_muon->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+    tmp = h_bjet->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+    tmp = h_ak8jet->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+
+    tmp = h_matched->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+    tmp = h_unmatched->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+    tmp = h_total->returnHisto();
+    for (size_t i = 0; i < tmp.size(); ++i) histolist.push_back(tmp[i]);
+    
+    return histolist;
+  };
+
+  void FillUnmatched(JetObjBoosted& ak8jet, float w = 1.0f) {
+    h_unmatched->Fill(ak8jet.m_lvec, w);
+  };
+
+  void FillMatched(JetObjBoosted& ak8jet, float w = 1.0f) {
+    h_matched->Fill(ak8jet.m_lvec, w);
+  };
+
+  void FillTotal(JetObjBoosted& ak8jet, float w = 1.0f) {
+    h_total->Fill(ak8jet.m_lvec, w);
+  };
+
+  void FillObj(LepObj& muon, JetObjBoosted& ak8jet, JetObj& ak4bjet, float w = 1.0f) {
+
+    h_muon->Fill(muon.m_lvec, w);
+    h_ak8jet->Fill(ak8jet.m_lvec, w);
+    h_bjet->Fill(ak4bjet.m_lvec, w);
+
+    float deltaR = ak8jet.m_lvec.DeltaR(ak4bjet.m_lvec);
+    h_dR_jets->Fill(deltaR, w);
+  };
+
+  void FillMET(float MET, float w = 1.0f) {
+    h_MET->Fill(MET, w);
+  };
+
+private:
+
+  TString m_name; 
+
+  ObjPlots* h_muon;
+  ObjPlots* h_bjet;
+  ObjPlots* h_ak8jet;
+  TH1D* h_MET;
+  TH1D* h_dR_jets;
+
+  ObjPlots* h_matched;
+  ObjPlots* h_unmatched;
+  ObjPlots* h_total;
+  
+};
+
+
+
 // Plots for JES & unc
 class JESUncPlots
 {
@@ -985,5 +1121,7 @@ class JESUncPlots
     TH1D* h_rawFactor;
     TH1D* h_1mRawFactor;
 };
+
+
 
 #endif
