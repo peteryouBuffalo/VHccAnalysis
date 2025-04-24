@@ -965,8 +965,9 @@ void VbbHcc_selector::Process(Reader* r) {
     if (jet.IsLepton(eles_jetOverlap)) continue ;
     if (jet.IsLepton(muons_jetOverlap)) continue ;
 
-    // bit1 = loose, bit2 = medium, bit3 = tight
-    if (r->Jet_jetId[i] < 8) continue ;
+    // 2 = tight + fail tightLepVeto
+    // 6 = tight + pass tightLepVeto
+    if (r->Jet_jetId[i] < 2) continue ;
     
     if (jet.m_lvec.Pt()<50 && jet.m_lvec.Pt()>30 && (r->Jet_puIdDisc)[i]<0.61 ) continue;
 	  

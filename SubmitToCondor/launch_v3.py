@@ -111,9 +111,9 @@ centralGenWeight = 0
 
 # Paths, Locations (CHANGE THESE)
 sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Apr_test2/'
-outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Apr_test2/' + syst + '/'
-outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Apr_test2/' + syst + '/'
+condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Apr_2prong/'
+outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Apr_2prong/' + syst + '/'
+outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Apr_2prong/' + syst + '/'
 
 # Input data sets
 dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"
@@ -125,7 +125,7 @@ dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_Data_combined.txt"
-dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
+dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
 dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ttbar_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_WJ_2018.txt"]
@@ -135,7 +135,7 @@ dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_Data_combined.txt"]
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
+dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]
 
 nFile = 2
 dir_file_list = sourceDir+'/FileLists/'
