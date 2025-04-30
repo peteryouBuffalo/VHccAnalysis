@@ -285,6 +285,11 @@ int main(int argc, char *argv[]) {
   if (syst == "TAG_CCU") VbbHcc_sel.SetHFtagUncType("ccup");
   if (syst == "TAG_CCD") VbbHcc_sel.SetHFtagUncType("ccdown");
 
+  if (syst == "TAG_CCU_corr") VbbHcc_sel.SetHFtagUncType("ccup_corr");
+  if (syst == "TAG_CCU_uncorr") VbbHcc_sel.SetHFtagUncType("ccup_uncorr");
+  if (syst == "TAG_CCD_corr") VbbHcc_sel.SetHFtagUncType("ccdown_corr");
+  if (syst == "TAG_CCD_uncorr") VbbHcc_sel.SetHFtagUncType("ccdown_uncorr");
+  
   VbbHcc_sel.SetElecUncType("sf");
   VbbHcc_sel.SetMuonUncType("nominal");
   if (syst == "ELECU") VbbHcc_sel.SetElecUncType("sfup");
@@ -294,6 +299,19 @@ int main(int argc, char *argv[]) {
 
   if (syst == "TRIGU") VbbHcc_sel.SetTrigUncType("up");
   if (syst == "TRIGD") VbbHcc_sel.SetTrigUncType("down");
+
+  std::string btv_path = "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/";
+  std::string json_name = "ak8_xbbcc_tagging.json.gz";
+   
+#if defined(MC_2016)
+  VbbHcc_sel.SetCCTagCalib(btv_path + "2016postVFP_UL/" + json_name);
+#elif defined(MC_2016PRE)
+  VbbHcc_sel.SetCCTagCalib(btv_path + "2016preVFP_UL/" + json_name);
+#elif defined(MC_2017)
+  VbbHcc_sel.SetCCTagCalib(btv_path + "2017_UL/" + json_name);
+#elif defined(MC_2018)
+  VbbHcc_sel.SetCCTagCalib(btv_path + "2018_UL/" + json_name);
+#endif
 
 #if defined(DATA_2016PRE) || defined(DATA_2016)
   //std::string fName_lumiMaskFilter("CalibData/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt");

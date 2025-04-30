@@ -1037,6 +1037,8 @@ void VbbHcc_selector::Process(Reader* r) {
         std::vector<unsigned> idx_tmps;
         for(unsigned i = 0; i < jets.size(); ++i)
 	{
+	  // Apr 28 - updated cut from >450 to >200 (test)
+          // Apr 29 - moved back to original
           if (jets[i].m_lvec.Pt() > 450 && jets[i].m_lvec.M() > 40)
 	    idx_tmps.push_back(i);
         }
@@ -1047,6 +1049,13 @@ void VbbHcc_selector::Process(Reader* r) {
 	  h_cutFlow_WTag_fail2prong->Fill(4.5, evtW);
           h_cutFlow_WTag_pass2prong->Fill(4.5, evtW);
 	  int idx_j = idx_tmps[0];
+
+	  // Use the fat jet that we got to get the trigger SF
+	  float trigSF = 1.0f;
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
+	  trigSF = GetTrigSF(jets[idx_j].m_lvec.Pt());
+#endif
+	  float evtW_trig = evtW * trigSF;
 	  
           // REQUIREMENT #4a - make sure that the jet and muon are separated
           // by a phi separation of at least > 2*pi / 3
@@ -1057,8 +1066,8 @@ void VbbHcc_selector::Process(Reader* r) {
 
 	  if (passes_muon_jet_sep)
 	  {
-	    h_cutFlow_WTag_fail2prong->Fill(5.5, evtW);
-            h_cutFlow_WTag_pass2prong->Fill(5.5, evtW);
+	    h_cutFlow_WTag_fail2prong->Fill(5.5, evtW_trig);
+            h_cutFlow_WTag_pass2prong->Fill(5.5, evtW_trig);
   
             // REQUIREMENT #5 - make sure that there are no electrons & taus
             bool passes_lepton_veto(false);
@@ -1066,8 +1075,8 @@ void VbbHcc_selector::Process(Reader* r) {
 
 	    if (passes_lepton_veto)
 	    {
-	      h_cutFlow_WTag_fail2prong->Fill(6.5, evtW);
-              h_cutFlow_WTag_pass2prong->Fill(6.5, evtW);
+	      h_cutFlow_WTag_fail2prong->Fill(6.5, evtW_trig);
+              h_cutFlow_WTag_pass2prong->Fill(6.5, evtW_trig);
       
               // REQUIREMENT #6 - B-tagged AK4 jet, deepJet medium WP
               // This jet must be separated by deltaR > 0.8 from the fat jet
@@ -1076,8 +1085,20 @@ void VbbHcc_selector::Process(Reader* r) {
 
 	      if (passes_bjet_req)
 	      {
-		h_cutFlow_WTag_fail2prong->Fill(7.5, evtW);
-                h_cutFlow_WTag_pass2prong->Fill(7.5, evtW);
+                // Use the extra bjets to get a btag weight
+		float w_btag = 1.0f;
+		std::vector<JetObjBoosted> tmp1{jets[idx_j]};
+		std::vector<JetObj> extJets = NextraJet(tmp1, ak4Jets);
+		int nExtraJet = extJets.size();
+
+#if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
+                w_btag = CalBtagWeight(extJets, CUTS.GetStr("jet_main_btagWP"), m_btagUncType);
+#endif
+
+		float evtW_trig_btag = evtW_trig * w_btag;
+		
+		h_cutFlow_WTag_fail2prong->Fill(7.5, evtW_trig_btag);
+                h_cutFlow_WTag_pass2prong->Fill(7.5, evtW_trig_btag);
                 int idx_b = 0;
 		
                 // REQUIREMENT #6a - make sure the separation between the fatjet
@@ -1088,8 +1109,8 @@ void VbbHcc_selector::Process(Reader* r) {
 		if (delta_R > 0.8)
 		{
 
-		  h_cutFlow_WTag_fail2prong->Fill(8.5, evtW);
-                  h_cutFlow_WTag_pass2prong->Fill(8.5, evtW);
+		  h_cutFlow_WTag_fail2prong->Fill(8.5, evtW_trig_btag);
+                  h_cutFlow_WTag_pass2prong->Fill(8.5, evtW_trig_btag);
 		
                   // REQUIREMENT #7 - the pT of the system (E_T + muon [W proxy]) must
                   // be > 200 GeV
@@ -1098,8 +1119,8 @@ void VbbHcc_selector::Process(Reader* r) {
 		  if (pT >= 200.0)
 		  {
 
-		    h_cutFlow_WTag_fail2prong->Fill(9.5, evtW);
-                    h_cutFlow_WTag_pass2prong->Fill(9.5, evtW);
+		    h_cutFlow_WTag_fail2prong->Fill(9.5, evtW_trig_btag);
+                    h_cutFlow_WTag_pass2prong->Fill(9.5, evtW_trig_btag);
 
 		    // Fill stuff into regions of whether it passes or
 		    // fails the 2-prong. Also check to see if the jet
@@ -1121,34 +1142,36 @@ void VbbHcc_selector::Process(Reader* r) {
 		    }
 
 		    if (passes_2prong) {
-	              h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+	              h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu],
+		        jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
                       if (is_matched)
-			h_WTag_pass2prong->FillMatched(jets[idx_j], evtW);
+			h_WTag_pass2prong->FillMatched(jets[idx_j], evtW_trig_btag);
 		      else
-			h_WTag_pass2prong->FillUnmatched(jets[idx_j], evtW);
+			h_WTag_pass2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
 		    }
 		    else {
-                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
+                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu],
+		        jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
                       if (is_matched)
-                        h_WTag_fail2prong->FillMatched(jets[idx_j], evtW);
+                        h_WTag_fail2prong->FillMatched(jets[idx_j], evtW_trig_btag);
                       else
-                        h_WTag_fail2prong->FillUnmatched(jets[idx_j], evtW);
+                        h_WTag_fail2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
 		    }
 #endif
 
 		    // Fill everything into the total categories
 		    if (passes_2prong) {
-		      h_cutFlow_WTag_pass2prong->Fill(10.5, evtW);
-                      h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
-                      h_WTag_pass2prong->FillTotal(jets[idx_j], evtW);
-		      h_WTag_pass2prong->FillMET(*(r->MET_pt), evtW);
+		      h_cutFlow_WTag_pass2prong->Fill(10.5, evtW_trig_btag);
+                      h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
+                      h_WTag_pass2prong->FillTotal(jets[idx_j], evtW_trig_btag);
+		      h_WTag_pass2prong->FillMET(*(r->MET_pt), evtW_trig_btag);
 		    }
 		    else
 		    {
-		      h_cutFlow_WTag_fail2prong->Fill(10.5, evtW);
-                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW);
-                      h_WTag_fail2prong->FillTotal(jets[idx_j], evtW);
-		      h_WTag_fail2prong->FillMET(*(r->MET_pt), evtW);
+		      h_cutFlow_WTag_fail2prong->Fill(10.5, evtW_trig_btag);
+                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
+                      h_WTag_fail2prong->FillTotal(jets[idx_j], evtW_trig_btag);
+		      h_WTag_fail2prong->FillMET(*(r->MET_pt), evtW_trig_btag);
 		    }
 
 		  }//end-pT-req
@@ -1321,7 +1344,8 @@ void VbbHcc_selector::Process(Reader* r) {
     auto jet_Z = std::make_pair(jets[idx_Z],false);
     if(jets[idx_Z].m_PN_Xcc >= XccCut) jet_Z.second = true;
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018) 
-    tagW = CalCtagWeightBoosted(jet_H,jet_Z,m_hfTagUncType);
+    //tagW = CalCtagWeightBoosted(jet_H,jet_Z,m_hfTagUncType);
+    tagW = CalcCCTagWeight(jet_H, jet_Z, m_hfTagUncType);
 #endif  
     float evtW_tag = evtW*tagW;
 

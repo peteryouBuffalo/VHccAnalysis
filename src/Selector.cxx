@@ -37,6 +37,10 @@ void Selector::SetBtagCalib(std::string corFileName, std::string effFileName, st
   m_corrPtrBtag = correction::CorrectionSet::from_file(corFileName);
 }
 
+void Selector::SetCCTagCalib(std::string filename) {
+  m_corrPtrCCtag = correction::CorrectionSet::from_file(filename);
+}
+
 void Selector::SetJECcorr(std::string jsonFileName){
   m_jec_corFilename = jsonFileName;
   m_corrPtrJEC = correction::CorrectionSet::from_file(jsonFileName);
@@ -487,6 +491,7 @@ float Selector::CalBtagWeightBoosted(std::pair<float,bool> jet_bb, std::pair<flo
 
 }
 
+
 float Selector::CalCtagWeightBoosted(std::pair<JetObjBoosted,bool> jet_1, std::pair<JetObjBoosted,bool> jet_2, std::string uncType) {
    auto jet = std::make_pair(jet_1.first.m_lvec.Pt(), jet_1.second);
    float sf1 = CalTagWeightBoosted_1jet(jet, jet_1.first.m_flav, "xcc", uncType);
@@ -553,6 +558,52 @@ float Selector::CalCtagWeightBoosted(std::pair<JetObjBoosted,bool> jet_1, std::p
    
    return sf_cc_1*sf_cc_2;
    */
+}
+
+
+float Selector::CalcCCTagWeight(std::pair<JetObjBoosted,bool> jet_1, std::pair<JetObjBoosted,bool> jet_2, std::string uncType)
+{
+   auto jet = std::make_pair(jet_1.first.m_lvec.Pt(), jet_1.second);
+   float sf1 = CalcCCTagWeight_1jet(jet, jet_1.first.m_flav, "xcc", uncType);
+   jet = std::make_pair(jet_2.first.m_lvec.Pt(), jet_2.second);
+   float sf2 = CalcCCTagWeight_1jet(jet, jet_2.first.m_flav, "xcc", uncType);
+   return sf1*sf2;
+}
+
+float Selector::CalcCCTagWeight_1jet(std::pair<float,bool> jet, int jet_flav, std::string tagType, std::string uncType)
+{
+  float sf = 1.0f;
+  float eff = 1.0f;
+  float sf_tmp = 1.0f;
+  
+  if (tagType == "xcc") {
+
+     // Get the efficiency. 
+     int iB = m_hEff1D_xbb_xcc[tagType][0]->FindFixBin(jet.first);
+     int iFlav = 0;
+     if (jet_flav == 4) iFlav = 1;
+     if (jet_flav != 4 && jet_flav != 5) iFlav = 2;
+     eff = m_hEff1D_xbb_xcc[tagType][iFlav]->GetBinContent(iB);
+
+     // Get the appropriate scale factor from correctionLib
+     std::string syst = "central";
+     if (uncType == "ccup") syst = "up";
+     else if (uncType == "ccdown") syst = "down";
+     else if (uncType == "ccup_corr") syst = "up_correlated";
+     else if (uncType == "ccdown_corr") syst = "down_correlated";
+     else if (uncType == "ccup_uncorr") syst = "up_uncorrelated";
+     else if (uncType == "ccdown_uncorr") syst = "down_uncorrelated";
+
+     auto cset = m_corrPtrCCtag->at("particleNetMD_XccvsQCD_comb");
+     // L = loose, M = medium, T = tight
+     sf_tmp = cset->evaluate({syst, "L", jet.first});
+   }
+  
+   // Calculate the proper scale factor & return it
+   if(jet.second) sf = sf_tmp;
+   else sf = (1-eff*sf_tmp)/(1-eff);
+
+   return sf;
 }
 
 

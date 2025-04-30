@@ -130,6 +130,10 @@ auto correctionSet = correction::CorrectionSet::from_file("CalibData/jme/2018_UL
 auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/2018_UL/msdcorr_2018.json");
 #endif
   */
+
+  virtual void SetCCTagCalib(std::string filename);
+  virtual float CalcCCTagWeight(std::pair<JetObjBoosted,bool> jet_1, std::pair<JetObjBoosted,bool> jet_2, std::string uncType);
+  virtual float CalcCCTagWeight_1jet(std::pair<float,bool> jet, int jet_flav, std::string tagType, std::string uncType);
   
   double m_centralGenWeight;
 
@@ -172,13 +176,14 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
   std::unique_ptr<correction::CorrectionSet> m_corrPtrMSD;
   std::unique_ptr<correction::CorrectionSet> m_corrPtrElec;
   std::unique_ptr<correction::CorrectionSet> m_corrPtrMuon;
+  std::unique_ptr<correction::CorrectionSet> m_corrPtrCCtag;
   
   std::map<std::string, std::vector<TH1D*> > m_hEff1D_xbb_xcc; //eff vs. pt, use in tagging weight 
   std::map<std::string, std::vector<TH2D*> > m_hEff_xbb_xcc; //eff vs. pt and eta used in QCD weight, FIXME actually it should be SF
 
   TGraphAsymmErrors* m_hTrig_SF;
   TH2D* m_hTrig_SF_2D;
-
+  
   std::string m_btagUncType;
   std::string m_eleUncType;
   std::string m_muonUncType;
