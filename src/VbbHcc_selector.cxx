@@ -289,6 +289,8 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
 
   h_WTag_pass2prong = new WTagPlots("WTag_pass2prong");
   h_WTag_fail2prong = new WTagPlots("WTag_fail2prong");
+  h_WTag_pass2prong_passXcc = new WTagPlots("WTag_pass2prong_passXcc");
+  h_WTag_fail2prong_passXcc = new WTagPlots("WTag_fail2prong_passXcc");
   
   ////////////////////////////////////
   //Add histograms to fOutput so they can be saved in Processor::SlaveTerminate
@@ -372,6 +374,10 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   tmp = h_WTag_pass2prong->returnHisto();
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
   tmp = h_WTag_fail2prong->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_WTag_pass2prong_passXcc->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  tmp = h_WTag_fail2prong_passXcc->returnHisto();
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
   r->GetOutputList()->Add(h_evt_all) ;
@@ -1087,15 +1093,20 @@ void VbbHcc_selector::Process(Reader* r) {
 	      {
                 // Use the extra bjets to get a btag weight
 		float w_btag = 1.0f;
-		std::vector<JetObjBoosted> tmp1{jets[idx_j]};
+		float w_xcc_1jet = 1.0f;
+    std::vector<JetObjBoosted> tmp1{jets[idx_j]};
 		std::vector<JetObj> extJets = NextraJet(tmp1, ak4Jets);
 		int nExtraJet = extJets.size();
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
-                w_btag = CalBtagWeight(extJets, CUTS.GetStr("jet_main_btagWP"), m_btagUncType);
+    w_btag = CalBtagWeight(extJets, CUTS.GetStr("jet_main_btagWP"), m_btagUncType);
+    auto jet_pair_tmp = std::make_pair(jets[idx_j].m_lvec.Pt(),false);
+    if(jets[idx_j].m_PN_Xcc >= XccCut) jet_pair_tmp.second = true;
+    w_xcc_1jet = CalcCCTagWeight_1jet(jet_pair_tmp, jets[idx_j].m_flav, m_hfTagUncType);
 #endif
 
 		float evtW_trig_btag = evtW_trig * w_btag;
+    float evtW_trig_btag_xcc_1jet = evtW_trig * w_btag * w_xcc_1jet;
 		
 		h_cutFlow_WTag_fail2prong->Fill(7.5, evtW_trig_btag);
                 h_cutFlow_WTag_pass2prong->Fill(7.5, evtW_trig_btag);
@@ -1126,6 +1137,7 @@ void VbbHcc_selector::Process(Reader* r) {
 		    // fails the 2-prong. Also check to see if the jet
 		    // matches a W decay.
 		    bool passes_2prong = (jets[idx_j].m_PN_pQCD < pQCDcut);
+        bool passes_Xcc = (jets[idx_j].m_PN_Xcc >= XccCut);
 
 #if defined(MC_2016PRE) || defined(MC_2016) || defined(MC_2017) || defined(MC_2018)
 
@@ -1142,36 +1154,52 @@ void VbbHcc_selector::Process(Reader* r) {
 		    }
 
 		    if (passes_2prong) {
-	              h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu],
-		        jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
-                      if (is_matched)
-			h_WTag_pass2prong->FillMatched(jets[idx_j], evtW_trig_btag);
-		      else
-			h_WTag_pass2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
+	          h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag); //remove? already filled below
+            if (is_matched) {
+			        h_WTag_pass2prong->FillMatched(jets[idx_j], evtW_trig_btag);
+              if(passes_Xcc) h_WTag_pass2prong_passXcc->FillMatched(jets[idx_j], evtW_trig_btag_xcc_1jet);
+            }
+		        else {
+			        h_WTag_pass2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
+              if(passes_Xcc) h_WTag_pass2prong_passXcc->FillUnmatched(jets[idx_j], evtW_trig_btag_xcc_1jet);
+            }
 		    }
 		    else {
-                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu],
-		        jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
-                      if (is_matched)
-                        h_WTag_fail2prong->FillMatched(jets[idx_j], evtW_trig_btag);
-                      else
-                        h_WTag_fail2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
+            h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu],jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag); //remove? already filled below
+            if (is_matched) {
+              h_WTag_fail2prong->FillMatched(jets[idx_j], evtW_trig_btag);
+              if(passes_Xcc) h_WTag_fail2prong_passXcc->FillMatched(jets[idx_j], evtW_trig_btag_xcc_1jet);
+            }
+            else {
+              h_WTag_fail2prong->FillUnmatched(jets[idx_j], evtW_trig_btag);
+              if(passes_Xcc) h_WTag_fail2prong_passXcc->FillUnmatched(jets[idx_j], evtW_trig_btag_xcc_1jet);
+            }
 		    }
 #endif
 
 		    // Fill everything into the total categories
 		    if (passes_2prong) {
 		      h_cutFlow_WTag_pass2prong->Fill(10.5, evtW_trig_btag);
-                      h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
-                      h_WTag_pass2prong->FillTotal(jets[idx_j], evtW_trig_btag);
+          h_WTag_pass2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
+          h_WTag_pass2prong->FillTotal(jets[idx_j], evtW_trig_btag);
 		      h_WTag_pass2prong->FillMET(*(r->MET_pt), evtW_trig_btag);
+          if(passes_Xcc) {
+            h_WTag_pass2prong_passXcc->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag_xcc_1jet);
+            h_WTag_pass2prong_passXcc->FillTotal(jets[idx_j], evtW_trig_btag_xcc_1jet);
+		        h_WTag_pass2prong_passXcc->FillMET(*(r->MET_pt), evtW_trig_btag_xcc_1jet);
+          }
 		    }
 		    else
 		    {
 		      h_cutFlow_WTag_fail2prong->Fill(10.5, evtW_trig_btag);
-                      h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
-                      h_WTag_fail2prong->FillTotal(jets[idx_j], evtW_trig_btag);
+          h_WTag_fail2prong->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag);
+          h_WTag_fail2prong->FillTotal(jets[idx_j], evtW_trig_btag);
 		      h_WTag_fail2prong->FillMET(*(r->MET_pt), evtW_trig_btag);
+          if(passes_Xcc) {
+            h_WTag_fail2prong_passXcc->FillObj(muons_lepVeto[idx_mu], jets[idx_j], ak4Bjets[idx_b], evtW_trig_btag_xcc_1jet);
+            h_WTag_fail2prong_passXcc->FillTotal(jets[idx_j], evtW_trig_btag_xcc_1jet);
+		        h_WTag_fail2prong_passXcc->FillMET(*(r->MET_pt), evtW_trig_btag_xcc_1jet);
+          }
 		    }
 
 		  }//end-pT-req

@@ -133,7 +133,7 @@ auto correctionSet_msd = correction::CorrectionSet::from_file("CalibData/jme/201
 
   virtual void SetCCTagCalib(std::string filename);
   virtual float CalcCCTagWeight(std::pair<JetObjBoosted,bool> jet_1, std::pair<JetObjBoosted,bool> jet_2, std::string uncType);
-  virtual float CalcCCTagWeight_1jet(std::pair<float,bool> jet, int jet_flav, std::string tagType, std::string uncType);
+  virtual float CalcCCTagWeight_1jet(std::pair<float,bool> jet, int jet_flav, std::string uncType);
   
   double m_centralGenWeight;
 

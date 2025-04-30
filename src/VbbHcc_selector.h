@@ -135,6 +135,9 @@ private:
 
   WTagPlots* h_WTag_pass2prong;
   WTagPlots* h_WTag_fail2prong;
+
+  WTagPlots* h_WTag_pass2prong_passXcc;
+  WTagPlots* h_WTag_fail2prong_passXcc;
   
   JESUncPlots* h_jesUnc;
 
