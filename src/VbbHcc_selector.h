@@ -56,6 +56,7 @@ private:
   TH1D* h_jes_mass_SF;
   TH1D* h_wcorr;
   TH1D* h_gen_weight;
+  TH1D* h_tagcc_w;
   
   TH1D* h_bStatus_noMother;
   TH1D* h_bStatus_hasMother;

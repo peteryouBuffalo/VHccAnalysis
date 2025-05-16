@@ -19,6 +19,9 @@ import myutils as utl
 import json
 import array
 
+sys.path.append(os.path.abspath("../macros/"))
+from my_funcs import makeStackPlot
+
 ROOT.gROOT.Macro(os.path.expanduser('~/rootLogOn_forPyROOT.C' ))
 ROOT.gROOT.SetBatch(True)
 
@@ -130,6 +133,7 @@ region_name = {
 
 input_folder = '../condor_results/2025Apr_2prong_updated/NONE/'
 output_folder = 'templates'
+plot_output = "../plot_results/wtag_prefit"
 
 ss = [
   'SingleMuon',
@@ -153,20 +157,42 @@ ss = [
 categories = [ "Data", "nonTT_bckg", "TT" ]
 categories = [ "Data", "MC" ]
 
+prefit_categories = [ "Data", "QCD", "WJ", "ZJ", "TT", "ST", "Other"]
+prefit_names = {
+  "Data": "Data",
+  "QCD": "QCD",
+  "WJ": "W+jets",
+  "ZJ": "Z+jets",
+  "TT": "t#bar{t}",
+  "ST": "Single Top",
+  "Other": "Other"
+}
+prefit_colors = [ ROOT.kBlack,
+                  ROOT.kGray+2, ROOT.kOrange-4, ROOT.kOrange+7,
+                  ROOT.kRed, ROOT.kMagenta+2, ROOT.kAzure+2]
+
 samples_per_category = {
   "Data": ['SingleMuon'],
-  "nonTT_bckg": [
+  "Other": [
     'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
     'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
-    'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9',
-    'QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
-    'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
-    'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
-    'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
-    'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf',
-    'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop',
     'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B',
     'WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'
+  ],
+  "QCD":[
+    'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9',
+    'QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'
+  ],
+  "WJ":[
+    'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
+    'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+    'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'
+  ],
+  "ZJ":[
+    'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf'
+  ],
+  "ST":[
+    'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop'
   ],
   "TT": [ 'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu'],
   "MC": [
@@ -259,7 +285,9 @@ for s in ss:
 output_files = {}
 for y in years:
   output_files[y] = ROOT.TFile.Open(output_folder + "/wtemplates_" + y + ".root", "RECREATE")
-  
+
+print("Producing template plots")
+
 # Go through each region
 for r in regions:
 
@@ -311,5 +339,38 @@ for r in regions:
 # Close all the files
 for y in years:
   output_files[y].Close()
-    
+
+exit()
+  
+# Now, produce the pre-fit plots  
+print("Producing pre-fit plots")
+for r in regions:
+
+  print("r = ", r)
+
+  plots_by_year = {}
+
+  for cat in prefit_categories:
+    hN = r + "_ak8jet_mass"
+    plots_by_year[cat] = getHist(hN, samples_per_category[cat], fHist, lumiScales)
+
+  for y in years:
+
+    plots = {}
+    for cat in prefit_categories:
+      plots[cat] = plots_by_year[cat][y].Clone().Rebin(4)
+
+    plots_process = []
+    plotNames_process = []
+    for cat in prefit_categories:
+      plots_process.append(plots[cat])
+      plotNames_process.append(prefit_names[cat])
+
+    canvas_name = hN + "_" + y
+    outputdir = plot_output + '/'
+    makeStackPlot(plots_process, plotNames_process, canvas_name,
+                  outputdir, "m_{SD} [GeV]", [40,200], "Data/MC",
+                  False, lumiS[y], custom_colors=prefit_colors)
+                  
+  
 print("===== EOF =====")

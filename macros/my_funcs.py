@@ -158,7 +158,7 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   ROOT.gStyle.SetOptStat(0) # remove stat box
 
   ## Make the canvas
-  c = ROOT.TCanvas('', '', 600, 600)
+  c = ROOT.TCanvas('', '', 800, 600)
   c.SetLeftMargin(0.15)
   c.cd()
   
@@ -213,8 +213,11 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   else:
     maxVal = maxVal + 2
 
+  MC_plot = plots[1].Clone()
+  for i in range(2,len(plots)):
+    MC_plots.Add(plots[i])
 
-  rat = ROOT.TRatioPlot(plots[0], plots[1])
+  rat = ROOT.TRatioPlot(plots[0], MC_plots)
   plots[0].GetXaxis().SetTitle(xAxisTitle)
   rat.SetH1DrawOpt("ape")
   rat.SetH2DrawOpt("hist")
@@ -279,6 +282,54 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   c.Print(fullpath + '.pdf')
   #c.Print(fullpath + '.C')
 
+#######################################################################
+## makeStackPlot
+#######################################################################
+def makeStackPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
+                  xAxisRange, ratioTitle, logY, lumi,
+                  moveLegendLeft=False, custom_colors=colors,
+                  y_max = -1):
+
+  MC_stack = ROOT.THStack("hs", "")
+  MC_total = plots[1].Clone()
+  
+  for i in range(2, len(plots)):
+    plots[i].SetFillColor(custom_colors[i])
+    if i > 1: MC_total.Add(plots[i])
+    MC_stack.Add(plots[i])
+
+  c = ROOT.TCanvas(canvasName, canvasName, 800, 800)
+  c.Divide(1,2)
+  c.cd(1).SetPad(0, 0.3, 1, 1.0)
+  c.cd(2).SetPad(0, 0.5, 1, 0.3)
+
+  ## Draw the top plot
+  c.cd(1)
+  ROOT.gPad.SetBottomMargin(0.02)
+  MC_stack.Draw("hist")
+  plots[0].Draw("e same")
+
+  ## Draw the bottom plot
+  c.cd(2)
+  ROOT.gPad.SetTopMargin(0.05)
+  ROOT.gPad.SetBottomMargin(0.3)
+
+  h_ratio = plots[0].Clone()
+  h_ratio.Divide(MC_total)
+  h_ratio.SetStats(0)
+  h_ratio.SetTitle("")
+  h_ratio.GetYaxis().SetTitle("Data/MC")
+  h_ratio.GetYaxis().SetTitleSize(0.1)
+  h_ratio.GetYaxis().SetLabelSize(0.08)
+  h_ratio.GetYaxis().SetNdivisions(505)
+  h_ratio.GetXaxis().SetTitleSize(0.1)
+  h_ratio.GetXaxis().SetLabelSize(0.08)
+
+  h_ratio.Draw("E1")
+
+  c.Update()
+  c.SaveAs(outputDir + "/" + canvasName + ".png")
+  c.SaveAs(outputDir + "/" + canvasName + ".pdf")
   
 #######################################################################
 ## makeUpDownSystPlot
