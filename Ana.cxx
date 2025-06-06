@@ -195,7 +195,7 @@ int main(int argc, char *argv[]) {
   VbbHcc_sel.SetDataInfo(isData,year); //need to unify SetDataInfo for ana and this
   //VbbHcc_sel_unc.SetDataInfo(isData,year); //need to unify SetDataInfo for ana and this
   //VbbHcc_triggerSel VbbHcc_triggerSel;
-
+  
   Efficiency_selector Eff_sel ;
   std::string tmp = year;
   if (year == "2016PRE") tmp = "2016preVFP";
@@ -219,7 +219,8 @@ int main(int argc, char *argv[]) {
   std::string tmp2 = year;
   if (year == "2016PRE") tmp2 = "2016";
   std::string fName_msd("CalibData/jme/"+tmp+"_UL/msdcorr_" + tmp2 + ".json"); 
-  
+
+  //std::cout << ">> setting L1prefiring syst..." << std::endl;
   //Syst
   //if (syst == "L1PREFIRINGU") sel.SetL1prefiring("l1prefiringu");
   //if (syst == "L1PREFIRINGD") sel.SetL1prefiring("l1prefiringd");
@@ -263,6 +264,7 @@ int main(int argc, char *argv[]) {
   if (syst == "PUD") fName_puSF = "CalibData/2018_pileup_ratio_down.root";
 #endif
 
+  //std::cout << ">> setting PU..." << std::endl;
   fName_puSF_new = "CalibData/pu_reweight.root";
 #if defined(MC_2016PRE) || defined(MC_2016)
   VbbHcc_sel.SetNewPileupSF(fName_puSF_new, 2016);
@@ -271,13 +273,16 @@ int main(int argc, char *argv[]) {
 #elif defined(MC_2018)
   VbbHcc_sel.SetNewPileupSF(fName_puSF_new, 2018);
 #endif
-  
+
+  //std::cout << ">> setting JetMET syst..." << std::endl;
   VbbHcc_sel.SetJetMetSyst("central");
   //VbbHcc_sel_unc.SetJetMetSyst("central");
   if (syst == "JESU") VbbHcc_sel.SetJetMetSyst("jesu");
   if (syst == "JESD") VbbHcc_sel.SetJetMetSyst("jesd");
   if (syst == "JERU") VbbHcc_sel.SetJetMetSyst("jeru");
   if (syst == "JERD") VbbHcc_sel.SetJetMetSyst("jerd");
+
+  //std::cout << ">> setting HFtag syst..." << std::endl;
   VbbHcc_sel.SetHFtagUncType("central");
   //VbbHcc_sel_unc.SetHFtagUncType("central");
   //if (syst == "TAG_BBU") VbbHcc_sel_unc.SetHFtagUncType("bbup");
@@ -289,7 +294,8 @@ int main(int argc, char *argv[]) {
   if (syst == "TAG_CCU_uncorr") VbbHcc_sel.SetHFtagUncType("ccup_uncorr");
   if (syst == "TAG_CCD_corr") VbbHcc_sel.SetHFtagUncType("ccdown_corr");
   if (syst == "TAG_CCD_uncorr") VbbHcc_sel.SetHFtagUncType("ccdown_uncorr");
-  
+
+  //std::cout << ">> setting elec/muon unc syst..." << std::endl;
   VbbHcc_sel.SetElecUncType("sf");
   VbbHcc_sel.SetMuonUncType("nominal");
   if (syst == "ELECU") VbbHcc_sel.SetElecUncType("sfup");
@@ -299,8 +305,9 @@ int main(int argc, char *argv[]) {
 
   if (syst == "TRIGU") VbbHcc_sel.SetTrigUncType("up");
   if (syst == "TRIGD") VbbHcc_sel.SetTrigUncType("down");
-
-  std::string btv_path = "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/";
+ 
+  //std::string btv_path = "/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/";
+  std::string btv_path = "CalibData/btv/";
   std::string json_name = "ak8_xbbcc_tagging.json.gz";
    
 #if defined(MC_2016)

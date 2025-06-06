@@ -98,9 +98,9 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 # Settings
 # /////////////////////////////////////////////////////////////////////////////
-runMode = 0     # 0 : submit, 1 : check output and hadd output file
+runMode = 1     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
-debug = False   # just run on 10,000 (UPDATE: now 100,000)
+debug = True    # just run on 10,000 (UPDATE: now 100,000)
 haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
@@ -111,9 +111,9 @@ centralGenWeight = 0
 
 # Paths, Locations (CHANGE THESE)
 sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025May/'
-outputDir_eos = '/store/user/peteryou/Output_VHcc/2025May/' + syst + '/'
-outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025May/' + syst + '/'
+condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Jun_test/'
+outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Jun_test/' + syst + '/'
+outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jun_test/' + syst + '/'
 
 # Input data sets
 dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"

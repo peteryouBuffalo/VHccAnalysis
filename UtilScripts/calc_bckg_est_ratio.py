@@ -63,7 +63,7 @@ def getHistIntegral(h,v1=-1,v2=-1):
 #################################################################
 
 years = ['16_preVFP','16','17','18']
-years = ['18']
+#years = ['18']
 
 regions = [
     'VHcc_boosted_PN_med_topCR_pass', # top CR
@@ -71,7 +71,7 @@ regions = [
 ]
 qcdEnriched = 'VHcc_boosted_PN_med_qcdEnriched_topCR'
 
-input_folder = '../condor_results/2025Apr_test2/NONE/'
+input_folder = '../condor_results/2025May/NONE/'
 output_folder = 'Tmp'
 
 ss = [

@@ -223,7 +223,7 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
 
   /// This fix is put here to avoid an issue where they weren't set properly
   /// with data. For cases of data, we just want them to be 0 and 0.
-#if defined(DATA_2016) || defined(DATA_2017) || defined(DATA_2018)
+#if defined(DATA_2016PRE) || defined(DATA_2016) || defined(DATA_2017) || defined(DATA_2018)
   m_iPdfStart = 0;
   m_iPdfStop = 0;
 #endif
