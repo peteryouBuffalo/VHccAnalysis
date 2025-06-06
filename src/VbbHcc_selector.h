@@ -56,6 +56,7 @@ private:
   TH1D* h_jes_mass_SF;
   TH1D* h_wcorr;
   TH1D* h_gen_weight;
+  TH1D* h_tagcc_w;
   
   TH1D* h_bStatus_noMother;
   TH1D* h_bStatus_hasMother;
@@ -68,6 +69,8 @@ private:
   TH1D* h_nbB_1;
   TH1D* h_cutFlow_ZccHcc_PN_med;
   TH1D* h_cutFlow_VHcc_PN_med;
+  TH1D* h_cutFlow_WTag_pass2prong;
+  TH1D* h_cutFlow_WTag_fail2prong;
   TH1D* h_test_MH;
   TH1D* h_test_MZ;
   TH1D* h_NextraJet;
@@ -131,6 +134,12 @@ private:
 
   VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR; // QCD-enriched top CR (added Apr 5, 2025)
 
+  WTagPlots* h_WTag_pass2prong;
+  WTagPlots* h_WTag_fail2prong;
+
+  WTagPlots* h_WTag_pass2prong_passXcc;
+  WTagPlots* h_WTag_fail2prong_passXcc;
+  
   JESUncPlots* h_jesUnc;
 
 } ;

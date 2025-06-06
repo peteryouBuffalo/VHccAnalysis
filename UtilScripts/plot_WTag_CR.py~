@@ -18,14 +18,14 @@ def getHist(pN,samName,fH,lS): #samName = ['Electron'],['DY_0J','DY_1J','DY_2J']
   #for y in ['17']:
     #print(fH[samName[0]][y][0],' ',pN)
     hOut[y] = fH[samName[0]][y][0].Get(pN).Clone() #first sample, first file
-    if samName[0] not in ['JetHT']:
+    if samName[0] not in ['SingleMuon']:
       hOut[y].Scale(lS[samName[0]][y][0])
 
     for iS in range(len(samName)):
       for fi in range(len(fH[samName[iS]][y])):
         if iS == 0 and fi == 0: continue #first sample and first file is already included above 
         h = fH[samName[iS]][y][fi].Get(pN).Clone()
-        if samName[iS] not in ['JetHT']:
+        if samName[iS] not in ['SingleMuon']:
           h.Scale(lS[samName[iS]][y][fi])
         hOut[y].Add(h)
       
@@ -111,6 +111,7 @@ regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_bo
 #regions = ['VHcc_boosted_PN_med_qcdEnriched_topCR', 'VHcc_boosted_PN_med_topCR_pass']
 #regions = ['general']
 #regions = ['WTag_pass2prong_total', 'WTag_fail2prong_total']
+regions = ['WTag_pass2prong', 'WTag_fail2prong']
 
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
@@ -121,7 +122,7 @@ use_NLO_VV = True
 breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-plotFolder = '../Plots_update2025May01'
+plotFolder = '../Plots_WTag'
 aff1 = ''
 aff2 = ''
 if use_NLO_VV: aff1 = 'NLO_VV'
@@ -166,14 +167,14 @@ for y in years:
 print(lumiS) 
 
 #list all processes you want to plot here. For VV, list both LO and NLO.
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf']
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
+#ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf']
+#ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
+#ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 #TEMP: no ST_tW-channel_antitop for now since no available from current processing
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
+#ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
 
 ss = [
-  'JetHT',
+  'SingleMuon',
   'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
   'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
   'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
@@ -186,7 +187,7 @@ ss = [
   'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
 
 #TMP not use WZTo2Q2L for now missing 2017 
-#ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
+#ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ','WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q']
 
 #vv = {'WW':['WW'],'WZ':['WZ'],'ZZ':['ZZ']}
 #if use_NLO_VV:
@@ -206,7 +207,7 @@ ss = [
 #ZZTo4Q_NLO": 3.295,
 
 if use_bEnriched_BGenFilter: 
-  ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
+  ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 
 filter_effs = getFilterEff(filterEff_name)
 print(filter_effs)
@@ -230,23 +231,23 @@ for s in ss:
     print('>>>>>>>: ', len(names))
     xSecTmps = ['1']*len(names) #each name corresponds to a cross section
     kfactor = ['1']*len(names) #each name corresponds to a cross section
-    if s not in ['JetHT']:
+    if s not in ['SingleMuon']:
       xSecTmps = cfg.get(s,'xSec_'+y).split(',')
 
     fNames[s][y] = []
     xSecs[s][y] = []
     fHist[s][y] = []
     for iN in names:
-      #if 'JetHT' in iN: fNames[s][y].append(cfg.get('Paths','pathData') + '/' + iN)
+      #if 'SingleMuon' in iN: fNames[s][y].append(cfg.get('Paths','pathData') + '/' + iN)
       #else: fNames[s][y].append(cfg.get('Paths','pathMC') + '/' + iN)
-      if 'JetHT' in iN: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
+      if 'SingleMuon' in iN: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
       else: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
       fHist[s][y].append(ROOT.TFile.Open(fNames[s][y][-1],'READ'))
     
     print(xSecTmps)
     for iS in xSecTmps:
       filterEff = 1.
-      if 'JetHT' not in s and correctFilterEff: filterEff = filter_effs[s]
+      if 'SingleMuon' not in s and correctFilterEff: filterEff = filter_effs[s]
       #in case there is kfactor in cross section
       if '*' in iS:
         iS = iS.split('*')
@@ -257,7 +258,7 @@ for s in ss:
 
     lumiScales[s][y] = [1]*len(names)
     for iN in range(len(fNames[s][y])):
-      if s not in ['JetHT']:
+      if s not in ['SingleMuon']:
         print(s, y, iN, fNames[s][y][iN])
         try:
           lumiScales[s][y][iN] = utl_func.scaleToLumi1(fNames[s][y][iN],xSecs[s][y][iN],lumi,'Nevt_all_VbbHcc_boosted')
@@ -301,7 +302,7 @@ for r in regions:
     
     if 'qcd' in r and 'CutFlow' in plN: continue
 
-    hDat = getHist(hN,['JetHT'],fHist,lumiScales)
+    hDat = getHist(hN,['SingleMuon'],fHist,lumiScales)
     print(" ", hN)
     hZHcc = getHist(hN,['ZH_HToCC_ZToQQ'],fHist,lumiScales)
     hZHbb = getHist(hN,['ZH_HToBB_ZToQQ'],fHist,lumiScales)
@@ -380,7 +381,7 @@ for r in regions:
       #get number of events
       if 'HMass' in plN:
         nums[r][y] = {}
-        nums[r][y]['JetHT'] = getHistIntegral(hDat[y],lowM,highM)
+        nums[r][y]['SingleMuon'] = getHistIntegral(hDat[y],lowM,highM)
         nums[r][y]['ZH_HToCC_ZToQQ'] = getHistIntegral(hZHcc[y],lowM,highM)
         nums[r][y]['ZH_HToBB_ZToQQ'] = getHistIntegral(hZHbb[y],lowM,highM)
         nums[r][y]['ggZH_HToCC_ZToQQ'] = getHistIntegral(hggZHcc[y],lowM,highM)
@@ -433,7 +434,7 @@ for r in regions:
       #plots_process = [hDat[y].Clone().Rebin(nRebin),hZHbb[y].Clone().Rebin(nRebin),hggZHbb[y].Clone().Rebin(nRebin),hZHcc[y].Clone().Rebin(nRebin),hggZHcc[y].Clone().Rebin(nRebin)]
       
       plotNames_process = []
-      dataTitle = 'Data (JetHT, 20'+y+')' 
+      dataTitle = 'Data (SingleMuon, 20'+y+')' 
       #plotNames_process = [dataTitle, 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
       if not breakVV:
         plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)','WH (H#rightarrow bb)','ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
@@ -548,7 +549,7 @@ for r in regions:
 
     if 'HMass' in plN:
         nums[r]['All'] = {}
-        nums[r]['All']['JetHT'] = getHistIntegral(hDatA,lowM,highM)
+        nums[r]['All']['SingleMuon'] = getHistIntegral(hDatA,lowM,highM)
         nums[r]['All']['ZH_HToCC_ZToQQ'] = getHistIntegral(hZHccA,lowM,highM)
         nums[r]['All']['ZH_HToBB_ZToQQ'] = getHistIntegral(hZHbbA,lowM,highM)
         nums[r]['All']['ggZH_HToCC_ZToQQ'] = getHistIntegral(hggZHccA,lowM,highM)
@@ -628,7 +629,7 @@ for r in regions:
 
     
     plotNames_process = []
-    dataTitle = 'Data (JetHT)' 
+    dataTitle = 'Data (SingleMuon)' 
     #plotNames_process = [dataTitle, 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
     #plotNames_process = [dataTitle, 'QCD', 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
     if not breakVV:
@@ -679,11 +680,11 @@ fLatex.write('\\title{Control plots}\n')
 fLatex.write('\\begin{document}\n')
 
 if not breakVV:
-  labels = ['QCD','WJ','ZJ','TT','ST','WW','VZ','ZHBB','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
-  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','WW':'WW','VZ':'VZ','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
+  labels = ['QCD','WJ','ZJ','TT','ST','WW','VZ','ZHBB','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','SingleMuon']
+  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','WW':'WW','VZ':'VZ','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','SingleMuon':'Data'}
 else:
-  labels = ['QCD','WJ','ZJ','TT','ST','VVcc','VVbb','VVother','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','JetHT']
-  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','VVcc':'VZ (Z$\\rightarrow$cc)','VVbb':'VZ (Z$\\rightarrow$bb)','VVother':'VV (other)','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','JetHT':'Data'}
+  labels = ['QCD','WJ','ZJ','TT','ST','VVcc','VVbb','VVother','WH_HToBB_WToQQ','Bkgr','ggZH_HToCC_ZToQQ','ZH_HToCC_ZToQQ','WH_HToCC_WToQQ','S/sqrt(B)','SingleMuon']
+  label_translate = {'QCD':'QCD','WJ':'W+jets','ZJ':'Z+jets','TT':'t$\\bar{t}$','ST':'Single top','VVcc':'VZ (Z$\\rightarrow$cc)','VVbb':'VZ (Z$\\rightarrow$bb)','VVother':'VV (other)','ZHBB':'ZH(H$\\rightarrow$bb)','WH_HToBB_WToQQ':'WH(H$\\rightarrow$bb)','Bkgr':'Total background','ggZH_HToCC_ZToQQ':'ggZH(H$\\rightarrow$cc)','ZH_HToCC_ZToQQ':'ZH(H$\\rightarrow$cc)','WH_HToCC_WToQQ':'WH(H$\\rightarrow$cc)','S/sqrt(B)':'S/$\sqrt{B}$','SingleMuon':'Data'}
 
 if not plot_all_together: exit()
 

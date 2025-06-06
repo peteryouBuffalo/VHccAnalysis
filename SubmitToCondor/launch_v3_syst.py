@@ -121,8 +121,13 @@ syst_list = ['NONE','JESU','JESD','PUU','PUD', 'L1PREFIRINGU',
              'ELECD', 'MUONU', 'MUOND', 'TRIGU', 'TRIGD', 
              'PDFG0', 'PDFG1', 'PDFG2', 'SCALE', 'JERD', 'JERU']   
 
+syst_list = [ 'NONE',
+  'TAG_CCU', 'TAG_CCU_corr', 'TAG_CCU_uncorr',
+  'TAG_CCD', 'TAG_CCD_corr', 'TAG_CCD_uncorr'
+]
+
 #syst_list = [ 'JERU', 'JERD' ]
-syst_list = ['NONE'] # for testing
+#syst_list = ['NONE'] # for testing
 
 #if len(sys.argv) > 1:
 #  syst = sys.argv[1]
@@ -132,38 +137,38 @@ for syst in syst_list:
   
   # Paths, Locations (CHANGE THESE)
   sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Mar_PU_no_weight/'
-  outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Mar_PU_no_weight/' + syst + '/'
-  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Mar_PU_no_weight/' + syst + '/'
+  condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025May/'
+  outputDir_eos = '/store/user/peteryou/Output_VHcc/2025May/' + syst + '/'
+  outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025May/' + syst + '/'
   
   # Input data sets
-  #dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
+  dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2016_2017.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_VV.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_signal_MC.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"
   #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"
-  dataSet_list = sourceDir+"/Dataset_lists/datasets_ZJ.txt"
+  #dataSet_list = sourceDir+"/Dataset_lists/datasets_ZJ.txt"
   
-  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
+  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2016_2017.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_QCDv9_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_VV_NLO.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_signal_MC.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2016pre.txt"]
   #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2017.txt"]
-  dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ZJ.txt"]
+  #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ZJ.txt"]
   
   nFile = 1
   dir_file_list = sourceDir+'/FileLists/'

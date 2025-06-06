@@ -6,8 +6,8 @@ sys.path.append('/uscms_data/d3/duong/CMSSW/CMSSW_7_6_5/src/ZplusC/python3/myuti
 import configparser
 import util_funcs as utl_func
 import myutils as utl
-
-
+import json
+import time
 
 ROOT.gROOT.Macro(os.path.expanduser('~/rootLogOn_forPyROOT.C' ))
 ROOT.gROOT.SetBatch(True)
@@ -18,14 +18,14 @@ def getHist(pN,samName,fH,lS): #samName = ['Electron'],['DY_0J','DY_1J','DY_2J']
   #for y in ['17']:
     #print(fH[samName[0]][y][0],' ',pN)
     hOut[y] = fH[samName[0]][y][0].Get(pN).Clone() #first sample, first file
-    if samName[0] not in ['JetHT']:
+    if samName[0] not in ['JetHT', 'SingleMuon']:
       hOut[y].Scale(lS[samName[0]][y][0])
 
     for iS in range(len(samName)):
       for fi in range(len(fH[samName[iS]][y])):
         if iS == 0 and fi == 0: continue #first sample and first file is already included above 
         h = fH[samName[iS]][y][fi].Get(pN).Clone()
-        if samName[iS] not in ['JetHT']:
+        if samName[iS] not in ['JetHT', 'SingleMuon']:
           h.Scale(lS[samName[iS]][y][fi])
         hOut[y].Add(h)
       
@@ -90,9 +90,12 @@ def getFilterEff(fName):
 ##########################
 #Frequently use settings
 
+json_folder = 'Tmp'
+
 years = ['16_preVFP','16','17','18']
 years = ['18']
 
+plot_all_together = True
 plot_all_together = False
 
 blindDataOption = 1 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
@@ -107,11 +110,10 @@ doCustomBinning_MH = True
 xDiv_MH = [40,60,80,100,120,140,160,180,200]
 
 #list here regions you want to make plot for. The list of plots for each region listed in ../Configs/config.ini in [Plot] section
-regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
-#regions = ['VHcc_boosted_PN_med_qcdEnriched_topCR', 'VHcc_boosted_PN_med_topCR_pass']
+#regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
+#regions = ['VHcc_boosted_PN_med_topCR_pass']#, 'VHcc_boosted_PN_med']
 #regions = ['general']
-#regions = ['WTag_pass2prong_total', 'WTag_fail2prong_total']
-
+regions = ['WTag_pass2prong', 'WTag_fail2prong']
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
 cfg = utl.BetterConfigParser()
@@ -121,7 +123,7 @@ use_NLO_VV = True
 breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-plotFolder = '../Plots_update2025May01'
+plotFolder = '../plot_results/2025May_WTag'
 aff1 = ''
 aff2 = ''
 if use_NLO_VV: aff1 = 'NLO_VV'
@@ -173,7 +175,8 @@ print(lumiS)
 #ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','WH_HToCC_WToQQ','WH_HToBB_WToQQ','QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_tW-channel_top','WW','WZ','ZZ']
 
 ss = [
-  'JetHT',
+  #'JetHT',
+  'SingleMuon',
   'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
   'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
   'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
@@ -206,7 +209,7 @@ ss = [
 #ZZTo4Q_NLO": 3.295,
 
 if use_bEnriched_BGenFilter: 
-  ss = ['JetHT','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
+  ss = ['SingleMuon','ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ','QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf','QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter','WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf','ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf','TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu','ST_t-channel_antitop','ST_t-channel_top','ST_tW-channel_antitop','ST_tW-channel_top','WW','WZ','ZZ']
 
 filter_effs = getFilterEff(filterEff_name)
 print(filter_effs)
@@ -230,7 +233,7 @@ for s in ss:
     print('>>>>>>>: ', len(names))
     xSecTmps = ['1']*len(names) #each name corresponds to a cross section
     kfactor = ['1']*len(names) #each name corresponds to a cross section
-    if s not in ['JetHT']:
+    if s not in ['JetHT','SingleMuon']:
       xSecTmps = cfg.get(s,'xSec_'+y).split(',')
 
     fNames[s][y] = []
@@ -239,14 +242,14 @@ for s in ss:
     for iN in names:
       #if 'JetHT' in iN: fNames[s][y].append(cfg.get('Paths','pathData') + '/' + iN)
       #else: fNames[s][y].append(cfg.get('Paths','pathMC') + '/' + iN)
-      if 'JetHT' in iN: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
+      if 'JetHT' in iN or 'SingleMuon' in iN: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
       else: fNames[s][y].append(cfg.get('Paths','path') + '/' + iN)
       fHist[s][y].append(ROOT.TFile.Open(fNames[s][y][-1],'READ'))
     
     print(xSecTmps)
     for iS in xSecTmps:
       filterEff = 1.
-      if 'JetHT' not in s and correctFilterEff: filterEff = filter_effs[s]
+      if ('JetHT' not in s and 'SingleMuon' not in s) and correctFilterEff: filterEff = filter_effs[s]
       #in case there is kfactor in cross section
       if '*' in iS:
         iS = iS.split('*')
@@ -257,7 +260,7 @@ for s in ss:
 
     lumiScales[s][y] = [1]*len(names)
     for iN in range(len(fNames[s][y])):
-      if s not in ['JetHT']:
+      if s not in ['JetHT', 'SingleMuon']:
         print(s, y, iN, fNames[s][y][iN])
         try:
           lumiScales[s][y][iN] = utl_func.scaleToLumi1(fNames[s][y][iN],xSecs[s][y][iN],lumi,'Nevt_all_VbbHcc_boosted')
@@ -272,10 +275,13 @@ for r in regions:
   
   nums[r] = {}
   
-  plotNames = cfg.get('Plots',r + '_plot').split(',')
-
+  #plotNames = cfg.get('Plots',r + '_plot').split(',')
+  #plotNames = ["HMass","ZMass","HPt","ZPt"]
+  plotNames = ["ak8jet_mass"]
+  
   for plN in plotNames:
-    
+
+    print("plot name = ", plN)
     #TEMP: need to check what else have break VV, only HMass?
     #if breakVV and 'HMass' not in plN: continue
     
@@ -301,6 +307,21 @@ for r in regions:
     
     if 'qcd' in r and 'CutFlow' in plN: continue
 
+    QCDest_name = "VHcc_boosted_PN_med_qcdEnriched_topCR_" + plN
+    hDat_QCDest = getHist(QCDest_name, ['SingleMuon'], fHist, lumiScales)
+    hMC_QCDest = getHist(QCDest_name, [
+        'ZH_HToCC_ZToQQ', 'ZH_HToBB_ZToQQ',
+        'ggZH_HToCC_ZToQQ', 'ggZH_HToBB_ZToQQ',
+        'WH_HToCC_WToQQ', 'WH_HToBB_WToQQ',
+        'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
+        'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+        'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
+        'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf',
+        'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu',
+        'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop',
+        'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q','WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'
+      ], fHist, lumiScales)
+    
     hDat = getHist(hN,['JetHT'],fHist,lumiScales)
     print(" ", hN)
     hZHcc = getHist(hN,['ZH_HToCC_ZToQQ'],fHist,lumiScales)
@@ -310,18 +331,22 @@ for r in regions:
     hWHcc = getHist(hN,['WH_HToCC_WToQQ'],fHist,lumiScales)
     hWHbb = getHist(hN,['WH_HToBB_WToQQ'],fHist,lumiScales)
 
+    # Check to see if we have TFs for the desired reasons
+    TFs_exist = r in QCD_TFs
+
     #hQCD = getHist(hN,['QCD_HT500to700','QCD_HT700to1000','QCD_HT1000to1500','QCD_HT1500to2000','QCD_HT2000toInf'],fHist,lumiScales)
-    if not use_bEnriched_BGenFilter:
+    if not TFs_exist:
+      if not use_bEnriched_BGenFilter:
         if not doUseReweightForQCD or 'CutFlow' in plN:
-            hQCD = getHist(hN,['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
+          hQCD = getHist(hN,['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
         else:
-            hQCD = getHist(hN.replace("PN_med","PN_med_xccWeight"),['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
-    else:
-      hQCD = getHist(hN,['QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf'],fHist,lumiScales)
-      hQCD_BGenFilter = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
-      #hQCD = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
-      for y in years:
-        hQCD[y].Add(hQCD_BGenFilter[y])
+          hQCD = getHist(hN.replace("PN_med","PN_med_xccWeight"),['QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9','QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9'],fHist,lumiScales)
+      else:
+        hQCD = getHist(hN,['QCD_bEnriched_HT300to500','QCD_bEnriched_HT500to700','QCD_bEnriched_HT700to1000','QCD_bEnriched_HT1000to1500','QCD_bEnriched_HT1500to2000','QCD_bEnriched_HT2000toInf'],fHist,lumiScales)
+        hQCD_BGenFilter = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
+        #hQCD = getHist(hN,['QCD_HT300to500_BGenFilter','QCD_HT500to700_BGenFilter','QCD_HT700to1000_BGenFilter','QCD_HT1000to1500_BGenFilter','QCD_HT1500to2000_BGenFilter','QCD_HT2000toInf_BGenFilter'],fHist,lumiScales)
+        for y in years:
+          hQCD[y].Add(hQCD_BGenFilter[y])
     
     hWJ = getHist(hN,['WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf','WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200','WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf'],fHist,lumiScales)
     hZJ = getHist(hN,['ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf'],fHist,lumiScales)
@@ -372,6 +397,47 @@ for r in regions:
           #hVVbbcc = getHists(hN,['VZbbcc'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
           #hVVqqqq = getHists(hN,['VZqqqq'],['WWTo1L1Nu2Q','WWTo4Q','WZTo1L1Nu2Q','WZTo2Q2L','WZToLNu2B','WZTo4Q','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'],fHist,lumiScales) 
 
+    if TFs_exist:
+    #############################################################################
+    # Use this section to make the hQCD from data-driven estimations    
+    #############################################################################
+    
+      hQCD = {}
+
+      for y in years:
+
+        # Get the data plot for that year
+        h_QCDest_y = hDat_QCDest[y].Clone()
+        print(y, " : QCD est before delete = ", h_QCDest_y.Integral())
+
+        # Subtract the other bckgs out by QCD
+        h_QCDest_y.Add(hMC_QCDest[y].Clone(), -1)
+        #h_QCDest_y.Add(hZHcc[y].Clone(),-1)
+        #h_QCDest_y.Add(hZHbb[y].Clone(),-1)
+        #h_QCDest_y.Add(hggZHcc[y].Clone(),-1)
+        #h_QCDest_y.Add(hggZHbb[y].Clone(),-1)
+        #h_QCDest_y.Add(hWHcc[y].Clone(),-1)
+        #h_QCDest_y.Add(hWHbb[y].Clone(),-1)
+        #h_QCDest_y.Add(hWJ[y].Clone(),-1)
+        #h_QCDest_y.Add(hZJ[y].Clone(),-1)
+        #h_QCDest_y.Add(hTT[y].Clone(),-1)
+        #h_QCDest_y.Add(hST[y].Clone(),-1)
+        #h_QCDest_y.Add(hWW[y].Clone(),-1)
+        #h_QCDest_y.Add(hWZ[y].Clone(),-1)
+        #h_QCDest_y.Add(hZZ[y].Clone(),-1)
+
+        print(">>>> : QCD est after delete = ", h_QCDest_y.Integral())
+
+        # Get the TF and apply it
+        TF = QCD_TFs[r][y]
+        print("TF(",r,",",y,") = ", TF)
+        h_QCDest_y.Scale(TF)
+        print(">>>> : QCD est after scale = ", h_QCDest_y.Integral())
+
+        hQCD[y] = h_QCDest_y.Clone()
+      
+    #############################################################################     
+          
     ##########################
     #stack plots for each year 
     ##########################
@@ -631,10 +697,14 @@ for r in regions:
     dataTitle = 'Data (JetHT)' 
     #plotNames_process = [dataTitle, 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
     #plotNames_process = [dataTitle, 'QCD', 'ZHbb', 'ggZHbb', 'ZHcc', 'ggZHcc']
+
+    QCD_title = 'QCD'
+    if TFs_exist:
+      QCD_title = 'QCD (data-driven)'
     if not breakVV:
-        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
+        plotNames_process = [dataTitle, QCD_title, 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'WW', 'WZ', 'ZZ', 'ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)','WH (H#rightarrow cc)']
     else:
-        plotNames_process = [dataTitle, 'QCD', 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'VV (others)', 'VZ (Z#rightarrow bb)', 'VZ (Z#rightarrow cc)','ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)', 'WH (H#rightarrow cc)']
+        plotNames_process = [dataTitle, QCD_title, 'Single top', 't#bar{t}','Z + jets', 'W + jets', 'VV (others)', 'VZ (Z#rightarrow bb)', 'VZ (Z#rightarrow cc)','ZH (H#rightarrow bb)', 'ggZH (H#rightarrow bb)', 'WH (H#rightarrow bb)', 'ZH (H#rightarrow cc)', 'ggZH (H#rightarrow cc)', 'WH (H#rightarrow cc)']
 
     logY=False
     #if 'CutFlow' in plN or 'ccTagDis' in plN or 'bbTagDis' in plN or 'bbPN' in plN or 'ccPN' in plN: logY=True
@@ -654,6 +724,8 @@ for r in regions:
     fCheck.cd()
     hQCDA.Write()
 
+exit()
+    
 #adding process together
 addBkgr(nums,'WWWZ',['WW','WZ'],regions)
 addBkgr(nums,'VZ',['WZ','ZZ'],regions)
@@ -664,10 +736,7 @@ addBkgr(nums,'Bkgr',['QCD','WJ','ZJ','TT','ST','WW','WZ','ZZ','ggZH_HToBB_ZToQQ'
 for r in regions:
   for y in ['16_preVFP','16','17','18','All']:
   #for y in ['18']:
-    if nums[r][y]['Bkgr'][0] <= 0:
-      nums[r][y]['S/sqrt(B)'] = [-999,0]
-    else:
-      nums[r][y]['S/sqrt(B)'] = [(nums[r][y]['ZHCC'][0]+nums[r][y]['WH_HToCC_WToQQ'][0])/math.sqrt(nums[r][y]['Bkgr'][0]),0]
+    nums[r][y]['S/sqrt(B)'] = [(nums[r][y]['ZHCC'][0]+nums[r][y]['WH_HToCC_WToQQ'][0])/math.sqrt(nums[r][y]['Bkgr'][0]),0]
 
 print(nums)
 
