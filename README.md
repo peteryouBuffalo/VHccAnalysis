@@ -1,6 +1,9 @@
 # VHcc Analysis
 This is the re-worked VHcc analysis that reconfigures the code and github history so that we don't have an error I caused.
 
+## Code Guide:
+For the full code guide, check this repository: https://github.com/peteryouBuffalo/VHccAnalysis_CodeGuide
+
 ## Compile:
 ```
 make FORMAT=sample_format INPUT=input_type
