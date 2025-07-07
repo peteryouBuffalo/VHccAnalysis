@@ -134,6 +134,16 @@ private:
 
   VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR; // QCD-enriched top CR (added Apr 5, 2025)
 
+  VHBoostedPlots* h_VR_passPNH; // VR with Higgs passing PN  
+  VHBoostedPlots* h_VR_failPNH_QCD; // VR with Higgs failing PN (QCD VR)
+  VHBoostedPlots* h_VR_passPNH_topCR; // VR with Higgs passing PN (Top VR)
+  VHBoostedPlots* h_VR_passPNH_qcdEnriched_topCR; // VR with Higgs passing PN (QCD-enr Top VR)
+  
+  VHBoostedPlots* h_VHcc_PN_med_PNVcut;
+  VHBoostedPlots* h_VHcc_PN_med_qcdCR_PNVcut;
+  VHBoostedPlots* h_VHcc_PN_med_qcdEnriched_topCR_PNVcut;
+  VHBoostedPlots* h_VHcc_PN_med_topCR_PNVcut;
+  
   WTagPlots* h_WTag_pass2prong;
   WTagPlots* h_WTag_fail2prong;
 

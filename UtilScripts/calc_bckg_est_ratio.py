@@ -65,13 +65,32 @@ def getHistIntegral(h,v1=-1,v2=-1):
 years = ['16_preVFP','16','17','18']
 #years = ['18']
 
-regions = [
-    'VHcc_boosted_PN_med_topCR_pass', # top CR
-    'VHcc_boosted_PN_med'             # SR
-]
-qcdEnriched = 'VHcc_boosted_PN_med_qcdEnriched_topCR'
+#regions = [
+#    'VHcc_boosted_PN_med_topCR_pass', # top CR
+#    'VHcc_boosted_PN_med'             # SR
+#]
 
-input_folder = '../condor_results/2025May/NONE/'
+pass_regions = [
+  'VHcc_boosted_PN_med_topCR_pass', # top CR (pass)
+  'VR_passPNH_topCR',               # VR (pass)
+  'VR_boosted_PN_med_topCR_PNVcut'  # top CR (new SR)
+]
+
+fail_regions = [
+  'VHcc_boosted_PN_med_qcdEnriched_topCR', # top CR (fail, QCD-enriched)
+  'VR_passPNH_qcdEnriched_topCR',          # VR (fail)
+  'VR_boosted_PN_med_qcdEnriched_topCR_PNVcut' # top CR (fail, QCD-enriched, new SR)
+]
+
+region_names = [
+  'TopCR',
+  'VR',
+  'TopCR_PNcut'
+]
+
+#qcdEnriched = 'VHcc_boosted_PN_med_qcdEnriched_topCR'
+
+input_folder = '../../condor_results/2025Jul_testVR/NONE/'
 output_folder = 'Tmp'
 
 ss = [
@@ -150,41 +169,40 @@ for s in ss:
           lumiScales[s][y][iN] = 0
 
 
-# The enriched plots that we use in the denominator are not changed
-# and are used for every region, thus let's get them outside the loop
-enriched_plots = getHist(qcdEnriched + "_HMass", ss, fHist, lumiScales)          
-
 # make a JSON to store the values
 ratio_values = {}
 evts = {}
 
 # Go through each region
-count = 0
-for r in regions:
+nRegions = len(pass_regions)
+for i in range(nRegions):
 
+  print("pass = ", pass_regions[i])
+  print("fail = ", fail_regions[i])
+  r = region_names[i]
   print("r = ", r)
+  
   ratio_values[r] = {}
-  if count == 0:
-    evts[qcdEnriched] = {}
-  evts[r] = {}
+  evts[pass_regions[i]] = {}
+  evts[fail_regions[i]] = {}
 
   # Get the plots that are in the numerator region.
-  num_plots = getHist(r + "_HMass", ss, fHist, lumiScales)
-
+  num_plots = getHist(pass_regions[i] + "_HMass", ss, fHist, lumiScales)
+  den_plots = getHist(fail_regions[i] + "_HMass", ss, fHist, lumiScales)
+  
   # Go through each year
   for y in years:
 
     print(">> y = ", y)
     
     numerator = num_plots[y]
-    denominator = enriched_plots[y]
+    denominator = den_plots[y]
 
     n_num = numerator.Integral()
     n_den = denominator.Integral()
 
-    evts[r][y] = n_num
-    if count == 0:
-      evts[qcdEnriched][y] = n_den
+    evts[pass_regions[i]][y] = n_num
+    evts[fail_regions[i]][y] = n_den
     
     print(">>>> num: # evt = ", n_num)
     print(">>>> den: # evt = ", n_den)
@@ -193,8 +211,7 @@ for r in regions:
     print(">>>> ratio = ", ratio)
     ratio_values[r][y] = ratio
 
-  count += 1
-
+    
 with open(output_folder + "/QCD_TF_per_year.json", "w") as file:
   json.dump(ratio_values, file, indent=4)
 

@@ -26,6 +26,8 @@ const float XccCut = 0.9252;//2016 post
 //const float pQCDcut = 0.0681;
 //const float pQCDcut = 0.0741;
 const float deepFlavBCut = 0.2489;
+
+const float PNcut_low = 0.25;
 #endif
 
 #if defined(DATA_2016PRE) || defined(MC_2016PRE)
@@ -37,6 +39,8 @@ const float XccCut = 0.9252;
 //const float pQCDcut = 0.0541;
 //const float pQCDcut = 0.0741;
 const float deepFlavBCut = 0.2598;
+
+const float PNcut_low = 0.25;
 #endif
 
 #if defined(DATA_2017) || defined(MC_2017)
@@ -48,6 +52,8 @@ const float  XccCut = 0.9347;
 //const float pQCDcut = 0.0541;
 //const float pQCDcut = 0.0741;
 const float deepFlavBCut = 0.3040;
+
+const float PNcut_low = 0.25;
 #endif
 #if defined(DATA_2018) || defined(MC_2018)
 //medium
@@ -57,6 +63,8 @@ const float XbbCut = 0.9734;
 //loose
 const float XccCut = 0.9368;
 const float deepFlavBCut = 0.2783;
+
+const float PNcut_low = 0.25;
 #endif
 const float pQCDcut = 0.0741;
 
@@ -243,6 +251,21 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   // Added by Peter for data-driven Bckg Estimation (Apr 5, 2025)
   h_VHcc_PN_med_qcdEnriched_topCR = new VHBoostedPlots("VHcc_boosted_PN_med_qcdEnriched_topCR",
 						       m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+
+  h_VR_passPNH = new VHBoostedPlots("VR_passPNH", m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VR_failPNH_QCD = new VHBoostedPlots("VR_failPNH_QCD", m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VR_passPNH_topCR = new VHBoostedPlots("VR_passPNH_topCR", m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VR_passPNH_qcdEnriched_topCR = new VHBoostedPlots("VR_passPNH_qcdEnriched_topCR",
+						  m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+
+  h_VHcc_PN_med_PNVcut = new VHBoostedPlots("VHcc_boosted_PN_med_PNVcut",
+					    m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VHcc_PN_med_qcdCR_PNVcut = new VHBoostedPlots("VHcc_boosted_PN_med_qcdCR_PNVcut",
+						  m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut = new VHBoostedPlots("VHcc_boosted_PN_med_qcdEnriched_topCR_PNVcut",
+							      m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
+  h_VHcc_PN_med_topCR_PNVcut = new VHBoostedPlots("VHcc_boosted_PN_topCR_PNVcut",
+					      m_iPdfStart, m_iPdfStop, nLHEScaleWeight);
   
 #if defined(MC_VZ)
   h_ZccHcc_PN_med_VZcc = new VHBoostedPlots("ZccHcc_boosted_PN_med_VZcc",m_iPdfStart,m_iPdfStop,nLHEScaleWeight);
@@ -330,6 +353,30 @@ void VbbHcc_selector::SlaveBegin(Reader* r) {
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
 
   tmp = h_VHcc_PN_med_qcdEnriched_topCR->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VR_passPNH->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VR_failPNH_QCD->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VR_passPNH_topCR->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VR_passPNH_qcdEnriched_topCR->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+  
+  tmp = h_VHcc_PN_med_PNVcut->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VHcc_PN_med_qcdCR_PNVcut->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->returnHisto();
+  for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
+
+  tmp = h_VHcc_PN_med_topCR_PNVcut->returnHisto();
   for(size_t i=0;i<tmp.size();i++) r->GetOutputList()->Add(tmp[i]);
   
 #if defined(MC_VZ)
@@ -1605,7 +1652,8 @@ void VbbHcc_selector::Process(Reader* r) {
 
     // This checks the Top CR for ZccHcc. This takes the same criteria
     // as our signal region but inverts the NextraJet and Nbjet cuts.
-    if (jets[idx_Z].m_lvec.Pt()>350 && jets[idx_H].m_lvec.Pt()>350) {
+    // Update (06/30/25): change H pT cut 350->450 for test
+    if (jets[idx_Z].m_lvec.Pt()>350 && jets[idx_H].m_lvec.Pt()>450) {
 
       // Invert the nExtraJet cut and check others
       if (nExtraJet >= 2 && passMET && trigger) {
@@ -1752,6 +1800,27 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
                 h_VHcc_PN_med->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
                 h_VHcc_PN_med->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+
+
+		// Added July 1, 2025
+		// This is where we differentiate between VqqHcc and VR
+		if (jets[idx_V].m_PN_Xcc < PNcut_low) // VR [PN(V) = 0.0-0.25]
+		{
+                  h_VR_passPNH->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VR_passPNH->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VR_passPNH->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+		}
+		else // VqqHcc [PN(V) = 0.25 - 0.92]
+		{
+                  h_VHcc_PN_med_PNVcut->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_PNVcut->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_PNVcut->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_PNVcut->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_PNVcut->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+		}
+		
                 //PDF,SCALE
 #if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
                 //pdfunc
@@ -1815,7 +1884,27 @@ void VbbHcc_selector::Process(Reader* r) {
                 h_VHcc_PN_med_topCR_pass->FillJets(jet_VHcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_btag_trig);
                 h_VHcc_PN_med_topCR_pass->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_btag_trig);
-                //PDF,SCALE
+
+                // Added July 1, 2025                                                          
+                // This is where we differentiate between VqqHcc and VR                       
+                if (jets[idx_V].m_PN_Xcc < PNcut_low) // VR [PN(V) = 0.0-0.25]                    
+                {
+                  h_VR_passPNH_topCR->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VR_passPNH_topCR->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VR_passPNH_topCR->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH_topCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH_topCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+                }
+                else // VqqHcc [PN(V) = 0.25 - 0.92]        
+                {
+                  h_VHcc_PN_med_topCR_PNVcut->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_PNVcut->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_PNVcut->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_PNVcut->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_topCR_PNVcut->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+                }
+		
+		//PDF,SCALE
 #if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
                 //pdfunc
                 h_VHcc_PN_med_topCR_pass->FillPdfScaleUnc(r,H,m_iPdfStart,m_iPdfStop,0,evtW_tag_btag_trig);
@@ -1875,6 +1964,27 @@ void VbbHcc_selector::Process(Reader* r) {
               h_VHcc_PN_med_qcdCR->h_bbTagDis->Fill(jets[idx_Z].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
               h_VHcc_PN_med_qcdCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+
+              // Added July 1, 2025           
+              // This is where we differentiate between VqqHcc and VR                
+              if (jets[idx_V].m_PN_Xcc < PNcut_low) // VR [PN(V) = 0.0-0.25]                              
+              {
+                h_VR_failPNH_QCD->Fill(H,V,VZtype,evtW_tag_trig);
+                h_VR_failPNH_QCD->FillJets(jet_VHcc,evtW_tag_trig);
+                h_VR_failPNH_QCD->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                h_VR_failPNH_QCD->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                h_VR_failPNH_QCD->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+              }
+              else // VqqHcc [PN(V) = 0.25 - 0.92]  
+              {
+                h_VHcc_PN_med_qcdCR_PNVcut->Fill(H,V,VZtype,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_PNVcut->FillJets(jet_VHcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_PNVcut->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_PNVcut->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdCR_PNVcut->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+              }
+
+	      
               //PDF,SCALE
 #if (defined(MC_2016) || defined(MC_2016PRE) || defined(MC_2017) || defined(MC_2018)) && !defined(MC_VV_LO)
               //pdfunc
@@ -1946,6 +2056,28 @@ void VbbHcc_selector::Process(Reader* r) {
                 // Fill in the values we want.
 		h_VHcc_PN_med_qcdEnriched_topCR->Fill(H, V, VZtype, evtW_tag_btag_trig);
 		h_VHcc_PN_med_qcdEnriched_topCR->FillJets(jet_VHcc, evtW_tag_btag_trig);
+                h_VHcc_PN_med_qcdEnriched_topCR->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+		h_VHcc_PN_med_qcdEnriched_topCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                h_VHcc_PN_med_qcdEnriched_topCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+
+                // Added July 1, 2025                                                                         
+                // This is where we differentiate between VqqHcc and VR                             
+                if (jets[idx_V].m_PN_Xcc < PNcut_low) // VR [PN(V) = 0.0-0.25]            
+                {
+                  h_VR_passPNH_qcdEnriched_topCR->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VR_passPNH_qcdEnriched_topCR->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VR_passPNH_qcdEnriched_topCR->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH_qcdEnriched_topCR->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VR_passPNH_qcdEnriched_topCR->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+                }
+                else // VqqHcc [PN(V) = 0.25 - 0.92]  
+                {
+                  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->Fill(H,V,VZtype,evtW_tag_trig);
+                  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->FillJets(jet_VHcc,evtW_tag_trig);
+                  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->h_bbTagDis->Fill(jets[idx_V].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->h_ccTagDis->Fill(jets[idx_H].m_PN_Xcc,evtW_tag_trig);
+                  h_VHcc_PN_med_qcdEnriched_topCR_PNVcut->h_MET->Fill(*(r->MET_pt),evtW_tag_trig);
+                }
 		
 	      }//end-nBjet-extra-cut
 	    }//end-MET-trigger-cuts

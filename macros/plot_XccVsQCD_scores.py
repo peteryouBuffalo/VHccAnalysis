@@ -1,0 +1,249 @@
+# =============================================================================
+# calc_PU_reweighting.py - This is a macro for taking the data PU data from
+#                          lumi POG and comparing it with MC pileup info to
+#                          calculate PU reweighting.
+# =============================================================================
+
+import ROOT
+import os,sys
+import copy
+import configparser
+from math import *
+
+from my_funcs import ScaleToLumi1, makeRatioPlot
+
+# == USEFUL METHODS ===========================================================   
+
+def getHist(plotName, sample_names, hist_files, lumiScales, debug = True):
+  
+  hOut = {}
+  
+  ## Go through each year we're interested in.
+  for y in years:
+    
+    ## Get the first sample and the appropriate histogram
+    if debug: 
+      print("Looking in ", sample_names[0], " for ", plotName, "(20",y,")")
+    hOut[y] = hist_files[sample_names[0]][y][0].Get(plotName).Clone()
+    if sample_names[0] not in ['JetHT', 'Data']:
+      hOut[y].Scale(lumiScales[sample_names[0]][y][0])
+    
+    ## Add the other samples
+    for iS in range(len(sample_names)):
+      for fi in range(len(hist_files[sample_names[iS]][y])):
+        
+        ## Skip the first sample (already grabbed)
+        if iS == 0 and fi == 0: continue
+        
+        h = hist_files[sample_names[iS]][y][fi].Get(plotName).Clone()
+        if sample_names[iS] not in ["JetHT", "Data"]:
+          scale = lumiScales[sample_names[iS]][y][fi]
+          if debug:
+            print("Scaling ", sample_names[iS], ", SF = ", scale)
+          h.Scale(scale)
+        hOut[y].Add(h)
+  
+  return hOut
+
+# == SETTINGS ===================================================================
+
+# This helps suppress visual output when producing the plots to file
+ROOT.gROOT.SetBatch(True)
+
+# Feel free to modify the following settings (if you dare...)
+debug = True
+years = ['16', '17', '18']
+#years = ['18']
+
+dirpath = '../../condor_results/2025May/NONE/'
+output_dir = '../../Plots/PN_scores/'  # For Plots
+
+sampleList = [
+  'JetHT',
+  'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ','ZH_HToBB_ZToQQ','ggZH_HToBB_ZToQQ',
+  'WH_HToCC_WToQQ','WH_HToBB_WToQQ',
+  'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9',
+  'QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9','QCD_HT2000toInf_v9',
+  'WJetsToQQ_HT-400to600','WJetsToQQ_HT-600to800','WJetsToQQ_HT-800toInf',
+  'WJetsToLNu_HT-400to600','WJetsToLNu_HT-600to800','WJetsToLNu_HT-800to1200',
+  'WJetsToLNu_HT-1200to2500','WJetsToLNu_HT-2500toInf',
+  'ZJetsToQQ_HT-400to600','ZJetsToQQ_HT-600to800','ZJetsToQQ_HT-800toInf',
+  'TTToHadronic','TTToSemiLeptonic','TTTo2L2Nu',
+  'ST_tW-channel_top','ST_tW-channel_antitop','ST_t-channel_top','ST_t-channel_antitop',
+  'WW','WZ','ZZ',
+  'WWTo1L1Nu2Q','WWTo4Q','WZTo4Q','WZToLNu2B','WZTo1L1Nu2Q',
+  'WZTo2Q2L','ZZTo2Q2L','ZZTo2Nu2Q','ZZTo4Q'
+]
+
+
+categories = [
+  "Data", "VH", "QCD"
+]
+
+category_samples = {
+  "Data": [ "JetHT" ],
+  "VH": [ 'ZH_HToCC_ZToQQ','ggZH_HToCC_ZToQQ', 'WH_HToCC_WToQQ'],
+  "QCD": [ 'QCD_HT200to300_v9','QCD_HT300to500_v9','QCD_HT500to700_v9',
+           'QCD_HT700to1000_v9','QCD_HT1000to1500_v9','QCD_HT1500to2000_v9',
+           'QCD_HT2000toInf_v9']
+}
+
+config_file = '../Configs/config.ini'
+if debug: print("All settings set.")
+
+# == MAIN CODE ============================================================
+
+#################################
+## Do not edit below this point
+## (unless absolutely necessary)
+#################################
+
+if debug: print("Retrieving files and luminosities...")
+
+## Load the config files         
+if debug: print(">>> Loading config file...")
+cfg = configparser.ConfigParser()
+cfg.read(config_file)
+
+## Get the proper lumi scales                        
+if debug: print(">>> Loading lumi scales...")
+lumiS = {}
+for y in years:
+  y_good = y
+  if (y == '16'): y_good = y + "_comb"
+  lumiTmp = float(cfg.get('General','lumi_'+y_good))/1000.0
+  lumiTmp = float("%.1f" % lumiTmp)
+  lumiS[y] = str(lumiTmp)
+if debug: print(">>> lumi scales = ", lumiS)
+
+## Retrieve the proper files and information related to them.          
+if debug: print(">>> Retrieving information on samples...")
+fileNames = {}
+xSecs = {}
+lumiScales = {}
+histFiles = {}
+
+for s in sampleList:
+  
+  fileNames[s] = {}
+  xSecs[s] = {}
+  lumiScales[s] = {}
+  histFiles[s] = {}
+  
+  for y in years:
+  
+    if debug: print("\nLooking for year 20", y)
+    
+    ## Get the proper luminosity scale and the files
+    ## for the given year (should be only ~1/year)
+    lumi = float(cfg.get('General', 'lumi_'+y))
+    names = cfg.get(s, 'file_'+y).split(',')
+    if debug: print(">>> | ", len(names), " files...")
+    
+    ## Get other values of interest
+    xSecTmps = ['1']*len(names)
+    kfactor = ['1']*len(names)
+    if s not in ['JetHT', 'Data']:
+      xSecTmps = cfg.get(s, 'xSec_'+y).split(',')
+    
+    ## Get the proper information for this year
+    fileNames[s][y] = []
+    xSecs[s][y] = []
+    histFiles[s][y] = []
+    
+    for iN in names:
+      fileNames[s][y].append(dirpath + '/' + iN)
+      histFiles[s][y].append(ROOT.TFile.Open(fileNames[s][y][-1],'READ'))
+    
+    if debug: print(">>> | xSec = ", xSecTmps)
+    for iS in xSecTmps:
+      if '*' in iS: iS = iS.split('*')
+      if len(iS) == 2:
+        xSecs[s][y].append(float(iS[0])*float(iS[1]))
+      else:
+        xSecs[s][y].append(float(iS))
+    
+    lumiScales[s][y] = [1]*len(names)
+    for iN in range(len(fileNames[s][y])):
+      if s not in ['JetHT']:
+        print(">>> |", s, y, iN, fileNames[s][y][iN])
+        lumiScales[s][y][iN] = ScaleToLumi1(fileNames[s][y][iN],
+                  xSecs[s][y][iN], lumi, 'Nevt_all_VbbHcc_boosted')
+
+
+if debug: print("\n>>> All files retrieved...")
+
+
+## Category #1 - Comparing PN scores for QCD and VH
+
+variables = [
+  "VHcc_boosted_PN_med_bbTagDis_beforeCut",
+  "VHcc_boosted_PN_med_bbTagDis"
+]
+
+xAxis_name = {
+  "VHcc_boosted_PN_med_bbTagDis_beforeCut": "PN_XccVsQCD (before cut)",
+  "VHcc_boosted_PN_med_bbTagDis": "PN_XccVsQCD (after cut)"
+}
+
+for var in variables:
+
+  plots_by_cat = {} 
+
+  # Go through each category
+  for cat in categories:
+    
+    if debug: print(">>> cat = ", cat)
+    hist_name = var
+    
+    plots_by_year = getHist(hist_name, category_samples[cat],
+                          histFiles, lumiScales)
+    plots_by_cat[cat] = plots_by_year
+
+  # Go through each year
+  for y in years:
+  
+    print(">>>>>> y = ", y)
+      
+    # QCD Plot
+    h_qcd = plots_by_cat["QCD"][y]
+    h_qcd.Scale(1.0/h_qcd.Integral())
+  
+    # MC plot
+    h_vh = plots_by_cat["VH"][y]
+    h_vh.Scale(1.0/h_vh.Integral())
+
+    # Produce the ratio between the two plots
+    plots = [
+      h_qcd.Clone().Rebin(50),
+      h_vh.Clone().Rebin(50)
+    ]
+    plot_names = [ "QCD", "VH"]
+    canvas_name = var + "_" + y
+    
+    makeRatioPlot(plots, plot_names, canvas_name, output_dir,
+                  xAxis_name[var],
+                  [0,1], "QCD/VH", True, lumiS[y],
+                  colors = [ROOT.kBlack, ROOT.kRed])#,
+                  #y_max = y_limits[y])
+    print(">>>>>> plot made!")
+
+    nVH_abv = 0
+    nVH_bel = 0
+
+    chosen_cut = 0.25
+    print("Chosen cut = ", chosen_cut)
+    
+    for i in range(1,plots[1].GetNbinsX()):
+      tmp = plots[1].GetBinCenter(i)
+      cont = plots[1].GetBinContent(i)
+      if tmp < chosen_cut:
+        nVH_bel += cont
+      else:
+        nVH_abv += cont
+
+    print(">> below: ", nVH_bel)
+    print(">> above: ", nVH_abv)
+
+    per_lost = nVH_bel / (nVH_bel + nVH_abv)
+    print(">> per lost: ", per_lost)

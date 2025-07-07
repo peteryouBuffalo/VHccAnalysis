@@ -213,7 +213,7 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   else:
     maxVal = maxVal + 2
 
-  MC_plot = plots[1].Clone()
+  MC_plots = plots[1].Clone()
   for i in range(2,len(plots)):
     MC_plots.Add(plots[i])
 
@@ -233,10 +233,6 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   rat.GetLowerRefGraph().SetMinimum(0)
   rat.GetLowerRefGraph().SetMaximum(2)
 
-  rat.GetUpperRefXaxis().SetRange(xAxisRange[0], xAxisRange[1])
-  rat.GetLowerRefXaxis().SetRange(xAxisRange[0], xAxisRange[1])
-  rat.GetLowerRefYaxis().SetTitle(ratioTitle)
-
   if (y_max >= 0.0):
     rat.GetUpperRefYaxis().SetRangeUser(0.0, y_max)
 
@@ -246,6 +242,14 @@ def makeRatioPlot(plots, plotNames, canvasName, outputDir, xAxisTitle,
   if ('GeV' in xAxisTitle):
     extraBit = ' GeV'
 
+  #xL = (xAxisRange[0] * binSize
+  #xL
+  #rat.GetUpperRefXaxis().SetRange(xAxisRange[0], xAxisRange[1])
+  #rat.GetLowerRefXaxis().SetRange(xAxisRange[0], xAxisRange[1])
+  #print("xAxisRange low  = ", xAxisRange[0])
+  #print("xAxisRange high = ", xAxisRange[1])
+  rat.GetLowerRefYaxis().SetTitle(ratioTitle)
+    
   rat.GetUpperRefYaxis().SetTitle("Events/" + str(binSize) + extraBit)
   #rat.GetUpperRefYaxis().SetTitleOffset(1.1)
   

@@ -100,7 +100,7 @@ def make_input_file_list(nFile, outDir_file_list, file_list_name):
 # /////////////////////////////////////////////////////////////////////////////
 runMode = 1     # 0 : submit, 1 : check output and hadd output file
 submit = True   # for testing setup or executing submission
-debug = True    # just run on 10,000 (UPDATE: now 100,000)
+debug = False   # just run on 10,000 (UPDATE: now 100,000)
 haddData = True # use to combine DATA runs back together
 
 # I need to hadd for PUD, PUU, JESU, JESD, NONE
@@ -111,12 +111,12 @@ centralGenWeight = 0
 
 # Paths, Locations (CHANGE THESE)
 sourceDir = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/'
-condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Jun_test/'
-outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Jun_test/' + syst + '/'
-outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/VHccAnalysis/condor_results/2025Jun_test/' + syst + '/'
+condorRunDir = '/uscmst1b_scratch/lpc1/lpcphys/peteryou/Output_VHcc/2025Jul_testVR/'
+outputDir_eos = '/store/user/peteryou/Output_VHcc/2025Jul_testVR/' + syst + '/'
+outputDir_scratch = '/uscms_data/d3/peteryou/boosted_new/CMSSW_14_0_6/src/condor_results/2025Jul_testVR/' + syst + '/'
 
 # Input data sets
-dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"
+dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_ttbar_2018.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_missing_WJ_2018.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_VV_NLO_2018.txt"
@@ -124,10 +124,10 @@ dataSet_list = sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"
-dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
+#dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"
 #dataSet_list = sourceDir+"/Dataset_lists/datasets_SingleMuon_2018.txt"
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"]
+dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_new.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ttbar_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_missing_WJ_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_VV_NLO_2018.txt"]
@@ -135,13 +135,13 @@ dataSet_lists = [sourceDir+"/Dataset_lists/datasets_NANOAODv9_MC_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_dom_bckg_MC.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_ggZH_MC.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_WJetsToQQ.txt"]
-dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
+#dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_JetHT_2018.txt"]
 #dataSet_lists = [sourceDir+"/Dataset_lists/datasets_SingleMuon_2018.txt"]
 
 nFile = 1
 dir_file_list = sourceDir+'/FileLists/'
-dir_file_list = sourceDir+'/FileLists_JetHT/'
+#dir_file_list = sourceDir+'/FileLists_JetHT/'
 
 # Print settings
 print('=============================')
