@@ -65,6 +65,8 @@ def getHistIntegral(h,v1=-1,v2=-1):
 years = ['16_preVFP','16','17','18']
 #years = ['18']
 
+mass_region = [70,100]
+
 #regions = [
 #    'VHcc_boosted_PN_med_topCR_pass', # top CR
 #    'VHcc_boosted_PN_med'             # SR
@@ -73,13 +75,13 @@ years = ['16_preVFP','16','17','18']
 pass_regions = [
   'VHcc_boosted_PN_med_topCR_pass', # top CR (pass)
   'VR_passPNH_topCR',               # VR (pass)
-  'VR_boosted_PN_med_topCR_PNVcut'  # top CR (new SR)
+  'VHcc_boosted_PN_topCR_PNVcut'  # top CR (new SR)
 ]
 
 fail_regions = [
   'VHcc_boosted_PN_med_qcdEnriched_topCR', # top CR (fail, QCD-enriched)
   'VR_passPNH_qcdEnriched_topCR',          # VR (fail)
-  'VR_boosted_PN_med_qcdEnriched_topCR_PNVcut' # top CR (fail, QCD-enriched, new SR)
+  'VHcc_boosted_PN_med_qcdEnriched_topCR_PNVcut' # top CR (fail, QCD-enriched, new SR)
 ]
 
 region_names = [
@@ -198,9 +200,19 @@ for i in range(nRegions):
     numerator = num_plots[y]
     denominator = den_plots[y]
 
-    n_num = numerator.Integral()
-    n_den = denominator.Integral()
-
+    #n_num = numerator.Integral()
+    #n_den = denominator.Integral()
+    n_num = 0
+    n_den = 0
+    n_bins = numerator.GetNbinsX()
+    for j in range(1, n_bins+1):
+      center = numerator.GetBinCenter(j)
+      if r == "VR":
+        if center >= mass_region[0]: continue
+      elif center >= mass_region[0] and center <= mass_region[1]: continue
+      n_num += numerator.GetBinContent(j)
+      n_den += denominator.GetBinContent(j)
+    
     evts[pass_regions[i]][y] = n_num
     evts[fail_regions[i]][y] = n_den
     

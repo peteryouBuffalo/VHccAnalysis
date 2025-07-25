@@ -93,13 +93,16 @@ def getFilterEff(fName):
 json_folder = 'Tmp'
 
 years = ['16_preVFP','16','17','18']
-years = ['18']
+#years = ['18']
 
 plot_all_together = True
 plot_all_together = False
 
-blindDataOption = 1 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
-blindRange = [75,140]
+plot_validation = True  # True will plot just the upper sideband
+                        # False plots the full thing
+
+blindDataOption = 0 #0: do not blind data, 1: blind data for signal regions only, 2: blind data for all regions listed in "regions" list
+blindRange = [70,100]
 
 #use to get event yield tables. Only count events within lowM-highM
 lowM = 50
@@ -113,6 +116,26 @@ xDiv_MH = [40,60,80,100,120,140,160,180,200]
 #regions = ['ZccHcc_boosted_PN_med','ZccHcc_boosted_PN_med_topCR_pass','ZccHcc_boosted_PN_med_qcdCR','VHcc_boosted_PN_med','VHcc_boosted_PN_med_topCR_pass','VHcc_boosted_PN_med_qcdCR']
 regions = ['VHcc_boosted_PN_med_topCR_pass']#, 'VHcc_boosted_PN_med']
 #regions = ['general']
+
+pass_regions = [
+  'VHcc_boosted_PN_med_topCR_pass', # top CR (pass)    
+  'VR_passPNH_topCR',               # VR (pass)                                          
+  'VHcc_boosted_PN_topCR_PNVcut'  # top CR (new SR)               
+]
+
+fail_regions = [
+  'VHcc_boosted_PN_med_qcdEnriched_topCR', # top CR (fail, QCD-enriched)              
+  'VR_passPNH_qcdEnriched_topCR',          # VR (fail)                    
+  'VHcc_boosted_PN_med_qcdEnriched_topCR_PNVcut' # top CR (fail, QCD-enriched, new SR)            
+]
+
+regions = [
+  'TopCR',
+  'VR',
+  'TopCR_PNcut'
+]
+
+
 summary_eventCount_name = 'summary_eventCount_VH_tmp.txt'
 
 cfg = utl.BetterConfigParser()
@@ -122,7 +145,7 @@ use_NLO_VV = True
 breakVV = False #this is use to separate VV=VZcc,VZbb, and "other VV" = VZqq(not including cc and bb) and WW
 
 #create directory to store plots
-plotFolder = '../plot_results/bckg_est2'
+plotFolder = '../../Plots/bckg_est_topCR_testV2'
 aff1 = ''
 aff2 = ''
 if use_NLO_VV: aff1 = 'NLO_VV'
@@ -273,11 +296,15 @@ nums = {}
 with open(json_folder + '/QCD_TF_per_year.json', 'r') as file:
   QCD_TFs = json.load(file)
 
-for r in regions:
-  
+for i in range(len(regions)):
+#for r in regions:
+
+  r = regions[i]
+  pass_r = pass_regions[i]
+  fail_r = fail_regions[i]
   nums[r] = {}
   
-  plotNames = cfg.get('Plots',r + '_plot').split(',')
+  #plotNames = cfg.get('Plots',r + '_plot').split(',')
   plotNames = ["HMass","ZMass","HPt","ZPt"]
   
   for plN in plotNames:
@@ -299,16 +326,17 @@ for r in regions:
     )
     if breakVV and not has_desired_var: continue
     
-    hN = r + '_' + plN
+    hN = pass_r + '_' + plN
     if plN == 'CutFlow':
-      hN = plN + '_' + r
-    elif r == 'general':
+      hN = plN + '_' + pass_r
+    elif pass_r == 'general':
       hN = plN
     print(hN, plN)
     
     if 'qcd' in r and 'CutFlow' in plN: continue
 
-    QCDest_name = "VHcc_boosted_PN_med_qcdEnriched_topCR_" + plN
+    #QCDest_name = "VHcc_boosted_PN_med_qcdEnriched_topCR_" + plN
+    QCDest_name = fail_r + "_" + plN
     hDat_QCDest = getHist(QCDest_name, ['JetHT'], fHist, lumiScales)
     hMC_QCDest = getHist(QCDest_name, [
         'ZH_HToCC_ZToQQ', 'ZH_HToBB_ZToQQ',
@@ -412,7 +440,7 @@ for r in regions:
         print(y, " : QCD est before delete = ", h_QCDest_y.Integral())
 
         # Subtract the other bckgs out by QCD
-        h_QCDest_y.Add(hMC_QCDest[y].Clone(), -1)
+        #h_QCDest_y.Add(hMC_QCDest[y].Clone(), -1)
         #h_QCDest_y.Add(hZHcc[y].Clone(),-1)
         #h_QCDest_y.Add(hZHbb[y].Clone(),-1)
         #h_QCDest_y.Add(hggZHcc[y].Clone(),-1)
@@ -438,11 +466,36 @@ for r in regions:
         hQCD[y] = h_QCDest_y.Clone()
       
     #############################################################################     
-          
+
+    ###################################
+    # Modify plots if doing validation
+    ###################################
+    if plot_validation:
+      for y in years:
+        nBins = hDat[y].GetNbinsX()
+        for j in range(1,nBins+1):
+          center = hDat[y].GetBinCenter(j)
+          if center > blindRange[1]: continue
+          hDat[y].SetBinContent(j, 0)
+          hZHcc[y].SetBinContent(j, 0)
+          hZHbb[y].SetBinContent(j, 0)
+          hggZHcc[y].SetBinContent(j, 0)
+          hggZHbb[y].SetBinContent(j, 0)
+          hWHcc[y].SetBinContent(j, 0)
+          hWHbb[y].SetBinContent(j, 0)
+          hQCD[y].SetBinContent(j, 0)
+          hWJ[y].SetBinContent(j, 0)
+          hZJ[y].SetBinContent(j, 0)
+          hTT[y].SetBinContent(j, 0)
+          hST[y].SetBinContent(j, 0)
+          hWW[y].SetBinContent(j, 0)
+          hWZ[y].SetBinContent(j, 0)
+          hZZ[y].SetBinContent(j, 0)
+    
     ##########################
     #stack plots for each year 
     ##########################
-
+    
     for y in years:
       #get number of events
       if 'HMass' in plN:
@@ -515,7 +568,10 @@ for r in regions:
       normBinWidth = -1
       if makePostfit_MH and plN=="HMass": normBinWidth = 1
       print(">>>>>>>>>>>>>>", normBinWidth)
-      utl_func.makeStackPlot(plots_process, plotNames_process, plN + '_' + r +'_'+y, plotFolders[y], xA_title, xA_range, 'MC unc. (stat.)', False, logY=logY, normBinWidth=normBinWidth,lumi=lumiS[y])
+      output_name = plN + '_' + r + '_' + y
+      if plot_validation:
+        output_name = "VALIDATION_" + output_name
+      utl_func.makeStackPlot(plots_process, plotNames_process, output_name, plotFolders[y], xA_title, xA_range, 'MC unc. (stat.)', False, logY=logY, normBinWidth=normBinWidth,lumi=lumiS[y])
 
       #save check histograms
       fCheck.cd()
